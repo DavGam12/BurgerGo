@@ -1,3 +1,24 @@
+@keyframes categoryLinkHover {
+    0%{color: inherit;}
+    100%{color: rgb(218, 175, 32);}
+}
+
+@keyframes menuSlide {
+    0%{height: 0%;}
+    100%{height: 70%;}
+}
+
+@keyframes menuBodySlide {
+    0%,10%{scale: 0;}
+    100%{scale: 1;}
+}
+
+@keyframes menuClose {
+    0%{scale: 1;}
+    100%{scale: 0;}
+}
+
+
 a{text-decoration: none; color: inherit;}
 img{width: 100%;}
 button{border: none; cursor: pointer; background: inherit; width: 100%;}
@@ -62,6 +83,66 @@ button{border: none; cursor: pointer; background: inherit; width: 100%;}
 .user img{
     filter: invert(100%);
 }
+
+
+.main{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.menu-div{
+    width: 100%;
+    height: 70%;
+    display: none;
+    z-index: 1;
+    position: fixed;
+    background: rgb(200, 50, 50);
+    top: 0;
+}
+.close-menu{width: 7%;}
+.menu-body{
+    visibility: visible; 
+    position: relative; 
+    top: 3%; 
+    left: 1%; 
+    height: 95%; 
+    width: 95%; 
+    display: flex;
+}
+
+.sided-text{
+    transform: rotate(270deg); 
+    font-size: 50px; 
+    position: absolute; 
+    right: 89%; 
+    top: 48%; 
+    width: 20%; 
+    color: whitesmoke;
+}
+.menu-body .categories{
+    padding-top: 10.5%; 
+    padding-left: 2%; 
+    width: 74%;
+}
+.menu-body .categories p, .other-categories p{
+    padding: 1% 0%; 
+    width: 100%; 
+    font-size: 60px; 
+    font-weight: 1000;
+}
+.other-categories{
+    width: 50%; 
+    padding-top: 20%; 
+    padding-left: 10%;
+}
+.menu-logo{
+    width: 20%;
+    position: relative;
+    left: 38%;
+}
+.categories p:hover, .other-categories p:hover{animation: categoryLinkHover 1s ; color: rgb(218, 175, 32);}
+
 
 .footer{
     width: 100%;
