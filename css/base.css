@@ -1,0 +1,65 @@
+
+a{text-decoration: none; color: inherit;}
+img{width: 100%;}
+button{border: none; cursor: pointer; background: inherit; width: 100%;}
+
+.body{background: white;}
+
+
+.header{
+    width: 100%;
+    background: black;
+    color: white;
+    display: grid;
+    grid-template-areas: 
+    ". logo-header . menu-icon . make-order book user";
+    grid-template-columns: 2% 3% 5% 10% 52% 12% 10% 5%;
+    align-items: center;
+    overflow: hidden;
+}
+
+.header .logo{
+    grid-area: logo-header;
+    width: 80px;
+    padding-right: 5%;
+}
+
+.menu{
+    grid-area: menu-icon;
+    filter: invert(100%);
+    width: 70px;
+}
+
+.make-order{grid-area: make-order;}
+.make-order button{
+    border-radius: 100px;
+    width: 70%;
+    padding: 5% 5%;
+    color: inherit;
+    background: rgb(0,0,0);
+    border: solid 3px white;
+    font-weight: bold;
+}
+.make-order button:hover{
+    background: rgb(255,255,255);
+    color: black;
+}
+
+.book{grid-area: book;}
+.book button{
+    border-radius: 100px;
+    width: 50%;
+    padding: 6% 0%;
+    color: inherit;
+    background: rgb(150, 0, 250);
+    border: solid 3px white;
+    font-weight: bold;
+}
+.book button:hover{
+    background: rgb(218, 130, 50);
+}
+
+.user{grid-area: user; width: 50%;}
+.user img{
+    filter: invert(100%);
+}
