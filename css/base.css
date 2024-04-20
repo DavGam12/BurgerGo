@@ -1,4 +1,3 @@
-
 a{text-decoration: none; color: inherit;}
 img{width: 100%;}
 button{border: none; cursor: pointer; background: inherit; width: 100%;}
@@ -62,4 +61,47 @@ button{border: none; cursor: pointer; background: inherit; width: 100%;}
 .user{grid-area: user; width: 50%;}
 .user img{
     filter: invert(100%);
+}
+
+.footer{
+    width: 100%;
+    background: black;
+    color: white;
+    display: grid;
+    grid-template-areas: ". copyright socials";
+    grid-template-columns: 15% 60% 25%;
+    align-items: center;
+    font-size: large;
+    overflow: hidden;
+}
+
+.copyright{
+    grid-area: copyright;
+    width: 50%;
+}
+
+.socials{
+    grid-area: socials;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5% 0%;
+}
+.socials-icons{
+    display: flex;
+    width: 100%;
+}
+.instagram{
+    filter: invert(100%);
+    width: 30px;
+    padding-right: 15%;
+}
+.linkedin{
+    filter: invert(100%);
+    width: 30px;
+}
+.contactus{
+    padding-right: 70%;
+    padding-top: 2%;
 }
