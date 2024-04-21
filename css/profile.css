@@ -1,0 +1,17 @@
+@keyframes hrWidth {
+    0%{width: 0%;}
+    100%{width: 60%;}
+}
+
+h1{text-align: center; font-size: 40px; padding: 3% 0%; font-weight: 1000;}
+hr{visibility: hidden; border: solid 2px goldenrod;}
+.profile-div{width: 100%;}
+
+.profile-options{display: flex; padding: 1% 0%;}
+.profile-options button{
+    border: hidden;
+    font-weight: 600;
+    font-size: x-large;
+}
+
+.options{display: none;}
