@@ -110,9 +110,9 @@ button{border: none; cursor: pointer; background: inherit; width: 100%;}
     transform: rotate(270deg); 
     font-size: 50px; 
     position: absolute; 
-    right: 89%; 
+    right: 80%; 
     top: 48%; 
-    width: 20%; 
+    width: 35%; 
     color: whitesmoke;
 }
 .menu-body .categories{
@@ -153,7 +153,7 @@ button{border: none; cursor: pointer; background: inherit; width: 100%;}
 
 .copyright{
     grid-area: copyright;
-    width: 50%;
+    width: 70%;
 }
 
 .socials{
@@ -180,4 +180,246 @@ button{border: none; cursor: pointer; background: inherit; width: 100%;}
 .contactus{
     padding-right: 70%;
     padding-top: 2%;
+}
+
+@media (width<1330px) {
+    .footer{
+        grid-template-columns: 10% 65% 25%;
+        font-size: medium;
+    }
+}
+
+@media (width<1130px) {
+    
+    @keyframes menuSlide {
+        0%{height: 0%;}
+        100%{height: 60%;}
+    }
+
+
+    .header{
+        grid-template-columns: 2% 5% 5% 10% 40% 18% 12% 8%;
+    }
+    .make-order button{
+        width: 80%;
+        padding: 5% 5%;
+    }
+    .book button{
+        width: 70%;
+        padding: 6% 0%;
+    }
+    .footer{
+        grid-template-columns: 10% 65% 25%;
+        font-size: small;
+    }
+
+    .menu-body .categories{
+        padding-top: 10%; 
+        padding-left: 5%; 
+        width: 100%;
+    }
+    .menu-body .categories p, .other-categories p{
+        padding: 1% 0%; 
+        width: 100%; 
+        font-size: 50px;
+        font-weight: 1000;
+    }
+    .other-categories{
+        width: 80%; 
+        padding-top: 20%; 
+        padding-left: 10%;
+    }
+    .menu-logo{
+        width: 30%;
+        position: relative;
+        left: 35%;
+    }
+    .menu-div{
+        height: 60%;
+    }
+    .close-menu{width: 15%;}
+}
+
+@media (width<900px) {
+    
+    @keyframes menuSlide {
+        0%{height: 0%;}
+        100%{height: 50%;}
+    }
+
+
+    .header{
+        grid-template-columns: 2% 10% 5% 10% 34% 18% 12% 8%;
+    }
+    .make-order button{
+        width: 80%;
+        padding: 5% 5%;
+    }
+    .book button{
+        width: 70%;
+        padding: 6% 0%;
+    }
+    .instagram{
+        filter: invert(100%);
+        width: 20px;
+        padding-right: 15%;
+    }
+    .linkedin{
+        filter: invert(100%);
+        width: 20px;
+    }
+    .contactus{
+        padding-right: 60%;
+        padding-top: 2%;
+    }
+
+    .menu-body .categories{
+        padding-top: 10%; 
+        padding-left: 5%; 
+        width: 100%;
+    }
+    .menu-body .categories p, .other-categories p{
+        padding: 1% 2%; 
+        width: 100%; 
+        font-size: 35px; 
+        font-weight: 1000;
+    }
+    .other-categories{
+        width: 100%; 
+        padding-top: 20%; 
+        padding-left: 5%;
+    }
+    .menu-logo{
+        width: 30%;
+        position: relative;
+        top: 3%;
+        left: 34%;
+    }
+    .menu-div{
+        height: 50%;
+    }
+    .close-menu{width: 15%;}
+    .sided-text{
+        font-size: 30px; 
+        right: 80%; 
+        top: 28%; 
+        width: 35%; 
+    }
+}
+
+@media (width<680px) {
+
+    @keyframes menuSlide {
+        0%{height: 0%;}
+        100%{height: 30%;}
+    }
+
+
+    .header{
+        grid-template-columns: 5% 10% 5% 10% 23% 20% 15% 10%;
+    }
+    .make-order button{
+        width: 70%;
+        padding: 5% 5%;
+        font-size: x-small;
+    }
+    .book button{
+        width: 60%;
+        padding: 10% 0%;
+        font-size: x-small;
+    }
+    .header .logo{
+        grid-area: logo-header;
+        width: 50px;
+        padding-right: 5%;
+    }
+    .menu{
+        grid-area: menu-icon;
+        filter: invert(100%);
+        width: 50px;
+    }
+    .footer{grid-template-columns: 5% 70% 25%;}
+    .copyright{width: 80%;}
+
+    .menu-body .categories p, .other-categories p{
+        padding: 1% 2%; 
+        width: 100%; 
+        font-size: 25px; 
+        font-weight: 1000;
+    }
+    .menu-div{height: 30%;}
+    .close-menu{width: 20%;}
+    .sided-text{
+        font-size: 20px; 
+        right: 80%; 
+        top: 35%; 
+        width: 35%; 
+    }
+}
+
+@media (width<500px) {
+
+    @keyframes menuSlide {
+        0%{height: 0%;}
+        100%{height: 30%;}
+    }
+
+
+    .header{
+        grid-template-columns: 5% 12% 5% 10% 20% 20% 15% 13%;
+    }
+    .make-order button{
+        width: 80%;
+        padding: 10% 10%;
+        font-size: 8px;
+    }
+    .book button{
+        width: 70%;
+        padding: 10% 0%;
+        font-size: 8px;
+    }
+    .header .logo{
+        grid-area: logo-header;
+        width: 40px;
+        padding-right: 5%;
+    }
+    
+    .menu{
+        grid-area: menu-icon;
+        filter: invert(100%);
+        width: 40px;
+    }
+    .footer{font-size: x-small;}
+    .instagram{
+        filter: invert(100%);
+        width: 15px;
+        padding-right: 15%;
+    }
+    .linkedin{
+        filter: invert(100%);
+        width: 15px;
+    }
+    .contactus{
+        padding-right: 50%;
+        padding-top: 2%;
+    }
+
+    .menu-body .categories p, .other-categories p{font-size: 20px; }
+    .menu-div{height: 30%;}
+    .sided-text{font-size: 18px;}
+    .menu-logo{
+        width: 30%;
+        left: 30%;
+        top: 5%;
+    }
+    .menu-body .categories{
+        padding-top: 10.5%; 
+        padding-left: 2%; 
+        width: 100%;
+    }
+    .other-categories{
+        width: 100%; 
+        padding-top: 20%; 
+        padding-left: 0%;
+    }
 }

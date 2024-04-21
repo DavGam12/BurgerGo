@@ -142,10 +142,10 @@
         bottom: 15%;
         left: 75%;
     }
-    .categories p{font-size: 25px;}
+    .categories p{font-size: 25px; padding: 1.5% 0%;}
     .schedule{width: 90%;}
     .main .info{grid-template-columns: 2% 58% 40%;}
-    .categories{padding: 1% 0%; padding-top: 18%;}
+    .categories{padding: 2% 0%; padding-top: 10%;}
     .schedule button{font-size: medium;}
     .schedule p{font-size: 18px;}
 }
@@ -162,7 +162,7 @@
         left: 75%;
     }
     .categories p{font-size: 20px;}
-    .schedule button{font-size: small;}
+    .schedule button{font-size: 12px;}
     .schedule img{width: 13px;}
     .schedule p{font-size: 15px;}
 }
