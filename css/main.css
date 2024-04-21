@@ -3,13 +3,13 @@
 .banner{
     background: url(../Images/burger.png); 
     background-size: cover; 
-    background-repeat: no-repeat; 
-    width: 100%; 
-    height: 850px; 
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 850px;
     color: white;
+    font-size: 80px;
 }
 #banner-title{
-    font-size: 80px;
     font-weight: 1000;
     width: 20%;
     position: relative;
@@ -17,7 +17,6 @@
     left: 5%;
 }
 #banner-info{
-    font-size: 80px;
     font-weight: 1000;
     width: 20%;
     position: relative;
@@ -56,10 +55,114 @@
 }
 .schedule-info{visibility: hidden;}
 
-.categories{grid-area: categories; width: 70%; padding: 1% 0%; padding-top: 2%;}
+.categories{grid-area: categories; width: 100%; padding: 1% 0%; padding-top: 2%;}
 .categories p{
     font-size: 40px;
     font-weight: 1000;
     padding: 1% 0%;
     width: 100%;
+}
+
+@media (width<2000px) {
+    .banner{
+        height: 700px;
+        font-size: 70px;
+    }
+    #banner-title{top: 20%;}
+    #banner-info{
+        bottom: 50%;
+        left: 70%;
+    }
+}
+
+@media (width<1580px) {
+    #banner-title{top: 15%;}
+    #banner-info{
+        bottom: 60%;
+        left: 70%;
+    }
+}
+
+@media (width<1330px) {
+    .banner{
+        background-size: cover;
+        height: 600px;
+        font-size: 50px;
+    }
+    #banner-title{top: 25%;}
+    #banner-info{
+        bottom: 35%;
+        left: 75%;
+    }
+    .schedule{width: 70%;}
+}
+
+@media (width<1130px) {
+    .banner{
+        background-size: cover;
+        height: 500px;
+        font-size: 40px;
+    }
+    #banner-title{top: 25%;}
+    #banner-info{
+        bottom: 35%;
+        left: 75%;
+    }
+    .categories p{font-size: 30px;}
+    .categories{padding: 1% 0%; padding-top: 8%;}
+    .main .info{grid-template-columns: 10% 50% 40%;}
+}
+
+@media (width<900px) {
+    .banner{
+        background-size: cover;
+        height: 400px;
+        font-size: 30px;
+    }
+    #banner-title{
+        top: 25%;
+    }
+    #banner-info{
+        bottom: 25%;
+        left: 75%;
+    }
+    .schedule{width: 80%;}
+    .main .info{grid-template-columns: 5% 55% 40%;}
+    .categories{padding: 1% 0%; padding-top: 13%;}
+}
+
+@media (width<680px) {
+    .banner{
+        background-size: cover;
+        height: 300px;
+        font-size: 20px;
+    }
+    #banner-title{top: 25%;}
+    #banner-info{
+        bottom: 15%;
+        left: 75%;
+    }
+    .categories p{font-size: 25px;}
+    .schedule{width: 90%;}
+    .main .info{grid-template-columns: 2% 58% 40%;}
+    .categories{padding: 1% 0%; padding-top: 18%;}
+    .schedule button{font-size: medium;}
+    .schedule p{font-size: 18px;}
+}
+
+@media (width<500px) {
+    .banner{
+        background-size: cover;
+        height: 200px;
+        font-size: 15px;
+    }
+    #banner-title{top: 25%;}
+    #banner-info{
+        bottom: 25%;
+        left: 75%;
+    }
+    .categories p{font-size: 20px;}
+    .schedule button{font-size: small;}
+    .schedule img{width: 13px;}
+    .schedule p{font-size: 15px;}
 }
