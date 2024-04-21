@@ -95,7 +95,7 @@ button{border: none; cursor: pointer; background: inherit; width: 100%;}
     background: rgb(200, 50, 50);
     top: 0;
 }
-.close-menu{width: 7%;}
+.close-menu{width: 7%; z-index: 1;}
 .menu-body{
     visibility: visible; 
     position: relative; 
