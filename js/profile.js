@@ -5,28 +5,28 @@ let offersOption
 let pastordersOption
 let personalOption
 // Texts
-let userNameText
+let userFirstNameText
 // Values
-let userName = "test"
+let userFirstName = "user"
 
 document.addEventListener("DOMContentLoaded", (event) => {
     console.log("DOM fully loaded and parsed")
 
     optionButtons = document.getElementsByClassName("profile-options")[0].getElementsByTagName("button")
     hr = document.getElementsByTagName("hr")
-    userNameText = document.getElementsByClassName("user-name")
+    userFirstNameText = document.getElementsByClassName("user-firstname")
     offersOption = document.getElementById("offers-option")
     pastordersOption = document.getElementById("pastorders-option")
-    personalOption = document.getElementById("personal-option")
+    personalOption = document.getElementById("daily-option")
 
     
     window.addEventListener("load",()=>{ // on window load
-        FillUserName(userName)
+        FillUserFirstName(userFirstName)
     })
 
     optionButtons[0].addEventListener("mouseover",()=>{HrWidth(hr[0])})
     optionButtons[0].addEventListener("mouseout",()=>{
-        if (offersOption.style.display != "block") {
+        if (offersOption.style.display != "flex") {
             hr[0].style.visibility = "hidden"
             DeleteAnimation(hr[0])
         }
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     })
 
     optionButtons[0].addEventListener("click",()=>{
-        offersOption.style.display = "block"
+        offersOption.style.display = "flex"
         pastordersOption.style.display = "none"
         personalOption.style.display = "none"
 
@@ -79,9 +79,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
 })
 
 
-function FillUserName(name){
-    for (let e in userNameText){
-        userNameText[e].innerHTML = name
+function FillUserFirstName(name){
+    for (let e in userFirstNameText){
+        userFirstNameText[e].innerHTML = name
     }
 }
 function HrWidth(e){e.style.animation = "hrWidth 1.5s"; e.style.visibility = "visible"; e.style.width = "60%"}
