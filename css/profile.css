@@ -67,8 +67,6 @@ hr{visibility: hidden; border: solid 2px goldenrod;}
 .reorder:hover{background: rgb(230, 230, 230);font-weight: bold;}
 
 
-
-
 @media (width<1130px) {
     .pastorder-product{width: 40%;}
     .reorder{width: 100%;}

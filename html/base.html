@@ -16,12 +16,30 @@
         <div class="make-order"><a href=""><button>MAKE AN ORDER</button></a></div>
         <div class="book"><a href=""><button>BOOK</button></a></div>
         <div class="user">
-            <a href="">
+            <a href="profile.html">
                 <img src="../Images/user.png" alt="user">
             </a>
         </div>
+        <div class="user-options">
+            <button id="signin">Sign In</button>
+            <button id="signup">Sign Up</button>
+        </div>
+        <div class="user-options-logged">
+            <button id="signout">Sign Out</button>
+        </div>
     </header>
-    <main>
+    <main class="main">
+        <div class="signin-div"></div>
+        <div class="signup-div"></div>
+        <div class="signout-div">
+            <h6>Sign Out</h6>
+            <p>Are you sure you want to Sign Out?</p>
+            <p>You will be able to Sign In again later or Sign Up with other e-mail</p>
+            <div>
+                <button id="signout-accept">Yes</button>
+                <button id="signout-cancel">Cancel</button>
+            </div>
+        </div>
         <div class="menu-div">
             <div class="menu-body">
                 <div class="close-menu"><button><img src="../Images/close.png" alt="close"></button></div>
@@ -34,9 +52,11 @@
                     <p><a href="">ABOUT US</a></p>
                     <p><a href="">JOIN THE STAFF TEAM</a></p>
                 </div>
-                <div class="menu-logo"><a href="main.html"><img src="../Images/logo.png" alt="logo"></a></div>
+                <div class="menu-logo">
+                    <a href="main.html"><img src="../Images/logo.png" alt="logo"></a>
+                </div>
                 <div class="other-categories">
-                    <p><a href="">PROFILE</a></p>
+                    <p><a href="profile.html">PROFILE</a></p>
                     <p><a href="">BOOK</a></p>
                     <p><a href="">MAKE AN ORDER</a></p>
                 </div>
@@ -49,7 +69,11 @@
         </div>
         <div class="socials">
             <div class="socials-icons">
-                <div class="instagram"><img src="../Images/instagram.png" alt="instagram"></div>
+                <div class="instagram">
+                    <a href="">
+                        <img src="../Images/instagram.png" alt="instagram">
+                    </a>
+                </div>
                 <div class="linkedin">
                     <a href="http://linkedin.com/company/burger-go" target="blank">
                         <img src="../Images/linkedin.png" alt="linkedin">

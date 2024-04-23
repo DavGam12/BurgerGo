@@ -14,9 +14,12 @@
 }
 
 
+/* h6 tags are reserved for sign-in,sign-up and sign-out */
+h6{font-size: 30px; padding: 5% 0%;}
+
 a{text-decoration: none; color: inherit;}
 img{width: 100%;}
-button{border: none; cursor: pointer; background: inherit; width: 100%;}
+button{border: none; cursor: pointer; background: inherit; width: 100%; color: inherit;}
 
 .body{background: white;}
 
@@ -79,6 +82,65 @@ button{border: none; cursor: pointer; background: inherit; width: 100%;}
     filter: invert(100%);
 }
 
+.user-options, .user-options-logged{
+    position: absolute;
+    right: 2%;
+    top: 8.5%;
+    display: flex;
+    flex-direction: column;
+}
+.user-options button{
+    background: white;
+    color: black;
+    border: solid grey;
+    padding: 5%;
+    width: 100px;
+    height: 30px;
+    display: none;
+}
+.user-options button:hover{
+    background: grey;
+    font-weight: bold;
+}
+.user-options-logged button{
+    padding: 5%;
+    background: white;
+    color: black;
+    border: solid red;
+    width: 100px;
+    height: 30px;
+    display: none;
+}
+.user-options-logged button:hover{
+    background: red;
+    font-weight: bold;
+}
+
+
+.signin-div{}
+.signup-div{}
+.signout-div{
+    background: white;
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30%;
+    height: 30%;
+    box-shadow: 2px 2px 2px 3px grey;
+    z-index: 999;
+}
+.signout-div p{font-size: 20px; padding: 2%;}
+.signout-div div{display: flex; width: 80%; padding-top: 5%; justify-content: space-around;}
+.signout-div div button{font-size: 20px; padding: 2%; width: 30%;}
+#signout-accept{border: solid red;}
+#signout-accept:hover{background: red; font-weight: bold;}
+#signout-cancel{border: solid grey;}
+#signout-cancel:hover{background: grey; font-weight: bold;}
+
 
 .main{
     align-items: center;
@@ -86,6 +148,7 @@ button{border: none; cursor: pointer; background: inherit; width: 100%;}
     flex-direction: column;
     justify-content: center;
 }
+
 .menu-div{
     width: 100%;
     height: 70%;
