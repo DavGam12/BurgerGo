@@ -77,7 +77,7 @@ button{border: none; cursor: pointer; background: inherit; width: 100%; color: i
     background: rgb(218, 130, 50);
 }
 
-.user{grid-area: user; width: 50%;}
+.user{grid-area: user; width: 50%; cursor: pointer;}
 .user img{
     filter: invert(100%);
 }
@@ -85,7 +85,7 @@ button{border: none; cursor: pointer; background: inherit; width: 100%; color: i
 .user-options, .user-options-logged{
     position: absolute;
     right: 2%;
-    top: 8.5%;
+    top: 78px;
     display: flex;
     flex-direction: column;
 }
@@ -245,11 +245,33 @@ button{border: none; cursor: pointer; background: inherit; width: 100%; color: i
     padding-top: 2%;
 }
 
+
+@media (width<1800px) {
+    .user-options, .user-options-logged{
+        right: 1.8%;
+        top: 74px;
+    }
+}
+
 @media (width<1600px) {
     .sided-text{
         right: 80%; 
         top: 35%; 
         width: 35%; 
+    }
+    .user-options, .user-options-logged{
+        right: 2.2%;
+        top: 72px;
+    }
+    .user-options button{
+        padding: 5%;
+        width: 70px;
+        height: 25px;
+    }
+    .user-options-logged button{
+        padding: 6%;
+        width: 70px;
+        height: 25px;
     }
 }
 
@@ -258,6 +280,23 @@ button{border: none; cursor: pointer; background: inherit; width: 100%; color: i
         grid-template-columns: 10% 65% 25%;
         font-size: medium;
     }
+    .user-options, .user-options-logged{
+        right: 1.5%;
+        top: 69px;
+    }
+    .user-options button{
+        padding: 5%;
+        width: 70px;
+        height: 25px;
+        font-size: 12px;
+    }
+    .user-options-logged button{
+        padding: 6%;
+        width: 70px;
+        height: 25px;
+        font-size: 12px;
+    }
+    .signout-div{width: 40%;}
 }
 
 @media (width<1130px) {
@@ -314,6 +353,18 @@ button{border: none; cursor: pointer; background: inherit; width: 100%; color: i
         top: 40%; 
         width: 35%; 
     }
+    .user-options, .user-options-logged{
+        right: 2.8%;
+        top: 76px;
+    }
+}
+
+@media(width<1000px){
+    .user-options, .user-options-logged{
+        right: 2.3%;
+        top: 72px;
+    }
+    .signout-div{width: 50%;}
 }
 
 @media (width<900px) {
@@ -381,6 +432,30 @@ button{border: none; cursor: pointer; background: inherit; width: 100%; color: i
         top: 28%; 
         width: 35%; 
     }
+    .user-options, .user-options-logged{
+        right: 3.5%;
+        top: 70px;
+    }
+    .user-options button{
+        width: 60px;
+        height: 25px;
+        font-size: 11px;
+    }
+    .user-options-logged button{
+        width: 60px;
+        height: 25px;
+        font-size: 11px;
+    }
+    .signout-div{width: 60%; height: 35%;}
+    .signout-div p{padding: 3%;}
+    .signout-div div{padding-top: 8%;}
+}
+
+@media (width<800px) {
+    .user-options, .user-options-logged{
+        right: 2.5%;
+        top: 68px;
+    }
 }
 
 @media (width<680px) {
@@ -431,6 +506,11 @@ button{border: none; cursor: pointer; background: inherit; width: 100%; color: i
         top: 35%; 
         width: 35%; 
     }
+    .user-options, .user-options-logged{
+        right: 4.5%;
+        top: 48px;
+    }
+    .signout-div{width: 80%; height: 35%;}
 }
 
 @media (width<500px) {
@@ -498,4 +578,9 @@ button{border: none; cursor: pointer; background: inherit; width: 100%; color: i
         padding-top: 20%; 
         padding-left: 0%;
     }
+    .user-options, .user-options-logged{
+        right: 3%;
+        top: 43px;
+    }
+    .signout-div{width: 90%; height: 30%;}
 }

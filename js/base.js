@@ -47,20 +47,42 @@ document.addEventListener("DOMContentLoaded", (event) => {
         menuDiv.style.animation = "menuClose 1s"
         menuBody.style.animation = "none"
     })
-    userIcon.addEventListener("mouseover",()=>{
-        if (!userLogged) {
-            signinButton.style.display = "block"
-            signupButton.style.display = "block"
-        }
-        else {
-            signoutButton.style.display = "block"
-        }
-    })
+
+    if (window.innerWidth<1000) 
+    {
+        userIcon.addEventListener("click",()=>{
+            if (!userLogged) {
+                signinButton.style.display = "block"
+                signupButton.style.display = "block"
+            }
+            else {
+                signoutButton.style.display = "block"
+            }
+        })
+        userIcon.addEventListener("dblclick",()=>{
+            document.open("profile.html")
+        })
+    }
+    else 
+    {
+        userIcon.addEventListener("mouseover",()=>{
+            if (!userLogged) {
+                signinButton.style.display = "block"
+                signupButton.style.display = "block"
+            }
+            else {
+                signoutButton.style.display = "block"
+            }
+        })
+        userIcon.addEventListener("click",()=>{
+            document.open("profile.html")
+        })
+    }
+
     userIcon.addEventListener("mouseout",()=>{
         signinButton.style.display = "none"
         signupButton.style.display = "none"
         signoutButton.style.display = "none"
-        
     })
     signinButton.addEventListener("mouseover",()=>{
         signinButton.style.display = "block"
@@ -84,6 +106,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     signoutButton.addEventListener("mouseout",()=>{
         signoutButton.style.display = "none"
     })
+
 
     // User Logs
     signinButton.addEventListener("click",()=>{userLogged = true})
@@ -130,7 +153,6 @@ function ActivateOpacity(className){
     for(let be = 0; be<document.body.children.length; be++){
         if (document.body.children[be].className == "main") {
             for (let e = 0; e<document.body.children[be].children.length; e++) {
-                console.log(document.body.children[be].children[e])
                 if (document.body.children[be].children[e].className != className){
                     document.body.children[be].children[e].style.opacity = "0.5"
                 }
