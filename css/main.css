@@ -60,7 +60,7 @@
     font-size: 40px;
     font-weight: 1000;
     padding: 1% 0%;
-    width: 100%;
+    display: table;
 }
 
 @media (width<2000px) {

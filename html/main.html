@@ -18,29 +18,84 @@
         <div class="make-order"><a href=""><button>MAKE AN ORDER</button></a></div>
         <div class="book"><a href=""><button>BOOK</button></a></div>
         <div class="user">
-            <a href="profile.html">
-                <img src="../Images/user.png" alt="user">
-            </a>
+            <img src="../Images/user.png" alt="user">
+            <a href="profile.html"></a>
         </div>
         <div class="user-options">
-            <button id="signin">Sign In</button>
+            <button id="login">Log In</button>
             <button id="signup">Sign Up</button>
-        </div>
-        <div class="user-options-logged">
-            <button id="signout">Sign Out</button>
         </div>
     </header>
     <main class="main">
-        <div class="signin-div"></div>
-        <div class="signup-div"></div>
-        <div class="signout-div">
-            <h6>Sign Out</h6>
-            <p>Are you sure you want to Sign Out?</p>
-            <p>You will be able to Sign In again later or Sign Up with other e-mail</p>
-            <div>
-                <button id="signout-accept">Yes</button>
-                <button id="signout-cancel">Cancel</button>
-            </div>
+        <div class="login-div">
+            <h6>Log In</h6>
+            <form action="" target="_self" id="login-form">
+                <label for="login-email">E-mail: </label>
+                <input type="text" id="login-email" required placeholder="E-mail">
+                <label for="login-password">Password: </label>
+                <input type="password" id="login-password" required placeholder="Password" class="password-field">
+                <div class="hide-view">
+                    <img src="../Images/view.png" alt="view" class="view">
+                    <img src="../Images/hide.png" alt="hide" class="hide">
+                </div>
+                <p class="password-reset-text">Did you forget your password?<br><span id="password-reset">Reset my password</span></p>
+                <div class="options">
+                    <input type="submit" value="Log In" id="login-accept">
+                    <!--<button id="login-accept" type="submit">Log In</button>-->
+                    <p>New to Burger & Go?</p>
+                    <button id="login-signup">Sign Up</button>
+                </div>
+            </form>
+            <div id="login-cancel"><img src="../Images/close.png" alt="close"></div>
+        </div>
+        <div class="signup-div">
+            <h6>Sign Up</h6>
+            <form action="" target="_self" id="signup-form">
+                <div class="form">
+                    <div class="signup-row">
+                        <div class="signup-field">
+                            <label for="signup-firstname">First Name: </label>
+                            <input type="text" id="signup-firstname" required placeholder="First Name">
+                        </div>
+                        <div class="signup-field">
+                            <label for="signup-lastname">Last Name: </label>
+                            <input type="text" id="signup-lastname" placeholder="Last Name">
+                        </div>
+                        <div class="signup-field">
+                            <label for="signup-email">E-mail: </label>
+                            <input type="text" id="signup-email" required placeholder="E-mail">
+                        </div>
+                    </div>
+                    <div class="signup-row">
+                        <div class="signup-field">
+                            <label for="signup-phonenumber">Phone Number: </label>
+                            <input type="text" id="signup-phonenumber" required placeholder="Phone Number">
+                        </div>
+                        <div class="signup-field">
+                            <label for="signup-password">Password: </label>
+                            <input type="password" id="signup-password" required placeholder="Password" class="password-field">
+                            <div class="hide-view">
+                                <img src="../Images/view.png" alt="view" class="view">
+                                <img src="../Images/hide.png" alt="hide" class="hide">
+                            </div>
+                        </div>
+                        <div class="signup-field">
+                            <label for="signup-repeatpassword">Repeat Password: </label>
+                            <input type="password" id="signup-repeatpassword" required placeholder="Password" class="password-field">
+                            <div class="hide-view">
+                                <img src="../Images/view.png" alt="view" class="view">
+                                <img src="../Images/hide.png" alt="hide" class="hide">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="options">
+                    <input type="submit" value="Sign Up" id="signup-accept">
+                    <p>Do you have an account?</p>
+                    <button id="signup-login">Log In</button>
+                </div>
+            </form>
+            <div id="signup-cancel"><img src="../Images/close.png" alt="close"></div>
         </div>
         <div class="menu-div">
             <div class="menu-body">

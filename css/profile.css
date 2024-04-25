@@ -14,6 +14,20 @@ hr{visibility: hidden; border: solid 2px goldenrod;}
     font-size: x-large;
 }
 
+.user-options-logged button{
+    padding: 5%;
+    background: white;
+    color: black;
+    border: solid red;
+    width: 100px;
+    height: 30px;
+    display: block;
+}
+.user-options-logged button:hover{
+    background: red;
+    font-weight: bold;
+}
+
 .options{display: none; width: 60%;}
 #offers-option{flex-wrap: wrap; justify-content: center;}/* display: flex; (in js) */
 

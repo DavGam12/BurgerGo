@@ -9,17 +9,20 @@
 }
 
 @keyframes menuClose {
-    0%{scale: 1;}
-    100%{scale: 0;}
+    0%{transform: translateY(0) translateZ(0);}
+    100%{transform: translateY(-800px) translateZ(-800px);}
 }
 
 
 /* h6 tags are reserved for sign-in,sign-up and sign-out */
-h6{font-size: 30px; padding: 5% 0%;}
+h6{font-size: 30px; padding-bottom: 5%;}
 
 a{text-decoration: none; color: inherit;}
 img{width: 100%;}
 button{border: none; cursor: pointer; background: inherit; width: 100%; color: inherit;}
+::placeholder{font-style: italic;}
+form{display: flex; flex-direction: column; align-items: center;}
+input{border: none; border-bottom: solid 1px; outline: 0;}
 
 .body{background: white;}
 
@@ -77,17 +80,19 @@ button{border: none; cursor: pointer; background: inherit; width: 100%; color: i
     background: rgb(218, 130, 50);
 }
 
-.user{grid-area: user; width: 50%; cursor: pointer;}
+.user{grid-area: user; width: 60%; cursor: pointer;}
 .user img{
     filter: invert(100%);
 }
+.user a{display: none;}
 
-.user-options, .user-options-logged{
+.user-options{
     position: absolute;
     right: 2%;
     top: 78px;
     display: flex;
     flex-direction: column;
+    z-index: 1;
 }
 .user-options button{
     background: white;
@@ -102,24 +107,14 @@ button{border: none; cursor: pointer; background: inherit; width: 100%; color: i
     background: grey;
     font-weight: bold;
 }
-.user-options-logged button{
-    padding: 5%;
-    background: white;
-    color: black;
-    border: solid red;
-    width: 100px;
-    height: 30px;
-    display: none;
-}
-.user-options-logged button:hover{
-    background: red;
-    font-weight: bold;
+.user-options-logged{
+    position: absolute;
+    right: 1.5%;
+    top: 0;
 }
 
 
-.signin-div{}
-.signup-div{}
-.signout-div{
+.login-div{
     background: white;
     display: none;
     flex-direction: column;
@@ -129,20 +124,211 @@ button{border: none; cursor: pointer; background: inherit; width: 100%; color: i
     top: 50%;
     transform: translateY(-50%);
     width: 30%;
-    height: 30%;
     box-shadow: 2px 2px 2px 3px grey;
     z-index: 999;
+    height: auto;
+    padding: 2%;
 }
-.signout-div p{font-size: 20px; padding: 2%;}
-.signout-div div{display: flex; width: 80%; padding-top: 5%; justify-content: space-around;}
-.signout-div div button{font-size: 20px; padding: 2%; width: 30%;}
-#signout-accept{border: solid red;}
-#signout-accept:hover{background: red; font-weight: bold;}
-#signout-cancel{border: solid grey;}
-#signout-cancel:hover{background: grey; font-weight: bold;}
+.login-div h6{padding-bottom: 2%;}
+.login-div form{width: 80%; position: relative;}
+.login-div label{
+    font-size: x-large; 
+    width: 50%; 
+    padding-top: 5%;
+    padding-bottom: 3%;
+}
+.login-div input{
+    font-size: large; 
+    width: 50%;
+}
+.login-div .options{
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    width: 80%;
+    padding-top: 2%;
+}
+.password-reset-text{
+    padding-top: 3%;
+    font-size: 16px;
+}
+#password-reset{
+    color: blue; 
+    font-weight: bold; 
+    cursor: pointer;
+}
+.login-div .options button, .login-div .options input{
+    background: rgb(255,255,255);
+    font-size: 20px; 
+    padding: 2%; 
+    width: 50%;
+    cursor: pointer;
+}
+#login-accept{border: solid goldenrod;}
+#login-accept:hover{
+    background: goldenrod; 
+    font-weight: bold;
+}
+.login-div .options p{
+    font-size: large; 
+    padding-top: 3%; 
+    padding-bottom: 2%; 
+    font-weight: 600; 
+    font-size: 17px;
+}
+#login-signup{border: solid grey;}
+#login-signup:hover{background: grey; font-weight: bold;}
+#login-cancel{
+    width: 30px; 
+    position: absolute; 
+    top: 17px; 
+    right: 18px; 
+    cursor: pointer;
+}
+
+.signup-div{
+    background: white;
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 2px 2px 2px 3px grey;
+    z-index: 999;
+    height: auto;
+    padding: 2%;
+}
+.signup-div h6{padding-bottom: 2%;}
+.signup-div .form{
+    padding: 3% 0%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.signup-div .form .signup-row{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 3% 0%;
+}
+.signup-div .form .signup-row .signup-field{
+    width: 100%;
+    padding: 3% 0%;
+    position: relative;
+}
+.signup-div label{font-size: x-large; }
+.signup-div input{
+    font-size: large; 
+    width: 80%;
+    padding-top: 5%;
+}
+.signup-div .options{
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    width: 80%;
+}
+.password-reset-text{
+    padding-top: 3%; 
+    font-size: 16px;
+}
+#password-reset{
+    color: blue; 
+    font-weight: bold; 
+    cursor: pointer;
+}
+.signup-div .options button, .signup-div .options input{
+    background: rgb(255,255,255);
+    font-size: 20px; 
+    padding: 2%; 
+    width: 50%;
+    cursor: pointer;
+}
+#signup-accept{border: solid goldenrod;}
+#signup-accept:hover{
+    background: goldenrod; 
+    font-weight: bold;
+}
+.signup-div .options p{
+    font-size: large; 
+    padding-top: 3%; 
+    padding-bottom: 2%; 
+    font-weight: 600; 
+    font-size: 17px;
+}
+#signup-login{border: solid grey;}
+#signup-login:hover{
+    background: grey; 
+    font-weight: bold;
+}
+#signup-cancel{
+    width: 30px; 
+    position: absolute; 
+    top: 17px; 
+    right: 20px; 
+    cursor: pointer;
+}
+
+.login-div .hide-view{
+    width: 20px;
+    position: absolute;
+    right: 25%;
+    bottom: 50%;
+}
+.signup-div .hide-view{
+    width: 20px;
+    position: absolute;
+    left: 82%;
+    bottom: 10px;
+}
+.view{display: none;}
+
+
+.logout-div{
+    background: white;
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 2px 2px 2px 3px grey;
+    z-index: 999;
+    height: auto;
+    padding: 2%;
+}
+.logout-div p{
+    font-size: 20px; 
+    padding: 2%;
+}
+.logout-div div{
+    display: flex; 
+    width: 80%; 
+    padding-top: 5%; 
+    justify-content: space-around;
+}
+.logout-div div button{
+    font-size: 20px; 
+    padding: 2%; 
+    width: 30%;
+}
+#logout-accept{border: solid red;}
+#logout-accept:hover{
+    background: red; 
+    font-weight: bold;
+}
+#logout-cancel{border: solid grey;}
+#logout-cancel:hover{
+    background: grey; 
+    font-weight: bold;
+}
 
 
 .main{
+    position: relative;
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -185,9 +371,9 @@ button{border: none; cursor: pointer; background: inherit; width: 100%; color: i
 }
 .menu-body .categories p, .other-categories p{
     padding: 1% 0%; 
-    width: 100%; 
     font-size: 60px; 
     font-weight: 1000;
+    display: table;
 }
 .other-categories{
     width: 50%; 
@@ -198,6 +384,7 @@ button{border: none; cursor: pointer; background: inherit; width: 100%; color: i
     width: 20%;
     position: relative;
     left: 38%;
+    height: 40%;
 }
 .categories p:hover, .other-categories p:hover{color: rgb(218, 175, 32);}
 
@@ -247,7 +434,7 @@ button{border: none; cursor: pointer; background: inherit; width: 100%; color: i
 
 
 @media (width<1800px) {
-    .user-options, .user-options-logged{
+    .user-options{
         right: 1.8%;
         top: 74px;
     }
@@ -259,19 +446,14 @@ button{border: none; cursor: pointer; background: inherit; width: 100%; color: i
         top: 35%; 
         width: 35%; 
     }
-    .user-options, .user-options-logged{
+    .user-options{
         right: 2.2%;
         top: 72px;
     }
     .user-options button{
         padding: 5%;
         width: 70px;
-        height: 25px;
-    }
-    .user-options-logged button{
-        padding: 6%;
-        width: 70px;
-        height: 25px;
+        height: 27px;
     }
 }
 
@@ -280,7 +462,7 @@ button{border: none; cursor: pointer; background: inherit; width: 100%; color: i
         grid-template-columns: 10% 65% 25%;
         font-size: medium;
     }
-    .user-options, .user-options-logged{
+    .user-options{
         right: 1.5%;
         top: 69px;
     }
@@ -290,13 +472,6 @@ button{border: none; cursor: pointer; background: inherit; width: 100%; color: i
         height: 25px;
         font-size: 12px;
     }
-    .user-options-logged button{
-        padding: 6%;
-        width: 70px;
-        height: 25px;
-        font-size: 12px;
-    }
-    .signout-div{width: 40%;}
 }
 
 @media (width<1130px) {
@@ -353,18 +528,18 @@ button{border: none; cursor: pointer; background: inherit; width: 100%; color: i
         top: 40%; 
         width: 35%; 
     }
-    .user-options, .user-options-logged{
+    .user-options{
         right: 2.8%;
         top: 76px;
     }
+    .login-div{width: 40%;}
 }
 
 @media(width<1000px){
-    .user-options, .user-options-logged{
+    .user-options{
         right: 2.3%;
         top: 72px;
     }
-    .signout-div{width: 50%;}
 }
 
 @media (width<900px) {
@@ -432,7 +607,7 @@ button{border: none; cursor: pointer; background: inherit; width: 100%; color: i
         top: 28%; 
         width: 35%; 
     }
-    .user-options, .user-options-logged{
+    .user-options{
         right: 3.5%;
         top: 70px;
     }
@@ -441,18 +616,14 @@ button{border: none; cursor: pointer; background: inherit; width: 100%; color: i
         height: 25px;
         font-size: 11px;
     }
-    .user-options-logged button{
-        width: 60px;
-        height: 25px;
-        font-size: 11px;
-    }
-    .signout-div{width: 60%; height: 35%;}
-    .signout-div p{padding: 3%;}
-    .signout-div div{padding-top: 8%;}
+    .logout-div p{padding: 3%;}
+    .logout-div div{padding-top: 8%;}
+    .login-div{width: 50%;}
+    .signup-div{width: 80%;}
 }
 
 @media (width<800px) {
-    .user-options, .user-options-logged{
+    .user-options{
         right: 2.5%;
         top: 68px;
     }
@@ -506,11 +677,17 @@ button{border: none; cursor: pointer; background: inherit; width: 100%; color: i
         top: 35%; 
         width: 35%; 
     }
-    .user-options, .user-options-logged{
+    .user-options{
         right: 4.5%;
         top: 48px;
     }
-    .signout-div{width: 80%; height: 35%;}
+    .logout-div{width: 80%;}
+    .login-div{width: 60%;}
+    .login-div form{width: 100%;}
+    .login-div .options{width: 100%;}
+    .signup-div{width: 90%;}
+    .signup-div input{font-size: medium;}
+    .signup-div label{font-size: large;}
 }
 
 @media (width<500px) {
@@ -578,9 +755,10 @@ button{border: none; cursor: pointer; background: inherit; width: 100%; color: i
         padding-top: 20%; 
         padding-left: 0%;
     }
-    .user-options, .user-options-logged{
+    .user-options{
         right: 3%;
         top: 43px;
     }
-    .signout-div{width: 90%; height: 30%;}
+    .logout-div{width: 90%;}
+    .login-div{width: 80%;}
 }
