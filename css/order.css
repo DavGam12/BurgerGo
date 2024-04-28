@@ -46,6 +46,9 @@
 }
 .buy-position{
     width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .current-buy{
     border: solid rebeccapurple;
@@ -101,12 +104,27 @@ hr{
     padding: 2%;
     margin: 2% 3%;
     box-shadow: 2px 2px 3px 2px grey;
+    display: flex;
+    flex-direction: column;
+}
+.product-info{padding-bottom: 5%;}
+.add-to-order{
+    border-radius: 100px;
+    border: solid 2px rebeccapurple;
+    width: 50%;
+    padding: 2%;
+}
+.add-to-order:hover{
+    background: rgb(200,200,200);
+    font-weight: bold;
 }
 
 @media (width<1130px) {
     .current-order{width: 50%;}
     .current-product{width: 30%;}
     .price-position{padding: 0;}
+    .product-info{padding-bottom: 10%;}
+    .add-to-order{width: 90%;}
 }
 
 @media (width<680px) {
@@ -125,10 +143,12 @@ hr{
         padding: 3% 0%;
     }
     .buy-position{
-        width: 20%;
+        width: 30%;
         padding-bottom: 2%;
     }
+    .category-option{width: 90%;}
     .product-categories{width: 100%;}
+    .product{width: 23%;}
 }
 
 @media (width<500px) {
@@ -160,4 +180,11 @@ hr{
         font-size: medium;
         width: 30%;
     }
+    .add-to-order{padding: 3%;}
+}
+
+@media (width<400px) {
+    .products-position{width: 100%;}
+    .buy-position{width: 40%;}
+    .product{width: 40%; padding: 3% 0%;}
 }
