@@ -16,7 +16,7 @@
         <div class="logo"><a href="main.html"><img src="../Images/logo.png" alt="logo"></a></div>
         <div class="menu"><button><img src="../Images/menu.png" alt="menu"></button></div>
         <div class="make-order"><a href="order.html"><button>MAKE AN ORDER</button></a></div>
-        <div class="book"><a href="book.html"><button>BOOK</button></a></div>
+        <div class="book"><button>BOOK</button></div>
         <div class="user">
             <img src="../Images/user.png" alt="user">
             <a href="profile.html"></a>
@@ -106,6 +106,49 @@
                 <button id="login-required-login">Log In</button>
             </div>
         </div>
+        <div class="book-div">
+            <h6>Book</h6>
+            <select name="book-restaurant-address" id="book-restaurant-address">
+                <option value="default" selected hidden>Address</option>
+                <option value="1">Navarra Avenue</option>
+                <option value="2">Don Jaime Avenue</option>
+                <option value="3">Catalunya Avenue</option>
+            </select>
+            <div class="book-info">
+                <label for="book-date"></label>
+                <input type="date" name="book-date" id="book-date">
+                <select name="book-hour" id="book-hour">
+                    <option value="default" selected hidden>Hour</option>
+                    <option value="1">11:30</option>
+                    <option value="2">12:30</option>
+                    <option value="3">13:30</option>
+                    <option value="4">14:30</option>
+                    <option value="5">15:30</option>
+                    <option value="6">16:30</option>
+                    <option value="8">17:30</option>
+                    <option value="9">18:30</option>
+                    <option value="10">19:30</option>
+                    <option value="11">20:30</option>
+                    <option value="12">21:30</option>
+                </select>
+                <select name="book-people-amount" id="book-people-amount">
+                    <option value="default" selected hidden>People</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            </div>
+            <div class="book-close"><img src="../Images/close.png" alt="close"></div>
+            <div id="book-accept"><button>Make the reservation</button></div>
+        </div>
+        
         <div class="menu-div">
             <div class="menu-body">
                 <div class="close-menu"><button><img src="../Images/close.png" alt="close"></button></div>
@@ -123,7 +166,7 @@
                 </div>
                 <div class="other-categories">
                     <p>PROFILE<a href="profile.html"></a></p>
-                    <p><a href="book.html">BOOK</a></p>
+                    <p>BOOK</p>
                     <p><a href="order.html">MAKE AN ORDER</a></p>
                 </div>
             </div>

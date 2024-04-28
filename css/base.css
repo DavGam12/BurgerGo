@@ -66,7 +66,7 @@ input{border: none; border-bottom: solid 1px; outline: 0;}
     color: black;
 }
 
-.book{grid-area: book;}
+.book{grid-area: book; cursor: pointer;}
 .book button{
     border-radius: 100px;
     width: 50%;
@@ -363,6 +363,61 @@ input{border: none; border-bottom: solid 1px; outline: 0;}
     font-weight: bold;
 }
 
+.book-div{
+    display: none;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgb(255,255,255);
+    padding: 1%;
+    box-shadow: 2px 2px 3px 2px grey;
+    width: 30%;
+    position: fixed;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+#book-restaurant-address{
+    width: 80%;
+}
+.book-div h6{padding-bottom: 7%;}
+.book-info{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 7%;
+    padding-bottom: 2%;
+}
+.book-div select{
+    padding: 1%;
+    border-radius: 5px;
+}
+#book-date, #book-hour{width: 20%;}
+#book-hour{margin: 0% 10%;}
+.book-close{
+    width: 20px;
+    position: absolute;
+    top: 7%;
+    right: 3%;
+    cursor: pointer;
+}
+#book-accept{
+    width: 35%;
+    padding-top: 3%;
+}
+#book-accept button{
+    font-size: medium;
+    border: solid 2px goldenrod;
+    border-radius: 100px;
+    padding: 3%;
+}
+#book-accept button:hover{
+    background: goldenrod;
+    font-weight: bold;
+}
+
 
 
 .main{
@@ -417,12 +472,11 @@ input{border: none; border-bottom: solid 1px; outline: 0;}
 .other-categories{
     width: 50%; 
     padding-top: 20%; 
-    padding-left: 10%;
 }
 .menu-logo{
     width: 20%;
     position: relative;
-    left: 38%;
+    left: 32%;
     height: 40%;
 }
 .categories p:hover, .other-categories p:hover{color: rgb(218, 175, 32);}
@@ -494,6 +548,7 @@ input{border: none; border-bottom: solid 1px; outline: 0;}
         width: 70px;
         height: 27px;
     }
+    #book-accept{width: 45%;}
 }
 
 @media (width<1330px) {
@@ -511,6 +566,9 @@ input{border: none; border-bottom: solid 1px; outline: 0;}
         height: 25px;
         font-size: 12px;
     }
+    .book-div{width: 40%;}
+    .book-div{width: 50%;}
+    #book-accept{width: 35%;}
 }
 
 @media (width<1130px) {
@@ -572,6 +630,7 @@ input{border: none; border-bottom: solid 1px; outline: 0;}
         top: 76px;
     }
     .login-div{width: 40%;}
+    .book-div{width: 60%;}
 }
 
 @media(width<1000px){
@@ -658,6 +717,7 @@ input{border: none; border-bottom: solid 1px; outline: 0;}
     .logout-div div{padding-top: 8%;}
     .login-div{width: 50%;}
     .signup-div{width: 80%;}
+    .book-div{width: 70%;}
 }
 
 @media (width<800px) {
@@ -729,6 +789,8 @@ input{border: none; border-bottom: solid 1px; outline: 0;}
     .login-div .hide-view{bottom: 52%;}
     .signup-div .hide-view{bottom: 5px;}
     .login-required-div{width: 80%;}
+    .book-div{width: 80%;}
+    #book-accept{width: 42%;}
 }
 
 @media (width<500px) {
@@ -803,4 +865,6 @@ input{border: none; border-bottom: solid 1px; outline: 0;}
     .logout-div{width: 90%;}
     .login-div{width: 80%;}
     .login-required-div{width: 90%;}
+    .book-div{width: 90%;}
+    #book-accept{width: 50%;}
 }

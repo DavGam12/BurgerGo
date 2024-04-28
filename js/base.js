@@ -1,4 +1,3 @@
-
 let userLogged = false
 
 // Divs
@@ -8,6 +7,7 @@ let loginDiv
 let signupDiv
 let logoutDiv
 let loginRequiredDiv
+let bookDiv
 // Icons
 let closeMenu
 let userIcon
@@ -15,6 +15,7 @@ let closeLogin
 let closeSignup
 let viewIcon
 let hideIcon
+let closeBook
 // Buttons
 let menuButton
 let loginButton
@@ -29,9 +30,12 @@ let logoutCancelButton
 let loginRequiredSignupButton
 let loginRequiredCancelButton
 let loginRequiredLoginButton
+let bookButton
+let bookAccept
 // Others
 let passwordInput
 let profileMenuParagraph
+let bookMenuParagraph
 
 
 
@@ -45,6 +49,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     signupDiv = document.getElementsByClassName("signup-div")[0]
     logoutDiv = document.getElementsByClassName("logout-div")[0]
     loginRequiredDiv = document.getElementsByClassName("login-required-div")[0]
+    bookDiv = document.getElementsByClassName("book-div")[0]
 
     menuButton = document.getElementsByClassName("menu")[0].getElementsByTagName("button")[0]
     closeMenu = document.getElementsByClassName("close-menu")[0].getElementsByTagName("button")[0]
@@ -52,6 +57,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     closeSignup = document.getElementById("signup-cancel")
     viewIcon = document.getElementsByClassName("view")
     hideIcon = document.getElementsByClassName("hide")
+    closeBook = document.getElementsByClassName("book-close")[0]
     
     userIcon = document.getElementsByClassName("header")[0].getElementsByClassName("user")[0]
     loginButton = document.getElementById("login")
@@ -66,9 +72,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
     loginRequiredSignupButton = document.getElementById("login-required-signup")
     loginRequiredCancelButton = document.getElementById("login-required-cancel")
     loginRequiredLoginButton = document.getElementById("login-required-login")
+    bookButton = document.getElementsByClassName("book")[0]
+    bookAccept = document.getElementById("book-accept")
 
     passwordInput = document.getElementsByClassName("password-field")
     profileMenuParagraph = document.getElementsByClassName("other-categories")[0].getElementsByTagName("p")[0]
+    bookMenuParagraph = document.getElementsByClassName("other-categories")[0].getElementsByTagName("p")[1]
 
 
     menuButton.addEventListener("click",()=>{
@@ -180,7 +189,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     loginSignupButton.addEventListener("click",()=>{
         loginDiv.style.display = "none"
         signupDiv.style.display = "flex"
-        document.body.style.pointerEvents = "all"
+        document.body.style.pointerEvents = "none"
         DeactivateOpacity()
         SpecificEnable(signupDiv.className)
         ActivateOpacity(signupDiv.className, 0.5)
@@ -212,7 +221,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     signupLoginButton.addEventListener("click",()=>{
         signupDiv.style.display = "none"
         loginDiv.style.display = "flex"
-        document.body.style.pointerEvents = "all"
+        document.body.style.pointerEvents = "none"
         DeactivateOpacity()
         SpecificEnable(loginDiv.className)
         ActivateOpacity(loginDiv.className, 0.5)
@@ -251,6 +260,30 @@ document.addEventListener("DOMContentLoaded", (event) => {
         viewIcon[2].style.display = "block"
         passwordInput[2].type = "text"
     })
+
+    bookButton.addEventListener("click",()=>{
+        bookDiv.style.display = "flex"
+        document.body.style.pointerEvents = "none"
+        document.body.style.overflow = "hidden"
+        SpecificEnable(bookDiv.className)
+        ActivateOpacity(bookDiv.className, 0.5)
+    })
+    bookMenuParagraph.addEventListener("click",()=>{
+        closeMenu.click()
+        bookButton.click()
+    })
+    closeBook.addEventListener("click",()=>{
+        bookDiv.style.display = "none"
+        document.body.style.pointerEvents = "all"
+        document.body.style.overflow = "visible"
+        DeactivateOpacity()
+    })
+    bookAccept.addEventListener("click",()=>{
+        bookDiv.style.display = "none"
+        document.body.style.pointerEvents = "all"
+        document.body.style.overflow = "visible"
+        DeactivateOpacity()
+    })
 })
 
 
@@ -261,7 +294,6 @@ SpecificEnable = (className) => {
             for(let e in document.body.children[be].children)
             {
                 if (document.body.children[be].children[e].className == className) {
-
                     document.body.children[be].children[e].style.pointerEvents = "all"
                 }
             }
