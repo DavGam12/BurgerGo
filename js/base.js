@@ -7,6 +7,7 @@ let menuBody
 let loginDiv
 let signupDiv
 let logoutDiv
+let loginRequiredDiv
 // Icons
 let closeMenu
 let userIcon
@@ -25,8 +26,12 @@ let signupLoginButton
 let logoutButton
 let logoutAcceptButton
 let logoutCancelButton
-// Inputs
+let loginRequiredSignupButton
+let loginRequiredCancelButton
+let loginRequiredLoginButton
+// Others
 let passwordInput
+let profileMenuParagraph
 
 
 
@@ -39,6 +44,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     loginDiv = document.getElementsByClassName("login-div")[0]
     signupDiv = document.getElementsByClassName("signup-div")[0]
     logoutDiv = document.getElementsByClassName("logout-div")[0]
+    loginRequiredDiv = document.getElementsByClassName("login-required-div")[0]
 
     menuButton = document.getElementsByClassName("menu")[0].getElementsByTagName("button")[0]
     closeMenu = document.getElementsByClassName("close-menu")[0].getElementsByTagName("button")[0]
@@ -57,8 +63,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
     logoutButton = document.getElementById("logout")
     logoutAcceptButton = document.getElementById("logout-accept")
     logoutCancelButton = document.getElementById("logout-cancel")
+    loginRequiredSignupButton = document.getElementById("login-required-signup")
+    loginRequiredCancelButton = document.getElementById("login-required-cancel")
+    loginRequiredLoginButton = document.getElementById("login-required-login")
 
     passwordInput = document.getElementsByClassName("password-field")
+    profileMenuParagraph = document.getElementsByClassName("other-categories")[0].getElementsByTagName("p")[0]
 
 
     menuButton.addEventListener("click",()=>{
@@ -82,6 +92,43 @@ document.addEventListener("DOMContentLoaded", (event) => {
         else {
             userIcon.getElementsByTagName("a")[0].click()
         }
+    })
+
+    profileMenuParagraph.addEventListener("click",()=>{
+        if (!userLogged) {
+            loginRequiredDiv.style.display = "flex"
+            document.body.style.overflow = "hidden"
+            document.body.style.pointerEvents = "none"
+            SpecificEnable(loginRequiredDiv.className)
+            ActivateOpacity(loginRequiredDiv.className, 0.5)
+            menuDiv.style.opacity = 0.9
+        }
+        else {
+            profileMenuParagraph.getElementsByTagName("a")[0].click()
+        }
+    })
+
+    loginRequiredSignupButton.addEventListener("click",()=>{
+        loginRequiredDiv.style.display = "none"
+        document.body.style.overflow = "visible"
+        document.body.style.pointerEvents = "all"
+        DeactivateOpacity(loginRequiredDiv.className)
+        signupButton.click()
+        menuDiv.style.opacity = 0.9
+    })
+    loginRequiredCancelButton.addEventListener("click",()=>{
+        loginRequiredDiv.style.display = "none"
+        document.body.style.overflow = "visible"
+        document.body.style.pointerEvents = "all"
+        DeactivateOpacity(loginRequiredDiv.className)
+    })
+    loginRequiredLoginButton.addEventListener("click",()=>{
+        loginRequiredDiv.style.display = "none"
+        document.body.style.overflow = "visible"
+        document.body.style.pointerEvents = "all"
+        DeactivateOpacity(loginRequiredDiv.className)
+        loginButton.click()
+        menuDiv.style.opacity = 0.9
     })
 
 
@@ -115,7 +162,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         loginButton.style.display = "none"
         signupButton.style.display = "none"
         SpecificEnable(loginDiv.className)
-        ActivateOpacity(loginDiv.className)
+        ActivateOpacity(loginDiv.className, 0.5)
     })
     closeLogin.addEventListener("click",()=>{
         loginDiv.style.display = "none"
@@ -136,7 +183,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
         document.body.style.pointerEvents = "all"
         DeactivateOpacity()
         SpecificEnable(signupDiv.className)
-        ActivateOpacity(signupDiv.className)
+        ActivateOpacity(signupDiv.className, 0.5)
+        menuDiv.style.opacity = 0.9
     })
 
     signupButton.addEventListener("click",()=>{
@@ -146,7 +194,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         loginButton.style.display = "none"
         signupButton.style.display = "none"
         SpecificEnable(signupDiv.className)
-        ActivateOpacity(signupDiv.className)
+        ActivateOpacity(signupDiv.className, 0.5)
     })
     closeSignup.addEventListener("click",()=>{
         signupDiv.style.display = "none"
@@ -167,7 +215,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
         document.body.style.pointerEvents = "all"
         DeactivateOpacity()
         SpecificEnable(loginDiv.className)
-        ActivateOpacity(loginDiv.className)
+        ActivateOpacity(loginDiv.className, 0.5)
+        menuDiv.style.opacity = 0.9
     })
 
 
@@ -220,15 +269,15 @@ SpecificEnable = (className) => {
     }
 }
 
-ActivateOpacity = (className) => {
+ActivateOpacity = (className, opacityNum) => {
     for(let be = 0; be<document.body.children.length; be++){
         if (document.body.children[be].className == "main") {
             for (let e = 0; e<document.body.children[be].children.length; e++) {
                 if (document.body.children[be].children[e].className != className){
-                    document.body.children[be].children[e].style.opacity = "0.5"
+                    document.body.children[be].children[e].style.opacity = opacityNum
                 }
             }
-        } else {document.body.children[be].style.opacity = "0.5"}
+        } else {document.body.children[be].style.opacity = opacityNum}
     }
 }
 

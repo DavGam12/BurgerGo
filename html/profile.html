@@ -15,8 +15,8 @@
     <header class="header">
         <div class="logo"><a href="main.html"><img src="../Images/logo.png" alt="logo"></a></div>
         <div class="menu"><button><img src="../Images/menu.png" alt="menu"></button></div>
-        <div class="make-order"><a href=""><button>MAKE AN ORDER</button></a></div>
-        <div class="book"><a href=""><button>BOOK</button></a></div>
+        <div class="make-order"><a href="order.html"><button>MAKE AN ORDER</button></a></div>
+        <div class="book"><a href="book.html"><button>BOOK</button></a></div>
         <div class="user">
             <img src="../Images/user.png" alt="user">
             <a href="profile.html"></a>
@@ -44,9 +44,8 @@
                 <p class="password-reset-text">Did you forget your password?<br><span id="password-reset">Reset my password</span></p>
                 <div class="options">
                     <input type="submit" value="Log In" id="login-accept">
-                    <!--<button id="login-accept" type="submit">Log In</button>-->
                     <p>New to Burger & Go?</p>
-                    <button id="login-signup">Sign Up</button>
+                    <button id="login-signup" type="button">Sign Up</button>
                 </div>
             </form>
             <div id="login-cancel"><img src="../Images/close.png" alt="close"></div>
@@ -95,7 +94,7 @@
                 <div class="options">
                     <input type="submit" value="Sign Up" id="signup-accept">
                     <p>Do you have an account?</p>
-                    <button id="signup-login">Log In</button>
+                    <button id="signup-login" type="button">Log In</button>
                 </div>
             </form>
             <div id="signup-cancel"><img src="../Images/close.png" alt="close"></div>
@@ -109,23 +108,35 @@
                 <button id="logout-cancel">Cancel</button>
             </div>
         </div>
+        <div class="login-required-div">
+            <h6>Log In Required</h6>
+            <p>You need to have Logged In your account in order to access your profile</p><br>
+            <p>Would you like to:</p>
+            <div>
+                <button id="login-required-signup">Sign Up</button>
+                <button id="login-required-cancel">Cancel</button>
+                <button id="login-required-login">Log In</button>
+            </div>
+        </div>
         <div class="menu-div">
             <div class="menu-body">
                 <div class="close-menu"><button><img src="../Images/close.png" alt="close"></button></div>
                 <div class="sided-text"><p>Burger & Go</p></div>
 
                 <div class="categories">
-                    <p><a href="">MENU</a></p>
-                    <p><a href="">POPULAR</a></p>
-                    <p><a href="">GLUTEN FREE</a></p>
-                    <p><a href="">ABOUT US</a></p>
-                    <p><a href="">JOIN THE STAFF TEAM</a></p>
+                    <p><a href="menu.html">MENU</a></p>
+                    <p><a href="popular.html">POPULAR</a></p>
+                    <p><a href="gluten.html">GLUTEN FREE</a></p>
+                    <p><a href="us.html">ABOUT US</a></p>
+                    <p><a href="join.html">JOIN THE STAFF TEAM</a></p>
                 </div>
-                <div class="menu-logo"><a href="main.html"><img src="../Images/logo.png" alt="logo"></a></div>
+                <div class="menu-logo">
+                    <a href="main.html"><img src="../Images/logo.png" alt="logo"></a>
+                </div>
                 <div class="other-categories">
-                    <p><a href="">PROFILE</a></p>
-                    <p><a href="">BOOK</a></p>
-                    <p><a href="">MAKE AN ORDER</a></p>
+                    <p>PROFILE<a href="profile.html"></a></p>
+                    <p><a href="book.html">BOOK</a></p>
+                    <p><a href="order.html">MAKE AN ORDER</a></p>
                 </div>
             </div>
         </div>
@@ -180,7 +191,8 @@
                         </div>
                     </div>
                     <div class="date-position">
-                        Date: <span class="pastorder-date">24/04/2024 2:34:52</span>
+                       <p>Date: <span class="pastorder-date">24/04/2024 2:34:52</span></p>
+                       <p>State: <span class="pastorder-state">on the way</span></p>
                     </div>
                     <div class="reorder-position"><button class="reorder">Reorder</button></div>
                 </div>
@@ -200,7 +212,8 @@
                         </div>
                     </div>
                     <div class="date-position">
-                        Date: <span class="pastorder-date">24/04/2024 2:34:52</span>
+                        <p>Date: <span class="pastorder-date">24/04/2024 2:34:52</span></p>
+                        <p>State: <span class="pastorder-state">delivered</span></p>
                     </div>
                     <div class="reorder-position"><button class="reorder">Reorder</button></div>
                 </div>
@@ -214,7 +227,11 @@
         </div>
         <div class="socials">
             <div class="socials-icons">
-                <div class="instagram"><img src="../Images/instagram.png" alt="instagram"></div>
+                <div class="instagram">
+                    <a href="https://www.instagram.com/burgerandgoo/" target="_blank">
+                        <img src="../Images/instagram.png" alt="instagram">
+                    </a>
+                </div>
                 <div class="linkedin">
                     <a href="http://linkedin.com/company/burger-go" target="blank">
                         <img src="../Images/linkedin.png" alt="linkedin">

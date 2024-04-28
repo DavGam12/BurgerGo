@@ -275,12 +275,12 @@ input{border: none; border-bottom: solid 1px; outline: 0;}
     width: 20px;
     position: absolute;
     right: 25%;
-    bottom: 50%;
+    bottom: 51%;
 }
 .signup-div .hide-view{
     width: 20px;
     position: absolute;
-    left: 82%;
+    left: 84.5%;
     bottom: 10px;
 }
 .view{display: none;}
@@ -325,6 +325,44 @@ input{border: none; border-bottom: solid 1px; outline: 0;}
     background: grey; 
     font-weight: bold;
 }
+
+.login-required-div{
+    background: rgb(255,255,255);
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    position: fixed;
+    top: 40%;
+    transform: translateY(-50%);
+    box-shadow: 2px 2px 2px 3px grey;
+    z-index: 999;
+    height: auto;
+    padding: 2%;
+    font-size: large;
+}
+.login-required-div div{
+    display: flex;
+    width: 80%;
+    padding-top: 5%;
+    justify-content: space-around;
+}
+.login-required-div div button{
+    font-size: 20px;
+    padding: 2%;
+    width: 30%;
+}
+#login-required-signup, #login-required-login{border: solid goldenrod;}
+#login-required-signup:hover, #login-required-login:hover{
+    background: goldenrod;
+    font-weight: bold;
+}
+#login-required-cancel{border: solid grey;}
+#login-required-cancel:hover{
+    background: grey;
+    font-weight: bold;
+}
+
 
 
 .main{
@@ -374,6 +412,7 @@ input{border: none; border-bottom: solid 1px; outline: 0;}
     font-size: 60px; 
     font-weight: 1000;
     display: table;
+    cursor: pointer;
 }
 .other-categories{
     width: 50%; 
@@ -688,6 +727,9 @@ input{border: none; border-bottom: solid 1px; outline: 0;}
     .signup-div{width: 90%;}
     .signup-div input{font-size: medium;}
     .signup-div label{font-size: large;}
+    .login-div .hide-view{bottom: 52%;}
+    .signup-div .hide-view{bottom: 5px;}
+    .login-required-div{width: 80%;}
 }
 
 @media (width<500px) {
@@ -761,4 +803,5 @@ input{border: none; border-bottom: solid 1px; outline: 0;}
     }
     .logout-div{width: 90%;}
     .login-div{width: 80%;}
+    .login-required-div{width: 90%;}
 }

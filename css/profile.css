@@ -3,7 +3,7 @@
     100%{width: 60%;}
 }
 
-h1{text-align: center; font-size: 40px; padding: 3% 0%; font-weight: 1000;}
+h1{text-align: center; font-size: 40px; padding: 3% 0%; padding-top: 5%; font-weight: 1000;}
 hr{visibility: hidden; border: solid 2px goldenrod;}
 .profile-div{width: 100%; display: flex; flex-direction: column; align-items: center;}
 
@@ -71,6 +71,7 @@ hr{visibility: hidden; border: solid 2px goldenrod;}
 }
 .pastorder-product-quantity{padding-top: 10%;}
 .date-position{grid-area: date; text-align: center;}
+.date-position p{padding: 2% 0%;}
 .reorder-position{grid-area: reorder; display: flex; justify-content: center; width: 100%; padding-left: 10%;}
 .reorder{
     width: 70%;
@@ -103,8 +104,10 @@ hr{visibility: hidden; border: solid 2px goldenrod;}
     .pastorder-product{flex-wrap: wrap; width: 40%;}
     .date-position{text-align: center; padding-top: 10%; padding-bottom: 5%;}
     .reorder-position{width: 20%; padding: 0;}
+    .date-position{display: flex; flex-direction: column;}
 }
 
 @media (width<500px) {
     .reorder-position{width: 30%;}
+    h1{padding-top: 10%;}
 }

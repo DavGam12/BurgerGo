@@ -15,9 +15,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     scheduleButton.addEventListener("click", ()=>{ // to show the whole schedule
         let schedule = document.getElementsByClassName("schedule-info")[0]
-        if (schedule.style.visibility == "visible") {
-            schedule.style.visibility = "hidden"
-        } else {schedule.style.visibility = "visible"}
+        if (innerWidth<500) {
+            schedule.style.visibility = "visible"
+            if (schedule.style.display == "block") {
+                schedule.style.display = "none"
+            } else {schedule.style.display = "block"}
+        } else {
+            schedule.style.display = "block"
+            if (schedule.style.visibility == "visible") {
+                schedule.style.visibility = "hidden"
+            } else {schedule.style.visibility = "visible"}
+        }
     })
     
     switch (currentDay) { // to show the current schedule
