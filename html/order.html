@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger & Go</title>
+    <link rel="icon" type="image/x-icon" href="../Images/logo.png">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/order.css">
+    <script src="../js/base.js"></script>
+    <script src="../js/order.js"></script>
+</head>
+<body class="body">
+    <header class="header">
+        <div class="logo"><a href="main.html"><img src="../Images/logo.png" alt="logo"></a></div>
+        <div class="menu"><button><img src="../Images/menu.png" alt="menu"></button></div>
+        <div class="make-order"><a href="order.html"><button>MAKE AN ORDER</button></a></div>
+        <div class="book"><a href="book.html"><button>BOOK</button></a></div>
+        <div class="user">
+            <img src="../Images/user.png" alt="user">
+            <a href="profile.html"></a>
+        </div>
+        <div class="user-options">
+            <button id="login">Log In</button>
+            <button id="signup">Sign Up</button>
+        </div>
+    </header>
+    <main class="main">
+        <div class="login-div">
+            <h6>Log In</h6>
+            <form action="" target="_self" id="login-form">
+                <label for="login-email">E-mail: </label>
+                <input type="text" id="login-email" required placeholder="E-mail">
+                <label for="login-password">Password: </label>
+                <input type="password" id="login-password" required placeholder="Password" class="password-field">
+                <div class="hide-view">
+                    <img src="../Images/view.png" alt="view" class="view">
+                    <img src="../Images/hide.png" alt="hide" class="hide">
+                </div>
+                <p class="password-reset-text">Did you forget your password?<br><span id="password-reset">Reset my password</span></p>
+                <div class="options">
+                    <input type="submit" value="Log In" id="login-accept">
+                    <p>New to Burger & Go?</p>
+                    <button id="login-signup" type="button">Sign Up</button>
+                </div>
+            </form>
+            <div id="login-cancel"><img src="../Images/close.png" alt="close"></div>
+        </div>
+        <div class="signup-div">
+            <h6>Sign Up</h6>
+            <form action="" target="_self" id="signup-form">
+                <div class="form">
+                    <div class="signup-row">
+                        <div class="signup-field">
+                            <label for="signup-firstname">First Name: </label>
+                            <input type="text" id="signup-firstname" required placeholder="First Name">
+                        </div>
+                        <div class="signup-field">
+                            <label for="signup-lastname">Last Name: </label>
+                            <input type="text" id="signup-lastname" placeholder="Last Name">
+                        </div>
+                        <div class="signup-field">
+                            <label for="signup-email">E-mail: </label>
+                            <input type="text" id="signup-email" required placeholder="E-mail">
+                        </div>
+                    </div>
+                    <div class="signup-row">
+                        <div class="signup-field">
+                            <label for="signup-phonenumber">Phone Number: </label>
+                            <input type="text" id="signup-phonenumber" required placeholder="Phone Number">
+                        </div>
+                        <div class="signup-field">
+                            <label for="signup-password">Password: </label>
+                            <input type="password" id="signup-password" required placeholder="Password" class="password-field">
+                            <div class="hide-view">
+                                <img src="../Images/view.png" alt="view" class="view">
+                                <img src="../Images/hide.png" alt="hide" class="hide">
+                            </div>
+                        </div>
+                        <div class="signup-field">
+                            <label for="signup-repeatpassword">Repeat Password: </label>
+                            <input type="password" id="signup-repeatpassword" required placeholder="Password" class="password-field">
+                            <div class="hide-view">
+                                <img src="../Images/view.png" alt="view" class="view">
+                                <img src="../Images/hide.png" alt="hide" class="hide">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="options">
+                    <input type="submit" value="Sign Up" id="signup-accept">
+                    <p>Do you have an account?</p>
+                    <button id="signup-login" type="button">Log In</button>
+                </div>
+            </form>
+
+            <div id="signup-cancel"><img src="../Images/close.png" alt="close"></div>
+        </div>
+        <div class="login-required-div">
+            <h6>Log In Required</h6>
+            <p>You need to have Logged In your account in order to access your profile</p><br>
+            <p>Would you like to:</p>
+            <div>
+                <button id="login-required-signup">Sign Up</button>
+                <button id="login-required-cancel">Cancel</button>
+                <button id="login-required-login">Log In</button>
+            </div>
+        </div>
+        <div class="menu-div">
+            <div class="menu-body">
+                <div class="close-menu"><button><img src="../Images/close.png" alt="close"></button></div>
+                <div class="sided-text"><p>Burger & Go</p></div>
+
+                <div class="categories">
+                    <p><a href="menu.html">MENU</a></p>
+                    <p><a href="popular.html">POPULAR</a></p>
+                    <p><a href="gluten.html">GLUTEN FREE</a></p>
+                    <p><a href="us.html">ABOUT US</a></p>
+                    <p><a href="join.html">JOIN THE STAFF TEAM</a></p>
+                </div>
+                <div class="menu-logo">
+                    <a href="main.html"><img src="../Images/logo.png" alt="logo"></a>
+                </div>
+                <div class="other-categories">
+                    <p>PROFILE<a href="profile.html"></a></p>
+                    <p><a href="book.html">BOOK</a></p>
+                    <p><a href="order.html">MAKE AN ORDER</a></p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="order-div">
+            <div class="current-order">
+                <div class="products-position">
+                    <div class="current-product">
+                        <p><span class="current-product-quantity">3</span> <span class="current-product-name">Dobule Extra Bacon Sauce</span></p>
+                    </div>
+                    <div class="current-product">
+                        <p><span class="current-product-quantity">1</span> <span class="current-product-name">Dobule Extra Bacon Sauce</span></p>
+                    </div>
+                    <div class="current-product">
+                        <p><span class="current-product-quantity">2</span> <span class="current-product-name">Dobule Extra Bacon Sauce</span></p>
+                    </div>
+                    <div class="current-product">
+                        <p><span class="current-product-quantity">3</span> <span class="current-product-name">Dobule Extra Bacon Sauce</span></p>
+                    </div>
+                    <div class="current-product">
+                        <p><span class="current-product-quantity">1</span> <span class="current-product-name">Dobule Extra Bacon Sauce</span></p>
+                    </div>
+                    <div class="current-product">
+                        <p><span class="current-product-quantity">2</span> <span class="current-product-name">Dobule Extra Bacon Sauce</span></p>
+                    </div>
+                </div>
+                <div class="price-position">
+                    <p>Price: <span class="current-price">22.98€</span></p>
+                </div>
+                <div class="buy-position">
+                    <button class="current-buy">Buy</button>
+                </div>
+            </div>
+
+            <div class="product-categories">
+                <button>Burgers<hr></button>
+                <button>Specials<hr></button>
+                <button>Kids<hr></button>
+                <button>Desserts<hr></button>
+                <button>Drinks<hr></button>
+                <button>Others<hr></button>
+            </div>
+
+            <div class="product-categories-divs">
+                <div class="burgers-option category-option">
+                    <div class="product">Product</div>
+                    <div class="product">Product</div>
+                    <div class="product">Product</div>
+                </div>
+                <div class="specials-option category-option">
+                    <div class="product">Product</div>
+                    <div class="product">Product</div>
+                    <div class="product">Product</div>
+                </div>
+                <div class="kids-option category-option">
+                    <div class="product">Product</div>
+                    <div class="product">Product</div>
+                </div>
+                <div class="desserts-option category-option">
+                    <div class="product">Product</div>
+                    <div class="product">Product</div>
+                    <div class="product">Product</div>
+                </div>
+                <div class="drinks-option category-option">
+                    <div class="product">Product<br>1.50€</div>
+                    <div class="product">Product</div>
+                    <div class="product">Product</div>
+                    <div class="product">Product</div>
+                    <div class="product">Product</div>
+                    <div class="product">Product</div>
+                </div>
+                <div class="others-option category-option">
+                    <div class="product">Product</div>
+                    <div class="product">Product</div>
+                    <div class="product">Product</div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="copyright">
+            <p>&copy; 2024 Burger & Go Group SL | All Rights Reserved</p>
+        </div>
+        <div class="socials">
+            <div class="socials-icons">
+                <div class="instagram">
+                    <a href="https://www.instagram.com/burgerandgoo/" target="_blank">
+                        <img src="../Images/instagram.png" alt="instagram">
+                    </a>
+                </div>
+                <div class="linkedin">
+                    <a href="http://linkedin.com/company/burger-go" target="blank">
+                        <img src="../Images/linkedin.png" alt="linkedin">
+                    </a>
+                </div>
+            </div>
+            <div class="contactus">burgerandgoo@gmail.com</div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+@keyframes hrWidth{
+    0%{width: 0%;}
+    100%{width: 80%;}
+}
+
+.order-div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5% 0%;
+}
+.current-order{
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    padding: 1% 2%;
+    box-shadow: 2px 2px 2px 2px grey;
+    align-items: center;
+}
+
+.products-position{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 60%;
+}
+.current-product{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 2px 2px 5px 3px rgb(210,210,210);
+    margin: 2%;
+    width: 18%;
+    padding: 5%;
+}
+.current-product p{
+    padding: 2% 0%;
+}
+.price-position{
+    font-weight: bold;
+    font-size: large;
+    padding-left: 5%;
+    width: 25%;
+}
+.buy-position{
+    width: 15%;
+}
+.current-buy{
+    border: solid rebeccapurple;
+    border-radius: 100px;
+    padding: 5%;
+    width: 80%;
+    background: rgb(255,255,255);
+}
+.current-buy:hover{
+    background: rgb(200,200,200);
+    font-weight: bold;
+}
+
+.product-categories{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    padding-top: 3%;
+}
+.product-categories button{
+    font-weight: bold;
+    font-size: large;
+}
+hr{
+    border: solid 2px goldenrod;
+    visibility: hidden;
+}
+
+.product-categories-divs{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.category-option{
+    display: none;
+    width: 70%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.product{
+    font-size: large;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 20%;
+    padding: 2%;
+    margin: 2% 3%;
+    box-shadow: 2px 2px 3px 2px grey;
+}
