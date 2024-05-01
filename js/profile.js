@@ -1,22 +1,32 @@
-let optionButtons
-let hr
-
-let offersOption
-let pastordersOption
-let personalOption
-// Texts
-let userFirstNameText
 // Values
 let userFirstName = "user"
+
+// General
+let optionButtons
+let hr
+// Options
+let offersOption
+let pastordersOption
+// Buttons
+let logoutButton
+let logoutAcceptButton
+let logoutCancelButton
+// Texts
+let userFirstNameText
 
 document.addEventListener("DOMContentLoaded", (event) => {
     console.log("DOM fully loaded and parsed")
 
     optionButtons = document.getElementsByClassName("profile-options")[0].getElementsByTagName("button")
     hr = document.getElementsByTagName("hr")
+
     userFirstNameText = document.getElementsByClassName("user-firstname")
     offersOption = document.getElementById("offers-option")
     pastordersOption = document.getElementById("pastorders-option")
+
+    logoutButton = document.getElementById("logout")
+    logoutAcceptButton = document.getElementById("logout-accept")
+    logoutCancelButton = document.getElementById("logout-cancel")
 
     
     window.addEventListener("load",()=>{ // on window load
@@ -64,6 +74,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     })
     logoutAcceptButton.addEventListener("click",()=>{
         userLogged = false
+        SaveVariables()
         let backToMain = document.createElement("a")
         backToMain.setAttribute("href", "../html/main.html")
         backToMain.click()

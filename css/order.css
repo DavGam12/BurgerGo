@@ -34,9 +34,17 @@
     margin: 2%;
     width: 18%;
     padding: 5%;
+    position: relative;
 }
 .current-product p{
     padding: 2% 0%;
+}
+.delete-current-product{
+    position: absolute;
+    width: 15%;
+    top: 5%;
+    right: 5%;
+    cursor: pointer;
 }
 .price-position{
     font-weight: bold;

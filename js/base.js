@@ -1,4 +1,17 @@
-let userLogged = false
+let userLogged
+
+// Save Variables every 0.1 seconeds
+function SaveVariables(){
+    localStorage.setItem("userLogged", userLogged)
+}
+// Load Variables every time you refresh the page
+function LoadVariables(){
+    userLogged = (localStorage.getItem("userLogged"))
+}
+
+window.addEventListener("load", LoadVariables)
+window.setInterval(SaveVariables, 100)
+
 
 // Divs
 let menuDiv
@@ -24,9 +37,6 @@ let loginSignupButton
 let signupButton
 let signupAcceptButton
 let signupLoginButton
-let logoutButton
-let logoutAcceptButton
-let logoutCancelButton
 let loginRequiredSignupButton
 let loginRequiredCancelButton
 let loginRequiredLoginButton
@@ -36,7 +46,6 @@ let bookAccept
 let passwordInput
 let profileMenuParagraph
 let bookMenuParagraph
-
 
 
 document.addEventListener("DOMContentLoaded", (event) => {
@@ -66,13 +75,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
     signupButton = document.getElementById("signup")
     signupAcceptButton = document.getElementById("signup-accept")
     signupLoginButton = document.getElementById("signup-login")
-    logoutButton = document.getElementById("logout")
-    logoutAcceptButton = document.getElementById("logout-accept")
-    logoutCancelButton = document.getElementById("logout-cancel")
     loginRequiredSignupButton = document.getElementById("login-required-signup")
     loginRequiredCancelButton = document.getElementById("login-required-cancel")
     loginRequiredLoginButton = document.getElementById("login-required-login")
-    bookButton = document.getElementsByClassName("book")[0]
+    bookButton = document.getElementsByClassName("book")[0].getElementsByTagName("button")[0]
     bookAccept = document.getElementById("book-accept")
 
     passwordInput = document.getElementsByClassName("password-field")
@@ -94,7 +100,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     })
 
     userIcon.addEventListener("click",()=>{
-        if (!userLogged) {
+        if (userLogged != 'true') {
             loginButton.style.display = "block"
             signupButton.style.display = "block"
         }
@@ -104,7 +110,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     })
 
     profileMenuParagraph.addEventListener("click",()=>{
-        if (!userLogged) {
+        if (userLogged != 'true') {
             loginRequiredDiv.style.display = "flex"
             document.body.style.overflow = "hidden"
             document.body.style.pointerEvents = "none"
@@ -178,14 +184,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
         document.body.style.overflow = "visible"
         document.body.style.pointerEvents = "all"
         DeactivateOpacity()
-    })/*
+    })
     loginAcceptButton.addEventListener("click",()=>{
         loginDiv.style.display = "none"
         document.body.style.overflow = "visible"
         document.body.style.pointerEvents = "all"
         DeactivateOpacity()
         userLogged = true
-    })*/
+        SaveVariables()
+    })
     loginSignupButton.addEventListener("click",()=>{
         loginDiv.style.display = "none"
         signupDiv.style.display = "flex"
@@ -210,14 +217,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
         document.body.style.overflow = "visible"
         document.body.style.pointerEvents = "all"
         DeactivateOpacity()
-    })/*
+    })
     signupAcceptButton.addEventListener("click",()=>{
         signupDiv.style.display = "none"
         document.body.style.overflow = "visible"
         document.body.style.pointerEvents = "all"
         DeactivateOpacity()
         userLogged = true
-    })*/
+        SaveVariables()
+        userIcon.click()
+    })
     signupLoginButton.addEventListener("click",()=>{
         signupDiv.style.display = "none"
         loginDiv.style.display = "flex"
