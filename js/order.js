@@ -70,28 +70,10 @@ document.addEventListener("DOMContentLoaded",()=>{
     }
 
 
-
-    
-            /* delete current product */
-    for (let b = 0; b<currentProductDelete.length; b++) {
-
-/*
-        currentProductDelete[b].addEventListener("click",test=()=>{
-            
-            currentProductDelete[b].parentElement.remove()
-            console.log(b," deleted")
-            //currentProductDelete[b].removeEventListener("click",test(),true)
-
-        },true)*/
-
-        currentProductDelete[b].addEventListener("click",()=>{CurrentProductDeletion(b)}, false) // {once: true}
-        
-        // currentProductDelete[b].removeEventListener("click",()=>{CurrentProductDeletion(b)},true)
-
-        // getEventListeners(currentProductDelete[0]).click[0].listener
-        // currentProductDelete[0].removeEventListener("click", getEventListeners(currentProductDelete[0]).click[0].listener,true)
-        
-    }
+            /* current product deletion */
+    Array.from(currentProductDelete).forEach(e => { // from HTMLCollection to Array
+        ParentElementDeletion(e)
+    })
     
 
 
@@ -109,11 +91,12 @@ document.addEventListener("DOMContentLoaded",()=>{
             newNameSpan.setAttribute("class","current-product-name")
             let newDelete = newDiv.appendChild(document.createElement("div"))
             newDelete.setAttribute("class","delete-current-product")
+            ParentElementDeletion(newDelete) // current added product deletion
             let newImg = newDelete.appendChild(document.createElement("img"))
             newImg.setAttribute("src","../Images/delete.png")
             newImg.setAttribute("alt","delete")
-            newQuantitySpan.innerHTML = "quantityTest "
-            newNameSpan.innerHTML = " nameTest"
+            newQuantitySpan.textContent = "quantityTest "
+            newNameSpan.textContent = " nameTest"
 
         })
         
@@ -122,9 +105,14 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 })
 
-function CurrentProductDeletion(b){
-    currentProductDelete[b].parentElement.remove()
-    console.log(b,"deleted")
-    // currentProductDelete[b].removeEventListener("click", getEventListeners(currentProductDelete[b]).click[0].listener,true)
-    // currentProductDelete[0].removeEventListener("click",()=>{CurrentProductDeletion(0)}, false)
+ParentElementDeletion = (e) => {
+    e.addEventListener("click", () => {e.parentElement.remove()}, false)
 }
+
+/*              Other way for current product deletion:
+
+    currentProductDelete[b].addEventListener("click",CurrentProductDeletion, false) // CurrentProductDeletion = (e)=>{CurrentProductDeletion(e)}
+    function CurrentProductDeletion(e){
+        e.target.parentElement.parentElement.remove()
+    }
+*/
