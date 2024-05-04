@@ -11,7 +11,7 @@
     padding: 1.5% 0%;
 }
 .current-order{
-    width: 40%;
+    width: 50%;
     display: flex;
     flex-direction: row;
     padding: 1% 2%;
@@ -19,6 +19,14 @@
     align-items: center;
 }
 
+.empty-order{ /* display: block; if there are no products in the order */
+    display: none;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+}
+.empty-order p{padding: 1% 0%;}
 .products-position{
     display: flex;
     flex-direction: row;
@@ -32,18 +40,45 @@
     align-items: center;
     box-shadow: inset 2px 2px 5px 3px rgb(210,210,210);
     margin: 2%;
-    width: 18%;
-    padding: 5%;
+    width: 35%;
+    padding: 4%;
     position: relative;
 }
 .current-product p{
-    padding: 2% 0%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    left: 5%;
+}
+.current-product-name{
+    font-size: larger;
+    font-weight: bold;
+    padding-right: 35%;
+}
+.current-product-quantity-div{
+    position: relative;
+    top: 20px;
+    right: 2%;
+    padding-top: 15%;
+    padding-bottom: 5%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.current-product-quantity-info{padding: 0% 3%;}
+.current-product-quantity-more{width: 20px;}
+.current-product-quantity-less{width: 22px;}
+.current-product-price{
+    padding-top: 3%;
+    padding-left: 13%;
 }
 .delete-current-product{
     position: absolute;
-    width: 15%;
-    top: 5%;
-    right: 5%;
+    width: 18px;
+    top: 6%;
+    right: 2%;
     cursor: pointer;
 }
 .price-position{
@@ -115,7 +150,29 @@ hr{
     display: flex;
     flex-direction: column;
 }
-.product-info{padding-bottom: 5%;}
+.product-info{
+    padding-bottom: 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.product-name{
+    font-size: 24px;
+    padding-bottom: 2%;
+}
+.product-img{padding: 3% 0%;}
+.product-price{font-size: 20px;}
+.order-addition-info{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+.product-quantity{
+    width: 15%;
+    border-radius: 10px;
+    border: solid 2px goldenrod;
+}
 .add-to-order{
     border-radius: 100px;
     border: solid 2px rebeccapurple;
@@ -127,12 +184,27 @@ hr{
     font-weight: bold;
 }
 
+@media (width<1700px) {
+    .current-product-price{padding-left: 0;}
+}
+
+@media (width<1202px) {
+    .product{width: 22%;}
+    .current-order{width: 60%;}
+}
+
 @media (width<1130px) {
-    .current-order{width: 50%;}
-    .current-product{width: 30%;}
     .price-position{padding: 0;}
     .product-info{padding-bottom: 10%;}
-    .add-to-order{width: 90%;}
+    .add-to-order{width: 70%;}
+}
+
+@media (width<1000px) {.current-order{width: 70%;}}
+
+@media (width<840px){
+    .product{width: 25%;}
+    .current-order{width: 90%;}
+    .price-position{width: 15%;}
 }
 
 @media (width<680px) {
@@ -141,7 +213,6 @@ hr{
         flex-direction: column;
     }
     .products-position{
-        width: 80%;
         padding-top: 2%;
         justify-content: center;
     }
@@ -156,12 +227,12 @@ hr{
     }
     .category-option{width: 90%;}
     .product-categories{width: 100%;}
-    .product{width: 23%;}
+    .product{width: 30%;}
+    .products-position{width: 100%;}
 }
 
 @media (width<500px) {
     .order-div{padding-top: 3%;}
-    .products-position{width: 90%;}
     .product-categories{
         padding-top: 5%;
         justify-content: center;
@@ -186,13 +257,14 @@ hr{
     .product{
         margin: 3%;
         font-size: medium;
-        width: 30%;
+        width: 40%;
     }
     .add-to-order{padding: 3%;}
+    .current-product{width: 45%;}
 }
 
 @media (width<400px) {
-    .products-position{width: 100%;}
     .buy-position{width: 40%;}
     .product{width: 40%; padding: 3% 0%;}
+    .current-product{width: 50%;}
 }

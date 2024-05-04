@@ -24,42 +24,41 @@
 
 .main .info{
     width: 100%;
-    display: grid;
-    grid-template-areas: ". schedule categories";
-    grid-template-columns: 15% 45% 40%;
     padding: 1% 0%;
+    display: flex;
+    justify-content: center;
     overflow: hidden;
 }
-.schedule{grid-area: schedule; width: 50%;}
-.schedule button{
+.schedule{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.schedule .schedule-main{
     width: 100%;
-    font-size: large;
-    padding: 1%;
+    font-size: 35px;
+    padding: 1% 0%;
     background: transparent;
     color: black;
     border: solid 3px black;
-    font-size: large;
     display: flex;
     justify-content: center;
 }
 .schedule img{
-    width: 18px;
+    width: 35px;
     padding: 0% 3%;
 }
+.schedule-info{width: 100%;}
 .schedule p{
-    font-size: 21px;
-    padding: 1.5%;
+    font-size: 35px;
+    width: 100%;
+    padding: 1.5% 0%;
     border: solid 1px black;
+    text-align: center;
 }
-.schedule-info{visibility: hidden;}
 
-.categories{grid-area: categories; width: 100%; padding: 1% 0%; padding-top: 2%;}
-.categories p{
-    font-size: 40px;
-    font-weight: 1000;
-    padding: 1% 0%;
-    display: table;
-}
 
 @media (width<2000px) {
     .banner{
@@ -106,8 +105,6 @@
         bottom: 35%;
         left: 75%;
     }
-    .categories p{font-size: 30px;}
-    .categories{padding: 1% 0%; padding-top: 8%;}
     .main .info{grid-template-columns: 10% 50% 40%;}
 }
 
@@ -126,7 +123,6 @@
     }
     .schedule{width: 80%;}
     .main .info{grid-template-columns: 5% 55% 40%;}
-    .categories{padding: 1% 0%; padding-top: 13%;}
 }
 
 @media (width<680px) {
@@ -140,12 +136,10 @@
         bottom: 15%;
         left: 75%;
     }
-    .categories p{font-size: 25px; padding: 1.5% 0%;}
     .schedule{width: 90%;}
     .main .info{grid-template-columns: 2% 58% 40%;}
-    .categories{padding: 2% 0%; padding-top: 10%;}
-    .schedule button{font-size: medium;}
-    .schedule p{font-size: 18px;}
+    .schedule p, .schedule .schedule-main{font-size: 18px;}
+    .schedule img{width: 18px;}
 }
 
 @media (width<500px) {
@@ -159,9 +153,8 @@
         bottom: 25%;
         left: 75%;
     }
-    .categories p{font-size: 20px;}
-    .schedule button{font-size: 12px;}
-    .schedule img{width: 13px;}
+    .schedule .schedule-main{font-size: 15px;}
+    .schedule img{width: 15px;}
     .schedule p{font-size: 15px;}
     .main .info{
         display: flex;   
@@ -169,17 +162,9 @@
         align-items: center;
         width: 80%;
     }
-    .main .schedule-info{display: none;}
     .main .schedule-info p{
         display: flex;
         justify-content: center;
         align-items: center;
-    }
-    .main .info .categories p{
-        text-align: center; 
-        align-items: center; 
-        justify-content: center; 
-        display: flex; 
-        padding: 1%;
     }
 }

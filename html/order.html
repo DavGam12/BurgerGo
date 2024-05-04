@@ -15,7 +15,7 @@
     <header class="header">
         <div class="logo"><a href="main.html"><img src="../Images/logo.png" alt="logo"></a></div>
         <div class="menu"><button><img src="../Images/menu.png" alt="menu"></button></div>
-        <div class="make-order"><a href="order.html"><button>MAKE AN ORDER</button></a></div>
+        <div class="make-order"><a href="order.html"><button>ORDER</button></a></div>
         <div class="book"><button>BOOK</button></div>
         <div class="user">
             <img src="../Images/user.png" alt="user">
@@ -68,7 +68,7 @@
                     <div class="signup-row">
                         <div class="signup-field">
                             <label for="signup-phonenumber">Phone Number: </label>
-                            <input type="text" id="signup-phonenumber" required placeholder="Phone Number">
+                            <input type="tel" id="signup-phonenumber" required placeholder="Phone Number">
                         </div>
                         <div class="signup-field">
                             <label for="signup-password">Password: </label>
@@ -116,8 +116,8 @@
                     <p><a href="menu.html">MENU</a></p>
                     <p><a href="popular.html">POPULAR</a></p>
                     <p><a href="gluten.html">GLUTEN FREE</a></p>
-                    <p><a href="us.html">ABOUT US</a></p>
-                    <p><a href="join.html">JOIN THE STAFF TEAM</a></p>
+                    <p><a href="aboutus.html">ABOUT US</a></p>
+                    <p><a href="joinstaff.html">JOIN THE STAFF TEAM</a></p>
                 </div>
                 <div class="menu-logo">
                     <a href="main.html"><img src="../Images/logo.png" alt="logo"></a>
@@ -125,7 +125,7 @@
                 <div class="other-categories">
                     <p>PROFILE<a href="profile.html"></a></p>
                     <p>BOOK</p>
-                    <p><a href="order.html">MAKE AN ORDER</a></p>
+                    <p><a href="order.html">ORDER</a></p>
                 </div>
             </div>
         </div>
@@ -174,34 +174,12 @@
         
         <div class="order-div">
             <div class="current-order">
+                <div class="empty-order"><p>There are no products in your order yet.</p><p>To add proucts select a category and click "add to order".</p></div>
                 <div class="products-position">
-                    <div class="current-product">
-                        <p><span class="current-product-quantity">3</span> <span class="current-product-name">Dobule Extra Bacon Sauce</span></p>
-                        <div class="delete-current-product"><img src="../Images/delete.png" alt="delete"></div>
-                    </div>
-                    <div class="current-product">
-                        <p><span class="current-product-quantity">1</span> <span class="current-product-name">Dobule Extra Bacon Sauce</span></p>
-                        <div class="delete-current-product"><img src="../Images/delete.png" alt="delete"></div>
-                    </div>
-                    <div class="current-product">
-                        <p><span class="current-product-quantity">2</span> <span class="current-product-name">Dobule Extra Bacon Sauce</span></p>
-                        <div class="delete-current-product"><img src="../Images/delete.png" alt="delete"></div>
-                    </div>
-                    <div class="current-product">
-                        <p><span class="current-product-quantity">3</span> <span class="current-product-name">Dobule Extra Bacon Sauce</span></p>
-                        <div class="delete-current-product"><img src="../Images/delete.png" alt="delete"></div>
-                    </div>
-                    <div class="current-product">
-                        <p><span class="current-product-quantity">1</span> <span class="current-product-name">Dobule Extra Bacon Sauce</span></p>
-                        <div class="delete-current-product"><img src="../Images/delete.png" alt="delete"></div>
-                    </div>
-                    <div class="current-product">
-                        <p><span class="current-product-quantity">2</span> <span class="current-product-name">Dobule Extra Bacon Sauce</span></p>
-                        <div class="delete-current-product"><img src="../Images/delete.png" alt="delete"></div>
-                    </div>
+                    <!-- The products the user adds to the order will appear here -->
                 </div>
                 <div class="price-position">
-                    <p>Price: <span class="current-price">22.98€</span></p>
+                    <p>Price: <span class="current-price"></span></p>
                 </div>
                 <div class="buy-position">
                     <button class="current-buy">Buy</button>
@@ -228,36 +206,236 @@
 
             <div class="product-categories-divs">
                 <div class="burgers-option category-option">
-                    <div class="product"><span class="product-info">Product</span><button class="add-to-order">Add to order</button></div>
-                    <div class="product"><span class="product-info">Product</span><button class="add-to-order">Add to order</button></div>
-                    <div class="product"><span class="product-info">Product</span><button class="add-to-order">Add to order</button></div>
+                    <div class="product">
+                        <div class="product-info">
+                            <span class="product-name">Product</span>
+                            <span class="product-img"><img src="../Images/burger.png" alt="product"></span>
+                            <span class="product-price">7.99€</span>
+                        </div>
+                        <div class="order-addition-info">
+                            <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
+                            <button class="add-to-order">Add to order</button>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product-info">
+                            <span class="product-name">Product</span>
+                            <span class="product-img"><img src="../Images/burger.png" alt="product"></span>
+                            <span class="product-price">7.99€</span>
+                        </div>
+                        <div class="order-addition-info">
+                            <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
+                            <button class="add-to-order">Add to order</button>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product-info">
+                            <span class="product-name">Product</span>
+                            <span class="product-img"><img src="../Images/burger.png" alt="product"></span>
+                            <span class="product-price">7.99€</span>
+                        </div>
+                        <div class="order-addition-info">
+                            <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
+                            <button class="add-to-order">Add to order</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="menus-option category-option">
-                    <div class="product"><span class="product-info">Product</span><button class="add-to-order">Add to order</button></div>
-                    <div class="product"><span class="product-info">Product</span><button class="add-to-order">Add to order</button></div>
-                    <div class="product"><span class="product-info">Product</span><button class="add-to-order">Add to order</button></div>
+                    <div class="product">
+                        <div class="product-info">
+                            <span class="product-name">Product</span>
+                            <span class="product-img"><img src="../Images/burger.png" alt="product"></span>
+                            <span class="product-price">7.99€</span>
+                        </div>
+                        <div class="order-addition-info">
+                            <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
+                            <button class="add-to-order">Add to order</button>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product-info">
+                            <span class="product-name">Product</span>
+                            <span class="product-img"><img src="../Images/burger.png" alt="product"></span>
+                            <span class="product-price">7.99€</span>
+                        </div>
+                        <div class="order-addition-info">
+                            <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
+                            <button class="add-to-order">Add to order</button>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product-info">
+                            <span class="product-name">Product</span>
+                            <span class="product-img"><img src="../Images/burger.png" alt="product"></span>
+                            <span class="product-price">7.99€</span>
+                        </div>
+                        <div class="order-addition-info">
+                            <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
+                            <button class="add-to-order">Add to order</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="kids-option category-option">
-                    <div class="product"><span class="product-info">Product</span><button class="add-to-order">Add to order</button></div>
-                    <div class="product"><span class="product-info">Product</span><button class="add-to-order">Add to order</button></div>
+                    <div class="product">
+                        <div class="product-info">
+                            <span class="product-name">Product</span>
+                            <span class="product-img"><img src="../Images/burger.png" alt="product"></span>
+                            <span class="product-price">7.99€</span>
+                        </div>
+                        <div class="order-addition-info">
+                            <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
+                            <button class="add-to-order">Add to order</button>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product-info">
+                            <span class="product-name">Product</span>
+                            <span class="product-img"><img src="../Images/burger.png" alt="product"></span>
+                            <span class="product-price">7.99€</span>
+                        </div>
+                        <div class="order-addition-info">
+                            <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
+                            <button class="add-to-order">Add to order</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="desserts-option category-option">
-                    <div class="product"><span class="product-info">Product</span><button class="add-to-order">Add to order</button></div>
-                    <div class="product"><span class="product-info">Product</span><button class="add-to-order">Add to order</button></div>
-                    <div class="product"><span class="product-info">Product</span><button class="add-to-order">Add to order</button></div>
+                    <div class="product">
+                        <div class="product-info">
+                            <span class="product-name">Product</span>
+                            <span class="product-img"><img src="../Images/burger.png" alt="product"></span>
+                            <span class="product-price">7.99€</span>
+                        </div>
+                        <div class="order-addition-info">
+                            <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
+                            <button class="add-to-order">Add to order</button>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product-info">
+                            <span class="product-name">Product</span>
+                            <span class="product-img"><img src="../Images/burger.png" alt="product"></span>
+                            <span class="product-price">7.99€</span>
+                        </div>
+                        <div class="order-addition-info">
+                            <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
+                            <button class="add-to-order">Add to order</button>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product-info">
+                            <span class="product-name">Product</span>
+                            <span class="product-img"><img src="../Images/burger.png" alt="product"></span>
+                            <span class="product-price">7.99€</span>
+                        </div>
+                        <div class="order-addition-info">
+                            <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
+                            <button class="add-to-order">Add to order</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="drinks-option category-option">
-                    <div class="product"><span class="product-info">Product</span><button class="add-to-order">Add to order</button></div>
-                    <div class="product"><span class="product-info">Product</span><button class="add-to-order">Add to order</button></div>
-                    <div class="product"><span class="product-info">Product</span><button class="add-to-order">Add to order</button></div>
-                    <div class="product"><span class="product-info">Product</span><button class="add-to-order">Add to order</button></div>
-                    <div class="product"><span class="product-info">Product</span><button class="add-to-order">Add to order</button></div>
-                    <div class="product"><span class="product-info">Product</span><button class="add-to-order">Add to order</button></div>
+                    <div class="product">
+                        <div class="product-info">
+                            <span class="product-name">Product</span>
+                            <span class="product-img"><img src="../Images/burger.png" alt="product"></span>
+                            <span class="product-price">7.99€</span>
+                        </div>
+                        <div class="order-addition-info">
+                            <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
+                            <button class="add-to-order">Add to order</button>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product-info">
+                            <span class="product-name">Product</span>
+                            <span class="product-img"><img src="../Images/burger.png" alt="product"></span>
+                            <span class="product-price">7.99€</span>
+                        </div>
+                        <div class="order-addition-info">
+                            <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
+                            <button class="add-to-order">Add to order</button>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product-info">
+                            <span class="product-name">Product</span>
+                            <span class="product-img"><img src="../Images/burger.png" alt="product"></span>
+                            <span class="product-price">7.99€</span>
+                        </div>
+                        <div class="order-addition-info">
+                            <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
+                            <button class="add-to-order">Add to order</button>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product-info">
+                            <span class="product-name">Product</span>
+                            <span class="product-img"><img src="../Images/burger.png" alt="product"></span>
+                            <span class="product-price">7.99€</span>
+                        </div>
+                        <div class="order-addition-info">
+                            <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
+                            <button class="add-to-order">Add to order</button>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product-info">
+                            <span class="product-name">Product</span>
+                            <span class="product-img"><img src="../Images/burger.png" alt="product"></span>
+                            <span class="product-price">7.99€</span>
+                        </div>
+                        <div class="order-addition-info">
+                            <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
+                            <button class="add-to-order">Add to order</button>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product-info">
+                            <span class="product-name">Product</span>
+                            <span class="product-img"><img src="../Images/burger.png" alt="product"></span>
+                            <span class="product-price">7.99€</span>
+                        </div>
+                        <div class="order-addition-info">
+                            <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
+                            <button class="add-to-order">Add to order</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="others-option category-option">
-                    <div class="product"><span class="product-info">Product</span><button class="add-to-order">Add to order</button></div>
-                    <div class="product"><span class="product-info">Product</span><button class="add-to-order">Add to order</button></div>
-                    <div class="product"><span class="product-info">Product</span><button class="add-to-order">Add to order</button></div>
+                    <div class="product">
+                        <div class="product-info">
+                            <span class="product-name">Product</span>
+                            <span class="product-img"><img src="../Images/burger.png" alt="product"></span>
+                            <span class="product-price">7.99€</span>
+                        </div>
+                        <div class="order-addition-info">
+                            <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
+                            <button class="add-to-order">Add to order</button>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product-info">
+                            <span class="product-name">Product</span>
+                            <span class="product-img"><img src="../Images/burger.png" alt="product"></span>
+                            <span class="product-price">7.99€</span>
+                        </div>
+                        <div class="order-addition-info">
+                            <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
+                            <button class="add-to-order">Add to order</button>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product-info">
+                            <span class="product-name">Product</span>
+                            <span class="product-img"><img src="../Images/burger.png" alt="product"></span>
+                            <span class="product-price">7.99€</span>
+                        </div>
+                        <div class="order-addition-info">
+                            <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
+                            <button class="add-to-order">Add to order</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

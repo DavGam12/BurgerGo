@@ -54,7 +54,7 @@ input{border: none; border-bottom: solid 1px; outline: 0;}
 .make-order{grid-area: make-order;}
 .make-order button{
     border-radius: 100px;
-    width: 70%;
+    width: 50%;
     padding: 5% 5%;
     color: inherit;
     background: rgb(0,0,0);
@@ -461,23 +461,25 @@ input{border: none; border-bottom: solid 1px; outline: 0;}
 .menu-body .categories{
     padding-top: 10.5%; 
     padding-left: 2%; 
-    width: 74%;
+    width: 100%;
 }
 .menu-body .categories p, .other-categories p{
-    padding: 1% 0%; 
+    padding: 1% 0%;
     font-size: 60px; 
     font-weight: 1000;
+    padding-left: 10%;
     display: table;
     cursor: pointer;
 }
 .other-categories{
+    padding-left: 20%;
     width: 50%; 
     padding-top: 20%; 
 }
 .menu-logo{
     width: 20%;
     position: relative;
-    left: 32%;
+    left: 40%;
     height: 40%;
 }
 .categories p:hover, .other-categories p:hover{color: rgb(218, 175, 32);}
@@ -584,7 +586,7 @@ input{border: none; border-bottom: solid 1px; outline: 0;}
         grid-template-columns: 2% 5% 5% 10% 40% 18% 12% 8%;
     }
     .make-order button{
-        width: 80%;
+        width: 60%;
         padding: 5% 5%;
     }
     .book button{
