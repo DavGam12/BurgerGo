@@ -167,6 +167,7 @@ hr{
     display: flex;
     width: 100%;
     justify-content: space-around;
+    align-items: center;
 }
 .product-quantity{
     width: 15%;
@@ -208,6 +209,7 @@ hr{
 }
 
 @media (width<680px) {
+    .empty-order{font-size: 20px;}
     .current-order{
         width: 80%;
         flex-direction: column;
@@ -220,6 +222,7 @@ hr{
         width: 100%;
         text-align: center;
         padding: 3% 0%;
+        justify-content: center;
     }
     .buy-position{
         width: 30%;
@@ -229,6 +232,7 @@ hr{
     .product-categories{width: 100%;}
     .product{width: 30%;}
     .products-position{width: 100%;}
+    .product-quantity{height: 80%;}
 }
 
 @media (width<500px) {
