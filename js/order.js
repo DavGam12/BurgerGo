@@ -4,12 +4,19 @@ let productCategoriesDivs = []
 let currentProductDelete = []
 let addToOrderButton = []
 let productQuantity = []
+let productImg = []
+let productDescriptionDiv = []
+let allergiesInfoButton = []
 
 let productsDiv
 let currentOrderPriceText
+let closeProductDescription
+let allergiesInfoDiv
+let closeAllergiesInfoDiv
 
 let productCategorySelected
 let currentOrderPrice
+let lastAllergiesInfoButtonClicked
 
     /* Current Order Products Info */
 let currentOrderProduct = [ // currentOrderProduct.filter((e) => e.existence == true) to get the all current products info
@@ -43,9 +50,15 @@ document.addEventListener("DOMContentLoaded",()=>{
     currentProductDelete = document.getElementsByClassName("delete-current-product")
     addToOrderButton = document.getElementsByClassName("add-to-order")
     productQuantity = document.getElementsByClassName("product-quantity")
+    productImg = document.getElementsByClassName("product-img")
+    productDescriptionDiv = document.getElementsByClassName("product-description-div")
+    allergiesInfoButton = document.getElementsByClassName("allergies-info-button")
 
     productsDiv = document.getElementsByClassName("products-position")[0]
     currentOrderPriceText = document.getElementsByClassName("current-price")[0]
+    closeProductDescription = document.getElementsByClassName("product-description-close")
+    allergiesInfoDiv = document.getElementsByClassName("allergies-info-div")[0]
+    closeAllergiesInfoDiv = document.getElementsByClassName("allergies-info-div-close")[0]
 
     productCategorySelected = document.getElementById("current-category")
 
@@ -98,9 +111,47 @@ document.addEventListener("DOMContentLoaded",()=>{
     }
 
 
+    closeAllergiesInfoDiv.addEventListener("click", () => {
+        allergiesInfoDiv.style.display = "none"
+        lastAllergiesInfoButtonClicked.parentElement.style.display = "flex"
+    })
+
+
+    Array.from(closeProductDescription).forEach(e => {
+        e.addEventListener("click", () => {
+            document.body.style.pointerEvents = "all"
+            document.body.style.overflow = "visible"
+            e.parentElement.style.display = "none"
+            DeactivateOpacity()
+        })
+    })
+
+
             /* if a user writes manually a number<1 the value changes automatically to 1 */
     Array.from(productQuantity).forEach(e => {
         e.addEventListener("change",()=>{if (e.value<1){e.value=1}})
+    })
+
+    Array.from(productImg).forEach(e => {
+        e.addEventListener("click", () => {
+            for (let i = 0; i<productImg.length; i++){
+                if (productImg[i] == e){
+                    productDescriptionDiv[i].style.display = "flex"
+                    document.body.style.overflow = "hidden"
+                    document.body.style.pointerEvents = "none"
+                    SpecificEnable(productImg[i].parentElement.parentElement.parentElement.classList[0], productImg[i].parentElement.parentElement, productDescriptionDiv[i].className)
+                    ActivateOpacity(productImg[i].parentElement.parentElement.parentElement.classList[0], productImg[i].parentElement.parentElement, productDescriptionDiv[i].className, 0.75)
+                }
+            }
+        })
+    })
+
+    Array.from(allergiesInfoButton).forEach(e => {
+        e.addEventListener("click", () => {
+            allergiesInfoDiv.style.display = "flex"
+            e.parentElement.style.display = "none"
+            lastAllergiesInfoButtonClicked = e
+        })
     })
     
 
@@ -194,6 +245,7 @@ document.addEventListener("DOMContentLoaded",()=>{
                     {
                         currentOrderProduct[b].structure.delete.parentElement.remove()
                         currentOrderProduct[b].existence = false
+                        CurrentOrderPriceFunction()
                         EmptyOrder()
                     }
             ) // current added product deletion
@@ -252,6 +304,117 @@ CurrentOrderProductUpdate = (e) => {
     e.structure.nameSpan.textContent = e.name
     e.structure.priceSpan.textContent = e.totalPrice+"€"
     e.structure.quantitySpan.textContent = e.quantity
+}
+
+
+
+SpecificEnable = (categoryClassName, productElement, className) => {
+    for(let be = 0; be<document.body.children.length; be++){
+        if (document.body.children[be].className == "main") {
+            for(let ce = 0; ce<document.body.children[be].children.length; ce++)
+                {
+                    if (document.body.children[be].children[ce].className == "order-div") 
+                    {
+                        for (let de = 0; de<document.body.children[be].children[ce].children.length; de++)
+                            {
+                                if (document.body.children[be].children[ce].children[de].className == "product-categories-divs") 
+                                    {
+                                        for (let ee = 0; ee<document.body.children[be].children[ce].children[de].children.length; ee++) 
+                                            {
+                                                if (document.body.children[be].children[ce].children[de].children[ee].classList[0] == categoryClassName) 
+                                                {
+                                                    for (let fe = 0; fe<document.body.children[be].children[ce].children[de].children[ee].children.length; fe++) 
+                                                        {
+                                                            if (document.body.children[be].children[ce].children[de].children[ee].children[fe] == productElement)
+                                                                {
+                                                                    for (let e = 0;e<document.body.children[be].children[ce].children[de].children[ee].children[fe].children.length; e++) 
+                                                                        {
+                                                                            if (document.body.children[be].children[ce].children[de].children[ee].children[fe].children[e].className == className) 
+                                                                                {
+                                                                                    document.body.children[be].children[ce].children[de].children[ee].children[fe].children[e].style.pointerEvents = "all"
+                                                                                }
+                                                                        }
+                                                                }
+                                                        }
+                                                }
+                                            }
+                                    } else if(document.body.children[be].children[ce].children[de].className == "allergies-info-div") {document.body.children[be].children[ce].children[de].style.pointerEvents = "all"}
+                            }
+                    }
+                }
+        }
+    }
+}
+
+ActivateOpacity = (categoryClassName, productElement, className, opacityNum) => {
+    for(let be = 0; be<document.body.children.length; be++)
+        {
+        if (document.body.children[be].className == "main") 
+            {
+            for(let ce = 0; ce<document.body.children[be].children.length; ce++)
+                {
+                    if (document.body.children[be].children[ce].className == "order-div") 
+                    {
+                        for (let de = 0; de<document.body.children[be].children[ce].children.length; de++)
+                            {
+                                if (document.body.children[be].children[ce].children[de].className == "product-categories-divs") 
+                                    {
+                                        for (let ee = 0; ee<document.body.children[be].children[ce].children[de].children.length; ee++) 
+                                            {
+                                                if (document.body.children[be].children[ce].children[de].children[ee].classList[0] == categoryClassName) 
+                                                {
+                                                    for (let fe = 0; fe<document.body.children[be].children[ce].children[de].children[ee].children.length; fe++) 
+                                                        {
+                                                            if (document.body.children[be].children[ce].children[de].children[ee].children[fe] == productElement)
+                                                                {
+                                                                    for (let e = 0;e<document.body.children[be].children[ce].children[de].children[ee].children[fe].children.length; e++) 
+                                                                        {
+                                                                            if (document.body.children[be].children[ce].children[de].children[ee].children[fe].children[e].className == className) 
+                                                                                {
+                                                                                    document.body.children[be].children[ce].children[de].children[ee].children[fe].children[e].style.opacity = 1
+                                                                                } else {document.body.children[be].children[ce].children[de].children[ee].children[fe].children[e].style.opacity = opacityNum}
+                                                                        }
+                                                                } else {document.body.children[be].children[ce].children[de].children[ee].children[fe].style.opacity = opacityNum}
+                                                        }
+                                                } else {document.body.children[be].children[ce].children[de].children[ee].style.opacity = opacityNum}
+                                            }
+                                    } else if(document.body.children[be].children[ce].children[de].className != "allergies-info-div"){document.body.children[be].children[ce].children[de].style.opacity = opacityNum}
+                            }
+                    } else {document.body.children[be].children[ce].style.opacity = opacityNum}
+                }
+        } else {document.body.children[be].style.opacity = opacityNum}
+    }
+}
+
+DeactivateOpacity = () => {
+    for(let be = 0; be<document.body.children.length; be++)
+        {
+        if (document.body.children[be].className == "main") 
+            {
+            for(let ce = 0; ce<document.body.children[be].children.length; ce++)
+                {
+                    if (document.body.children[be].children[ce].className == "order-div") 
+                    {
+                        for (let de = 0; de<document.body.children[be].children[ce].children.length; de++)
+                            {
+                                document.body.children[be].children[ce].children[de].style.opacity = 1
+                                for (let ee = 0; ee<document.body.children[be].children[ce].children[de].children.length; ee++) 
+                                    {
+                                        document.body.children[be].children[ce].children[de].children[ee].style.opacity = 1
+                                        for (let fe = 0; fe<document.body.children[be].children[ce].children[de].children[ee].children.length; fe++) 
+                                            {
+                                                document.body.children[be].children[ce].children[de].children[ee].children[fe].style.opacity = 1
+                                                for (let e = 0;e<document.body.children[be].children[ce].children[de].children[ee].children[fe].children.length; e++) 
+                                                    {
+                                                        document.body.children[be].children[ce].children[de].children[ee].children[fe].children[e].style.opacity = 1
+                                                    }
+                                            }
+                                    }
+                            }
+                } else {document.body.children[be].children[ce].style.opacity = 1}
+            }
+        }  else {document.body.children[be].style.opacity = 1}
+    }
 }
 
 

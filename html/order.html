@@ -15,7 +15,7 @@
     <header class="header">
         <div class="logo"><a href="main.html"><img src="../Images/logo.png" alt="logo"></a></div>
         <div class="menu"><button><img src="../Images/menu.png" alt="menu"></button></div>
-        <div class="make-order"><a href="order.html"><button>ORDER</button></a></div>
+        <div class="make-order"><button>ORDER</button><a href="order.html"></a></div>
         <div class="book"><button>BOOK</button></div>
         <div class="user">
             <img src="../Images/user.png" alt="user">
@@ -29,7 +29,7 @@
     <main class="main">
         <div class="login-div">
             <h6>Log In</h6>
-            <form action="profile.html" target="_self" id="login-form">
+            <form action="" target="_self" id="login-form">
                 <label for="login-email">E-mail: </label>
                 <input type="text" id="login-email" required placeholder="E-mail">
                 <label for="login-password">Password: </label>
@@ -49,7 +49,7 @@
         </div>
         <div class="signup-div">
             <h6>Sign Up</h6>
-            <form action="profile.html" target="_self" id="signup-form">
+            <form action="" target="_self" id="signup-form">
                 <div class="form">
                     <div class="signup-row">
                         <div class="signup-field">
@@ -125,7 +125,7 @@
                 <div class="other-categories">
                     <p>PROFILE<a href="profile.html"></a></p>
                     <p>BOOK</p>
-                    <p><a href="order.html">ORDER</a></p>
+                    <p>ORDER<a href="order.html"></a></p>
                 </div>
             </div>
         </div>
@@ -174,7 +174,7 @@
         
         <div class="order-div">
             <div class="current-order">
-                <div class="empty-order"><p>There are no products in your order yet.</p><p>To add proucts select a category and click "add to order".</p></div>
+                <div class="empty-order"><p>There are no products in your order yet.</p><p>To add proucts select a category and click "add to order".</p><p>Click on a product image to see its information.</p></div>
                 <div class="products-position">
                     <!-- The products the user adds to the order will appear here -->
                 </div>
@@ -184,6 +184,130 @@
                 <div class="buy-position">
                     <button class="current-buy">Buy</button>
                 </div>
+            </div>
+
+            <div class="allergies-info-div">
+                <div class="allergies-column">
+                    <div class="gluten-info specific-allergy-div">
+                        <div class="allergy-info-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                        <div class="allergy-info-text"><p>Contains Gluten</p></div>
+                    </div>
+                    <div class="eggs-info specific-allergy-div">
+                        <div class="allergy-info-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                        <div class="allergy-info-text"><p>Contains Eggs</p></div>
+                    </div>
+                    <div class="fish-info specific-allergy-div">
+                        <div class="allergy-info-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                        <div class="allergy-info-text"><p>Contains Fish</p></div>
+                    </div>
+                    <div class="crustacean-info specific-allergy-div">
+                        <div class="allergy-info-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                        <div class="allergy-info-text"><p>Contains Crustacean</p></div>
+                    </div>
+                    <div class="peanuts-info specific-allergy-div">
+                        <div class="allergy-info-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                        <div class="allergy-info-text"><p>Contains Peanuts</p></div>
+                    </div>
+                    <div class="dairy-info specific-allergy-div">
+                        <div class="allergy-info-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                        <div class="allergy-info-text"><p>Contains Dairy</p></div>
+                    </div>
+                    <div class="soybean-info specific-allergy-div">
+                        <div class="allergy-info-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                        <div class="allergy-info-text"><p>Contains Soybean</p></div>
+                    </div>
+                </div>
+                <div class="allergies-column">
+                    <div class="nuts-info specific-allergy-div">
+                        <div class="allergy-info-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                        <div class="allergy-info-text"><p>Contains Nuts</p></div>
+                    </div>
+                    <div class="celery-info specific-allergy-div">
+                        <div class="allergy-info-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                        <div class="allergy-info-text"><p>Contains Celery</p></div>
+                    </div>
+                    <div class="mollusk-info specific-allergy-div">
+                        <div class="allergy-info-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                        <div class="allergy-info-text"><p>Contains Mollusk</p></div>
+                    </div>
+                    <div class="lupin-bean-info specific-allergy-div">
+                        <div class="allergy-info-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                        <div class="allergy-info-text"><p>Contains Lupin Beans</p></div>
+                    </div>
+                    <div class="sesame-seeds-info specific-allergy-div">
+                        <div class="allergy-info-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                        <div class="allergy-info-text"><p>Contains Sesame Seeds</p></div>
+                    </div>
+                    <div class="mustard-info specific-allergy-div">
+                        <div class="allergy-info-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                        <div class="allergy-info-text"><p>Contains Mustard</p></div>
+                    </div>
+                    <div class="sulphites-info specific-allergy-div">
+                        <div class="allergy-info-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                        <div class="allergy-info-text"><p>Contains Sulphites</p></div>
+                    </div>
+                </div>
+
+                <div class="allergies-display-small">
+                    <div class="gluten-info specific-allergy-div">
+                        <div class="allergy-info-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                        <div class="allergy-info-text"><p>Contains Gluten</p></div>
+                    </div>
+                    <div class="eggs-info specific-allergy-div">
+                        <div class="allergy-info-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                        <div class="allergy-info-text"><p>Contains Eggs</p></div>
+                    </div>
+                    <div class="fish-info specific-allergy-div">
+                        <div class="allergy-info-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                        <div class="allergy-info-text"><p>Contains Fish</p></div>
+                    </div>
+                    <div class="crustacean-info specific-allergy-div">
+                        <div class="allergy-info-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                        <div class="allergy-info-text"><p>Contains Crustacean</p></div>
+                    </div>
+                    <div class="peanuts-info specific-allergy-div">
+                        <div class="allergy-info-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                        <div class="allergy-info-text"><p>Contains Peanuts</p></div>
+                    </div>
+                    <div class="dairy-info specific-allergy-div">
+                        <div class="allergy-info-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                        <div class="allergy-info-text"><p>Contains Dairy</p></div>
+                    </div>
+                    <div class="soybean-info specific-allergy-div">
+                        <div class="allergy-info-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                        <div class="allergy-info-text"><p>Contains Soybean</p></div>
+                    </div>
+                    <div class="nuts-info specific-allergy-div">
+                        <div class="allergy-info-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                        <div class="allergy-info-text"><p>Contains Nuts</p></div>
+                    </div>
+                    <div class="celery-info specific-allergy-div">
+                        <div class="allergy-info-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                        <div class="allergy-info-text"><p>Contains Celery</p></div>
+                    </div>
+                    <div class="mollusk-info specific-allergy-div">
+                        <div class="allergy-info-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                        <div class="allergy-info-text"><p>Contains Mollusk</p></div>
+                    </div>
+                    <div class="lupin-bean-info specific-allergy-div">
+                        <div class="allergy-info-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                        <div class="allergy-info-text"><p>Contains Lupin Beans</p></div>
+                    </div>
+                    <div class="sesame-seeds-info specific-allergy-div">
+                        <div class="allergy-info-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                        <div class="allergy-info-text"><p>Contains Sesame Seeds</p></div>
+                    </div>
+                    <div class="mustard-info specific-allergy-div">
+                        <div class="allergy-info-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                        <div class="allergy-info-text"><p>Contains Mustard</p></div>
+                    </div>
+                    <div class="sulphites-info specific-allergy-div">
+                        <div class="allergy-info-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                        <div class="allergy-info-text"><p>Contains Sulphites</p></div>
+                    </div>
+                </div>
+
+                <div class="allergies-info-div-close"><img src="../Images/close.png" alt="close"></div>
             </div>
 
             <div class="product-categories">
@@ -216,6 +340,47 @@
                             <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
                             <button class="add-to-order">Add to order</button>
                         </div>
+                        <div class="product-description-div">
+                            <span class="product-description-img"><img src="../Images/burger.png" alt="product"></span>
+                            <div class="text-description">
+                                <span class="product-name">Product</span>
+                                <span class="product-description">This will be the description of the product.</span>
+                                <div class="product-allergies">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            </div>
+                            <div class="product-allergies-small">
+                                <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                            </div>
+                            <div class="allergies-info-button"><button>Allergies Info</button></div>
+                            <div class="product-description-close"><img src="../Images/close.png" alt="close"></div>
+                        </div>
                     </div>
                     <div class="product">
                         <div class="product-info">
@@ -227,6 +392,47 @@
                             <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
                             <button class="add-to-order">Add to order</button>
                         </div>
+                        <div class="product-description-div">
+                            <span class="product-description-img"><img src="../Images/burger.png" alt="product"></span>
+                            <div class="text-description">
+                                <span class="product-name">Product</span>
+                                <span class="product-description">This will be the description of the product.</span>
+                                <div class="product-allergies">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            </div>
+                            <div class="product-allergies-small">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            <div class="allergies-info-button"><button>Allergies Info</button></div>
+                                <div class="product-description-close"><img src="../Images/close.png" alt="close"></div>
+                        </div>
                     </div>
                     <div class="product">
                         <div class="product-info">
@@ -237,6 +443,47 @@
                         <div class="order-addition-info">
                             <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
                             <button class="add-to-order">Add to order</button>
+                        </div>
+                        <div class="product-description-div">
+                            <span class="product-description-img"><img src="../Images/burger.png" alt="product"></span>
+                            <div class="text-description">
+                                <span class="product-name">Product</span>
+                                <span class="product-description">This will be the description of the product.</span>
+                                <div class="product-allergies">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            </div>
+                            <div class="product-allergies-small">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            <div class="allergies-info-button"><button>Allergies Info</button></div>
+                                <div class="product-description-close"><img src="../Images/close.png" alt="close"></div>
                         </div>
                     </div>
                 </div>
@@ -251,6 +498,47 @@
                             <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
                             <button class="add-to-order">Add to order</button>
                         </div>
+                        <div class="product-description-div">
+                            <span class="product-description-img"><img src="../Images/burger.png" alt="product"></span>
+                            <div class="text-description">
+                                <span class="product-name">Product</span>
+                                <span class="product-description">This will be the description of the product.</span>
+                                <div class="product-allergies">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            </div>
+                            <div class="product-allergies-small">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            <div class="allergies-info-button"><button>Allergies Info</button></div>
+                                <div class="product-description-close"><img src="../Images/close.png" alt="close"></div>
+                        </div>
                     </div>
                     <div class="product">
                         <div class="product-info">
@@ -262,6 +550,47 @@
                             <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
                             <button class="add-to-order">Add to order</button>
                         </div>
+                        <div class="product-description-div">
+                            <span class="product-description-img"><img src="../Images/burger.png" alt="product"></span>
+                            <div class="text-description">
+                                <span class="product-name">Product</span>
+                                <span class="product-description">This will be the description of the product.</span>
+                                <div class="product-allergies">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            </div>
+                            <div class="product-allergies-small">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            <div class="allergies-info-button"><button>Allergies Info</button></div>
+                                <div class="product-description-close"><img src="../Images/close.png" alt="close"></div>
+                        </div>
                     </div>
                     <div class="product">
                         <div class="product-info">
@@ -272,6 +601,47 @@
                         <div class="order-addition-info">
                             <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
                             <button class="add-to-order">Add to order</button>
+                        </div>
+                        <div class="product-description-div">
+                            <span class="product-description-img"><img src="../Images/burger.png" alt="product"></span>
+                            <div class="text-description">
+                                <span class="product-name">Product</span>
+                                <span class="product-description">This will be the description of the product.</span>
+                                <div class="product-allergies">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            </div>
+                            <div class="product-allergies-small">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            <div class="allergies-info-button"><button>Allergies Info</button></div>
+                                <div class="product-description-close"><img src="../Images/close.png" alt="close"></div>
                         </div>
                     </div>
                 </div>
@@ -286,6 +656,47 @@
                             <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
                             <button class="add-to-order">Add to order</button>
                         </div>
+                        <div class="product-description-div">
+                            <span class="product-description-img"><img src="../Images/burger.png" alt="product"></span>
+                            <div class="text-description">
+                                <span class="product-name">Product</span>
+                                <span class="product-description">This will be the description of the product.</span>
+                                <div class="product-allergies">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            </div>
+                            <div class="product-allergies-small">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            <div class="allergies-info-button"><button>Allergies Info</button></div>
+                                <div class="product-description-close"><img src="../Images/close.png" alt="close"></div>
+                        </div>
                     </div>
                     <div class="product">
                         <div class="product-info">
@@ -296,6 +707,47 @@
                         <div class="order-addition-info">
                             <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
                             <button class="add-to-order">Add to order</button>
+                        </div>
+                        <div class="product-description-div">
+                            <span class="product-description-img"><img src="../Images/burger.png" alt="product"></span>
+                            <div class="text-description">
+                                <span class="product-name">Product</span>
+                                <span class="product-description">This will be the description of the product.</span>
+                                <div class="product-allergies">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            </div>
+                            <div class="product-allergies-small">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            <div class="allergies-info-button"><button>Allergies Info</button></div>
+                                <div class="product-description-close"><img src="../Images/close.png" alt="close"></div>
                         </div>
                     </div>
                 </div>
@@ -310,6 +762,47 @@
                             <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
                             <button class="add-to-order">Add to order</button>
                         </div>
+                        <div class="product-description-div">
+                            <span class="product-description-img"><img src="../Images/burger.png" alt="product"></span>
+                            <div class="text-description">
+                                <span class="product-name">Product</span>
+                                <span class="product-description">This will be the description of the product.</span>
+                                <div class="product-allergies">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            </div>
+                            <div class="product-allergies-small">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            <div class="allergies-info-button"><button>Allergies Info</button></div>
+                                <div class="product-description-close"><img src="../Images/close.png" alt="close"></div>
+                        </div>
                     </div>
                     <div class="product">
                         <div class="product-info">
@@ -321,6 +814,47 @@
                             <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
                             <button class="add-to-order">Add to order</button>
                         </div>
+                        <div class="product-description-div">
+                            <span class="product-description-img"><img src="../Images/burger.png" alt="product"></span>
+                            <div class="text-description">
+                                <span class="product-name">Product</span>
+                                <span class="product-description">This will be the description of the product.</span>
+                                <div class="product-allergies">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            </div>
+                            <div class="product-allergies-small">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            <div class="allergies-info-button"><button>Allergies Info</button></div>
+                                <div class="product-description-close"><img src="../Images/close.png" alt="close"></div>
+                        </div>
                     </div>
                     <div class="product">
                         <div class="product-info">
@@ -331,6 +865,47 @@
                         <div class="order-addition-info">
                             <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
                             <button class="add-to-order">Add to order</button>
+                        </div>
+                        <div class="product-description-div">
+                            <span class="product-description-img"><img src="../Images/burger.png" alt="product"></span>
+                            <div class="text-description">
+                                <span class="product-name">Product</span>
+                                <span class="product-description">This will be the description of the product.</span>
+                                <div class="product-allergies">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            </div>
+                            <div class="product-allergies-small">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            <div class="allergies-info-button"><button>Allergies Info</button></div>
+                                <div class="product-description-close"><img src="../Images/close.png" alt="close"></div>
                         </div>
                     </div>
                 </div>
@@ -345,49 +920,46 @@
                             <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
                             <button class="add-to-order">Add to order</button>
                         </div>
-                    </div>
-                    <div class="product">
-                        <div class="product-info">
-                            <span class="product-name">Product</span>
-                            <span class="product-img"><img src="../Images/burger.png" alt="product"></span>
-                            <span class="product-price">7.99€</span>
-                        </div>
-                        <div class="order-addition-info">
-                            <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
-                            <button class="add-to-order">Add to order</button>
-                        </div>
-                    </div>
-                    <div class="product">
-                        <div class="product-info">
-                            <span class="product-name">Product</span>
-                            <span class="product-img"><img src="../Images/burger.png" alt="product"></span>
-                            <span class="product-price">7.99€</span>
-                        </div>
-                        <div class="order-addition-info">
-                            <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
-                            <button class="add-to-order">Add to order</button>
-                        </div>
-                    </div>
-                    <div class="product">
-                        <div class="product-info">
-                            <span class="product-name">Product</span>
-                            <span class="product-img"><img src="../Images/burger.png" alt="product"></span>
-                            <span class="product-price">7.99€</span>
-                        </div>
-                        <div class="order-addition-info">
-                            <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
-                            <button class="add-to-order">Add to order</button>
-                        </div>
-                    </div>
-                    <div class="product">
-                        <div class="product-info">
-                            <span class="product-name">Product</span>
-                            <span class="product-img"><img src="../Images/burger.png" alt="product"></span>
-                            <span class="product-price">7.99€</span>
-                        </div>
-                        <div class="order-addition-info">
-                            <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
-                            <button class="add-to-order">Add to order</button>
+                        <div class="product-description-div">
+                            <span class="product-description-img"><img src="../Images/burger.png" alt="product"></span>
+                            <div class="text-description">
+                                <span class="product-name">Product</span>
+                                <span class="product-description">This will be the description of the product.</span>
+                                <div class="product-allergies">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            </div>
+                            <div class="product-allergies-small">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            <div class="allergies-info-button"><button>Allergies Info</button></div>
+                                <div class="product-description-close"><img src="../Images/close.png" alt="close"></div>
                         </div>
                     </div>
                     <div class="product">
@@ -399,6 +971,255 @@
                         <div class="order-addition-info">
                             <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
                             <button class="add-to-order">Add to order</button>
+                        </div>
+                        <div class="product-description-div">
+                            <span class="product-description-img"><img src="../Images/burger.png" alt="product"></span>
+                            <div class="text-description">
+                                <span class="product-name">Product</span>
+                                <span class="product-description">This will be the description of the product.</span>
+                                <div class="product-allergies">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            </div>
+                            <div class="product-allergies-small">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            <div class="allergies-info-button"><button>Allergies Info</button></div>
+                                <div class="product-description-close"><img src="../Images/close.png" alt="close"></div>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product-info">
+                            <span class="product-name">Product</span>
+                            <span class="product-img"><img src="../Images/burger.png" alt="product"></span>
+                            <span class="product-price">7.99€</span>
+                        </div>
+                        <div class="order-addition-info">
+                            <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
+                            <button class="add-to-order">Add to order</button>
+                        </div>
+                        <div class="product-description-div">
+                            <span class="product-description-img"><img src="../Images/burger.png" alt="product"></span>
+                            <div class="text-description">
+                                <span class="product-name">Product</span>
+                                <span class="product-description">This will be the description of the product.</span>
+                                <div class="product-allergies">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            </div>
+                            <div class="product-allergies-small">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            <div class="allergies-info-button"><button>Allergies Info</button></div>
+                                <div class="product-description-close"><img src="../Images/close.png" alt="close"></div>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product-info">
+                            <span class="product-name">Product</span>
+                            <span class="product-img"><img src="../Images/burger.png" alt="product"></span>
+                            <span class="product-price">7.99€</span>
+                        </div>
+                        <div class="order-addition-info">
+                            <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
+                            <button class="add-to-order">Add to order</button>
+                        </div>
+                        <div class="product-description-div">
+                            <span class="product-description-img"><img src="../Images/burger.png" alt="product"></span>
+                            <div class="text-description">
+                                <span class="product-name">Product</span>
+                                <span class="product-description">This will be the description of the product.</span>
+                                <div class="product-allergies">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            </div>
+                            <div class="product-allergies-small">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            <div class="allergies-info-button"><button>Allergies Info</button></div>
+                                <div class="product-description-close"><img src="../Images/close.png" alt="close"></div>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product-info">
+                            <span class="product-name">Product</span>
+                            <span class="product-img"><img src="../Images/burger.png" alt="product"></span>
+                            <span class="product-price">7.99€</span>
+                        </div>
+                        <div class="order-addition-info">
+                            <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
+                            <button class="add-to-order">Add to order</button>
+                        </div>
+                        <div class="product-description-div">
+                            <span class="product-description-img"><img src="../Images/burger.png" alt="product"></span>
+                            <div class="text-description">
+                                <span class="product-name">Product</span>
+                                <span class="product-description">This will be the description of the product.</span>
+                                <div class="product-allergies">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            </div>
+                            <div class="product-allergies-small">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            <div class="allergies-info-button"><button>Allergies Info</button></div>
+                                <div class="product-description-close"><img src="../Images/close.png" alt="close"></div>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product-info">
+                            <span class="product-name">Product</span>
+                            <span class="product-img"><img src="../Images/burger.png" alt="product"></span>
+                            <span class="product-price">7.99€</span>
+                        </div>
+                        <div class="order-addition-info">
+                            <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
+                            <button class="add-to-order">Add to order</button>
+                        </div>
+                        <div class="product-description-div">
+                            <span class="product-description-img"><img src="../Images/burger.png" alt="product"></span>
+                            <div class="text-description">
+                                <span class="product-name">Product</span>
+                                <span class="product-description">This will be the description of the product.</span>
+                                <div class="product-allergies">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            </div>
+                            <div class="product-allergies-small">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            <div class="allergies-info-button"><button>Allergies Info</button></div>
+                                <div class="product-description-close"><img src="../Images/close.png" alt="close"></div>
                         </div>
                     </div>
                 </div>
@@ -413,6 +1234,47 @@
                             <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
                             <button class="add-to-order">Add to order</button>
                         </div>
+                        <div class="product-description-div">
+                            <span class="product-description-img"><img src="../Images/burger.png" alt="product"></span>
+                            <div class="text-description">
+                                <span class="product-name">Product</span>
+                                <span class="product-description">This will be the description of the product.</span>
+                                <div class="product-allergies">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            </div>
+                            <div class="product-allergies-small">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            <div class="allergies-info-button"><button>Allergies Info</button></div>
+                                <div class="product-description-close"><img src="../Images/close.png" alt="close"></div>
+                        </div>
                     </div>
                     <div class="product">
                         <div class="product-info">
@@ -424,6 +1286,47 @@
                             <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
                             <button class="add-to-order">Add to order</button>
                         </div>
+                        <div class="product-description-div">
+                            <span class="product-description-img"><img src="../Images/burger.png" alt="product"></span>
+                            <div class="text-description">
+                                <span class="product-name">Product</span>
+                                <span class="product-description">This will be the description of the product.</span>
+                                <div class="product-allergies">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            </div>
+                            <div class="product-allergies-small">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            <div class="allergies-info-button"><button>Allergies Info</button></div>
+                                <div class="product-description-close"><img src="../Images/close.png" alt="close"></div>
+                        </div>
                     </div>
                     <div class="product">
                         <div class="product-info">
@@ -434,6 +1337,47 @@
                         <div class="order-addition-info">
                             <input type="number" name="product-quantity" class="product-quantity" value="1" min="1" min="1">
                             <button class="add-to-order">Add to order</button>
+                        </div>
+                        <div class="product-description-div">
+                            <span class="product-description-img"><img src="../Images/burger.png" alt="product"></span>
+                            <div class="text-description">
+                                <span class="product-name">Product</span>
+                                <span class="product-description">This will be the description of the product.</span>
+                                <div class="product-allergies">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            </div>
+                            <div class="product-allergies-small">
+                                    <div class="gluten allergy-icon"><img src="../Images/Allergies/gluten.png" alt="gluten"></div>
+                                    <div class="eggs allergy-icon"><img src="../Images/Allergies/eggs.png" alt="eggs"></div>
+                                    <div class="fish allergy-icon"><img src="../Images/Allergies/fish.png" alt="fish"></div>
+                                    <div class="crustacean allergy-icon"><img src="../Images/Allergies/crustacean.png" alt="crustacean"></div>
+                                    <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
+                                    <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
+                                    <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
+                                    <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
+                                    <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
+                                    <div class="sesame-seeds allergy-icon"><img src="../Images/Allergies/sesame-seeds.png" alt="sesame-seeds"></div>
+                                    <div class="mustard allergy-icon"><img src="../Images/Allergies/mustard.png" alt="mustard"></div> <!-- not found -->
+                                    <div class="sulphites allergy-icon"><img src="../Images/Allergies/sulphites.png" alt="sulphites"></div> <!-- not found -->
+                                </div>
+                            <div class="allergies-info-button"><button>Allergies Info</button></div>
+                                <div class="product-description-close"><img src="../Images/close.png" alt="close"></div>
                         </div>
                     </div>
                 </div>

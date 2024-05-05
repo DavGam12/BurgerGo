@@ -21,13 +21,14 @@
     bottom: 50%;
     left: 75%;
 }
-
+.main{background: rgb(0,0,0);}
 .main .info{
     width: 100%;
     padding: 1% 0%;
     display: flex;
     justify-content: center;
     overflow: hidden;
+    color: rgb(255,255,255);
 }
 .schedule{
     width: 45%;
@@ -41,21 +42,22 @@
     font-size: 35px;
     padding: 1% 0%;
     background: transparent;
-    color: black;
-    border: solid 3px black;
+    color: white;
+    border: solid 3px white;
     display: flex;
     justify-content: center;
 }
 .schedule img{
     width: 35px;
     padding: 0% 3%;
+    filter: invert(100%);
 }
 .schedule-info{width: 100%;}
 .schedule p{
     font-size: 35px;
     width: 100%;
     padding: 1.5% 0%;
-    border: solid 1px black;
+    border: solid 1px white;
     text-align: center;
 }
 
@@ -161,6 +163,7 @@
         flex-direction: column;
         align-items: center;
         width: 80%;
+        padding: 3% 0%;
     }
     .main .schedule-info p{
         display: flex;

@@ -42,10 +42,12 @@ let loginRequiredCancelButton
 let loginRequiredLoginButton
 let bookButton
 let bookAccept
+let orderButton
 // Others
 let passwordInput
 let profileMenuParagraph
 let bookMenuParagraph
+let orderMenuParagraph
 
 
 document.addEventListener("DOMContentLoaded", (event) => {
@@ -80,10 +82,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
     loginRequiredLoginButton = document.getElementById("login-required-login")
     bookButton = document.getElementsByClassName("book")[0].getElementsByTagName("button")[0]
     bookAccept = document.getElementById("book-accept")
+    orderButton = document.getElementsByClassName("make-order")[0]
 
     passwordInput = document.getElementsByClassName("password-field")
     profileMenuParagraph = document.getElementsByClassName("other-categories")[0].getElementsByTagName("p")[0]
     bookMenuParagraph = document.getElementsByClassName("other-categories")[0].getElementsByTagName("p")[1]
+    orderMenuParagraph = document.getElementsByClassName("other-categories")[0].getElementsByTagName("p")[2]
 
 
     menuButton.addEventListener("click",()=>{
@@ -121,6 +125,38 @@ document.addEventListener("DOMContentLoaded", (event) => {
         else {
             profileMenuParagraph.getElementsByTagName("a")[0].click()
         }
+    })
+
+    orderButton.addEventListener("click",()=>{
+        if (userLogged != 'true')
+            {
+                loginRequiredDiv.style.display = "flex"
+                document.body.style.overflow = "hidden"
+                document.body.style.pointerEvents = "none"
+                SpecificEnable(loginRequiredDiv.className)
+                ActivateOpacity(loginRequiredDiv.className, 0.5)
+                menuDiv.style.opacity = 0.9
+            }
+            else 
+            {
+                orderButton.getElementsByTagName("a")[0].click()
+            }
+    })
+
+    orderMenuParagraph.addEventListener("click",()=>{
+        if (userLogged != 'true')
+            {
+                loginRequiredDiv.style.display = "flex"
+                document.body.style.overflow = "hidden"
+                document.body.style.pointerEvents = "none"
+                SpecificEnable(loginRequiredDiv.className)
+                ActivateOpacity(loginRequiredDiv.className, 0.5)
+                menuDiv.style.opacity = 0.9
+            }
+            else 
+            {
+                orderMenuParagraph.getElementsByTagName("a")[0].click()
+            }
     })
 
     loginRequiredSignupButton.addEventListener("click",()=>{

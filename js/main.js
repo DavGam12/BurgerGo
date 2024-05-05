@@ -1,6 +1,5 @@
 let currentDay = new Date().getDay()
 let scheduleParagraphs
-let currentSchedule
 
 
 document.addEventListener("DOMContentLoaded", (event) => {
@@ -8,38 +7,37 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     
     scheduleParagraphs = document.getElementsByClassName("schedule")[0].getElementsByTagName("p")
-    currentSchedule = document.getElementById("current-schedule")
 
     
     
     switch (currentDay) { // to show the current schedule
         case 1:
-            currentSchedule.innerHTML = "Monday 11:00-23:00"
-            scheduleParagraphs[1].style.background = "rgb(240,240,240)"
+            scheduleParagraphs[1].style.background = "rgb(255,255,255)"
+            scheduleParagraphs[1].style.color = "black"
             break
         case 2:
-            currentSchedule.innerHTML = "Tuesday 11:00-23:00"
-            scheduleParagraphs[2].style.background = "rgb(240,240,240)"
+            scheduleParagraphs[2].style.background = "rgb(255,255,255)"
+            scheduleParagraphs[2].style.color = "black"
             break
         case 3:
-            currentSchedule.innerHTML = "Wednesday 11:00-23:00"
-            scheduleParagraphs[3].style.background = "rgb(240,240,240)"
+            scheduleParagraphs[3].style.background = "rgb(255,255,255)"
+            scheduleParagraphs[3].style.color = "black"
             break
         case 4:
-            currentSchedule.innerHTML = "Thursday 11:00-23:00"
-            scheduleParagraphs[4].style.background = "rgb(240,240,240)"
+            scheduleParagraphs[4].style.background = "rgb(255,255,255)"
+            scheduleParagraphs[4].style.color = "black"
             break
         case 5:
-            currentSchedule.innerHTML = "Friday 11:00-00:00"
-            scheduleParagraphs[5].style.background = "rgb(240,240,240)"
+            scheduleParagraphs[5].style.background = "rgb(255,255,255)"
+            scheduleParagraphs[5].style.color = "black"
             break
         case 6:
-            currentSchedule.innerHTML = "Saturday 11:00-00:00"
-            scheduleParagraphs[6].style.background = "rgb(240,240,240)"
+            scheduleParagraphs[6].style.background = "rgb(255,255,255)"
+            scheduleParagraphs[6].style.color = "black"
             break
         default:
-            currentSchedule.innerHTML = "Sunday 11:00-23:00"
-            scheduleParagraphs[0].style.background = "rgb(240,240,240)"
+            scheduleParagraphs[0].style.background = "rgb(255,255,255)"
+            scheduleParagraphs[0].style.color = "black"
             break;
     }
 })

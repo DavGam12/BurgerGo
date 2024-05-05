@@ -68,8 +68,8 @@
     align-items: center;
 }
 .current-product-quantity-info{padding: 0% 3%;}
-.current-product-quantity-more{width: 20px;}
-.current-product-quantity-less{width: 22px;}
+.current-product-quantity-more{width: 20px; cursor: pointer;}
+.current-product-quantity-less{width: 22px; cursor: pointer;}
 .current-product-price{
     padding-top: 3%;
     padding-left: 13%;
@@ -157,11 +157,11 @@ hr{
     justify-content: center;
     align-items: center;
 }
-.product-name{
+.product-info .product-name{
     font-size: 24px;
     padding-bottom: 2%;
 }
-.product-img{padding: 3% 0%;}
+.product-info .product-img{padding: 3% 0%; cursor: pointer;}
 .product-price{font-size: 20px;}
 .order-addition-info{
     display: flex;
@@ -184,9 +184,113 @@ hr{
     background: rgb(200,200,200);
     font-weight: bold;
 }
+.product-description-div{
+    width: 50%;
+    display: none;
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    box-shadow: 2px 2px 2px 3px grey;
+    z-index: 10;
+    padding: 1%;
+    padding-bottom: 3%;
+    background: rgb(255,255,255);
+}
+.product-description-div .text-description{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.product-description-img{
+    width: 80%;
+}
+.product-description-div .product-name{
+    font-size: 40px;
+}
+.product-description-div .product-description{
+    padding-top: 10%;
+    font-size: large;
+}
+.product-description-close{
+    width: 20px;
+    cursor: pointer;
+}
+.product-allergies{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+}
+.allergy-icon{
+    width: 25px;
+    padding: 0% 2%;
+}
+.product-allergies-small{display: none; width: 100%;}
+.allergies-info-button{
+    position: absolute;
+    bottom: 3%;
+    left: 77%;
+    border: solid 2px black;
+    padding: 0.2% 1.5%;
+    border-radius: 100px;
+}
+.allergies-info-button:hover{
+    font-weight: bold;
+    background: rgb(200,200,200);
+}
+.allergies-info-div{
+    display: none;
+    flex-direction: row;
+    position: fixed;
+    justify-content: space-between;
+    z-index: 20;
+    top: 45%;
+    transform: translateY(-50%);
+    padding: 1%;
+    box-shadow: 2px 2px 2px 2px rgb(200,200,200);
+    background: rgb(255,255,255);
+    width: 50%;
+}
+.allergies-column{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.specific-allergy-div{
+    padding: 1% 0%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+.allergy-info-icon{
+    width: 50px;
+}
+.allergy-info-text{
+    width: 50%;
+}
+.allergies-info-div-close{
+    width: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 2%;
+    right: 3%;
+}
+.allergies-display-small{display: none;}
 
 @media (width<1700px) {
     .current-product-price{padding-left: 0;}
+    .product-description-div{width: 60%;}
+}
+
+@media (width<1400px) {
+    .product-description-div{width: 80%;}
+    .allergies-info-div{width: 60%;}
 }
 
 @media (width<1202px) {
@@ -198,14 +302,32 @@ hr{
     .price-position{padding: 0;}
     .product-info{padding-bottom: 10%;}
     .add-to-order{width: 70%;}
+    .allergies-info-div{width: 70%;}
 }
 
-@media (width<1000px) {.current-order{width: 70%;}}
+@media (width<1000px) {
+    .current-order{width: 70%;}
+    .product-description-div{height: 50%;}
+    .product-description-img{
+        position: relative;
+        top: 15%;
+    }
+}
+
+@media (width<900px) {
+    .allergies-info-button{
+        bottom: 0;
+        left: 73%;
+    }
+    .allergies-info-div{width: 80%;}
+}
 
 @media (width<840px){
     .product{width: 25%;}
     .current-order{width: 90%;}
     .price-position{width: 15%;}
+    .allergies-info-div{width: 90%;}
+    .allergy-info-icon{width: 35px;}
 }
 
 @media (width<680px) {
@@ -233,6 +355,46 @@ hr{
     .product{width: 30%;}
     .products-position{width: 100%;}
     .product-quantity{height: 80%;}
+    .product-description-div{
+        height: 40%;
+        width: 90%;
+        padding-bottom: 6%;
+    }
+    .product-allergies{display: none;}
+    .product-allergies-small{
+        display: flex;
+        position: absolute;
+        bottom: 7%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .allergy-icon{
+        width: 40px;
+        padding: 0% 1%;
+    }
+    .product-description-div .product-name{font-size: x-large;}
+    .product-description-div .product-description{font-size: medium;}
+    .allergies-info-button{
+        bottom: 0.5%; 
+        left: 50%; 
+        transform: translateX(-50%);
+    }
+    .allergies-info-div{
+        height: 70%;
+        top: 50%;
+    }
+    .allergies-column{display: none;}
+    .allergies-display-small{
+        display: flex;
+        flex-wrap: wrap;
+        font-size: small;
+    }
+    .specific-allergy-div{width: 45%;}
+}
+
+@media (width<600px) {
+    .allergy-icon{width: 30px;}
+    .product-description-div{height: 35%;}
 }
 
 @media (width<500px) {
@@ -265,10 +427,21 @@ hr{
     }
     .add-to-order{padding: 3%;}
     .current-product{width: 45%;}
+    .product-allergies-small{flex-wrap: wrap;}
+    .allergy-icon{padding: 0% 2%;}
+    .product-description-div{height: 35%;}
+    .allergy-info-icon{width: 25px;}
 }
 
 @media (width<400px) {
     .buy-position{width: 40%;}
     .product{width: 40%; padding: 3% 0%;}
     .current-product{width: 50%;}
+    .product-description-div{height: 40%;}
+    .product-allergies-small{
+        width: 80%;
+        bottom: 20%;
+    }
+    .allergy-icon{width: 25px;}
+    .allergies-info-button{bottom: 5%;}
 }
