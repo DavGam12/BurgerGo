@@ -16,7 +16,6 @@
         <div class="logo"><a href="main.html"><img src="../Images/logo.png" alt="logo"></a></div>
         <div class="menu"><button><img src="../Images/menu.png" alt="menu"></button></div>
         <div class="make-order"><button>ORDER</button><a href="order.html"></a></div>
-        <div class="book"><button>BOOK</button></div>
         <div class="user">
             <img src="../Images/user.png" alt="user">
             <a href="profile.html"></a>
@@ -49,6 +48,7 @@
         </div>
         <div class="signup-div">
             <h6>Sign Up</h6>
+            <p class="data-usage-button">Data Usage</p>
             <form action="" target="_self" id="signup-form">
                 <div class="form">
                     <div class="signup-row">
@@ -68,7 +68,7 @@
                     <div class="signup-row">
                         <div class="signup-field">
                             <label for="signup-phonenumber">Phone Number: </label>
-                            <input type="tel" id="signup-phonenumber" required placeholder="Phone Number">
+                            <input type="text" id="signup-phonenumber" required placeholder="Phone Number">
                         </div>
                         <div class="signup-field">
                             <label for="signup-password">Password: </label>
@@ -94,8 +94,14 @@
                     <button id="signup-login" type="button">Log In</button>
                 </div>
             </form>
-
             <div id="signup-cancel"><img src="../Images/close.png" alt="close"></div>
+        </div>
+        <div class="data-usage-div">
+            <h6>How we use your data</h6>
+            <p>
+                By completing your registration, you acknowledge and agree that all information provided will be treated with the utmost confidentiality. We are committed to safeguarding your data and will not disclose it to any third parties without your explicit consent.
+            </p>
+            <div class="data-usage-close"><img src="../Images/close.png" alt="close"></div>
         </div>
         <div class="login-required-div">
             <h6>Log In Required</h6>
@@ -124,52 +130,9 @@
                 </div>
                 <div class="other-categories">
                     <p>PROFILE<a href="profile.html"></a></p>
-                    <p>BOOK</p>
                     <p>ORDER<a href="order.html"></a></p>
                 </div>
             </div>
-        </div>
-        <div class="book-div">
-            <h6>Book</h6>
-            <select name="book-restaurant-address" id="book-restaurant-address">
-                <option value="default" selected hidden>Restaurant Address</option>
-                <option value="1">Navarra Avenue</option>
-                <option value="2">Don Jaime Avenue</option>
-                <option value="3">Catalunya Avenue</option>
-            </select>
-            <div class="book-info">
-                <label for="book-date"></label>
-                <input type="date" name="book-date" id="book-date">
-                <select name="book-hour" id="book-hour">
-                    <option value="default" selected hidden>Hour</option>
-                    <option value="1">11:30</option>
-                    <option value="2">12:30</option>
-                    <option value="3">13:30</option>
-                    <option value="4">14:30</option>
-                    <option value="5">15:30</option>
-                    <option value="6">16:30</option>
-                    <option value="8">17:30</option>
-                    <option value="9">18:30</option>
-                    <option value="10">19:30</option>
-                    <option value="11">20:30</option>
-                    <option value="12">21:30</option>
-                </select>
-                <select name="book-people-amount" id="book-people-amount">
-                    <option value="default" selected hidden>People</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                </select>
-            </div>
-            <div class="book-close"><img src="../Images/close.png" alt="close"></div>
-            <div id="book-accept"><button>Make the reservation</button></div>
         </div>
         
         <div class="order-div">
@@ -219,7 +182,7 @@
                 </div>
                 <div class="allergies-column">
                     <div class="nuts-info specific-allergy-div">
-                        <div class="allergy-info-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                        <div class="allergy-info-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                         <div class="allergy-info-text"><p>Contains Nuts</p></div>
                     </div>
                     <div class="celery-info specific-allergy-div">
@@ -278,7 +241,7 @@
                         <div class="allergy-info-text"><p>Contains Soybean</p></div>
                     </div>
                     <div class="nuts-info specific-allergy-div">
-                        <div class="allergy-info-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                        <div class="allergy-info-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                         <div class="allergy-info-text"><p>Contains Nuts</p></div>
                     </div>
                     <div class="celery-info specific-allergy-div">
@@ -308,6 +271,39 @@
                 </div>
 
                 <div class="allergies-info-div-close"><img src="../Images/close.png" alt="close"></div>
+            </div>
+
+            <div class="buy-div">
+                <form action="../html/profile.html">
+                    <h6>Buy</h6>
+                    <div class="form-display">
+                        <div class="card-input">
+                            <label for="card-number">Number: </label>
+                            <input type="text" id="card-number" required>
+                        </div>
+                        <div class="card-input">
+                            <label for="card-expiration-date">Expiration Date: </label>
+                            <input type="text" id="card-expiration-date" required>
+                        </div>
+                        
+                        <div class="card-input">
+                            <label for="card-cvc">CVC: </label>
+                            <input type="text" id="card-cvc" required>
+                        </div>
+                        <div class="card-input">
+                            <label for="card-owner">Owner: </label>
+                            <input type="text" id="card-owner" required>
+                        </div>
+                        <div class="card-input">
+                            <label for="card-address">Address: </label>
+                            <input type="text" id="card-address" required>
+                        </div>
+                    </div>
+                    <div class="buy-options">
+                        <button class="card-cancel" type="button">Cancel</button>
+                        <button class="card-accept" type="submit">Accept</button>
+                    </div>
+                </form>
             </div>
 
             <div class="product-categories">
@@ -353,7 +349,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -370,7 +366,7 @@
                                 <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                 <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                 <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                 <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                 <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                 <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -405,7 +401,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -422,7 +418,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -457,7 +453,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -474,7 +470,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -511,7 +507,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -528,7 +524,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -563,7 +559,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -580,7 +576,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -615,7 +611,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -632,7 +628,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -669,7 +665,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -686,7 +682,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -721,7 +717,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -738,7 +734,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -775,7 +771,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -792,7 +788,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -827,7 +823,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -844,7 +840,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -879,7 +875,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -896,7 +892,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -933,7 +929,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -950,7 +946,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -985,7 +981,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -1002,7 +998,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -1037,7 +1033,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -1054,7 +1050,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -1089,7 +1085,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -1106,7 +1102,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -1141,7 +1137,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -1158,7 +1154,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -1193,7 +1189,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -1210,7 +1206,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -1247,7 +1243,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -1264,7 +1260,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -1299,7 +1295,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -1316,7 +1312,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -1351,7 +1347,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->
@@ -1368,7 +1364,7 @@
                                     <div class="peanuts allergy-icon"><img src="../Images/Allergies/peanuts.png" alt="peanuts"></div> <!-- not found -->
                                     <div class="dairy allergy-icon"><img src="../Images/Allergies/dairy.png" alt="dairy"></div>
                                     <div class="soybean allergy-icon"><img src="../Images/Allergies/soybean.png" alt="soybean"></div>
-                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts" alt="nuts"></div> <!-- not found -->
+                                    <div class="nuts allergy-icon"><img src="../Images/Allergies/nuts.png" alt="nuts"></div> <!-- not found -->
                                     <div class="celery allergy-icon"><img src="../Images/Allergies/celery.png" alt="celery"></div>
                                     <div class="mollusk allergy-icon"><img src="../Images/Allergies/mollusk.png" alt="mollusk"></div>
                                     <div class="lupin-beans allergy-icon"><img src="../Images/Allergies/lupin-beans.png" alt="lupin-beans"></div> <!-- not found -->

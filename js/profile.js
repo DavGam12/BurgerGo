@@ -14,6 +14,22 @@ let logoutCancelButton
 // Texts
 let userFirstNameText
 
+/*
+const PERMISSION = [
+    admin = "admin",
+    moderator = "moderator",
+    byDefault = "none"
+]
+
+let user = 
+{
+    email: null,
+    password: null,
+    permission: PERMISSION.byDefault,
+    userLogged: userLogged
+}
+*/
+
 document.addEventListener("DOMContentLoaded", (event) => {
     console.log("DOM fully loaded and parsed")
 
@@ -86,51 +102,53 @@ document.addEventListener("DOMContentLoaded", (event) => {
         document.body.style.pointerEvents = "all"
         DeactivateOpacity()
     })
+
+
+
 })
 
 
 function FillUserFirstName(name){
-    for (let e in userFirstNameText){
-        userFirstNameText[e].innerHTML = name
-    }
+    Array.from(userFirstNameText).forEach(e => {
+        e.textContent = name
+    })
 }
 function HrWidth(e){e.style.animation = "hrWidth 1.5s"; e.style.visibility = "visible"; e.style.width = "60%";}
 function DeleteAnimation(e){e.style.animation = "none";}
 
 SpecificEnable = (className) => {
-    for(let be in document.body.children){
-        if(document.body.children[be].className == "main")
+    Array.from(document.body.children).forEach(e => {
+        if(e.className == "main")
         {
-            for(let e in document.body.children[be].children)
-            {
-                if (document.body.children[be].children[e].className == className) {
-
-                    document.body.children[be].children[e].style.pointerEvents = "all"
+            Array.from(e.children).forEach(ea => {
+                if (ea.className == className) {
+                    ea.style.pointerEvents = "all"
                 }
-            }
+            })
         }
-    }
+    })
 }
 
 ActivateOpacity = (className) => {
-    for(let be = 0; be<document.body.children.length; be++){
-        if (document.body.children[be].className == "main") {
-            for (let e = 0; e<document.body.children[be].children.length; e++) {
-                if (document.body.children[be].children[e].className != className){
-                    document.body.children[be].children[e].style.opacity = "0.5"
+    Array.from(document.body.children).forEach(e => {
+        if (e.className == "main") {
+            Array.from(e.children).forEach(ea => {
+                if (ea.className != className){
+                    ea.style.opacity = "0.5"
                 }
-            }
-        } else {document.body.children[be].style.opacity = "0.5"}
-    }
+            })
+        } else {e.style.opacity = "0.5"}
+    })
 }
 
 DeactivateOpacity = () => {
-    for(let be = 0; be<document.body.children.length; be++){
+    Array.from(document.body.children).forEach(e => {
         if (document.body.children[be].className == "main") {
-            for (let e = 0; e<document.body.children[be].children.length; e++) {
-                document.body.children[be].children[e].style.opacity = "1"
-            }
+            Array.from(e.children).forEach(ea => {
+                ea.style.opacity = "1"
+            })
         }
-        document.body.children[be].style.opacity = "1"
-    }
+        e.style.opacity = "1"
+    })
 }
+

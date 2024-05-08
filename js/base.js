@@ -20,7 +20,7 @@ let loginDiv
 let signupDiv
 let logoutDiv
 let loginRequiredDiv
-let bookDiv
+let dataUsageDiv
 // Icons
 let closeMenu
 let userIcon
@@ -28,7 +28,7 @@ let closeLogin
 let closeSignup
 let viewIcon
 let hideIcon
-let closeBook
+let closeDataUsage
 // Buttons
 let menuButton
 let loginButton
@@ -40,13 +40,11 @@ let signupLoginButton
 let loginRequiredSignupButton
 let loginRequiredCancelButton
 let loginRequiredLoginButton
-let bookButton
-let bookAccept
 let orderButton
+let dataUsageButton
 // Others
 let passwordInput
 let profileMenuParagraph
-let bookMenuParagraph
 let orderMenuParagraph
 
 
@@ -60,17 +58,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
     signupDiv = document.getElementsByClassName("signup-div")[0]
     logoutDiv = document.getElementsByClassName("logout-div")[0]
     loginRequiredDiv = document.getElementsByClassName("login-required-div")[0]
-    bookDiv = document.getElementsByClassName("book-div")[0]
+    dataUsageDiv = document.getElementsByClassName("data-usage-div")[0]
 
-    menuButton = document.getElementsByClassName("menu")[0].getElementsByTagName("button")[0]
     closeMenu = document.getElementsByClassName("close-menu")[0].getElementsByTagName("button")[0]
+    userIcon = document.getElementsByClassName("header")[0].getElementsByClassName("user")[0]
     closeLogin = document.getElementById("login-cancel")
     closeSignup = document.getElementById("signup-cancel")
     viewIcon = document.getElementsByClassName("view")
     hideIcon = document.getElementsByClassName("hide")
-    closeBook = document.getElementsByClassName("book-close")[0]
+    closeDataUsage = document.getElementsByClassName("data-usage-close")[0]
     
-    userIcon = document.getElementsByClassName("header")[0].getElementsByClassName("user")[0]
+    menuButton = document.getElementsByClassName("menu")[0].getElementsByTagName("button")[0]
     loginButton = document.getElementById("login")
     loginAcceptButton = document.getElementById("login-accept")
     loginSignupButton = document.getElementById("login-signup")
@@ -80,14 +78,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
     loginRequiredSignupButton = document.getElementById("login-required-signup")
     loginRequiredCancelButton = document.getElementById("login-required-cancel")
     loginRequiredLoginButton = document.getElementById("login-required-login")
-    bookButton = document.getElementsByClassName("book")[0].getElementsByTagName("button")[0]
-    bookAccept = document.getElementById("book-accept")
     orderButton = document.getElementsByClassName("make-order")[0]
+    dataUsageButton = document.getElementsByClassName("data-usage-button")[0]
 
     passwordInput = document.getElementsByClassName("password-field")
     profileMenuParagraph = document.getElementsByClassName("other-categories")[0].getElementsByTagName("p")[0]
-    bookMenuParagraph = document.getElementsByClassName("other-categories")[0].getElementsByTagName("p")[1]
-    orderMenuParagraph = document.getElementsByClassName("other-categories")[0].getElementsByTagName("p")[2]
+    orderMenuParagraph = document.getElementsByClassName("other-categories")[0].getElementsByTagName("p")[1]
 
 
     menuButton.addEventListener("click",()=>{
@@ -306,65 +302,55 @@ document.addEventListener("DOMContentLoaded", (event) => {
         passwordInput[2].type = "text"
     })
 
-    bookButton.addEventListener("click",()=>{
-        bookDiv.style.display = "flex"
-        document.body.style.pointerEvents = "none"
+
+    dataUsageButton.addEventListener("click", () => {
+        dataUsageDiv.style.display = "flex"
+        closeSignup.click()
+        signupDiv.style.display = "flex"
         document.body.style.overflow = "hidden"
-        SpecificEnable(bookDiv.className)
-        ActivateOpacity(bookDiv.className, 0.5)
+        SpecificEnable(dataUsageDiv.className)
+        ActivateOpacity(dataUsageDiv.className, 0.8)
     })
-    bookMenuParagraph.addEventListener("click",()=>{
-        closeMenu.click()
-        bookButton.click()
-    })
-    closeBook.addEventListener("click",()=>{
-        bookDiv.style.display = "none"
-        document.body.style.pointerEvents = "all"
-        document.body.style.overflow = "visible"
-        DeactivateOpacity()
-    })
-    bookAccept.addEventListener("click",()=>{
-        bookDiv.style.display = "none"
-        document.body.style.pointerEvents = "all"
-        document.body.style.overflow = "visible"
-        DeactivateOpacity()
+    closeDataUsage.addEventListener("click", () => {
+        dataUsageDiv.style.display = "none"
+        signupDiv.style.opacity = 1
+        signupButton.click()
     })
 })
 
 
 SpecificEnable = (className) => {
-    for(let be in document.body.children){
-        if(document.body.children[be].className == "main")
+    Array.from(document.body.children).forEach(e => {
+        if(e.className == "main")
         {
-            for(let e in document.body.children[be].children)
-            {
-                if (document.body.children[be].children[e].className == className) {
-                    document.body.children[be].children[e].style.pointerEvents = "all"
+            Array.from(e.children).forEach(ea => {
+                if (ea.className == className) {
+                    ea.style.pointerEvents = "all"
                 }
-            }
+            })
         }
-    }
+    })
 }
 
-ActivateOpacity = (className, opacityNum) => {
-    for(let be = 0; be<document.body.children.length; be++){
-        if (document.body.children[be].className == "main") {
-            for (let e = 0; e<document.body.children[be].children.length; e++) {
-                if (document.body.children[be].children[e].className != className){
-                    document.body.children[be].children[e].style.opacity = opacityNum
+ActivateOpacity = (className) => {
+    Array.from(document.body.children).forEach(e => {
+        if (e.className == "main") {
+            Array.from(e.children).forEach(ea => {
+                if (ea.className != className){
+                    ea.style.opacity = "0.5"
                 }
-            }
-        } else {document.body.children[be].style.opacity = opacityNum}
-    }
+            })
+        } else {e.style.opacity = "0.5"}
+    })
 }
 
 DeactivateOpacity = () => {
-    for(let be = 0; be<document.body.children.length; be++){
-        if (document.body.children[be].className == "main") {
-            for (let e = 0; e<document.body.children[be].children.length; e++) {
-                document.body.children[be].children[e].style.opacity = "1"
-            }
+    Array.from(document.body.children).forEach(e => {
+        if (e.className == "main") {
+            Array.from(e.children).forEach(ea => {
+                ea.style.opacity = "1"
+            })
         }
-        document.body.children[be].style.opacity = "1"
-    }
+        e.style.opacity = "1"
+    })
 }
