@@ -321,7 +321,6 @@ hr{
 }
 .product-description-div .product-name{
     font-size: 40px;
-    padding-top: 5%;
 }
 .product-description-div .product-description{
     padding-top: 10%;
@@ -330,9 +329,6 @@ hr{
 .product-description-close{
     width: 20px;
     cursor: pointer;
-    position: absolute;
-    top: 2%;
-    right: 2%;
 }
 .product-allergies{
     display: flex;
@@ -474,10 +470,6 @@ hr{
     .specific-allergy-div{width: 45%;}
     .buy-options{width: 100%;}
     .buy-options button{width: 30%;}
-    .allergies-info-div-close{
-        top: 2.5%;
-        right: 3%;
-    }
 }
 
 @media (width<600px) {

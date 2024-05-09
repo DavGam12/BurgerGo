@@ -7,9 +7,9 @@
     <link rel="icon" type="image/x-icon" href="../Images/logo.png">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/base.css">
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/popular.css">
     <script src="../js/base.js"></script>
-    <script src="../js/main.js"></script>
+    <script src="../js/popular.js"></script>
 </head>
 <body class="body">
     <header class="header">
@@ -28,7 +28,7 @@
     <main class="main">
         <div class="login-div">
             <h6>Log In</h6>
-            <form id="login-form">
+            <form action="" target="_self" id="login-form">
                 <label for="login-email">E-mail: </label>
                 <input type="text" id="login-email" required placeholder="E-mail">
                 <label for="login-password">Password: </label>
@@ -105,7 +105,7 @@
         </div>
         <div class="login-required-div">
             <h6>Log In Required</h6>
-            <p>You need to have Logged In your account in order to access your profile and to order</p><br>
+            <p>You need to have Logged In your account in order to access your profile</p><br>
             <p>Would you like to:</p>
             <div>
                 <button id="login-required-signup">Sign Up</button>
@@ -134,34 +134,29 @@
                 </div>
             </div>
         </div>
-        <div class="banner">
-            <p id="banner-title">TRY OUR NEW DOUBLE EXTRA SAUCE BACON!!!</p>
-            <p id="banner-info">WITH DOUBLE MEAT, DOUBLE KETCHUP AND DOUBLE MUSTARD!!</p>
-        </div>
-        <div class="info">
-            <div class="schedule">
-                <div class="schedule-main">
-                    Schedule<img src="../Images/schedule.png" alt="schedule">
-                    <span id="current-schedule"></span>
+
+
+        <div class="popular-div">
+            <h2 class="popular-title">Check our Most Popular Menus!</h2>
+
+
+            <div class="carousel-div">
+                <div class="left-arrow"><img src="../Images/left-arrow.png" alt="left-arrow"></div>
+                <div class="inner-carousel-div">
+                    <ul class="inner-carousel-items">
+                        <li class="carousel-item">item 1</li>
+                        <li class="carousel-item">item 2</li>
+                        <li class="carousel-item">item 3</li>
+                        <li class="carousel-item">item 4</li>
+                        <li class="carousel-item">item 5</li>
+                    </ul>
                 </div>
-                <div class="schedule-info">
-                    <p>Sunday 11:00-23:00</p>
-                    <p>Monday 11:00-23:00</p>
-                    <p>Tuesday 11:00-23:00</p>
-                    <p>Wednesday 11:00-23:00</p>
-                    <p>Thursday 11:00-23:00</p>
-                    <p>Friday 11:00-00:00</p>
-                    <p>Saturday 11:00-00:00</p>
-                </div>
+                <div class="right-arrow"><img src="../Images/right-arrow.png" alt="right-arrow"></div>
             </div>
-           <!-- <div class="categories">
-                <p><a href="menu.hmtml">MENU</a></p>
-                <p><a href="popular.html">POPULAR</a></p>
-                <p><a href="gluten.html">GLUTEN FREE</a></p>
-                <p><a href="us.html">ABOUT US</a></p>
-                <p><a href="join.html">JOIN THE STAFF TEAM</a></p>
-            </div>-->
+
+
         </div>
+        
     </main>
     <footer class="footer">
         <div class="copyright">

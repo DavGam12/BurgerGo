@@ -143,7 +143,7 @@ ActivateOpacity = (className) => {
 
 DeactivateOpacity = () => {
     Array.from(document.body.children).forEach(e => {
-        if (document.body.children[be].className == "main") {
+        if (e.className == "main") {
             Array.from(e.children).forEach(ea => {
                 ea.style.opacity = "1"
             })

@@ -1,0 +1,46 @@
+.popular-div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.popular-title{
+    font-size: 40px;
+    font-weight: 1000;
+    color: rebeccapurple;
+    padding-top: 2%;
+    padding-bottom: 6%;
+    text-align: center;
+}
+
+.carousel-div{
+    display: grid;
+    grid-template-areas: "left-arrow inner-carousel right-arrow";
+    grid-template-columns: 5% 90% 5%;
+    width: 60%;
+}
+.inner-carousel-div{
+    grid-area: inner-carousel;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+.inner-carousel-items{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+}
+.carousel-item{
+    width: 331px;
+}
+.left-arrow{grid-area: left-arrow;}
+.right-arrow{grid-area: right-arrow;}
+.left-arrow, .right-arrow{
+    width: 50px;
+    display: block;
+    cursor: pointer;
+    z-index: 5;
+}

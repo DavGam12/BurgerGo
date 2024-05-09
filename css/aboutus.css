@@ -52,10 +52,6 @@ h1{
     justify-content: center;
 }
 
-.info-img{
-    width: 50%;
-}
-
 .div-padding{
     padding: 0% 2%;
     width: 80%;
@@ -79,19 +75,12 @@ h1{
         padding-top: 2%;
         padding-bottom: 2%;
     }
-    .info-img{
-        width: 75%;
-        padding-bottom: 2%;
-    }
 }
 
 @media (width<450px) {
     .info-text{
         width: 100%;
         font-size: medium;
-    }
-    .info-img{
-        width: 100%;
     }
     .aboutus-header{font-size: large;}
 }
