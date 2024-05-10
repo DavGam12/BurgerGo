@@ -9,8 +9,6 @@ function LoadVariables(){
     userLogged = (localStorage.getItem("userLogged"))
 }
 
-window.addEventListener("load", LoadVariables)
-window.setInterval(SaveVariables, 100)
 
 
 // Divs
@@ -46,10 +44,14 @@ let dataUsageButton
 let passwordInput
 let profileMenuParagraph
 let orderMenuParagraph
+let innerCarouselContainer
 
 
 document.addEventListener("DOMContentLoaded", (event) => {
     console.log("DOM fully loaded and parsed")
+
+    LoadVariables()
+    window.setInterval(SaveVariables, 100)
 
 
     menuDiv = document.getElementsByClassName("menu-div")[0]
@@ -100,7 +102,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     })
 
     userIcon.addEventListener("click",()=>{
-        if (userLogged != 'true') {
+        if (userLogged.toString() != 'true') {
             loginButton.style.display = "block"
             signupButton.style.display = "block"
         }
@@ -110,7 +112,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     })
 
     profileMenuParagraph.addEventListener("click",()=>{
-        if (userLogged != 'true') {
+        if (userLogged.toString() != 'true') {
             loginRequiredDiv.style.display = "flex"
             document.body.style.overflow = "hidden"
             document.body.style.pointerEvents = "none"
@@ -124,7 +126,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     })
 
     orderButton.addEventListener("click",()=>{
-        if (userLogged != 'true')
+        if (userLogged.toString() != 'true')
             {
                 loginRequiredDiv.style.display = "flex"
                 document.body.style.overflow = "hidden"
@@ -140,7 +142,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     })
 
     orderMenuParagraph.addEventListener("click",()=>{
-        if (userLogged != 'true')
+        if (userLogged.toString() != 'true')
             {
                 loginRequiredDiv.style.display = "flex"
                 document.body.style.overflow = "hidden"

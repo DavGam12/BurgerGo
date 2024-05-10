@@ -29,7 +29,7 @@ input{border: none; border-bottom: solid 1px; outline: 0;}
 
 .header{
     width: 100%;
-    background: black;
+    background: rgb(20,20,20);
     color: white;
     display: grid;
     grid-template-areas: 
@@ -57,13 +57,13 @@ input{border: none; border-bottom: solid 1px; outline: 0;}
     width: 50%;
     padding: 5% 5%;
     color: inherit;
-    background: rgb(0,0,0);
+    background: rgb(20,20,20);
     border: solid 3px white;
     font-weight: bold;
 }
 .make-order button:hover{
     background: rgb(255,255,255);
-    color: black;
+    color: rgb(20,20,20);
 }
 
 .book{grid-area: book;}
@@ -97,7 +97,7 @@ input{border: none; border-bottom: solid 1px; outline: 0;}
 }
 .user-options button{
     background: white;
-    color: black;
+    color: rgb(20,20,20);
     border: solid grey;
     padding: 5%;
     width: 100px;
@@ -400,7 +400,7 @@ input{border: none; border-bottom: solid 1px; outline: 0;}
     width: 100%;
     height: 70%;
     display: none;
-    z-index: 1;
+    z-index: 10;
     position: fixed;
     background: rgb(200, 50, 50);
     top: 0;
@@ -455,7 +455,7 @@ input{border: none; border-bottom: solid 1px; outline: 0;}
 
 .footer{
     width: 100%;
-    background: black;
+    background: rgb(20,20,20);
     color: white;
     display: grid;
     grid-template-areas: ". copyright socials";

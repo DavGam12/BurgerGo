@@ -1,7 +1,9 @@
+let productClick
+productClick = localStorage.getItem("productClick")
+
 let productCategoriesButtons = []
 let productCategoriesHr = []
 let productCategoriesDivs = []
-let currentProductDelete = []
 let addToOrderButton = []
 let productQuantity = []
 let productImg = []
@@ -16,7 +18,6 @@ let closeAllergiesInfoDiv
 let buyDiv
 let buyButton
 let buyCancelButton
-let buyAcceptButton
 
 let productCategorySelected
 let currentOrderPrice
@@ -51,7 +52,6 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     productCategoriesButtons = document.getElementsByClassName("product-categories")[0].getElementsByTagName("button")
     productCategoriesDivs = document.getElementsByClassName("product-categories-divs")[0].children
-    currentProductDelete = document.getElementsByClassName("delete-current-product")
     addToOrderButton = document.getElementsByClassName("add-to-order")
     productQuantity = document.getElementsByClassName("product-quantity")
     productImg = document.getElementsByClassName("product-img")
@@ -66,7 +66,6 @@ document.addEventListener("DOMContentLoaded",()=>{
     buyDiv = document.getElementsByClassName("buy-div")[0]
     buyButton = document.getElementsByClassName("current-buy")[0]
     buyCancelButton = document.getElementsByClassName("card-cancel")[0]
-    buyAcceptButton = document.getElementsByClassName("card-accept")[0]
 
     productCategorySelected = document.getElementById("current-category")
 
@@ -296,6 +295,15 @@ document.addEventListener("DOMContentLoaded",()=>{
     }
 
     EmptyOrder()
+
+    if (productClick.toString() != 'null') {
+        let currentClick = document.getElementById(productClick)
+        currentClick.parentElement.parentElement.parentElement.parentElement.parentElement.children[3].children[0].click()
+        currentClick.click()
+        productClick = null
+        localStorage.setItem("productClick", productClick)
+    }
+
 })
 
 
