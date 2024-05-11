@@ -1,0 +1,86 @@
+.aboutus-div{ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 3%;
+    width: 80%;
+}
+
+.banner-aboutus{
+    width: 90%;
+    padding-bottom: 5%;
+}
+
+.aboutus-header{
+    font-size: x-large;
+    width: 75%;
+    text-align: center;
+    padding-bottom: 5%;
+}
+
+b{
+    font-weight: bold;
+}
+
+h1{
+    font-size: larger;
+    font-weight: bold;
+}
+
+.aboutus-info{
+    width: 90%;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px rgb(230 230 230);
+}
+
+.info-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.red-container{
+    background-color: rgb(240,60,90);
+}
+
+.info-text{
+    font-size: large;
+    width: 50%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.div-padding{
+    padding: 0% 2%;
+    width: 80%;
+}
+
+@media (width<1100px) {
+    .aboutus-div{width: 100%;}
+}
+
+@media (width<900px) {
+    .info-container{
+        display: flex;
+        flex-direction: column;
+    }
+    .red-container{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .info-text{
+        width: 75%;
+        padding-top: 2%;
+        padding-bottom: 2%;
+    }
+}
+
+@media (width<450px) {
+    .info-text{
+        width: 100%;
+        font-size: medium;
+    }
+    .aboutus-header{font-size: large;}
+}
