@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger & Go</title>
+    <link rel="icon" type="image/x-icon" href="../Images/logo.png">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/aboutus.css">
+    <script src="../js/base.js"></script>
+</head>
+<body class="body">
+    <header class="header">
+        <div class="logo"><a href="main.html"><img src="../Images/logo.png" alt="logo"></a></div>
+        <div class="menu"><button><img src="../Images/menu.png" alt="menu"></button></div>
+        <div class="make-order"><button>ORDER</button><a href="order.html"></a></div>
+        <div class="user">
+            <img src="../Images/user.png" alt="user">
+            <a href="profile.html"></a>
+        </div>
+        <div class="user-options">
+            <button id="login">Log In</button>
+            <button id="signup">Sign Up</button>
+        </div>
+    </header>
+    <main class="main">
+        <div class="login-div">
+            <h6>Log In</h6>
+            <form action="" target="_self" id="login-form">
+                <label for="login-email">E-mail: </label>
+                <input type="text" id="login-email" required placeholder="E-mail">
+                <label for="login-password">Password: </label>
+                <input type="password" id="login-password" required placeholder="Password" class="password-field">
+                <div class="hide-view">
+                    <img src="../Images/view.png" alt="view" class="view">
+                    <img src="../Images/hide.png" alt="hide" class="hide">
+                </div>
+                <p class="password-reset-text">Did you forget your password?<br><span id="password-reset">Reset my password</span></p>
+                <div class="options">
+                    <input type="submit" value="Log In" id="login-accept">
+                    <p>New to Burger & Go?</p>
+                    <button id="login-signup" type="button">Sign Up</button>
+                </div>
+            </form>
+            <div id="login-cancel"><img src="../Images/close.png" alt="close"></div>
+        </div>
+        <div class="signup-div">
+            <h6>Sign Up</h6>
+            <p class="data-usage-button">Data Usage</p>
+            <form action="" target="_self" id="signup-form">
+                <div class="form">
+                    <div class="signup-row">
+                        <div class="signup-field">
+                            <label for="signup-firstname">First Name: </label>
+                            <input type="text" id="signup-firstname" required placeholder="First Name">
+                        </div>
+                        <div class="signup-field">
+                            <label for="signup-lastname">Last Name: </label>
+                            <input type="text" id="signup-lastname" placeholder="Last Name">
+                        </div>
+                        <div class="signup-field">
+                            <label for="signup-email">E-mail: </label>
+                            <input type="text" id="signup-email" required placeholder="E-mail">
+                        </div>
+                    </div>
+                    <div class="signup-row">
+                        <div class="signup-field">
+                            <label for="signup-phonenumber">Phone Number: </label>
+                            <input type="text" id="signup-phonenumber" required placeholder="Phone Number">
+                        </div>
+                        <div class="signup-field">
+                            <label for="signup-password">Password: </label>
+                            <input type="password" id="signup-password" required placeholder="Password" class="password-field">
+                            <div class="hide-view">
+                                <img src="../Images/view.png" alt="view" class="view">
+                                <img src="../Images/hide.png" alt="hide" class="hide">
+                            </div>
+                        </div>
+                        <div class="signup-field">
+                            <label for="signup-repeatpassword">Repeat Password: </label>
+                            <input type="password" id="signup-repeatpassword" required placeholder="Password" class="password-field">
+                            <div class="hide-view">
+                                <img src="../Images/view.png" alt="view" class="view">
+                                <img src="../Images/hide.png" alt="hide" class="hide">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="options">
+                    <input type="submit" value="Sign Up" id="signup-accept">
+                    <p>Do you have an account?</p>
+                    <button id="signup-login" type="button">Log In</button>
+                </div>
+            </form>
+            <div id="signup-cancel"><img src="../Images/close.png" alt="close"></div>
+        </div>
+        <div class="data-usage-div">
+            <h6>How we use your data</h6>
+            <p>
+                By completing your registration, you acknowledge and agree that all information provided will be treated with the utmost confidentiality. We are committed to safeguarding your data and will not disclose it to any third parties without your explicit consent.
+            </p>
+            <div class="data-usage-close"><img src="../Images/close.png" alt="close"></div>
+        </div>
+        <div class="login-required-div">
+            <h6>Log In Required</h6>
+            <p>You need to have Logged In your account in order to access your profile</p><br>
+            <p>Would you like to:</p>
+            <div>
+                <button id="login-required-signup">Sign Up</button>
+                <button id="login-required-cancel">Cancel</button>
+                <button id="login-required-login">Log In</button>
+            </div>
+        </div>
+        <div class="menu-div">
+            <div class="menu-body">
+                <div class="close-menu"><button><img src="../Images/close.png" alt="close"></button></div>
+                <div class="sided-text"><p>Burger & Go</p></div>
+
+                <div class="categories">
+                    <p><a href="menu.html">MENU</a></p>
+                    <p><a href="gluten.html">GLUTEN FREE</a></p>
+                    <p><a href="aboutus.html">ABOUT US</a></p>
+                    <p><a href="joinstaff.html">JOIN THE STAFF TEAM</a></p>
+                </div>
+                <div class="menu-logo">
+                    <a href="main.html"><img src="../Images/logo.png" alt="logo"></a>
+                </div>
+                <div class="other-categories">
+                    <p>PROFILE<a href="profile.html"></a></p>
+                    <p>ORDER<a href="order.html"></a></p>
+                </div>
+            </div>
+        </div>
+        <div class="aboutus-div">
+            <div class="banner-aboutus">
+                <img src="../Images/aboutus-banner.png">
+            </div>
+            <div class="aboutus-header">
+                <p> Welcome to our <b> about us</b> page. Here you can learn <b>the values</b> that here in Burger & Go believe that its indispensable for a healthy work environment. An environment full of talent focused on bringing <b>the best experience</b> to the table.</p> 
+            </div>
+            <div class="aboutus-info">
+                <div class="info-container">
+                    <div class="info-text">
+                        <div class="div-padding">
+                            <h1> Workers in Burger & Go</h1>
+                            <br>
+                            <p> At Burger & Go, our team is the heart and soul of our success. We're dedicated to having a workforce that's committed to delivering top-notch service, fully motivated, and aligned with our company's vision to achieve our common goals. Burger & Go stands strong today because of the incredible ideas and hard work of our talented team. What today is Burger & Go is the result of hard work achieved by all our employees and effort to make each of our clients happy.</p>
+                        </div>
+                    </div>
+                    <div class="info-text">
+                        <img src="../Images/workervalue.png">
+                    </div>
+                </div>
+                <div class="info-container red-container">
+                    <div class="info-text">
+                        <img src="../Images/diversity.png">
+                    </div>
+                    <div class="info-text">
+                        <div class="div-padding">
+                        <h1> Diversity & inclusion</h1>
+                        <br>
+                        <p>A diverse workforce stands as one of our greatest competitive advantages. By fostering an inclusive corporate culture rooted in our Total Quality model and values such as respect, equity, and positive acknowledgment of differences, we aim for the full and meaningful integration of every individual.
+                        </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-container">
+                    <div class="info-text">
+                        <div class="div-padding">
+                        <h1> Working conditions</h1>
+                        <br>
+                        <p>The team at burger & Go is an invaluable asset to the company. Burger & Go takes pride in its human resources framework, well-known for offering secure, top-tier roles that nurture both personal and professional growth, stability, skill development and fairness among other advantages.
+                        </p>
+                        </div>
+                    </div>
+                    <div class="info-text">
+                        <img src="../Images/conditions.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="copyright">
+            <p>&copy; 2024 Burger & Go Group SL | All Rights Reserved</p>
+        </div>
+        <div class="socials">
+            <div class="socials-icons">
+                <div class="instagram">
+                    <a href="https://www.instagram.com/burgerandgoo/" target="_blank">
+                        <img src="../Images/instagram.png" alt="instagram">
+                    </a>
+                </div>
+                <div class="linkedin">
+                    <a href="http://linkedin.com/company/burger-go" target="blank">
+                        <img src="../Images/linkedin.png" alt="linkedin">
+                    </a>
+                </div>
+            </div>
+            <div class="contactus">burgerandgoo@gmail.com</div>
+        </div>
+    </footer>
+
+</body>
+</html>
