@@ -52,6 +52,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     LoadVariables()
     window.setInterval(SaveVariables, 100)
+    window.setInterval(WindowHeight, 10)
 
     if (userLogged === null) {userLogged = 'null'}
 
@@ -320,6 +321,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         signupDiv.style.opacity = 1
         signupButton.click()
     })
+
 })
 
 
@@ -357,4 +359,10 @@ DeactivateOpacity = () => {
         }
         e.style.opacity = "1"
     })
+}
+
+WindowHeight = () => {
+    if (document.body.clientHeight - Number.parseInt(document.body.children[1].lastElementChild.style.paddingBottom)<900) {
+        document.body.children[1].lastElementChild.style.paddingBottom = 500 + "px" // window.outerHeight-document.body.clientHeight
+    } else {document.body.children[1].lastElementChild.style.paddingBottom = "0px"}
 }
