@@ -1,0 +1,27 @@
+.administration-div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1% 0%;
+}
+
+.admin-tables-options{
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+}
+
+.admin-tables-options button{
+    margin: 0% 5%;
+    padding: 0.5% 3%;
+    border-radius: 100px;
+    border: solid 2px goldenrod;
+}
+
+.admin-tables-options button:hover{
+    background: goldenrod;
+    font-weight: bold;
+}
