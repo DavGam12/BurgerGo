@@ -53,6 +53,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
     LoadVariables()
     window.setInterval(SaveVariables, 100)
 
+    if (userLogged === null) {userLogged = 'null'}
+
 
     menuDiv = document.getElementsByClassName("menu-div")[0]
     menuBody = document.getElementsByClassName("menu-body")[0]

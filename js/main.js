@@ -116,22 +116,22 @@ document.addEventListener("DOMContentLoaded", (event) => {
         document.getElementsByClassName("make-order")[0].click()
     })
     carouselItems[1].addEventListener("click", () => {
-        productClick = "triple fried chicken cheeseburger"
+        productClick = "double-beef-cheeseburger"
         localStorage.setItem("productClick", productClick)
         document.getElementsByClassName("make-order")[0].click()
     })
     carouselItems[2].addEventListener("click", () => {
-        productClick = "triple fried chicken cheeseburger"
+        productClick = "chicken-nuggets"
         localStorage.setItem("productClick", productClick)
         document.getElementsByClassName("make-order")[0].click()
     })
     carouselItems[3].addEventListener("click", () => {
-        productClick = "triple fried chicken cheeseburger"
+        productClick = "chicken-wings"
         localStorage.setItem("productClick", productClick)
         document.getElementsByClassName("make-order")[0].click()
     })
     carouselItems[4].addEventListener("click", () => {
-        productClick = "triple fried chicken cheeseburger"
+        productClick = "apple-pie"
         localStorage.setItem("productClick", productClick)
         document.getElementsByClassName("make-order")[0].click()
     })
