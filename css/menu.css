@@ -1,0 +1,24 @@
+.products-menu-div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+.product-categories{
+    width: 60%;
+    display: flex;
+    padding: 2% 0%;
+}
+.product-categories button{
+    margin: 0% 3%;
+    padding: 0.5%;
+    border: solid rebeccapurple;
+    border-radius: 100px;
+    font-size: medium;
+}
+.product-categories button:hover{
+    background: rebeccapurple;
+    font-weight: bold;
+}
