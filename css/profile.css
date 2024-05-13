@@ -1,0 +1,152 @@
+@keyframes hrWidth {
+    0%{width: 0%;}
+    100%{width: 60%;}
+}
+
+h1{text-align: center; font-size: 40px; padding: 3% 0%; padding-top: 5%; font-weight: 1000;}
+hr{visibility: hidden; border: solid 2px goldenrod;}
+.profile-div{width: 100%; display: flex; flex-direction: column; align-items: center;}
+
+.profile-options{width: 75%; display: flex; padding: 1% 0%;}
+.profile-options button{
+    border: hidden;
+    font-weight: 600;
+    font-size: x-large;
+}
+
+.staff-buttons{
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+.staff-buttons button{
+    background: white;
+    color: black;
+    width: 100px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.5%;
+}
+#admin-section{
+    border: solid royalblue;
+}
+#admin-section:hover{
+    background: royalblue;
+    font-weight: bold;
+}
+#employee-section{
+    border: solid gold;
+}
+#employee-section:hover{
+    background: gold;
+    font-weight: bold;
+}
+#logout{
+    /*position: absolute;*/
+    top: 0;
+    right: 1.5%;
+    border: solid red;
+    padding: 0.5%;
+    background: white;
+    color: black;
+    width: 100px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+#logout:hover{
+    background: red;
+    font-weight: bold;
+}
+
+.options{display: none; width: 60%;}
+#offers-option{flex-wrap: wrap; justify-content: center;}/* display: flex; (in js) */
+
+#offers-option div{
+    width: 20%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5%;
+    margin: 1%;
+    box-shadow: 2px 2px 2px 2px rgb(200, 200, 200);
+}
+
+.pastorder{
+    padding: 2% 3%;
+    margin: 2% 0%;
+    display: grid;
+    grid-template-areas: "price products date reorder";
+    grid-template-columns: 20% 45% 20% 15%;
+    align-items: center;
+    justify-content: center;
+    font-size: large;
+    box-shadow: 3px 3px 4px 3px grey;
+}
+.price-position{grid-area: price; text-align: center;}
+.products-position{
+    grid-area: products; 
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.pastorder-product{
+    display: flex; 
+    flex-direction: column; 
+    text-align: center;
+    padding: 2%;
+    width: 25%;
+    box-shadow: inset 2px 2px 3px 2px rgb(200, 200, 200);
+    margin: 1%;
+}
+.pastorder-product-quantity{padding-top: 10%;}
+.date-position{grid-area: date; text-align: center;}
+.date-position p{padding: 2% 0%;}
+.reorder-position{grid-area: reorder; display: flex; justify-content: center; width: 100%; padding-left: 10%;}
+.reorder{
+    width: 70%;
+    border: solid rebeccapurple;
+    border-radius: 100px;
+    padding: 2%;
+}
+.reorder:hover{background: rgb(230, 230, 230);font-weight: bold;}
+
+
+@media (width<1130px) {
+    .pastorder-product{width: 40%;}
+    .reorder{width: 100%;}
+}
+
+@media (width<900px) {
+    .options{width: 80%;}
+    #offers-option div{width: 40%;}
+}
+
+@media (width<680px) {
+    h1{font-size: xx-large;}
+    .profile-options button{font-size: large;}
+    #offers-option div{width: 80%; margin: 2% 0%;}
+    .pastorder{
+        display: flex;
+        flex-direction: column;
+    }
+    .price-position{text-align: center; padding-top: 5%; padding-bottom: 10%;}
+    .pastorder-product{flex-wrap: wrap; width: 40%;}
+    .date-position{text-align: center; padding-top: 10%; padding-bottom: 5%;}
+    .reorder-position{width: 20%; padding: 0;}
+    .date-position{display: flex; flex-direction: column;}
+}
+
+@media (width<500px) {
+    .reorder-position{width: 30%;}
+    h1{padding-top: 10%;}
+}
