@@ -214,6 +214,7 @@ h1{
     .allergy-info-icon{width: 50px;}
     .allergies-info-div{width: 70%;}
     .to-top{left: 95%;}
+    .product-search input{width: 30%;}
 }
 
 @media (width<600px) {
@@ -231,6 +232,7 @@ h1{
     .allergies-info-div{width: 90%;}
     #allergens-info-button{margin: 2% 4%;}
     .to-top{left: 93%; top: 94%;}
+    .product-search input{width: 50%;}
 }
 
 @media (width<400px) {

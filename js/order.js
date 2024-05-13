@@ -105,6 +105,8 @@ document.addEventListener("DOMContentLoaded",()=>{
             
         })
         productCategorySelected.addEventListener("change",()=>{
+            productSearch.style.visibility = "visible"
+            productSearch.getElementsByTagName("input")[0].value = ""
             productCategoriesDivs[productCategorySelected.value].style.display = "flex"
 
             for (let e = 0; e<productCategoriesDivs[button].children.length; e++) {

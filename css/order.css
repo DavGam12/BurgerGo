@@ -415,6 +415,7 @@ hr{
         left: 73%;
     }
     .allergies-info-div{width: 80%;}
+    .product-search input{width: 30%;}
 }
 
 @media (width<840px){
@@ -532,6 +533,7 @@ hr{
     .buy-div{width: 90%;}
     .buy-div label{font-size: large;}
     .buy-div input{font-size: medium;}
+    .product-search input{width: 50%;}
 }
 
 @media (width<400px) {
