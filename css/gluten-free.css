@@ -3,11 +3,6 @@
     100%{box-shadow: 2px 2px 10px 10px goldenrod;}
 }
 
-@keyframes categoryButtonHoverRebeccapurple {
-    0%{background: inherit;}
-    100%{background: rebeccapurple;}
-}
-
 @keyframes categoryButtonHoverGoldenrod {
     0%{background: inherit;}
     100%{background: goldenrod;}
@@ -77,28 +72,16 @@ h1{
 .product-categories{
     width: 70%;
     display: flex;
-    padding: 2% 0%;
+    padding: 1% 0% 2% 0%;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
 }
-.product-categories button{
-    margin: 0% 4%;
-    padding: 0.5%;
-    border: solid rebeccapurple;
-    border-radius: 100px;
-    font-size: medium;
-    width: 10%;
-}
-.product-categories button:hover{
-    animation: categoryButtonHoverRebeccapurple 1s;
-    background: rebeccapurple;
-    font-weight: bold;
-}
 #allergens-info-button{
-    margin-top: 5%;
     width: 15%;
     padding: 1% 0%;
+    border-radius: 100px;
+    font-size: medium;
     border: solid goldenrod;
 }
 #allergens-info-button:hover{
@@ -161,28 +144,13 @@ h1{
     width: 100%;
 }
 .allergy-icon{width: 40px; margin: 0% 1%;}
-.to-top{
-    display: none;
-    width: 30px;
-    position: sticky;
-    left: 97.5%;
-    top: 94%;
-    filter: invert(1);
-    cursor: pointer;
-}
-.to-top img{transform: rotate(90deg);}
 
-@media (width<1300px) {
-    .allergies-column{padding-left: 3%;}
-    .to-top{left: 97%;}
-}
+@media (width<1300px) {.allergies-column{padding-left: 3%;}}
 
 @media (width<1100px) {
     .allergies-column{padding-left: 0;}
-    .product-categories button{width: 12%;}
     #allergens-info-button{width: 25%;}
     .category-div{width: 80%;}
-    .to-top{left: 96.5%;}
 }
 
 @media (width<1000px) {
@@ -191,7 +159,6 @@ h1{
     .allergies-display-small{display: flex;}
     .allergies-info-div-close{right: 2%;}
     .allergy-info-icon{width: 60px;}
-    .to-top{left: 96%;}
 }
 
 @media (width<900px) {
@@ -199,7 +166,6 @@ h1{
     .menu-product{width: 40%;}
     .allergy-info-icon{width: 50px;}
     .allergies-info-div{width: 70%;}
-    .to-top{left: 95%;}
 }
 
 @media (width<600px) {
@@ -208,28 +174,20 @@ h1{
         justify-content: center;
         align-items: center;
     }
-    .product-categories button{
-        width: 25%;
-        margin: 2% 4%;
-    }
     .category-div{width: 95%;}
     .allergies-display-small{width: 100%;}
     .allergies-info-div{width: 90%;}
     #allergens-info-button{margin: 2% 4%;}
-    .to-top{left: 93%; top: 94%;}
 }
 
 @media (width<400px) {
     h1{font-size: 30px;}
-    h2{font-size: 25px;}
     .menu-product{width: 80%;}
-    .product-categories button{width: 50%;}
     #allergens-info-button{width: 50%; margin: 10% 0% 5% 0%;}
     .allergy-info-icon{width: 40px;}
     .allergies-display-small{font-size: x-small;}
     .allergies-info-div-close{width: 15px;}
     .category-div{width: 90%;}
-    .to-top{left: 90%;}
 }
 
 

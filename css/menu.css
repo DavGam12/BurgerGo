@@ -237,7 +237,6 @@ h1{
 
 @media (width<400px) {
     h1{font-size: 30px;}
-    h2{font-size: 25px;}
     .menu-product{width: 80%;}
     .product-categories button{width: 50%;}
     #allergens-info-button{width: 50%; margin: 10% 0% 5% 0%;}
