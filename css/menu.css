@@ -1,6 +1,6 @@
 @keyframes productHover {
-    0%{box-shadow: 2px 2px 5px 2px goldenrod;}
-    100%{box-shadow: 2px 2px 10px 4px rebeccapurple;}
+    0%{box-shadow: 2px 2px 5px 5px rebeccapurple;}
+    100%{box-shadow: 2px 2px 10px 10px goldenrod;}
 }
 
 @keyframes categoryButtonHoverRebeccapurple {
@@ -107,6 +107,20 @@ h1{
     font-weight: bold;
 }
 
+.product-search{
+    visibility: hidden;
+    width: 100%;
+    padding: 0% 0% 4% 0%;
+}
+.product-search input{
+    width: 20%;
+    background: inherit;
+    padding: 0.5%;
+    border-radius: 10px;
+    border: solid gold;
+    color: white;
+}
+
 .category-div{
     width: 60%;
     display: none;
@@ -121,11 +135,11 @@ h1{
     justify-content: space-between;
     padding: 1%;
     margin: 3% 1%;
-    box-shadow: 2px 2px 5px 2px goldenrod;
+    box-shadow: 2px 2px 5px 5px rebeccapurple;
 }
 .menu-product:hover{
     animation: productHover 1.5s;
-    box-shadow: 2px 2px 10px 4px rebeccapurple;
+    box-shadow: 2px 2px 10px 10px goldenrod;
 }
 .product-img{
     background-repeat: no-repeat;

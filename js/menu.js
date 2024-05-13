@@ -4,6 +4,7 @@ let allergensInfoButton
 let closeAllergensInfoButton
 let allergensInfoDiv
 let toTopButton
+let productSearch
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -15,11 +16,14 @@ document.addEventListener("DOMContentLoaded", () => {
     closeAllergensInfoButton = document.getElementsByClassName("allergies-info-div-close")[0]
     allergensInfoDiv = document.getElementsByClassName("allergies-info-div")[0]
     toTopButton = document.getElementsByClassName("to-top")[0]
+    productSearch = document.getElementsByClassName("product-search")[0]
 
 
     Array.from(productCategoriesButtons).forEach((e, i) => {
         if (e.id.length == 0){
             e.addEventListener("click", () => {
+                productSearch.style.visibility = "visible"
+                productSearch.getElementsByTagName("input")[0].value = ""
                 toTopButton.style.display = "block"
                 productCategoriesDivs[i].style.display = "flex"
                 e.style.background = "rebeccapurple"

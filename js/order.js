@@ -22,6 +22,7 @@ let buyCancelButton
 let productCategorySelected
 let currentOrderPrice
 let lastAllergiesInfoButtonClicked
+let productSearch
 
     /* Current Order Products Info */
 let currentOrderProduct = [ // currentOrderProduct.filter((e) => e.existence == true) to get the all current products info
@@ -68,6 +69,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     buyCancelButton = document.getElementsByClassName("card-cancel")[0]
 
     productCategorySelected = document.getElementById("current-category")
+    productSearch = document.getElementsByClassName("product-search")[0]
 
 
     for (let button = 0; button<productCategoriesButtons.length; button++) {
@@ -85,6 +87,8 @@ document.addEventListener("DOMContentLoaded",()=>{
             }
         })
         productCategoriesButtons[button].addEventListener("click",()=>{
+            productSearch.style.visibility = "visible"
+            productSearch.getElementsByTagName("input")[0].value = ""
             productCategoriesDivs[button].style.display = "flex"
 
             for (let e = 0; e<productCategoriesDivs[button].children.length; e++) {
