@@ -552,7 +552,7 @@ input{border: none; border-bottom: solid 1px; outline: 0;}
 
     .header{
         grid-template-areas: ". logo-header . menu-icon . make-order . user";
-        grid-template-columns: 2% 3% 5% 10% 52% 15% 5% 8%;
+        grid-template-columns: 2% 3% 10% 10% 47% 15% 5% 8%;
     }
     .make-order button{
         width: 60%;
@@ -706,7 +706,7 @@ input{border: none; border-bottom: solid 1px; outline: 0;}
 
 
     .header{
-        grid-template-columns: 2% 3% 5% 10% 45% 18% 5% 10%;
+        grid-template-columns: 2% 3% 13% 10% 35% 18% 8% 10%;
     }
     .make-order button{
         width: 70%;
