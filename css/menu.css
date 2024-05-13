@@ -219,10 +219,6 @@ h1{
     .to-top{left: 93%; top: 94%;}
 }
 
-@media (width<500px) {
-    .to-top{left: 92%;}
-}
-
 @media (width<400px) {
     h1{font-size: 30px;}
     h2{font-size: 25px;}
@@ -233,7 +229,7 @@ h1{
     .allergies-display-small{font-size: x-small;}
     .allergies-info-div-close{width: 15px;}
     .category-div{width: 90%;}
-    .to-top{left: 88%;}
+    .to-top{left: 90%;}
 }
 
 

@@ -44,14 +44,12 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.style.pointerEvents = "none"
         document.body.style.overflow = "hidden"
         allergensInfoDiv.style.pointerEvents = "all"
-        AllergensOpacityEnable()
     })
 
     closeAllergensInfoButton.addEventListener("click", () => {
         allergensInfoDiv.style.display = "none"
         document.body.style.pointerEvents = "all"
         document.body.style.overflow = "visible"
-        AllergensOpacityDisable()
     })
 
     toTopButton.addEventListener("click", () => {
@@ -59,31 +57,3 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     
 })
-
-AllergensOpacityEnable = () => {
-    Array.from(document.body.children).forEach(e => {
-        if (e.classList[0] == "main")
-            {
-                Array.from(e.children).forEach(ea => {
-                    console.log(ea)
-                    if (ea.classList[0] == "allergies-info-div") {ea.style.opacity = 1}
-                    else {ea.style.opacity = 0.9}
-                })
-            }
-        else {e.style.opacity = 0.9}
-    })
-}
-
-AllergensOpacityDisable = () => {
-    Array.from(document.body.children).forEach(e => {
-        if (e.classList[0] == "main")
-            {
-                Array.from(e.children).forEach(ea => {
-                    if (ea.classList[0] == "allergies-info-div") {ea.style.opacity = 1}
-                    else {ea.style.opacity = 1}
-                })
-            }
-        else {e.style.opacity = 1}
-    })
-}
-
