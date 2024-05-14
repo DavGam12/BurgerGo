@@ -32,7 +32,7 @@ begin
     insert into employees values (9, 'Amanda', 'Moore', TO_DATE('1995-02-14', 'YYYY-MM-DD'), '364891275030', TO_DATE('2024-04-30', 'YYYY-MM-DD'), 1450, 0, 'm12NOp!34Q', 'K');
     insert into employees values (10, 'Daniel', 'Taylor', TO_DATE('1991-08-07', 'YYYY-MM-DD'), '207685913420', TO_DATE('2024-05-01', 'YYYY-MM-DD'), 1450, 0, 'rS56tUV?78', 'K');
     insert into employees values (11, 'Sarah', 'Anderson', TO_DATE('1989-04-20', 'YYYY-MM-DD'), '805946312708', TO_DATE('2024-05-02', 'YYYY-MM-DD'), 1450, 0, 'W90xYZ!12', 'K');
-    insert into employees values (12, 'David', 'Thomas', TO_DATE('1984-11-03', 'YYYY-MM-DD'), '652094187563', TO_DATE('2024-05-03', 'YYYY-MM-DD'), 1450, 0, '34ABcD?56'e,'K');
+    insert into employees values (12, 'David', 'Thomas', TO_DATE('1984-11-03', 'YYYY-MM-DD'), '652094187563', TO_DATE('2024-05-03', 'YYYY-MM-DD'), 1450, 0, '34ABcD?56e','K');
     insert into employees values (13, 'Samantha', 'Jackson', TO_DATE('1987-07-17', 'YYYY-MM-DD'), '419368527014', TO_DATE('2024-05-04', 'YYYY-MM-DD'), 1450, 0, 'F78gHI!90', 'K');
     insert into employees values (14, 'James', 'White', TO_DATE('1996-01-30', 'YYYY-MM-DD'), '935761802643', TO_DATE('2024-05-05', 'YYYY-MM-DD'), 1450, 0, 'J12kLM?34', 'K');
     insert into employees values (15, 'Elizabeth', 'Harris', TO_DATE('1982-05-24', 'YYYY-MM-DD'), '273890561742', TO_DATE('2024-05-06', 'YYYY-MM-DD'), 1450, 0, 'No56Pq!78R', 'K');
