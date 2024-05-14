@@ -98,3 +98,24 @@ insert into orders values ()
 
 
 insert into customers values ()
+
+
+begin
+    insert into allergens values (1,'Gluten', '../Images/Allergies/gluten.png');
+    insert into allergens values (2,'Eggs', '../Images/Allergies/eggs.png');
+    insert into allergens values (3,'Fish', '../Images/Allergies/fish.png');
+    insert into allergens values (4,'Crustacean', '../Images/Allergies/crustacean.png');
+    insert into allergens values (5,'Peanuts', '../Images/Allergies/peanuts.png');
+    insert into allergens values (6,'Dairy', '../Images/Allergies/dairy.png');
+    insert into allergens values (7,'Soybean', '../Images/Allergies/soybean.png');
+    insert into allergens values (8,'Nuts', '../Images/Allergies/nuts.png');
+    insert into allergens values (9,'Celery', '../Images/Allergies/celery.png');
+    insert into allergens values (10,'Mollusk', '../Images/Allergies/mollusk.png');
+    insert into allergens values (11,'Lupin beans', '../Images/Allergies/lupin-beans.png');
+    insert into allergens values (12,'Sesame seeds', '../Images/Allergies/sesane-seeds.png');
+    insert into allergens values (13,'Mustard', '../Images/Allergies/mustard.png');
+    insert into allergens values (14,'Sulphites', '../Images/Allergies/sulphites.png');
+exception
+    when others then
+    rollback;
+end;
