@@ -2,7 +2,7 @@ create table customers(customer_id varchar2(6) primary key, first_name varchar2(
 
 create table jobs(job_id varchar2(2) primary key, job_name varchar2(40));
 
-create table employees(employee_id varchar2(3) primary key, first_name varchar2(40), last_name varchar2(60), ss_number varchar2(12), birth_date date, hire_date date, salary number(6,2), permission boolean, password varchar2(40), job_id varchar2(2), foreign key(job_id) references jobs(job_id));
+create table employees(employee_id varchar2(3) primary key, first_name varchar2(40), last_name varchar2(60), ss_number varchar2(12), birth_date date, hire_date date, salary number(6,2), permission number(1,0), password varchar2(40), job_id varchar2(2), foreign key(job_id) references jobs(job_id));
 
 create table orders(order_id varchar2(10) primary key, order_state varchar2(40), direction varchar2(100), order_price number(6,2), order_date date, employee_id varchar2(3), foreign key(employee_id) references employees(employee_id), customer_id varchar2(6), foreign key(customer_id) references customers(customer_id));
 
