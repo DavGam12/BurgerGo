@@ -14,7 +14,9 @@ public class ProductsAction implements IAction {
         String strReturn = "";
 
         switch (act.toLowerCase()) {
-            case "burgers":
+            case "find_first":
+                break;
+            case "find_all":
                 strReturn = findAll();
                 break;
             default:
