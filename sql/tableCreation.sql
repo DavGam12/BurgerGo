@@ -1,4 +1,4 @@
-create table customers(customer_id varchar2(6) primary key, first_name varchar2(40) not null, last_name varchar2(60) not null, email varchar2(50) not null, phone_number varchar2(13) not null, password varchar2(20) not null);
+create table customers(customer_id varchar2(6) primary key, first_name varchar2(40) not null, last_name varchar2(60), email varchar2(50) not null, phone_number varchar2(13) not null, password varchar2(20) not null);
 
 create table jobs(job_id varchar2(2) primary key, job_name varchar2(40) not null);
 
