@@ -249,58 +249,58 @@ h1{
 
 
 /* Setting Up Every Image Div With Its Background Image */
-#simple-beef{background-image: url(../Images/Menu/simple\ beef.png);}
-#double-beef{background-image: url(../Images/Menu/double\ beef.png);}
-#triple-beef{background-image: url(../Images/Menu/triple\ beef.png);}
-#simple-chicken{background-image: url(../Images/Menu/simple\ chicken.png);}
-#double-chicken{background-image: url(../Images/Menu/double\ chicken.png);}
-#triple-chicken{background-image: url(../Images/Menu/triple\ chicken.png);}
-#simple-fried-chicken{background-image: url(../Images/Menu/simple\ fried\ chicken.png);}
-#double-fried-chicken{background-image: url(../Images/Menu/double\ fried\ chicken.png);}
-#triple-fried-chicken{background-image: url(../Images/Menu/triple\ fried\ chicken.png);}
-#simple-beef-cheeseburger{background-image: url(../Images/Menu/simple\ beef\ cheeseburger.png);}
-#double-beef-cheeseburger{background-image: url(../Images/Menu/double\ beef\ cheeseburger.png);}
-#triple-beef-cheeseburger{background-image: url(../Images/Menu/triple\ beef\ cheeseburger.png);}
-#simple-chicken-cheeseburger{background-image: url(../Images/Menu/simple\ chicken\ cheeseburger.png);}
-#double-chicken-cheeseburger{background-image: url(../Images/Menu/double\ chicken\ cheeseburger.png);}
-#triple-chicken-cheeseburger{background-image: url(../Images/Menu/triple\ chicken\ cheeseburger.png);}
-#simple-fried-chicken-cheeseburger{background-image: url(../Images/Menu/simple\ fried\ chicken\ cheeseburger.png);}
-#double-fried-chicken-cheeseburger{background-image: url(../Images/Menu/double\ fried\ chicken\ cheeseburger.png);}
-#triple-fried-chicken-cheeseburger{background-image: url(../Images/Menu/triple\ fried\ chicken\ cheeseburger.png);}
-#simple-beef-bbq{background-image: url(../Images/Menu/simple\ beef\ bbq.png);}
-#double-beef-bbq{background-image: url(../Images/Menu/double\ beef\ bbq.png);}
-#triple-beef-bbq{background-image: url(../Images/Menu/triple\ beef\ bbq.png);}
-#simple-chicken-bbq{background-image: url(../Images/Menu/simple\ chicken\ bbq.png);}
-#double-chicken-bbq{background-image: url(../Images/Menu/double\ chicken\ bbq.png);}
-#triple-chicken-bbq{background-image: url(../Images/Menu/triple\ chicken\ bbq.png);}
-#simple-fried-chicken-bbq{background-image: url(../Images/Menu/simple\ fried\ chicken\ bbq.png);}
-#double-fried-chicken-bbq{background-image: url(../Images/Menu/double\ fried\ chicken\ bbq.png);}
-#triple-fried-chicken-bbq{background-image: url(../Images/Menu/triple\ fried\ chicken\ bbq.png);}
-#beef-jr{background-image: url(../Images/Menu/beef\ jr.png);}
-#chicken-jr{background-image: url(../Images/Menu/chicken\ jr.png);}
-#fried-chicken-jr{background-image: url(../Images/Menu/fried\ chicken\ jr.png);}
-#nuggets-jr{background-image: url(../Images/Menu/nuggets\ jr.png);}
-#ice-cream-chocolate-jr{background-image: url(../Images/Menu/ice\ cream\ chocolate\ jr.png);}
-#ice-cream-vanilla-jr{background-image: url(../Images/Menu/ice\ cream\ vanilla\ jr.png);}
-#apple-pie{background-image: url(../Images/Menu/apple\ pie.png);}
+#simple-beef{background-image: url(../Images/Menu/simple-beef.png);}
+#double-beef{background-image: url(../Images/Menu/double-beef.png);}
+#triple-beef{background-image: url(../Images/Menu/triple-beef.png);}
+#simple-chicken{background-image: url(../Images/Menu/simple-chicken.png);}
+#double-chicken{background-image: url(../Images/Menu/double-chicken.png);}
+#triple-chicken{background-image: url(../Images/Menu/triple-chicken.png);}
+#simple-fried-chicken{background-image: url(../Images/Menu/simple-fried-chicken.png);}
+#double-fried-chicken{background-image: url(../Images/Menu/double-fried-chicken.png);}
+#triple-fried-chicken{background-image: url(../Images/Menu/triple-fried-chicken.png);}
+#simple-beef-cheeseburger{background-image: url(../Images/Menu/simple-beef-cheeseburger.png);}
+#double-beef-cheeseburger{background-image: url(../Images/Menu/double-beef-cheeseburger.png);}
+#triple-beef-cheeseburger{background-image: url(../Images/Menu/triple-beef-cheeseburger.png);}
+#simple-chicken-cheeseburger{background-image: url(../Images/Menu/simple-chicken-cheeseburger.png);}
+#double-chicken-cheeseburger{background-image: url(../Images/Menu/double-chicken-cheeseburger.png);}
+#triple-chicken-cheeseburger{background-image: url(../Images/Menu/triple-chicken-cheeseburger.png);}
+#simple-fried-chicken-cheeseburger{background-image: url(../Images/Menu/simple-fried-chicken-cheeseburger.png);}
+#double-fried-chicken-cheeseburger{background-image: url(../Images/Menu/double-fried-chicken-cheeseburger.png);}
+#triple-fried-chicken-cheeseburger{background-image: url(../Images/Menu/triple-fried-chicken-cheeseburger.png);}
+#simple-beef-bbq{background-image: url(../Images/Menu/simple-beef-bbq.png);}
+#double-beef-bbq{background-image: url(../Images/Menu/double-beef-bbq.png);}
+#triple-beef-bbq{background-image: url(../Images/Menu/triple-beef-bbq.png);}
+#simple-chicken-bbq{background-image: url(../Images/Menu/simple-chicken-bbq.png);}
+#double-chicken-bbq{background-image: url(../Images/Menu/double-chicken-bbq.png);}
+#triple-chicken-bbq{background-image: url(../Images/Menu/triple-chicken-bbq.png);}
+#simple-fried-chicken-bbq{background-image: url(../Images/Menu/simple-fried-chicken-bbq.png);}
+#double-fried-chicken-bbq{background-image: url(../Images/Menu/double-fried-chicken-bbq.png);}
+#triple-fried-chicken-bbq{background-image: url(../Images/Menu/triple-fried-chicken-bbq.png);}
+#beef-jr{background-image: url(../Images/Menu/beef-jr.png);}
+#chicken-jr{background-image: url(../Images/Menu/chicken-jr.png);}
+#fried-chicken-jr{background-image: url(../Images/Menu/fried-chicken-jr.png);}
+#nuggets-jr{background-image: url(../Images/Menu/nuggets-jr.png);}
+#ice-cream-chocolate-jr{background-image: url(../Images/Menu/ice-cream-chocolate-jr.png);}
+#ice-cream-vanilla-jr{background-image: url(../Images/Menu/ice-cream-vanilla-jr.png);}
+#apple-pie{background-image: url(../Images/Menu/apple-pie.png);}
 #sliced-apple{background-image: url(../Images/Menu/apple.png);}
-#ice-cream-chocolate{background-image: url(../Images/Menu/ice\ cream\ chocolate.png);}
-#ice-cream-vanilla{background-image: url(../Images/Menu/ice\ cream\ vanilla.png);}
-#ice-cream-caramel{background-image: url(../Images/Menu/ice\ cream\ caramel.png);}
+#ice-cream-chocolate{background-image: url(../Images/Menu/ice-cream-chocolate.png);}
+#ice-cream-vanilla{background-image: url(../Images/Menu/ice-cream-vanilla.png);}
+#ice-cream-caramel{background-image: url(../Images/Menu/ice-cream-caramel.png);}
 #water{background-image: url(../Images/Menu/water.png);}
 #coke{background-image: url(../Images/Menu/cocacola.png);}
-#coke-light{background-image: url(../Images/Menu/cocacola\ light.png);}
-#fanta-lemon{background-image: url(../Images/Menu/fanta\ lemon.png);}
-#fanta-orange{background-image: url(../Images/Menu/fanta\ orange.png);}
+#coke-light{background-image: url(../Images/Menu/cocacola-light.png);}
+#fanta-lemon{background-image: url(../Images/Menu/fanta-lemon.png);}
+#fanta-orange{background-image: url(../Images/Menu/fanta-orange.png);}
 #beer{background-image: url(../Images/Menu/beer.png);}
 #sprite{background-image: url(../Images/Menu/sprite.png);}
-#aquarius-lemon{background-image: url(../Images/Menu/aquarius\ lemon.png);}
-#aquarius-orange{background-image: url(../Images/Menu/aquarius\ orange.png);}
-#chicken-nuggets{background-image: url(../Images/Menu/chicken\ nuggets.png);}
-#chicken-wings{background-image: url(../Images/Menu/chicken\ wings.png);}
-#french-fries{background-image: url(../Images/Menu/french\ fries.png);}
-#french-fries-deluxe{background-image: url(../Images/Menu/french\ fries\ deluxe.png);}
+#aquarius-lemon{background-image: url(../Images/Menu/aquarius-lemon.png);}
+#aquarius-orange{background-image: url(../Images/Menu/aquarius-orange.png);}
+#chicken-nuggets{background-image: url(../Images/Menu/chicken-nuggets.png);}
+#chicken-wings{background-image: url(../Images/Menu/chicken-wings.png);}
+#french-fries{background-image: url(../Images/Menu/french-fries.png);}
+#french-fries-deluxe{background-image: url(../Images/Menu/french-fries-deluxe.png);}
 #ketchup-sauce{background-image: url(../Images/Menu/ketchup.png);}
 #mayonnaise-sauce{background-image: url(../Images/Menu/mayonnaise.png);}
-#bbq-sauce{background-image: url(../Images/Menu/bbq\ sauce.png);}
-#ranch-sauce{background-image: url(../Images/Menu/ranch\ sauce.png);}
+#bbq-sauce{background-image: url(../Images/Menu/bbq-sauce.png);}
+#ranch-sauce{background-image: url(../Images/Menu/ranch-sauce.png);}

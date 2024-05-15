@@ -192,9 +192,9 @@ h1{
 
 
 /* Setting Up Every Image Div With Its Background Image */
-#simple-beef{background-image: url(../Images/Menu/simple\ beef.png);}
-#double-beef{background-image: url(../Images/Menu/double\ beef.png);}
-#simple-chicken{background-image: url(../Images/Menu/simple\ chicken.png);}
-#double-chicken{background-image: url(../Images/Menu/double\ chicken.png);}
-#simple-fried-chicken{background-image: url(../Images/Menu/simple\ fried\ chicken.png);}
-#double-fried-chicken{background-image: url(../Images/Menu/double\ fried\ chicken.png);}
+#simple-beef{background-image: url(../Images/Menu/simple-beef.png);}
+#double-beef{background-image: url(../Images/Menu/double-beef.png);}
+#simple-chicken{background-image: url(../Images/Menu/simple-chicken.png);}
+#double-chicken{background-image: url(../Images/Menu/double-chicken.png);}
+#simple-fried-chicken{background-image: url(../Images/Menu/simple-fried-chicken.png);}
+#double-fried-chicken{background-image: url(../Images/Menu/double-fried-chicken.png);}
