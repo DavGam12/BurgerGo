@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ProductsDao implements IDao {
-    private final String SQL_FIND_ALL = "select * from employees where 1=1";
+    private final String SQL_FIND_ALL = "select * from products where 1=1";
     @Override
     public int add(Object o) {return 0;}
 
@@ -28,7 +28,8 @@ public class ProductsDao implements IDao {
             ResultSet rs = motor.executeQuery(SQL_FIND_ALL);
 
 
-            while (rs.next()){
+            while (rs.next())
+            {
                 Products product = new Products();
                 product.setProductID(rs.getString("product_id".toUpperCase()));
                 product.setProductName(rs.getString("product_name".toUpperCase()));
@@ -39,7 +40,7 @@ public class ProductsDao implements IDao {
 
                 products.add(product);
             }
-        } catch (SQLException sqlEx) {
+        } catch (Exception ex) {
             products.clear();
         } finally {
             motor.disconnect();

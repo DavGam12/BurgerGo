@@ -15,6 +15,7 @@ import java.io.PrintWriter;
 public class Controller extends HttpServlet {
 
     // http://localhost:8080/BurgerGo/Controller?action=employees.find_all
+    // http://localhost:8080/BurgerGo/Controller?action=products.find_all
     private void processRequest(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException
     {
@@ -38,10 +39,8 @@ public class Controller extends HttpServlet {
                 break;
             }
             case "products":
-            {
                 out.print(new ProductsAction().execute(resp, req, arrAction[1]));
                 break;
-            }
             default:
             {
                 System.out.println(arrAction[0]);

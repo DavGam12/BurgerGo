@@ -28,8 +28,8 @@ public class EmployeesAction implements IAction{
     }
 
     private String findAll() {
-        EmployeesDao employeesDao = new EmployeesDao();
-        ArrayList<Employees> employees = employeesDao.findAll(null);
+        EmployeesDao employeeDao = new EmployeesDao();
+        ArrayList<Employees> employees = employeeDao.findAll(null);
         return Employees.toArrayJson(employees);
     }
 }

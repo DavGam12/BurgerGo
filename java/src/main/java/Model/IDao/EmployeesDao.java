@@ -19,7 +19,7 @@ public class EmployeesDao implements IDao {
     public int update(Object o) {return 0;}
 
     @Override
-    public ArrayList<Employees> findAll(Object o) {
+    public ArrayList<Employees> findAll(Object element) {
         ArrayList<Employees> employees = new ArrayList<>();
         SQLMotor motor = new SQLMotor();
         try {
