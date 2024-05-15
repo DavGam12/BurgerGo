@@ -382,9 +382,8 @@ const fetchData = async () => {
     console.log("api data --> ", data)
     printData(data)
 }
-let x
+
 const printData = (data) => {
-    x = data[0]
     Array.from(data).forEach(e => {
         const listEmployees = document.getElementById("employees-list")
         const mainCard = document.createElement("div")
@@ -397,9 +396,10 @@ const printData = (data) => {
         const productImgSpan = mainCard.appendChild(document.createElement("span"))
         productImgSpan.style.height = "100px"
         productImgSpan.style.width = "100px"
-        productImgSpan.style.backgroundImage = "url("+e._productImg+")"
+        productImgSpan.style.backgroundImage = `url(${e._productImg})`
         productImgSpan.style.backgroundRepeat = "no-repeat"
         productImgSpan.style.backgroundSize = "contain"
+        productImgSpan.style.backgroundPosition = "center"
     })
     /*
     const listEmployees = document.getElementById("employees-list")
