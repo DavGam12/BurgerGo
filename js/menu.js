@@ -6,7 +6,8 @@ let allergensInfoDiv
 let toTopButton
 let productSearch
 
-let menuProduct
+let searchInput
+let menuProduct = []
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -19,6 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
     allergensInfoDiv = document.getElementsByClassName("allergies-info-div")[0]
     toTopButton = document.getElementsByClassName("to-top")[0]
     productSearch = document.getElementsByClassName("product-search")[0]
+    
+    searchInput = document.getElementById("search-input")
     menuProduct = document.getElementsByClassName("menu-product")
 
 
@@ -46,9 +49,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
 
-    Array.from(menuProduct).forEach(e => {
-        let menuProductName = menuProduct.children[1].children[0]
+    searchInput.addEventListener("change", () => {
+        Array.from(menuProduct).forEach(e => {
+            let menuProductName = e.children[1].children[0].textContent
+            if (!menuProductName.toLowerCase().includes(searchInput.value.toLowerCase()))
+            {
+                e.style.display = "none"
+            } else {e.style.display = "flex"}
+        })
     })
+    
 
     allergensInfoButton.addEventListener("click", () => {
         allergensInfoDiv.style.display = "flex"
