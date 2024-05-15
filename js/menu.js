@@ -6,6 +6,8 @@ let allergensInfoDiv
 let toTopButton
 let productSearch
 
+let menuProduct
+
 
 document.addEventListener("DOMContentLoaded", () => {
     console.log("DOM fully loaded")
@@ -17,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     allergensInfoDiv = document.getElementsByClassName("allergies-info-div")[0]
     toTopButton = document.getElementsByClassName("to-top")[0]
     productSearch = document.getElementsByClassName("product-search")[0]
+    menuProduct = document.getElementsByClassName("menu-product")
 
 
     Array.from(productCategoriesButtons).forEach((e, i) => {
@@ -41,6 +44,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 })
             })
         }
+    })
+
+    Array.from(menuProduct).forEach(e => {
+        let menuProductName = menuProduct.children[1].children[0]
     })
 
     allergensInfoButton.addEventListener("click", () => {
