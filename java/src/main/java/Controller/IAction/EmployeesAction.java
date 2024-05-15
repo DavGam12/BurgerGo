@@ -19,9 +19,6 @@ public class EmployeesAction implements IAction{
                 // strReturn
                 break;
             case "find_all":
-                    /*Film film = new Film();
-                    film.setTitle("Test");
-                    film.setDuration(12);*/
                 strReturn = findAll(); // strReturn = findAll(film);
                 break;
             default:
@@ -31,8 +28,8 @@ public class EmployeesAction implements IAction{
     }
 
     private String findAll(/*Employees employees*/) {
-        EmployeesDao employeeDao = new EmployeesDao();
-        ArrayList<Employees> employees = employeeDao.findAll(null);
+        EmployeesDao employeesDao = new EmployeesDao();
+        ArrayList<Employees> employees = employeesDao.findAll(null);
         return Employees.toArrayJson(employees);
     }
 }

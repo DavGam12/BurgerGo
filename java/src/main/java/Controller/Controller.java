@@ -1,6 +1,6 @@
 package Controller;
 
-import Controller.IAction.EmployeesAction;
+import Controller.IAction.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,7 +14,7 @@ import java.io.PrintWriter;
 @WebServlet(name = "Controller", urlPatterns = {"/Controller"})
 public class Controller extends HttpServlet {
 
-    // http://localhost:8080/BurgerGo/Controller?action=film.find_all
+    // http://localhost:8080/BurgerGo/Controller?action=employees.find_all
     private void processRequest(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException
     {
@@ -32,9 +32,14 @@ public class Controller extends HttpServlet {
         }
         switch (arrAction[0])
         {
-            case "film":
+            case "employees":
             {
                 out.print(new EmployeesAction().execute(resp, req, arrAction[1]));
+                break;
+            }
+            case "products":
+            {
+                out.print(new ProductsAction().execute(resp, req, arrAction[1]));
                 break;
             }
             default:

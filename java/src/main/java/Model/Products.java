@@ -1,5 +1,10 @@
 package Model;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.util.ArrayList;
+
 public class Products {
     private String _productID;
     private String _productName;
@@ -8,12 +13,12 @@ public class Products {
     private float _productPrice;
     private String _categoryID;
 
-    private void setProductID (String productID) {_productID = productID;}
-    private void setProductName (String productName) {_productName = productName;}
-    private void setProductImg (String productImg) {_productImg = productImg;}
-    private void setProductDescription (String productDescription) {_productDescription = productDescription;}
-    private void setProductPrice (float productPrice) {_productPrice = productPrice;}
-    private void setCategoryID (String categoryID) {_categoryID = categoryID;}
+    public void setProductID (String productID) {_productID = productID;}
+    public void setProductName (String productName) {_productName = productName;}
+    public void setProductImg (String productImg) {_productImg = productImg;}
+    public void setProductDescription (String productDescription) {_productDescription = productDescription;}
+    public void setProductPrice (float productPrice) {_productPrice = productPrice;}
+    public void setCategoryID (String categoryID) {_categoryID = categoryID;}
 
     public String getProductID () {return _productID;}
     public String getProductName () {return _productName;}
@@ -31,5 +36,14 @@ public class Products {
         _categoryID = categoryID;
     }
     public Products () {}
+
+    public static String toArrayJson(ArrayList<Products> Products) {
+        GsonBuilder builder = new GsonBuilder();
+        builder.setPrettyPrinting();
+
+        Gson gson = builder.create();
+
+        return gson.toJson(Products);
+    }
 
 }
