@@ -27,7 +27,7 @@ public class EmployeesAction implements IAction{
         return strReturn;
     }
 
-    private String findAll(/*Employees employees*/) {
+    private String findAll() {
         EmployeesDao employeesDao = new EmployeesDao();
         ArrayList<Employees> employees = employeesDao.findAll(null);
         return Employees.toArrayJson(employees);

@@ -17,10 +17,8 @@ public class ProductsAction implements IAction {
             case "burgers":
                 strReturn = findAll();
                 break;
-            case "kids":
-            case "desserts":
-            case "drinks":
-            case "others":
+            default:
+                strReturn = "ERROR. Invalid action";
         }
         return strReturn;
     }
