@@ -304,7 +304,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     if (productClick.toString() != 'null') {
         let currentClick = document.getElementById(productClick)
-        currentClick.parentElement.parentElement.parentElement.parentElement.parentElement.children[3].children[0].click()
+        currentClick.parentElement.parentElement.parentElement.parentElement.parentElement.children[4].children[0].click()
         currentClick.click()
         productClick = null
         localStorage.setItem("productClick", productClick)
