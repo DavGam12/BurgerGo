@@ -143,7 +143,7 @@ const printBurgersData = (data) => {
         const productPrice = document.createElement("p")
         productInfo.appendChild(productPrice)
         productPrice.classList.add("product-price")
-        productPrice.textContent = e._productPrice+"$"
+        productPrice.textContent = e._productPrice+"€"
         const productAllergies = document.createElement("div")
         productInfo.appendChild(productAllergies)
         productAllergies.classList.add("product-allergies")
