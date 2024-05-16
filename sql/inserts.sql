@@ -118,7 +118,7 @@ begin
     insert into allergens values ('9','Celery', '../Images/Allergies/celery.png');
     insert into allergens values ('10','Mollusk', '../Images/Allergies/mollusk.png');
     insert into allergens values ('11','Lupin beans', '../Images/Allergies/lupin-beans.png');
-    insert into allergens values ('12','Sesame seeds', '../Images/Allergies/sesane-seeds.png');
+    insert into allergens values ('12','Sesame seeds', '../Images/Allergies/sesame-seeds.png');
     insert into allergens values ('13','Mustard', '../Images/Allergies/mustard.png');
     insert into allergens values ('14','Sulphites', '../Images/Allergies/sulphites.png');
 exception
