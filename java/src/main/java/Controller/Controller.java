@@ -16,6 +16,12 @@ public class Controller extends HttpServlet {
 
     // http://localhost:8080/BurgerGo/Controller?action=employees.find_all
     // http://localhost:8080/BurgerGo/Controller?action=products.find_all
+    // http://localhost:8080/BurgerGo/Controller?action=products.burgers
+    // http://localhost:8080/BurgerGo/Controller?action=products.kids
+    // http://localhost:8080/BurgerGo/Controller?action=products.desserts
+    // http://localhost:8080/BurgerGo/Controller?action=products.drinks
+    // http://localhost:8080/BurgerGo/Controller?action=products.others
+    // http://localhost:8080/BurgerGo/Controller?action=products.gluten-free
     private void processRequest(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException
     {

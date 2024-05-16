@@ -14,7 +14,23 @@ public class ProductsAction implements IAction {
         String strReturn = "";
 
         switch (act.toLowerCase()) {
-            case "find_first":
+            case "burgers":
+                strReturn = findBurgers();
+                break;
+            case "kids":
+                strReturn = findKids();
+                break;
+            case "desserts":
+                strReturn = findDesserts();
+                break;
+            case "drinks":
+                strReturn = findDrinks();
+                break;
+            case "others":
+                strReturn = findOthers();
+                break;
+            case "gluten-free":
+                strReturn = findGlutenFree();
                 break;
             case "find_all":
                 strReturn = findAll();
@@ -28,6 +44,36 @@ public class ProductsAction implements IAction {
     private String findAll () {
         ProductsDao productsDao = new ProductsDao();
         ArrayList<Products> products = productsDao.findAll(null);
+        return Products.toArrayJson(products);
+    }
+    private String findBurgers () {
+        ProductsDao productsDao = new ProductsDao();
+        ArrayList<Products> products = productsDao.findBurgers(null);
+        return Products.toArrayJson(products);
+    }
+    private String findKids () {
+        ProductsDao productsDao = new ProductsDao();
+        ArrayList<Products> products = productsDao.findKids(null);
+        return Products.toArrayJson(products);
+    }
+    private String findDesserts () {
+        ProductsDao productsDao = new ProductsDao();
+        ArrayList<Products> products = productsDao.findDesserts(null);
+        return Products.toArrayJson(products);
+    }
+    private String findDrinks () {
+        ProductsDao productsDao = new ProductsDao();
+        ArrayList<Products> products = productsDao.findDrinks(null);
+        return Products.toArrayJson(products);
+    }
+    private String findOthers () {
+        ProductsDao productsDao = new ProductsDao();
+        ArrayList<Products> products = productsDao.findOthers(null);
+        return Products.toArrayJson(products);
+    }
+    private String findGlutenFree () {
+        ProductsDao productsDao = new ProductsDao();
+        ArrayList<Products> products = productsDao.findGlutenFree(null);
         return Products.toArrayJson(products);
     }
 }
