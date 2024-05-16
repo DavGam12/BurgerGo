@@ -7,7 +7,7 @@ create table employees(employee_id varchar2(3) primary key, first_name varchar2(
 create table orders(order_id varchar2(10) primary key, order_state varchar2(40) not null, direction varchar2(100) not null, order_price number(6,2) not null, order_date date not null, employee_id varchar2(3), foreign key(employee_id) references employees(employee_id), customer_id varchar2(6), foreign key(customer_id) references customers(customer_id));
 
 
-create table allergens(allergen_id varchar2(2) primary key, allergen_name varchar2(30) not null, allergen_imd varchar2(100) not null);
+create table allergens(allergen_id varchar2(2) primary key, allergen_name varchar2(30) not null, allergen_img varchar2(100) not null);
 
 create table sales(sale_id varchar2(4) primary key, sale_name varchar2(60) not null, sale_disscount number(2,0) not null);
 
