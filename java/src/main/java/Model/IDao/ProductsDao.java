@@ -9,12 +9,12 @@ import java.util.ArrayList;
 
 public class ProductsDao implements IDao {
     private final String SQL_FIND_ALL = "select * from products where 1=1";
-    private final String SQL_FIND_BURGERS = "select * from products prod inner join categories cat on prod.category_id = cat.category_id where 1=1 and lower(category_name) = 'burgers'";
-    private final String SQL_FIND_KIDS = "select * from products prod inner join categories cat on prod.category_id = cat.category_id where 1=1 and lower(category_name) = 'kids'";
-    private final String SQL_FIND_DESSERTS = "select * from products prod inner join categories cat on prod.category_id = cat.category_id where 1=1 and lower(category_name) = 'desserts'";
-    private final String SQL_FIND_DRINKS = "select * from products prod inner join categories cat on prod.category_id = cat.category_id where 1=1 and lower(category_name) = 'drinks'";
-    private final String SQL_FIND_OTHERS = "select * from products prod inner join categories cat on prod.category_id = cat.category_id where 1=1 and lower(category_name) = 'others'";
-    private final String SQL_FIND_GLUTEN_FREE = "select * from products prod inner join categories cat on prod.category_id = cat.category_id where 1=1 and lower(category_name) = 'gluten free'";
+    private final String SQL_FIND_BURGERS = "select * from products prod inner join categories cat on prod.category_id = cat.category_id where 1=1 and lower(category_name) like '%burgers%' order by product_id";
+    private final String SQL_FIND_KIDS = "select * from products prod inner join categories cat on prod.category_id = cat.category_id where 1=1 and lower(category_name) like '%kids%' order by product_id";
+    private final String SQL_FIND_DESSERTS = "select * from products prod inner join categories cat on prod.category_id = cat.category_id where 1=1 and lower(category_name) like '%desserts%' order by product_id";
+    private final String SQL_FIND_DRINKS = "select * from products prod inner join categories cat on prod.category_id = cat.category_id where 1=1 and lower(category_name) like '%drinks%' order by product_id";
+    private final String SQL_FIND_OTHERS = "select * from products prod inner join categories cat on prod.category_id = cat.category_id where 1=1 and lower(category_name) like '%others%' order by product_id";
+    private final String SQL_FIND_GLUTEN_FREE = "select * from products prod inner join categories cat on prod.category_id = cat.category_id where 1=1 and lower(category_name) like '%gluten%free%' order by product_id";
     @Override
     public int add(Object o) {return 0;}
 
