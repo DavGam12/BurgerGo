@@ -134,14 +134,14 @@ begin
     insert into products values ('5','Double chicken', '../Images/Menu/double-chicken.png', 2.90, 'Double chicken burger, lettuce, tomato, ketchup, and mustard.', 'BG');
     insert into products values ('6','Double fried chicken', '../Images/Menu/double-fried-chicken.png', 3.40, 'Double fried chicken burger, lettuce, tomato, ketchup, and mustard.', 'BG');
     insert into products values ('7','Triple beef', '../Images/Menu/triple-beef.png', 3.50, 'Triple beef burger, lettuce, pickles, tomato, ketchup, and mustard.', 'BG');
-    insert into products values ('8','Triple chicken', '../Images/Menu/triple-chicken.png', 4.150, 'Triple chicken burger, lettuce, tomato, ketchup, and mustard.', 'BG');
+    insert into products values ('8','Triple chicken', '../Images/Menu/triple-chicken.png', 4.15, 'Triple chicken burger, lettuce, tomato, ketchup, and mustard.', 'BG');
     insert into products values ('9','Triple fried chicken', '../Images/Menu/triple-fried-chicken.png', 4.90, 'Triple fried chicken burger, lettuce, tomato, ketchup, and mustard.', 'BG');
     insert into products values ('10','Simple beef cheeseburger', '../Images/Menu/simple-beef-cheeseburger.png', 1.750, 'Beef burger, extra cheese, lettuce,  pickles, tomato, ketchup, and mustard.', 'BG');
     insert into products values ('11','Simple chicken cheeseburger', '../Images/Menu/simple-chicken-cheeseburger.png', 1.80, 'Chicken burger, extra cheese, lettuce, tomato, ketchup, and mustard.', 'BG');    
     insert into products values ('12','Simple fried chicken cheeseburger', '../Images/Menu/simple-fried-chicken-cheeseburger.png', 2.10, 'Fried chicken burger, extra cheese, lettuce, tomato, ketchup, and mustard.', 'BG');
     insert into products values ('13','Double beef cheeseburger', '../Images/Menu/double-beef-cheeseburger.png', 3.30, 'Double beef burger, extra cheese, lettuce,  pickles, tomato, ketchup, and mustard.', 'BG');
     insert into products values ('14','Double chicken cheeseburger', '../Images/Menu/double-chicken-cheeseburger.png', 3.50, 'Double chicken burger, extra cheese, lettuce, tomato, ketchup, and mustard.', 'BG');
-    insert into products values ('15','Double fried chicken cheeseburger', '../Images/Menu/double-fried-chicken-cheeseburger.png', 4,0 'Double fried chicken burger, extra cheese, lettuce, tomato, ketchup, and mustard.', 'BG');
+    insert into products values ('15','Double fried chicken cheeseburger', '../Images/Menu/double-fried-chicken-cheeseburger.png', 4.00, 'Double fried chicken burger, extra cheese, lettuce, tomato, ketchup, and mustard.', 'BG');
     insert into products values ('16','Triple beef cheeseburger', '../Images/Menu/triple-beef-cheeseburger.png', 4.90, 'Triple beef burger, extra cheese, lettuce, pickles, tomato, ketchup, and mustard.', 'BG');
     insert into products values ('17','Triple chicken cheeseburger', '../Images/Menu/triple-chicken-cheeseburger.png', 5.20, 'Triple chicken burger, extra cheese, lettuce, tomato, ketchup, and mustard.', 'BG');
     insert into products values ('18','Triple fried chicken cheeseburger', '../Images/Menu/triple-fried-chicken-cheeseburger.png', 5.50, 'Triple fried chicken burger, extra cheese, lettuce, tomato, ketchup, and mustard.', 'BG');
@@ -149,7 +149,7 @@ begin
     insert into products values ('20','Simple chicken BBQ', '../Images/Menu/simple-chicken-bbq.png', 1.60, 'Chicken burger, lettuce, tomato, and homemade barbecue sauce.', 'BG');
     insert into products values ('21','Simple fried chicken BBQ', '../Images/Menu/simple-fried-chicken-bbq.png', 1.90, 'Fried chicken burger, lettuce, tomato, and homemade barbecue sauce.', 'BG');
     insert into products values ('22','Double beef BBQ', '../Images/Menu/double-beef-bbq.png', 2.80, 'Double beef burger, lettuce, tomato, pickles and homemade barbecue sauce.', 'BG');
-    insert into products values ('23','Double chicken BBQ', '../Images/Menu/double-chicken-bbq.png', 3,0 'Double chicken burger, lettuce, tomato, and homemade barbecue sauce.', 'BG');
+    insert into products values ('23','Double chicken BBQ', '../Images/Menu/double-chicken-bbq.png', 3.00, 'Double chicken burger, lettuce, tomato, and homemade barbecue sauce.', 'BG');
     insert into products values ('24','Double fried chicken BBQ', '../Images/Menu/double-fried-chicken-bbq.png', 3.60, 'Double fried chicken burger, lettuce, tomato, and homemade barbecue sauce.', 'BG');
     insert into products values ('25','Triple beef BBQ', '../Images/Menu/triple-beef-bbq.png', 4.20, 'Triple beef burger, lettuce, tomato, pickles and homemade barbecue sauce.', 'BG');
     insert into products values ('26','Triple chicken BBQ', '../Images/Menu/triple-chicken-bbq.png', 4.60, 'Triple chicken burger, lettuce, tomato, and homemade barbecue sauce.', 'BG');
@@ -165,7 +165,7 @@ begin
     insert into products values ('36','Coke light', '../Images/Menu/coke-light.png', 1.90, 'A can of coke light.', 'DR');
     insert into products values ('37','Fanta lemon', '../Images/Menu/fanta-lemon.png', 1.90, 'A can of fanta lemon flavoured.', 'DR');
     insert into products values ('38','Fanta orange', '../Images/Menu/fanta-orange.png', 1.90, 'A can of fanta orange flavoured.', 'DR');
-    insert into products values ('39','Beer', '../Images/Menu/beer.png', 2,0 'A can of beer.', 'DR');
+    insert into products values ('39','Beer', '../Images/Menu/beer.png', 2.00, 'A can of beer.', 'DR');
     insert into products values ('40','Sprite', '../Images/Menu/sprite.png', 1.90, 'A can of sprite.', 'DR');
     insert into products values ('41','Aquarius lemon', '../Images/Menu/aquarius-lemon.png', 1.90, 'A can of aquarius lemon flavoured.', 'DR');
     insert into products values ('42','Aquarius orange', '../Images/Menu/aquarius-orange.png', 1.90, 'A can of aquarius orange flavoured.', 'DR');
