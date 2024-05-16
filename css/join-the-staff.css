@@ -1,0 +1,71 @@
+.join{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    position: relative;
+}
+
+h1{
+    font-size: 40px;
+    font-weight: bold;
+    padding: 3% 0%;
+    color: gold;
+}
+
+.joinus{
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 3%;
+    text-align: center;
+}
+.join-head{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.join-text{
+    font-size: large;
+}
+
+.form{
+    grid-row: auto;
+    border-collapse: collapse;
+    border-color: aqua;
+    border-radius: 5%;
+    border: solid;
+    width: 35%;
+}
+
+.container-form{
+    display: flex;
+    padding-top: 3%;
+}
+
+.form-group{
+    padding-left: 8%;
+    padding-bottom: 3%;
+    display: flex;
+    justify-content: center;
+}
+
+.curriculum-container{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2%;
+}
+
+.curriculum{
+    padding-left: 8%;
+    padding-bottom: 3%;
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: rgb(226, 223, 223);
+    border: none;
+    border-radius: 5px;
+    width: 30%;
+}
+
+.enviar input{cursor: pointer;}
