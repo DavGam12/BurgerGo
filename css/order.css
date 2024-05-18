@@ -272,7 +272,7 @@ hr{
 
 .product{
     font-size: large;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
     width: 20%;
@@ -281,9 +281,10 @@ hr{
     box-shadow: 2px 2px 2px 3px grey;
     display: flex;
     flex-direction: column;
+    height: 280px;
+    position: relative;
 }
 .product-info{
-    padding-bottom: 8%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -291,10 +292,26 @@ hr{
 }
 .product-info .product-name{
     font-size: 24px;
-    padding-bottom: 2%;
+    padding: 5% 0% 0% 0%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.product-info .product-img{padding: 3% 0%; cursor: pointer;}
-.product-price{font-size: 20px;}
+.product-info .product-img{
+    cursor: pointer;
+    height: 150px;
+    width: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 2%;
+}
+.product-price{
+    font-size: 20px;
+    position: absolute;
+    top: 71%;
+}
 .order-addition-info{
     display: flex;
     width: 100%;
@@ -346,6 +363,7 @@ hr{
 }
 .product-description-close{
     width: 20px;
+    height: 20px;
     cursor: pointer;
 }
 .product-allergies{
@@ -363,7 +381,7 @@ hr{
 .allergies-info-button{
     position: absolute;
     bottom: 3%;
-    left: 77%;
+    left: 72%;
     border: solid 2px black;
     padding: 0.2% 1.5%;
     border-radius: 100px;
@@ -385,6 +403,8 @@ hr{
 
 @media (width<1300px) {
     .buy-div{width: 60%;}
+    .category-option{width: 80%;}
+    .product{width: 23%;}
 }
 
 @media (width<1202px) {
@@ -403,10 +423,8 @@ hr{
 @media (width<1000px) {
     .current-order{width: 70%;}
     .product-description-div{height: 50%;}
-    .product-description-img{
-        position: relative;
-        top: 15%;
-    }
+    .category-option{width: 100%;}
+    .product-description-img{width: 55%;}
 }
 
 @media (width<900px) {
@@ -419,12 +437,13 @@ hr{
 }
 
 @media (width<840px){
-    .product{width: 25%;}
+    .product{width: 30%;}
     .current-order{width: 90%;}
     .price-position{width: 15%;}
     .allergies-info-div{width: 90%;}
     .allergy-info-icon{width: 35px;}
     .card-input{width: 40%;}
+    .product-categories{width: 95%;}
 }
 
 @media (width<680px) {
@@ -447,9 +466,11 @@ hr{
         width: 30%;
         padding-bottom: 2%;
     }
-    .category-option{width: 90%;}
     .product-categories{width: 100%;}
-    .product{width: 30%;}
+    .product{
+        width: 35%;
+        height: 250px;
+    }
     .products-position{width: 100%;}
     .product-quantity{height: 80%;}
     .product-description-div{
@@ -489,6 +510,11 @@ hr{
     .specific-allergy-div{width: 45%;}
     .buy-options{width: 100%;}
     .buy-options button{width: 30%;}
+    .product-info .product-img{
+        height: 120px;
+        width: 150px;
+    }
+    .product-info .product-name{font-size: 20px;}
 }
 
 @media (width<600px) {
@@ -534,13 +560,14 @@ hr{
     .buy-div label{font-size: large;}
     .buy-div input{font-size: medium;}
     .product-search input{width: 50%;}
+    .product-description-img{width: 100%;}
 }
 
 @media (width<400px) {
     .buy-position{width: 40%;}
-    .product{width: 40%; padding: 3% 0%;}
+    .product{width: 80%; padding: 3% 0%; height: 240px;}
     .current-product{width: 50%;}
-    .product-description-div{height: 40%;}
+    .product-description-div{height: 30%;}
     .product-allergies-small{
         width: 80%;
         bottom: 20%;

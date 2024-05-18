@@ -1,6 +1,7 @@
 let productClick
 productClick = localStorage.getItem("productClick")
 
+let product
 let productCategoriesButtons = []
 let productCategoriesHr = []
 let productCategoriesDivs = []
@@ -21,8 +22,8 @@ let buyCancelButton
 
 let productCategorySelected
 let currentOrderPrice
-let lastAllergiesInfoButtonClicked
 let productSearch
+let searchInput
 
     /* Current Order Products Info */
 let currentOrderProduct = [ // currentOrderProduct.filter((e) => e.existence == true) to get the all current products info
@@ -51,6 +52,7 @@ let currentOrderProduct = [ // currentOrderProduct.filter((e) => e.existence == 
 document.addEventListener("DOMContentLoaded",()=>{
     console.log("DOM fully loaded and parsed")
 
+    product = document.getElementsByClassName("product")
     productCategoriesButtons = document.getElementsByClassName("product-categories")[0].getElementsByTagName("button")
     productCategoriesDivs = document.getElementsByClassName("product-categories-divs")[0].children
     addToOrderButton = document.getElementsByClassName("add-to-order")
@@ -70,8 +72,10 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     productCategorySelected = document.getElementById("current-category")
     productSearch = document.getElementsByClassName("product-search")[0]
+    searchInput = document.getElementById("search-input")
 
 
+    /* CATEGORIES BUTTONS EVENT LISTENERS */
     for (let button = 0; button<productCategoriesButtons.length; button++) {
         productCategoriesHr[button] = productCategoriesButtons[button].getElementsByTagName("hr")[0]
 
@@ -124,52 +128,25 @@ document.addEventListener("DOMContentLoaded",()=>{
     }
 
 
-    closeAllergiesInfoDiv.addEventListener("click", () => {
-        allergiesInfoDiv.style.display = "none"
-        lastAllergiesInfoButtonClicked.parentElement.style.display = "flex"
-    })
-
-
-    Array.from(closeProductDescription).forEach(e => {
-        e.addEventListener("click", () => {
-            document.body.style.pointerEvents = "all"
-            document.body.style.overflow = "visible"
-            e.parentElement.style.display = "none"
-            OrderDeactivateOpacity()
-        })
-    })
-
-
-            /* if a user writes manually a number<1 the value changes automatically to 1 */
-    Array.from(productQuantity).forEach(e => {
-        e.addEventListener("change",()=>
+    searchInput.addEventListener("change", () => {
+        Array.from(product).forEach(e => {
+            if (!e.children[0].children[1].textContent.toLowerCase().includes(searchInput.value.toLowerCase()))
             {
-                if (e.value<1){e.value = 1}
-                else if (e.value>100){e.value = 100}
-            })
-    })
-
-    Array.from(productImg).forEach(e => {
-        e.addEventListener("click", () => {
-            for (let i = 0; i<productImg.length; i++){
-                if (productImg[i] == e){
-                    productDescriptionDiv[i].style.display = "flex"
-                    document.body.style.overflow = "hidden"
-                    document.body.style.pointerEvents = "none"
-                    OrderSpecificEnable(productImg[i].parentElement.parentElement.parentElement.classList[0], productImg[i].parentElement.parentElement, productDescriptionDiv[i].className)
-                    OrderActivateOpacity(productImg[i].parentElement.parentElement.parentElement.classList[0], productImg[i].parentElement.parentElement, productDescriptionDiv[i].className, 0.75)
-                }
+                e.style.display = "none"
+            }
+            else
+            {
+                e.style.display = "flex"
             }
         })
     })
 
-    Array.from(allergiesInfoButton).forEach(e => {
-        e.addEventListener("click", () => {
-            allergiesInfoDiv.style.display = "flex"
-            e.parentElement.style.display = "none"
-            lastAllergiesInfoButtonClicked = e
-        })
+
+    closeAllergiesInfoDiv.addEventListener("click", () => {
+        allergiesInfoDiv.style.display = "none"
     })
+
+
 
     buyButton.addEventListener("click", () => {
         buyDiv.style.display = "flex"
@@ -188,7 +165,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 
             /* automate current products */
-    for (let b = 0; b<addToOrderButton.length; b++) { // preguntar a Vanessa
+    for (let b = 0; b<addToOrderButton.length; b++) {
         currentOrderProduct[b] = 
         {
             existence: false,
@@ -483,3 +460,477 @@ OrderDeactivateOpacity = () => {
         }  else {e.style.opacity = 1}
     })
 }
+
+
+
+
+/* FETCH */
+const burgersURL = "http://localhost:8080/BurgerGo/Controller?action=products.burgers"
+const kidsURL = "http://localhost:8080/BurgerGo/Controller?action=products.kids"
+const dessertsURL = "http://localhost:8080/BurgerGo/Controller?action=products.desserts"
+const drinksURL = "http://localhost:8080/BurgerGo/Controller?action=products.drinks"
+const othersURL = "http://localhost:8080/BurgerGo/Controller?action=products.others"
+const glutenFreeURL = "http://localhost:8080/BurgerGo/Controller?action=products.gluten-free"
+const allergensURL = "http://localhost:8080/BurgerGo/Controller?action=allergens.find_all"
+const allergiesURL = "http://localhost:8080/BurgerGo/Controller?action=allergies.find_all"
+
+const fetchData = async () => {
+    const burgersRes = await fetch(burgersURL)
+    const kidsRes = await fetch(kidsURL)
+    const dessertsRes = await fetch(dessertsURL)
+    const drinksRes = await fetch(drinksURL)
+    const othersRes = await fetch(othersURL)
+    const glutenFreeRes = await fetch(glutenFreeURL)
+    const allergensRes = await fetch(allergensURL)
+    const allergiesRes = await fetch(allergiesURL)
+
+    const burgersData = await burgersRes.json()
+    const kidsData = await kidsRes.json()
+    const dessertsData = await dessertsRes.json()
+    const drinksData = await drinksRes.json()
+    const othersData = await othersRes.json()
+    const glutenFreeData = await glutenFreeRes.json()
+    const allergensData = await allergensRes.json()
+    const allergiesData = await allergiesRes.json()
+
+    console.log("burgersData --> ", burgersData)
+    console.log("kidsData --> ", kidsData)
+    console.log("dessertsData --> ", dessertsData)
+    console.log("drinksData --> ", drinksData)
+    console.log("othersData --> ", othersData)
+    console.log("othersData --> ", glutenFreeData)
+    console.log("allergensData --> ", allergensData)
+    console.log("allergiesData --> ", allergiesData)
+
+    printBurgersData(burgersData, allergensData, allergiesData)
+    printKidsData(kidsData, allergensData, allergiesData)
+    printDessertsData(dessertsData, allergensData, allergiesData)
+    printDrinksData(drinksData, allergensData, allergiesData)
+    printOthersData(othersData, allergensData, allergiesData)
+    printGlutenFreeData(glutenFreeData, allergensData, allergiesData)
+    printAllergensData(allergensData)
+}
+
+/* BURGERS */
+const printBurgersData = (mainData, secondData, intermediateData) => {
+    Array.from(mainData).forEach(e => {
+        const burgersCategory = document.getElementById("burgers-category")
+
+        const productDiv = document.createElement("div")
+        burgersCategory.appendChild(productDiv)
+        productDiv.classList.add("product")
+
+
+        const productInfo = document.createElement("div")
+        productDiv.appendChild(productInfo)
+        productInfo.classList.add("product-info")
+        
+
+        const productImg = document.createElement("div")
+        productInfo.appendChild(productImg)
+        productImg.classList.add("product-img")
+        productImg.setAttribute("id", e._productName.replaceAll(" ", "-").toLowerCase())
+        productImg.style.backgroundImage = "url("+e._productImg+")"
+        
+        const productName = document.createElement("span")
+        productInfo.appendChild(productName)
+        productName.classList.add("product-name")
+        productName.textContent = e._productName
+
+
+        const productPrice = document.createElement("span")
+        productInfo.appendChild(productPrice)
+        productPrice.classList.add("product-price")
+        productPrice.textContent = e._productPrice.toFixed(2)+"€"
+
+
+        const orderAddition = document.createElement("div")
+        productDiv.appendChild(orderAddition)
+        orderAddition.classList.add("order-addition-info")
+
+        const productQuantity = document.createElement("input")
+        orderAddition.appendChild(productQuantity)
+        productQuantity.classList.add("product-quantity")
+        productQuantity.setAttribute("type", "number")
+        productQuantity.setAttribute("name", "product-quantity")
+        productQuantity.setAttribute("value", 1)
+        productQuantity.setAttribute("min", 1)
+
+        const addToOrder = document.createElement("button")
+        orderAddition.appendChild(addToOrder)
+        addToOrder.classList.add("add-to-order")
+        addToOrder.textContent = "Add to order"
+
+
+        const productDescriptionDiv = document.createElement("div")
+        productDiv.appendChild(productDescriptionDiv)
+        productDescriptionDiv.classList.add("product-description-div")
+
+        const productDescriptionImg = document.createElement("div")
+        productDescriptionDiv.appendChild(productDescriptionImg)
+        productDescriptionImg.classList.add("product-description-img")
+        /* TO CHANGE */
+        const img = document.createElement("img")
+        productDescriptionImg.appendChild(img)
+        img.setAttribute("src", e._productImg)
+        /* NEXT */
+        const productDescriptionText = document.createElement("div")
+        productDescriptionDiv.appendChild(productDescriptionText)
+        productDescriptionText.classList.add("text-description")
+
+        const productDescriptionName = document.createElement("span")
+        productDescriptionText.appendChild(productDescriptionName)
+        productDescriptionName.classList.add("product-name")
+        productDescriptionName.textContent = e._productName
+        const productDescription = document.createElement("span")
+        productDescriptionText.appendChild(productDescription)
+        productDescription.classList.add("product-description")
+        productDescription.textContent = e._productDescription
+        const productAllergies = document.createElement("div")
+        productDescriptionText.appendChild(productAllergies)
+        productAllergies.classList.add("product-allergies")
+        /* ALLERGEN TODO STUFF */
+        /*Array.from().forEach(a => {
+            const allergyDiv = document.createElement("div")
+            productAllergies.appendChild(allergyDiv)
+            allergyDiv.classList.add("allergy-icon")
+            const allergyIcon = document.createElement("img")
+            allergyDiv.appendChild(allergyIcon)
+            allergyIcon.setAttribute("src", a._allergenImg)
+            allergyIcon.setAttribute("alt", a._allergenName)
+        })*/
+
+
+        const productAllergiesSmall = document.createElement("div")
+        productDescriptionDiv.appendChild(productAllergiesSmall)
+        productAllergiesSmall.classList.add("product-allergies-small")
+        /* ALLERGEN TODO STUFF */
+        /*Array.from().forEach(a => {
+            const allergyDiv = document.createElement("div")
+            productAllergiesSmall.appendChild(allergyDiv)
+            allergyDiv.classList.add("allergy-icon")
+            const allergyIcon = document.createElement("img")
+            allergyDiv.appendChild(allergyIcon)
+            allergyIcon.setAttribute("src", a._allergenImg)
+            allergyIcon.setAttribute("alt", a._allergenName)
+        })*/
+
+
+        const allergiesInfoButton = document.createElement("div")
+        productDescriptionDiv.appendChild(allergiesInfoButton)
+        allergiesInfoButton.classList.add("allergies-info-button")
+        const buttonChild = document.createElement("button")
+        allergiesInfoButton.appendChild(buttonChild)
+        buttonChild.textContent = "Allergens Info"
+
+
+        const productDescriptionClose = document.createElement("div")
+        productDescriptionDiv.appendChild(productDescriptionClose)
+        productDescriptionClose.classList.add("product-description-close")
+        const imgChild = document.createElement("img")
+        productDescriptionClose.appendChild(imgChild)
+        imgChild.setAttribute("src", "../Images/close.png")
+        imgChild.setAttribute("alt", "close")
+
+
+
+        /* SETTING UP THE EVENT LISTENERS */
+        productQuantity.addEventListener("change", () => {
+            if (productQuantity.value<1){productQuantity.value = 1}
+            else if (productQuantity.value>100){productQuantity.value = 100}
+        })
+
+
+        productImg.addEventListener("click", () => {
+            productDescriptionDiv.style.display = "flex"
+            document.body.style.overflow = "hidden"
+            document.body.style.pointerEvents = "none"
+            OrderSpecificEnable(burgersCategory.classList[0], productDiv, productDescriptionDiv.classList[0])
+            OrderActivateOpacity(burgersCategory.classList[0], productDiv, productDescriptionDiv.classList[0], 0.75)
+        })
+
+
+        allergiesInfoButton.addEventListener("click", () => {
+            allergiesInfoDiv.style.display = "flex"
+        })
+
+
+        productDescriptionClose.addEventListener("click", () => {
+            document.body.style.pointerEvents = "all"
+            document.body.style.overflow = "visible"
+            productDescriptionDiv.style.display = "none"
+            OrderDeactivateOpacity()
+        })
+    })
+}
+
+/* KIDS */
+const printKidsData = (mainData, secondData, intermediateData) => {
+    Array.from(mainData).forEach(e => {
+        const kidsCategory = document.getElementById("kids-category")
+
+        const menuProductDiv = document.createElement("div")
+        kidsCategory.appendChild(menuProductDiv)
+        menuProductDiv.classList.add("menu-product")
+
+        const productImg = document.createElement("div")
+        menuProductDiv.appendChild(productImg)
+        productImg.classList.add("product-img")
+        productImg.style.backgroundImage = "url("+e._productImg+")"
+        const productInfo = document.createElement("div")
+        menuProductDiv.appendChild(productInfo)
+        productInfo.classList.add("product-info")
+
+        const productName = document.createElement("p")
+        productInfo.appendChild(productName)
+        productName.classList.add("product-name")
+        productName.textContent = e._productName
+        const productDescription = document.createElement("p")
+        productInfo.appendChild(productDescription)
+        productDescription.classList.add("product-description")
+        productDescription.textContent = e._productDescription
+        const productPrice = document.createElement("p")
+        productInfo.appendChild(productPrice)
+        productPrice.classList.add("product-price")
+        productPrice.textContent = e._productPrice+"$"
+        const productAllergies = document.createElement("div")
+        productInfo.appendChild(productAllergies)
+        productAllergies.classList.add("product-allergies")
+        /*Array.from().forEach(a => {
+            const 
+        })*/
+    })
+}
+
+/* DESSERTS */
+const printDessertsData = (mainData, secondData, intermediateData) => {
+    Array.from(mainData).forEach(e => {
+        const dessertsCategory = document.getElementById("desserts-category")
+
+        const menuProductDiv = document.createElement("div")
+        dessertsCategory.appendChild(menuProductDiv)
+        menuProductDiv.classList.add("menu-product")
+
+        const productImg = document.createElement("div")
+        menuProductDiv.appendChild(productImg)
+        productImg.classList.add("product-img")
+        productImg.style.backgroundImage = "url("+e._productImg+")"
+        const productInfo = document.createElement("div")
+        menuProductDiv.appendChild(productInfo)
+        productInfo.classList.add("product-info")
+
+        const productName = document.createElement("p")
+        productInfo.appendChild(productName)
+        productName.classList.add("product-name")
+        productName.textContent = e._productName
+        const productDescription = document.createElement("p")
+        productInfo.appendChild(productDescription)
+        productDescription.classList.add("product-description")
+        productDescription.textContent = e._productDescription
+        const productPrice = document.createElement("p")
+        productInfo.appendChild(productPrice)
+        productPrice.classList.add("product-price")
+        productPrice.textContent = e._productPrice+"$"
+        const productAllergies = document.createElement("div")
+        productInfo.appendChild(productAllergies)
+        productAllergies.classList.add("product-allergies")
+        /*Array.from().forEach(a => {
+            const 
+        })*/
+    })
+}
+
+/* DRINKS */
+const printDrinksData = (mainData, secondData, intermediateData) => {
+    Array.from(mainData).forEach(e => {
+        const drinksCategory = document.getElementById("drinks-category")
+
+        const menuProductDiv = document.createElement("div")
+        drinksCategory.appendChild(menuProductDiv)
+        menuProductDiv.classList.add("menu-product")
+
+        const productImg = document.createElement("div")
+        menuProductDiv.appendChild(productImg)
+        productImg.classList.add("product-img")
+        productImg.style.backgroundImage = "url("+e._productImg+")"
+        const productInfo = document.createElement("div")
+        menuProductDiv.appendChild(productInfo)
+        productInfo.classList.add("product-info")
+
+        const productName = document.createElement("p")
+        productInfo.appendChild(productName)
+        productName.classList.add("product-name")
+        productName.textContent = e._productName
+        const productDescription = document.createElement("p")
+        productInfo.appendChild(productDescription)
+        productDescription.classList.add("product-description")
+        productDescription.textContent = e._productDescription
+        const productPrice = document.createElement("p")
+        productInfo.appendChild(productPrice)
+        productPrice.classList.add("product-price")
+        productPrice.textContent = e._productPrice+"$"
+        const productAllergies = document.createElement("div")
+        productInfo.appendChild(productAllergies)
+        productAllergies.classList.add("product-allergies")
+        /*Array.from().forEach(a => {
+            const 
+        })*/
+    })
+}
+
+/* OTHERS */
+const printOthersData = (mainData, secondData, intermediateData) => {
+    Array.from(mainData).forEach(e => {
+        const othersCategory = document.getElementById("others-category")
+
+        const menuProductDiv = document.createElement("div")
+        othersCategory.appendChild(menuProductDiv)
+        menuProductDiv.classList.add("menu-product")
+
+        const productImg = document.createElement("div")
+        menuProductDiv.appendChild(productImg)
+        productImg.classList.add("product-img")
+        productImg.style.backgroundImage = "url("+e._productImg+")"
+        const productInfo = document.createElement("div")
+        menuProductDiv.appendChild(productInfo)
+        productInfo.classList.add("product-info")
+
+        const productName = document.createElement("p")
+        productInfo.appendChild(productName)
+        productName.classList.add("product-name")
+        productName.textContent = e._productName
+        const productDescription = document.createElement("p")
+        productInfo.appendChild(productDescription)
+        productDescription.classList.add("product-description")
+        productDescription.textContent = e._productDescription
+        const productPrice = document.createElement("p")
+        productInfo.appendChild(productPrice)
+        productPrice.classList.add("product-price")
+        productPrice.textContent = e._productPrice+"$"
+        const productAllergies = document.createElement("div")
+        productInfo.appendChild(productAllergies)
+        productAllergies.classList.add("product-allergies")
+        /*Array.from().forEach(a => {
+            const 
+        })*/
+    })
+}
+
+/* GLUTEN FREE */
+const printGlutenFreeData = (mainData, secondData, intermediateData) => {
+    Array.from(mainData).forEach(e => {
+        const glutenFreeCategory = document.getElementById("gluten-free-category")
+
+        const menuProductDiv = document.createElement("div")
+        glutenFreeCategory.appendChild(menuProductDiv)
+        menuProductDiv.classList.add("menu-product")
+
+        const productImg = document.createElement("div")
+        menuProductDiv.appendChild(productImg)
+        productImg.classList.add("product-img")
+        productImg.style.backgroundImage = "url("+e._productImg+")"
+        const productInfo = document.createElement("div")
+        menuProductDiv.appendChild(productInfo)
+        productInfo.classList.add("product-info")
+
+        const productName = document.createElement("p")
+        productInfo.appendChild(productName)
+        productName.classList.add("product-name")
+        productName.textContent = e._productName
+        const productDescription = document.createElement("p")
+        productInfo.appendChild(productDescription)
+        productDescription.classList.add("product-description")
+        productDescription.textContent = e._productDescription
+        const productPrice = document.createElement("p")
+        productInfo.appendChild(productPrice)
+        productPrice.classList.add("product-price")
+        productPrice.textContent = e._productPrice.toFixed(2)+"€"
+        const productAllergies = document.createElement("div")
+        productInfo.appendChild(productAllergies)
+        productAllergies.classList.add("product-allergies")
+        /*Array.from().forEach(a => {
+            const 
+        })*/
+    })
+}
+
+/* ALLERGENS INFO */
+const printAllergensData = (mainData, secondData, intermediateData) => {
+    const allergiesInfo = document.getElementsByClassName("allergies-info-div")[0]
+
+    const allergiesColumnFirst = document.createElement("div")
+    allergiesInfo.appendChild(allergiesColumnFirst)
+    allergiesColumnFirst.classList.add("allergies-column")
+    const allergiesColumnSecond = document.createElement("div")
+    allergiesInfo.appendChild(allergiesColumnSecond)
+    allergiesColumnSecond.classList.add("allergies-column")
+    const allergiesDisplaySmall = document.createElement("div")
+    allergiesInfo.appendChild(allergiesDisplaySmall)
+    allergiesDisplaySmall.classList.add("allergies-display-small")
+        
+    Array.from(mainData).forEach(e => {
+        if (Number.parseInt(e._allergenID)<8)
+        {
+            const specificAllergyDiv = document.createElement("div")
+            allergiesColumnFirst.appendChild(specificAllergyDiv)
+            specificAllergyDiv.classList.add("specific-allergy-div")
+
+            const allergyInfoIcon = document.createElement("div")
+            specificAllergyDiv.appendChild(allergyInfoIcon)
+            allergyInfoIcon.classList.add("allergy-info-icon")
+            const image = document.createElement("img")
+            allergyInfoIcon.appendChild(image)
+            image.setAttribute("alt", e._allergenName)
+            image.setAttribute("src", e._allergenImg)
+            const allergyInfoText = document.createElement("div")
+            specificAllergyDiv.appendChild(allergyInfoText)
+            allergyInfoText.classList.add("allergy-info-text")
+            const paragraph = document.createElement("div")
+            allergyInfoText.appendChild(paragraph)
+            paragraph.textContent = "Contains " + e._allergenName
+        }
+
+        if (Number.parseInt(e._allergenID)>7 && Number.parseInt(e._allergenID)<15)
+        {
+            const specificAllergyDiv = document.createElement("div")
+            allergiesColumnSecond.appendChild(specificAllergyDiv)
+            specificAllergyDiv.classList.add("specific-allergy-div")
+
+            const allergyInfoIcon = document.createElement("div")
+            specificAllergyDiv.appendChild(allergyInfoIcon)
+            allergyInfoIcon.classList.add("allergy-info-icon")
+            const image = document.createElement("img")
+            allergyInfoIcon.appendChild(image)
+            image.setAttribute("alt", e._allergenName)
+            image.setAttribute("src", e._allergenImg)
+            const allergyInfoText = document.createElement("div")
+            specificAllergyDiv.appendChild(allergyInfoText)
+            allergyInfoText.classList.add("allergy-info-text")
+            const paragraph = document.createElement("div")
+            allergyInfoText.appendChild(paragraph)
+            paragraph.textContent = "Contains " + e._allergenName
+        }
+
+        
+        const specificAllergyDiv = document.createElement("div")
+        allergiesDisplaySmall.appendChild(specificAllergyDiv)
+        specificAllergyDiv.classList.add("specific-allergy-div")
+
+        const allergyInfoIcon = document.createElement("div")
+        specificAllergyDiv.appendChild(allergyInfoIcon)
+        allergyInfoIcon.classList.add("allergy-info-icon")
+        const image = document.createElement("img")
+        allergyInfoIcon.appendChild(image)
+        image.setAttribute("alt", e._allergenName)
+        image.setAttribute("src", e._allergenImg)
+        const allergyInfoText = document.createElement("div")
+        specificAllergyDiv.appendChild(allergyInfoText)
+        allergyInfoText.classList.add("allergy-info-text")
+        const paragraph = document.createElement("div")
+        allergyInfoText.appendChild(paragraph)
+        paragraph.textContent = "Contains " + e._allergenName
+        
+    })
+}
+
+fetchData()

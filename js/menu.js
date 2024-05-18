@@ -87,6 +87,8 @@ const kidsURL = "http://localhost:8080/BurgerGo/Controller?action=products.kids"
 const dessertsURL = "http://localhost:8080/BurgerGo/Controller?action=products.desserts"
 const drinksURL = "http://localhost:8080/BurgerGo/Controller?action=products.drinks"
 const othersURL = "http://localhost:8080/BurgerGo/Controller?action=products.others"
+const allergensURL = "http://localhost:8080/BurgerGo/Controller?action=allergens.find_all"
+const allergiesURL = "http://localhost:8080/BurgerGo/Controller?action=allergies.find_all"
 
 const fetchData = async () => {
     const burgersRes = await fetch(burgersURL)
@@ -94,30 +96,36 @@ const fetchData = async () => {
     const dessertsRes = await fetch(dessertsURL)
     const drinksRes = await fetch(drinksURL)
     const othersRes = await fetch(othersURL)
+    const allergensRes = await fetch(allergensURL)
+    const allergiesRes = await fetch(allergiesURL)
 
     const burgersData = await burgersRes.json()
     const kidsData = await kidsRes.json()
     const dessertsData = await dessertsRes.json()
     const drinksData = await drinksRes.json()
     const othersData = await othersRes.json()
+    const allergensData = await allergensRes.json()
+    const allergiesData = await allergiesRes.json()
 
     console.log("burgersData --> ", burgersData)
     console.log("kidsData --> ", kidsData)
     console.log("dessertsData --> ", dessertsData)
     console.log("drinksData --> ", drinksData)
     console.log("othersData --> ", othersData)
-    
+    console.log("allergensData --> ", allergensData)
+    console.log("allergiesData --> ", allergiesData)
 
-    printBurgersData(burgersData)
-    printKidsData(kidsData)
-    printDessertsData(dessertsData)
-    printDrinksData(drinksData)
-    printOthersData(othersData)
+    printBurgersData(burgersData, allergensData, allergiesData)
+    printKidsData(kidsData, allergensData, allergiesData)
+    printDessertsData(dessertsData, allergensData, allergiesData)
+    printDrinksData(drinksData, allergensData, allergiesData)
+    printOthersData(othersData, allergensData, allergiesData)
+    printAllergensData(allergensData)
 }
 
 /* BURGERS */
-const printBurgersData = (data) => {
-    Array.from(data).forEach(e => {
+const printBurgersData = (mainData, secondData, intermediateData) => {
+    Array.from(mainData).forEach(e => {
         const burgersCategory = document.getElementById("burgers-category")
 
         const menuProductDiv = document.createElement("div")
@@ -143,19 +151,25 @@ const printBurgersData = (data) => {
         const productPrice = document.createElement("p")
         productInfo.appendChild(productPrice)
         productPrice.classList.add("product-price")
-        productPrice.textContent = e._productPrice+"€"
+        productPrice.textContent = e._productPrice.toFixed(2)+"€"
         const productAllergies = document.createElement("div")
         productInfo.appendChild(productAllergies)
         productAllergies.classList.add("product-allergies")
-        /*Array.from().forEach(a => {
-            const 
-        })*/
+        Array.from(intermediateData.filter(a => a._productID == e._productID)).forEach(a => {
+            const allergyIcon = document.createElement("div")
+            productAllergies.appendChild(allergyIcon)
+            allergyIcon.classList.add("allergy-icon")
+            const allergyIconImg = document.createElement("img")
+            allergyIcon.appendChild(allergyIconImg)
+            allergyIconImg.setAttribute("src", secondData[a._allergenID-1]._allergenImg)
+            allergyIconImg.setAttribute("alt", secondData[a._allergenID-1]._allergenName)
+        })
     })
 }
 
 /* KIDS */
-const printKidsData = (data) => {
-    Array.from(data).forEach(e => {
+const printKidsData = (mainData, secondData, intermediateData) => {
+    Array.from(mainData).forEach(e => {
         const kidsCategory = document.getElementById("kids-category")
 
         const menuProductDiv = document.createElement("div")
@@ -181,19 +195,25 @@ const printKidsData = (data) => {
         const productPrice = document.createElement("p")
         productInfo.appendChild(productPrice)
         productPrice.classList.add("product-price")
-        productPrice.textContent = e._productPrice+"$"
+        productPrice.textContent = e._productPrice.toFixed(2)+"$"
         const productAllergies = document.createElement("div")
         productInfo.appendChild(productAllergies)
         productAllergies.classList.add("product-allergies")
-        /*Array.from().forEach(a => {
-            const 
-        })*/
+        Array.from(intermediateData.filter(a => a._productID == e._productID)).forEach((a, i) => {
+            const allergyIcon = document.createElement("div")
+            productAllergies.appendChild(allergyIcon)
+            allergyIcon.classList.add("allergy-icon")
+            const allergyIconImg = document.createElement("img")
+            allergyIcon.appendChild(allergyIconImg)
+            allergyIconImg.setAttribute("src", secondData[i]._allergenImg)
+            allergyIconImg.setAttribute("alt", secondData[i]._allergenName)
+        })
     })
 }
 
 /* DESSERTS */
-const printDessertsData = (data) => {
-    Array.from(data).forEach(e => {
+const printDessertsData = (mainData, secondData, intermediateData) => {
+    Array.from(mainData).forEach(e => {
         const dessertsCategory = document.getElementById("desserts-category")
 
         const menuProductDiv = document.createElement("div")
@@ -219,19 +239,25 @@ const printDessertsData = (data) => {
         const productPrice = document.createElement("p")
         productInfo.appendChild(productPrice)
         productPrice.classList.add("product-price")
-        productPrice.textContent = e._productPrice+"$"
+        productPrice.textContent = e._productPrice.toFixed(2)+"$"
         const productAllergies = document.createElement("div")
         productInfo.appendChild(productAllergies)
         productAllergies.classList.add("product-allergies")
-        /*Array.from().forEach(a => {
-            const 
-        })*/
+        Array.from(intermediateData.filter(a => a._productID == e._productID)).forEach((a, i) => {
+            const allergyIcon = document.createElement("div")
+            productAllergies.appendChild(allergyIcon)
+            allergyIcon.classList.add("allergy-icon")
+            const allergyIconImg = document.createElement("img")
+            allergyIcon.appendChild(allergyIconImg)
+            allergyIconImg.setAttribute("src", secondData[i]._allergenImg)
+            allergyIconImg.setAttribute("alt", secondData[i]._allergenName)
+        })
     })
 }
 
 /* DRINKS */
-const printDrinksData = (data) => {
-    Array.from(data).forEach(e => {
+const printDrinksData = (mainData, secondData, intermediateData) => {
+    Array.from(mainData).forEach(e => {
         const drinksCategory = document.getElementById("drinks-category")
 
         const menuProductDiv = document.createElement("div")
@@ -257,19 +283,25 @@ const printDrinksData = (data) => {
         const productPrice = document.createElement("p")
         productInfo.appendChild(productPrice)
         productPrice.classList.add("product-price")
-        productPrice.textContent = e._productPrice+"$"
+        productPrice.textContent = e._productPrice.toFixed(2)+"$"
         const productAllergies = document.createElement("div")
         productInfo.appendChild(productAllergies)
         productAllergies.classList.add("product-allergies")
-        /*Array.from().forEach(a => {
-            const 
-        })*/
+        Array.from(intermediateData.filter(a => a._productID == e._productID)).forEach((a, i) => {
+            const allergyIcon = document.createElement("div")
+            productAllergies.appendChild(allergyIcon)
+            allergyIcon.classList.add("allergy-icon")
+            const allergyIconImg = document.createElement("img")
+            allergyIcon.appendChild(allergyIconImg)
+            allergyIconImg.setAttribute("src", secondData[i]._allergenImg)
+            allergyIconImg.setAttribute("alt", secondData[i]._allergenName)
+        })
     })
 }
 
 /* OTHERS */
-const printOthersData = (data) => {
-    Array.from(data).forEach(e => {
+const printOthersData = (mainData, secondData, intermediateData) => {
+    Array.from(mainData).forEach(e => {
         const othersCategory = document.getElementById("others-category")
 
         const menuProductDiv = document.createElement("div")
@@ -295,13 +327,98 @@ const printOthersData = (data) => {
         const productPrice = document.createElement("p")
         productInfo.appendChild(productPrice)
         productPrice.classList.add("product-price")
-        productPrice.textContent = e._productPrice+"$"
+        productPrice.textContent = e._productPrice.toFixed(2)+"$"
         const productAllergies = document.createElement("div")
         productInfo.appendChild(productAllergies)
         productAllergies.classList.add("product-allergies")
-        /*Array.from().forEach(a => {
-            const 
-        })*/
+        Array.from(intermediateData.filter(a => a._productID == e._productID)).forEach((a, i) => {
+            const allergyIcon = document.createElement("div")
+            productAllergies.appendChild(allergyIcon)
+            allergyIcon.classList.add("allergy-icon")
+            const allergyIconImg = document.createElement("img")
+            allergyIcon.appendChild(allergyIconImg)
+            allergyIconImg.setAttribute("src", secondData[i]._allergenImg)
+            allergyIconImg.setAttribute("alt", secondData[i]._allergenName)
+        })
+    })
+}
+
+/* ALLERGENS INFO */
+const printAllergensData = (data) => {
+    const allergiesInfo = document.getElementsByClassName("allergies-info-div")[0]
+
+    const allergiesColumnFirst = document.createElement("div")
+    allergiesInfo.appendChild(allergiesColumnFirst)
+    allergiesColumnFirst.classList.add("allergies-column")
+    const allergiesColumnSecond = document.createElement("div")
+    allergiesInfo.appendChild(allergiesColumnSecond)
+    allergiesColumnSecond.classList.add("allergies-column")
+    const allergiesDisplaySmall = document.createElement("div")
+    allergiesInfo.appendChild(allergiesDisplaySmall)
+    allergiesDisplaySmall.classList.add("allergies-display-small")
+        
+    Array.from(data).forEach(e => {
+        if (Number.parseInt(e._allergenID)<8)
+        {
+            const specificAllergyDiv = document.createElement("div")
+            allergiesColumnFirst.appendChild(specificAllergyDiv)
+            specificAllergyDiv.classList.add("specific-allergy-div")
+
+            const allergyInfoIcon = document.createElement("div")
+            specificAllergyDiv.appendChild(allergyInfoIcon)
+            allergyInfoIcon.classList.add("allergy-info-icon")
+            const image = document.createElement("img")
+            allergyInfoIcon.appendChild(image)
+            image.setAttribute("alt", e._allergenName)
+            image.setAttribute("src", e._allergenImg)
+            const allergyInfoText = document.createElement("div")
+            specificAllergyDiv.appendChild(allergyInfoText)
+            allergyInfoText.classList.add("allergy-info-text")
+            const paragraph = document.createElement("div")
+            allergyInfoText.appendChild(paragraph)
+            paragraph.textContent = "Contains " + e._allergenName
+        }
+
+        if (Number.parseInt(e._allergenID)>7 && Number.parseInt(e._allergenID)<15)
+        {
+            const specificAllergyDiv = document.createElement("div")
+            allergiesColumnSecond.appendChild(specificAllergyDiv)
+            specificAllergyDiv.classList.add("specific-allergy-div")
+
+            const allergyInfoIcon = document.createElement("div")
+            specificAllergyDiv.appendChild(allergyInfoIcon)
+            allergyInfoIcon.classList.add("allergy-info-icon")
+            const image = document.createElement("img")
+            allergyInfoIcon.appendChild(image)
+            image.setAttribute("alt", e._allergenName)
+            image.setAttribute("src", e._allergenImg)
+            const allergyInfoText = document.createElement("div")
+            specificAllergyDiv.appendChild(allergyInfoText)
+            allergyInfoText.classList.add("allergy-info-text")
+            const paragraph = document.createElement("div")
+            allergyInfoText.appendChild(paragraph)
+            paragraph.textContent = "Contains " + e._allergenName
+        }
+
+        
+        const specificAllergyDiv = document.createElement("div")
+        allergiesDisplaySmall.appendChild(specificAllergyDiv)
+        specificAllergyDiv.classList.add("specific-allergy-div")
+
+        const allergyInfoIcon = document.createElement("div")
+        specificAllergyDiv.appendChild(allergyInfoIcon)
+        allergyInfoIcon.classList.add("allergy-info-icon")
+        const image = document.createElement("img")
+        allergyInfoIcon.appendChild(image)
+        image.setAttribute("alt", e._allergenName)
+        image.setAttribute("src", e._allergenImg)
+        const allergyInfoText = document.createElement("div")
+        specificAllergyDiv.appendChild(allergyInfoText)
+        allergyInfoText.classList.add("allergy-info-text")
+        const paragraph = document.createElement("div")
+        allergyInfoText.appendChild(paragraph)
+        paragraph.textContent = "Contains " + e._allergenName
+        
     })
 }
 
