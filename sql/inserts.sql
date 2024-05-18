@@ -129,7 +129,7 @@ end;
 begin
     insert into products values ('1','Simple beef', '../Images/Menu/simple-beef.png', 1.40, 'Beef burger, lettuce, tomato, pickles ketchup, and mustard.', 'BG');
     insert into products values ('2','Simple chicken', '../Images/Menu/simple-chicken.png', 1.50, 'Chicken burger, lettuce, tomato, ketchup, and mustard.', 'BG');
-    insert into products values ('3','Simple fried chiken', '../Images/Menu/simple-fried-chicken.png', 1.80, 'Fried chicken burger, lettuce, tomato, ketchup, and mustard.', 'BG');
+    insert into products values ('3','Simple fried chicken', '../Images/Menu/simple-fried-chicken.png', 1.80, 'Fried chicken burger, lettuce, tomato, ketchup, and mustard.', 'BG');
     insert into products values ('4','Double beef', '../Images/Menu/double-beef.png', 2.60, 'Double beef burger, lettuce, pickles, tomato, ketchup, and mustard.', 'BG');
     insert into products values ('5','Double chicken', '../Images/Menu/double-chicken.png', 2.90, 'Double chicken burger, lettuce, tomato, ketchup, and mustard.', 'BG');
     insert into products values ('6','Double fried chicken', '../Images/Menu/double-fried-chicken.png', 3.40, 'Double fried chicken burger, lettuce, tomato, ketchup, and mustard.', 'BG');
@@ -184,7 +184,7 @@ begin
     insert into products values ('55','Ranch', '../Images/Menu/ranch.png', 0.50, 'A ranch sauce package.', 'OT');
     insert into products values ('56','Glutten free simple beef', '../Images/Menu/simple-beef.png', 1.40, 'A glutten free beef burger with lettuce, tomato, pickles ketchup, and mustard.', 'GF');
     insert into products values ('57','Glutten free simple chicken', '../Images/Menu/simple-chicken.png', 1.50, 'A glutten free chicken burger with lettuce, tomato, pickles ketchup, and mustard.', 'GF');
-    insert into products values ('58','Glutten free simple fried chiken', '../Images/Menu/simple-fried-chicken.png', 1.80, 'A glutten free fried chicken burger with lettuce, tomato, pickles ketchup, and mustard.', 'GF');
+    insert into products values ('58','Glutten free simple fried chicken', '../Images/Menu/simple-fried-chicken.png', 1.80, 'A glutten free fried chicken burger with lettuce, tomato, pickles ketchup, and mustard.', 'GF');
     insert into products values ('59','Glutten free double beef', '../Images/Menu/double-beef.png', 2.60, 'A glutten free double beef burger with lettuce, tomato, pickles ketchup, and mustard.', 'GF');
     insert into products values ('60','Glutten free double chicken', '../Images/Menu/double-chicken.png', 2.90, 'A glutten free double chicken burger with lettuce, tomato, pickles ketchup, and mustard.', 'GF');
     insert into products values ('61','Glutten free double fried chicken', '../Images/Menu/double-fried-chicken.png', 3.40, 'A glutten free double fried chicken burger with lettuce, tomato, pickles ketchup, and mustard.', 'GF');
