@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 /* FETCH */
-const glutenFreeURL = "http://localhost:8080/BurgerGo/Controller?action=products.gluten-free"
+const glutenFreeURL = "http://localhost:8080/BurgerGo/Controller?action=products.gluten_free"
 const allergensURL = "http://localhost:8080/BurgerGo/Controller?action=allergens.find_all"
 const allergiesURL = "http://localhost:8080/BurgerGo/Controller?action=allergies.find_all"
 

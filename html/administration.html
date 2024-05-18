@@ -7,9 +7,9 @@
     <link rel="icon" type="image/x-icon" href="../Images/logo.png">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/base.css">
-    <link rel="stylesheet" href="../css/order.css">
+    <link rel="stylesheet" href="../css/administration.css">
     <script src="../js/base.js"></script>
-    <script src="../js/order.js"></script>
+    <script src="../js/administration.js"></script>
 </head>
 <body class="body">
     <header class="header">
@@ -133,95 +133,48 @@
                 </div>
             </div>
         </div>
-        
-        <div class="order-div">
-            <div class="current-order">
-                <div class="empty-order"><p>There are no products in your order yet.</p><p>To add proucts select a category and click "add to order".</p><p>Click on a product image to see its information.</p></div>
-                <div class="products-position">
-                    <!-- The products the user adds to the order will appear here -->
-                </div>
-                <div class="price-position">
-                    <p>Price: <span class="current-price"></span></p>
-                </div>
-                <div class="buy-position">
-                    <button class="current-buy">Buy</button>
+
+
+        <div class="administration-div">
+
+            <div class="admin-tables-options">
+                <button class="products-show">Products</button>
+                <button class="categories-show">Categories</button>
+                <button class="employees-show">Employees</button>
+                <button class="jobs-show">Jobs</button>
+                <button class="sales-show">Sales</button>
+            </div>
+
+            <div class="products-table admin-table">
+                <table>
+                </table>
+            </div>
+            <div class="categories-table admin-table">
+                <table>
+                </table>
+            </div>
+            <div class="employees-table admin-table">
+                <table>
+                </table>
+            </div>
+            <div class="jobs-table admin-table">
+                <table>
+                </table>
+            </div>
+            <div class="sales-table admin-table">
+                <table>
+                </table>
+            </div>
+
+            <div class="column-addition">
+                <button id="add-column-button"></button>
+                <div class="add-column-form-div">
+                    <form action="" target="_self" id="add-column-form"></form>
                 </div>
             </div>
 
-            <div class="allergies-info-div">
-                <div class="allergies-info-div-close"><img src="../Images/close.png" alt="close"></div>
-            </div>
-
-            <div class="buy-div">
-                <form action="../html/profile.html">
-                    <h6>Buy</h6>
-                    <div class="form-display">
-                        <div class="card-input">
-                            <label for="card-number">Number: </label>
-                            <input type="text" id="card-number" required>
-                        </div>
-                        <div class="card-input">
-                            <label for="card-expiration-date">Expiration Date: </label>
-                            <input type="text" id="card-expiration-date" required>
-                        </div>
-                        
-                        <div class="card-input">
-                            <label for="card-cvc">CVC: </label>
-                            <input type="text" id="card-cvc" required>
-                        </div>
-                        <div class="card-input">
-                            <label for="card-owner">Owner: </label>
-                            <input type="text" id="card-owner" required>
-                        </div>
-                        <div class="card-input">
-                            <label for="card-address">Address: </label>
-                            <input type="text" id="card-address" required>
-                        </div>
-                    </div>
-                    <div class="buy-options">
-                        <button class="card-cancel" type="button">Cancel</button>
-                        <button class="card-accept" type="submit">Accept</button>
-                    </div>
-                </form>
-            </div>
-
-            <div class="product-search">
-                <label for="search-input"></label>
-                <input type="text" name="search" id="search-input" placeholder="Search">
-            </div>
-            <div class="product-categories">
-                <button>Burgers<hr></button>
-                <button>Kids<hr></button>
-                <button>Desserts<hr></button>
-                <button>Drinks<hr></button>
-                <button>Others<hr></button>
-                <button>Gluten Free<hr></button>
-                <select name="product-category" id="current-category">
-                    <option value="default" selected hidden>Select a category</option>
-                    <option value="0">Burgers</option>
-                    <option value="1">Kids</option>
-                    <option value="2">Desserts</option>
-                    <option value="3">Drinks</option>
-                    <option value="4">Others</option>
-                    <option value="5">Gluten Free</option>
-                </select>
-            </div>
-
-            <div class="product-categories-divs">
-                <div class="category-option" id="burgers-category">
-                </div>
-                <div class="category-option" id="kids-category">
-                </div>
-                <div class="category-option" id="desserts-category">
-                </div>
-                <div class="category-option" id="drinks-category">
-                </div>
-                <div class="category-option" id="others-category">
-                </div>
-                <div class="others-option category-option">
-                </div>
-            </div>
         </div>
+        
     </main>
     <footer class="footer">
         <div class="copyright">

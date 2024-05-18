@@ -1,0 +1,63 @@
+@keyframes buttonHover {
+    0%{background: rgb(255, 255, 255);}
+    100%{background: goldenrod;}
+}
+
+.administration-div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1% 0%;
+}
+
+.admin-tables-options{
+    padding: 1% 0%;
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+}
+
+.admin-tables-options button{
+    margin: 0% 5%;
+    padding: 0.5% 3%;
+    border-radius: 100px;
+    border: solid 2px goldenrod;
+}
+
+.admin-tables-options button:hover{
+    animation: buttonHover 1.5s;
+    background: goldenrod;
+    font-weight: bold;
+}
+
+.admin-table{
+    padding-top: 2%;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+th{
+    font-weight: bold;
+    padding: 1%;
+    border: solid goldenrod;
+    width: 0%;
+}
+
+tr{
+    border: solid goldenrod;
+    width: 100%;
+}
+
+td{
+    border: solid rebeccapurple;
+    vertical-align: middle;
+    padding: 1%;
+}
+

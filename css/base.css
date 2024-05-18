@@ -310,47 +310,6 @@ input{border: none; border-bottom: solid 1px; outline: 0;}
 }
 .view{display: none;}
 
-
-.logout-div{
-    background: white;
-    display: none;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-    box-shadow: 2px 2px 2px 3px grey;
-    z-index: 999;
-    height: auto;
-    padding: 2%;
-}
-.logout-div p{
-    font-size: 20px; 
-    padding: 2%;
-}
-.logout-div div{
-    display: flex; 
-    width: 80%; 
-    padding-top: 5%; 
-    justify-content: space-around;
-}
-.logout-div div button{
-    font-size: 20px; 
-    padding: 2%; 
-    width: 30%;
-}
-#logout-accept{border: solid red;}
-#logout-accept:hover{
-    background: red; 
-    font-weight: bold;
-}
-#logout-cancel{border: solid grey;}
-#logout-cancel:hover{
-    background: grey; 
-    font-weight: bold;
-}
-
 .login-required-div{
     background: rgb(255,255,255);
     display: none;

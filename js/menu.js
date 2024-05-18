@@ -195,18 +195,18 @@ const printKidsData = (mainData, secondData, intermediateData) => {
         const productPrice = document.createElement("p")
         productInfo.appendChild(productPrice)
         productPrice.classList.add("product-price")
-        productPrice.textContent = e._productPrice.toFixed(2)+"$"
+        productPrice.textContent = e._productPrice.toFixed(2)+"€"
         const productAllergies = document.createElement("div")
         productInfo.appendChild(productAllergies)
         productAllergies.classList.add("product-allergies")
-        Array.from(intermediateData.filter(a => a._productID == e._productID)).forEach((a, i) => {
+        Array.from(intermediateData.filter(a => a._productID == e._productID)).forEach(a => {
             const allergyIcon = document.createElement("div")
             productAllergies.appendChild(allergyIcon)
             allergyIcon.classList.add("allergy-icon")
             const allergyIconImg = document.createElement("img")
             allergyIcon.appendChild(allergyIconImg)
-            allergyIconImg.setAttribute("src", secondData[i]._allergenImg)
-            allergyIconImg.setAttribute("alt", secondData[i]._allergenName)
+            allergyIconImg.setAttribute("src", secondData[a._allergenID-1]._allergenImg)
+            allergyIconImg.setAttribute("alt", secondData[a._allergenID-1]._allergenName)
         })
     })
 }
@@ -239,18 +239,18 @@ const printDessertsData = (mainData, secondData, intermediateData) => {
         const productPrice = document.createElement("p")
         productInfo.appendChild(productPrice)
         productPrice.classList.add("product-price")
-        productPrice.textContent = e._productPrice.toFixed(2)+"$"
+        productPrice.textContent = e._productPrice.toFixed(2)+"€"
         const productAllergies = document.createElement("div")
         productInfo.appendChild(productAllergies)
         productAllergies.classList.add("product-allergies")
-        Array.from(intermediateData.filter(a => a._productID == e._productID)).forEach((a, i) => {
+        Array.from(intermediateData.filter(a => a._productID == e._productID)).forEach(a => {
             const allergyIcon = document.createElement("div")
             productAllergies.appendChild(allergyIcon)
             allergyIcon.classList.add("allergy-icon")
             const allergyIconImg = document.createElement("img")
             allergyIcon.appendChild(allergyIconImg)
-            allergyIconImg.setAttribute("src", secondData[i]._allergenImg)
-            allergyIconImg.setAttribute("alt", secondData[i]._allergenName)
+            allergyIconImg.setAttribute("src", secondData[a._allergenID-1]._allergenImg)
+            allergyIconImg.setAttribute("alt", secondData[a._allergenID-1]._allergenName)
         })
     })
 }
@@ -283,18 +283,18 @@ const printDrinksData = (mainData, secondData, intermediateData) => {
         const productPrice = document.createElement("p")
         productInfo.appendChild(productPrice)
         productPrice.classList.add("product-price")
-        productPrice.textContent = e._productPrice.toFixed(2)+"$"
+        productPrice.textContent = e._productPrice.toFixed(2)+"€"
         const productAllergies = document.createElement("div")
         productInfo.appendChild(productAllergies)
         productAllergies.classList.add("product-allergies")
-        Array.from(intermediateData.filter(a => a._productID == e._productID)).forEach((a, i) => {
+        Array.from(intermediateData.filter(a => a._productID == e._productID)).forEach(a => {
             const allergyIcon = document.createElement("div")
             productAllergies.appendChild(allergyIcon)
             allergyIcon.classList.add("allergy-icon")
             const allergyIconImg = document.createElement("img")
             allergyIcon.appendChild(allergyIconImg)
-            allergyIconImg.setAttribute("src", secondData[i]._allergenImg)
-            allergyIconImg.setAttribute("alt", secondData[i]._allergenName)
+            allergyIconImg.setAttribute("src", secondData[a._allergenID-1]._allergenImg)
+            allergyIconImg.setAttribute("alt", secondData[a._allergenID-1]._allergenName)
         })
     })
 }
@@ -327,18 +327,18 @@ const printOthersData = (mainData, secondData, intermediateData) => {
         const productPrice = document.createElement("p")
         productInfo.appendChild(productPrice)
         productPrice.classList.add("product-price")
-        productPrice.textContent = e._productPrice.toFixed(2)+"$"
+        productPrice.textContent = e._productPrice.toFixed(2)+"€"
         const productAllergies = document.createElement("div")
         productInfo.appendChild(productAllergies)
         productAllergies.classList.add("product-allergies")
-        Array.from(intermediateData.filter(a => a._productID == e._productID)).forEach((a, i) => {
+        Array.from(intermediateData.filter(a => a._productID == e._productID)).forEach(a => {
             const allergyIcon = document.createElement("div")
             productAllergies.appendChild(allergyIcon)
             allergyIcon.classList.add("allergy-icon")
             const allergyIconImg = document.createElement("img")
             allergyIcon.appendChild(allergyIconImg)
-            allergyIconImg.setAttribute("src", secondData[i]._allergenImg)
-            allergyIconImg.setAttribute("alt", secondData[i]._allergenName)
+            allergyIconImg.setAttribute("src", secondData[a._allergenID-1]._allergenImg)
+            allergyIconImg.setAttribute("alt", secondData[a._allergenID-1]._allergenName)
         })
     })
 }

@@ -189,7 +189,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
         addToOrderButton[b].addEventListener("click",()=>{
 
-            if (!currentOrderProduct[b].existence) 
+            if (!currentOrderProduct[b].existence)
             {
                 
                 currentOrderProduct[b].existence = true
@@ -470,7 +470,7 @@ const kidsURL = "http://localhost:8080/BurgerGo/Controller?action=products.kids"
 const dessertsURL = "http://localhost:8080/BurgerGo/Controller?action=products.desserts"
 const drinksURL = "http://localhost:8080/BurgerGo/Controller?action=products.drinks"
 const othersURL = "http://localhost:8080/BurgerGo/Controller?action=products.others"
-const glutenFreeURL = "http://localhost:8080/BurgerGo/Controller?action=products.gluten-free"
+const glutenFreeURL = "http://localhost:8080/BurgerGo/Controller?action=products.gluten_free"
 const allergensURL = "http://localhost:8080/BurgerGo/Controller?action=allergens.find_all"
 const allergiesURL = "http://localhost:8080/BurgerGo/Controller?action=allergies.find_all"
 
@@ -589,31 +589,29 @@ const printBurgersData = (mainData, secondData, intermediateData) => {
         const productAllergies = document.createElement("div")
         productDescriptionText.appendChild(productAllergies)
         productAllergies.classList.add("product-allergies")
-        /* ALLERGEN TODO STUFF */
-        /*Array.from().forEach(a => {
-            const allergyDiv = document.createElement("div")
-            productAllergies.appendChild(allergyDiv)
-            allergyDiv.classList.add("allergy-icon")
-            const allergyIcon = document.createElement("img")
-            allergyDiv.appendChild(allergyIcon)
-            allergyIcon.setAttribute("src", a._allergenImg)
-            allergyIcon.setAttribute("alt", a._allergenName)
-        })*/
+        Array.from(intermediateData.filter(a => a._productID == e._productID)).forEach(a => {
+            const allergyIcon = document.createElement("div")
+            productAllergies.appendChild(allergyIcon)
+            allergyIcon.classList.add("allergy-icon")
+            const allergyIconImg = document.createElement("img")
+            allergyIcon.appendChild(allergyIconImg)
+            allergyIconImg.setAttribute("src", secondData[a._allergenID-1]._allergenImg)
+            allergyIconImg.setAttribute("alt", secondData[a._allergenID-1]._allergenName)
+        })
 
 
         const productAllergiesSmall = document.createElement("div")
         productDescriptionDiv.appendChild(productAllergiesSmall)
         productAllergiesSmall.classList.add("product-allergies-small")
-        /* ALLERGEN TODO STUFF */
-        /*Array.from().forEach(a => {
-            const allergyDiv = document.createElement("div")
-            productAllergiesSmall.appendChild(allergyDiv)
-            allergyDiv.classList.add("allergy-icon")
-            const allergyIcon = document.createElement("img")
-            allergyDiv.appendChild(allergyIcon)
-            allergyIcon.setAttribute("src", a._allergenImg)
-            allergyIcon.setAttribute("alt", a._allergenName)
-        })*/
+        Array.from(intermediateData.filter(a => a._productID == e._productID)).forEach(a => {
+            const allergyIcon = document.createElement("div")
+            productAllergiesSmall.appendChild(allergyIcon)
+            allergyIcon.classList.add("allergy-icon")
+            const allergyIconImg = document.createElement("img")
+            allergyIcon.appendChild(allergyIconImg)
+            allergyIconImg.setAttribute("src", secondData[a._allergenID-1]._allergenImg)
+            allergyIconImg.setAttribute("alt", secondData[a._allergenID-1]._allergenName)
+        })
 
 
         const allergiesInfoButton = document.createElement("div")
@@ -661,6 +659,8 @@ const printBurgersData = (mainData, secondData, intermediateData) => {
             productDescriptionDiv.style.display = "none"
             OrderDeactivateOpacity()
         })
+
+        /* TODO ADD TO ORDER EVENT LISTENER */
     })
 }
 
@@ -855,7 +855,7 @@ const printGlutenFreeData = (mainData, secondData, intermediateData) => {
 }
 
 /* ALLERGENS INFO */
-const printAllergensData = (mainData, secondData, intermediateData) => {
+const printAllergensData = (mainData) => {
     const allergiesInfo = document.getElementsByClassName("allergies-info-div")[0]
 
     const allergiesColumnFirst = document.createElement("div")
