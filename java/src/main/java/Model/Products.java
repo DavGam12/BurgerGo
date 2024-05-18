@@ -27,12 +27,12 @@ public class Products {
     public float getProductPrice () {return _productPrice;}
     public String getCategoryID () {return _categoryID;}
 
-    public Products (String productID, String productName, String productImg, String productDescription, float productPrice, String categoryID) {
+    public Products (String productID, String productName, String productImg, float productPrice, String  productDescription, String categoryID) {
         _productID = productID;
         _productName = productName;
         _productImg = productImg;
-        _productDescription = productDescription;
         _productPrice = productPrice;
+        _productDescription = productDescription;
         _categoryID = categoryID;
     }
     public Products () {}

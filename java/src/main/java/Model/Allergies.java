@@ -1,13 +1,18 @@
 package Model;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.util.ArrayList;
+
 public class Allergies {
     private String _allergyID;
     private String _allergenID;
     private String _productID;
 
-    private void setAllergyID (String allergyID) {_allergyID = allergyID;}
-    private void setAllergenID (String allergenID) {_allergenID = allergenID;}
-    private void setProductID (String productID) {_productID = productID;}
+    public void setAllergyID (String allergyID) {_allergyID = allergyID;}
+    public void setAllergenID (String allergenID) {_allergenID = allergenID;}
+    public void setProductID (String productID) {_productID = productID;}
 
     public String getAllergyID () {return _allergyID;}
     public String getAllergenID () {return _allergenID;}
@@ -19,5 +24,14 @@ public class Allergies {
         _productID = productID;
     }
     public Allergies () {}
+
+    public static String toArrayJson(ArrayList<Allergies> Allergies) {
+        GsonBuilder builder = new GsonBuilder();
+        builder.setPrettyPrinting();
+
+        Gson gson = builder.create();
+
+        return gson.toJson(Allergies);
+    }
 
 }

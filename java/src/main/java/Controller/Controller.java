@@ -22,6 +22,9 @@ public class Controller extends HttpServlet {
     // http://localhost:8080/BurgerGo/Controller?action=products.drinks
     // http://localhost:8080/BurgerGo/Controller?action=products.others
     // http://localhost:8080/BurgerGo/Controller?action=products.gluten-free
+    // http://localhost:8080/BurgerGo/Controller?action=allergens.find_all
+
+    // http://localhost:8080/BurgerGo/Controller?action=products.addition&id=100&name=test&img=../Images/Menu/barbecue.png&description=abcdefu&price=7.8&cat_id=BG
     private void processRequest(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException
     {
@@ -39,14 +42,51 @@ public class Controller extends HttpServlet {
         }
         switch (arrAction[0])
         {
+            case "allergens":
+                out.print(new AllergensAction().execute(resp, req, arrAction[1]));
+                break;
+            case "allergies":
+                out.print(new AllergiesAction().execute(resp, req, arrAction[1]));
+                break;
+            case "sales":
+                out.print(new AllergiesAction().execute(resp, req, arrAction[1]));
+                break;
+            case "sales_management":
+                out.print(new AllergiesAction().execute(resp, req, arrAction[1]));
+                break;
+            case "categories":
+                out.print(new CategoriesAction().execute(resp, req, arrAction[1]));
+                break;
+            case "products":
+            {
+                out.print(new ProductsAction().execute(resp, req, arrAction[1]));
+                break;
+            }
+            case "jobs":
+            {
+                out.print(new JobsAction().execute(resp, req, arrAction[1]));
+                break;
+            }
             case "employees":
             {
                 out.print(new EmployeesAction().execute(resp, req, arrAction[1]));
                 break;
             }
-            case "products":
+            case "customers":
+            {
                 out.print(new ProductsAction().execute(resp, req, arrAction[1]));
                 break;
+            }
+            case "orders":
+            {
+                out.print(new ProductsAction().execute(resp, req, arrAction[1]));
+                break;
+            }
+            case "details":
+            {
+                out.print(new ProductsAction().execute(resp, req, arrAction[1]));
+                break;
+            }
             default:
             {
                 System.out.println(arrAction[0]);
