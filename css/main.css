@@ -267,21 +267,3 @@
     }
     .carousel-div{grid-template-columns: 5% 88% 7%;}
 }
-<<<<<<< HEAD
-
-
-#employees-list{width: 60%; margin: 2% 0% 2% 0%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 1%;}
-.test{
-    width: 100%;
-    height: 100px;
-    background: rgb(200,200,200);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: large;
-    color: maroon;
-    padding: 1% 0% 1% 0%;
-}
-=======
->>>>>>> fd0ca7df5e990c3b9e777e707685012cc0208fb3
