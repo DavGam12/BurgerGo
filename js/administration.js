@@ -79,15 +79,15 @@ const fetchData = async () => {
 
     printAllergensData(allergensData)
     printAllergiesData(allergiesData)
-   // printSalesData(salesData)
-   // printSalesManagementData(salesManagementData)
+    printSalesData(salesData)
+    printSalesManagementData(salesManagementData)
     printCategoriesData(categoriesData)
     printProductsData(productsData)
     printJobsData(jobsData)
     printEmployeesData(employeesData)
-   // printCustomersData(customersData)
-   // printOrdersData(ordersData)
-   // printDetailsData(detailsData)
+    printCustomersData(customersData)
+    printOrdersData(ordersData)
+    printDetailsData(detailsData)
 }
 
 /* ALLERGENS TABLE */
@@ -198,6 +198,138 @@ const printAllergiesData = (data) => {
         currentRow.appendChild(allergenID)
         allergenID.classList.add("column")
         allergenID.textContent = e._allergenID
+
+        const productID = document.createElement("td")
+        currentRow.appendChild(productID)
+        productID.classList.add("column")
+        productID.textContent = e._productID
+    })
+}
+
+/* SALES TABLE */
+const printSalesData = (data) => {
+    const currentTable = document.getElementsByClassName("sales-table")[0].getElementsByTagName("table")[0]
+    const currentRow = document.createElement("tr")
+    currentTable.appendChild(currentRow)
+    const idTh = document.createElement("th")
+    currentRow.appendChild(idTh)
+    idTh.textContent = "id".toUpperCase()
+    const nameTh = document.createElement("th")
+    currentRow.appendChild(nameTh)
+    nameTh.textContent = "name".toUpperCase()
+    const disscountTh = document.createElement("th")
+    currentRow.appendChild(disscountTh)
+    disscountTh.textContent = "disscount".toUpperCase()
+
+    Array.from(data).forEach(e => {
+
+        const currentUpdate = document.createElement("div")
+        currentTable.appendChild(currentUpdate)
+        currentUpdate.classList.add("current-update")
+        const currentUpdateButton = document.createElement("button")
+        currentUpdate.appendChild(currentUpdateButton)
+        currentUpdateButton.textContent = "Update row"
+        currentUpdate.style.padding = "0.2%"
+        currentUpdate.style.marginTop = "0.3%"
+        currentUpdate.style.left = "78%"
+
+        const currentDelete = document.createElement("div")
+        currentTable.appendChild(currentDelete)
+        currentDelete.classList.add("current-delete")
+        const currentDeleteButton = document.createElement("button")
+        currentDelete.appendChild(currentDeleteButton)
+        currentDeleteButton.textContent = "Delete row"
+        currentDelete.style.padding = "0.2%"
+        currentDelete.style.marginTop = "0.3%"
+        currentDelete.style.left = "17%"
+
+
+        const currentRow = document.createElement("tr")
+        currentTable.appendChild(currentRow)
+
+        const saleID = document.createElement("td")
+        currentRow.appendChild(saleID)
+        saleID.classList.add("column")
+        saleID.textContent = e._saleID
+
+        const saleName = document.createElement("td")
+        currentRow.appendChild(saleName)
+        saleName.classList.add("column")
+        saleName.textContent = e._saleName
+
+        const saleDisscount = document.createElement("td")
+        currentRow.appendChild(saleDisscount)
+        saleDisscount.classList.add("column")
+        saleDisscount.textContent = e._saleDisscount
+    })
+}
+
+/* SALES MANAGEMENR TABLE */
+const printSalesManagementData = (data) => {
+    const currentTable = document.getElementsByClassName("sales-management-table")[0].getElementsByTagName("table")[0]
+    const currentRow = document.createElement("tr")
+    currentTable.appendChild(currentRow)
+    const idTh = document.createElement("th")
+    currentRow.appendChild(idTh)
+    idTh.textContent = "sale management id".toUpperCase()
+    const startDateTh = document.createElement("th")
+    currentRow.appendChild(startDateTh)
+    startDateTh.textContent = "start date".toUpperCase()
+    const endDateTh = document.createElement("th")
+    currentRow.appendChild(endDateTh)
+    endDateTh.textContent = "end date".toUpperCase()
+    const saleIdTh = document.createElement("th")
+    currentRow.appendChild(saleIdTh)
+    saleIdTh.textContent = "sale id".toUpperCase()
+    const productIdTh = document.createElement("th")
+    currentRow.appendChild(productIdTh)
+    productIdTh.textContent = "product id".toUpperCase()
+
+    Array.from(data).forEach(e => {
+
+        const currentUpdate = document.createElement("div")
+        currentTable.appendChild(currentUpdate)
+        currentUpdate.classList.add("current-update")
+        const currentUpdateButton = document.createElement("button")
+        currentUpdate.appendChild(currentUpdateButton)
+        currentUpdateButton.textContent = "Update row"
+        currentUpdate.style.padding = "0.2%"
+        currentUpdate.style.marginTop = "0.3%"
+        currentUpdate.style.left = "78%"
+
+        const currentDelete = document.createElement("div")
+        currentTable.appendChild(currentDelete)
+        currentDelete.classList.add("current-delete")
+        const currentDeleteButton = document.createElement("button")
+        currentDelete.appendChild(currentDeleteButton)
+        currentDeleteButton.textContent = "Delete row"
+        currentDelete.style.padding = "0.2%"
+        currentDelete.style.marginTop = "0.3%"
+        currentDelete.style.left = "17%"
+
+
+        const currentRow = document.createElement("tr")
+        currentTable.appendChild(currentRow)
+
+        const saleManagementID = document.createElement("td")
+        currentRow.appendChild(saleManagementID)
+        saleManagementID.classList.add("column")
+        saleManagementID.textContent = e._saleManagementID
+
+        const startDate = document.createElement("td")
+        currentRow.appendChild(startDate)
+        startDate.classList.add("column")
+        startDate.textContent = e._startDate
+
+        const endDate = document.createElement("td")
+        currentRow.appendChild(endDate)
+        endDate.classList.add("column")
+        endDate.textContent = e._endDate
+
+        const saleID = document.createElement("td")
+        currentRow.appendChild(saleID)
+        saleID.classList.add("column")
+        saleID.textContent = e._saleID
 
         const productID = document.createElement("td")
         currentRow.appendChild(productID)
@@ -491,6 +623,234 @@ const printEmployeesData = (data) => {
         currentRow.appendChild(employeeJobId)
         employeeJobId.classList.add("column")
         employeeJobId.textContent = e._jobID
+    })
+}
+
+/* CUSTOMERS TABLE */
+const printCustomersData = (data) => {
+    const currentTable = document.getElementsByClassName("customers-table")[0].getElementsByTagName("table")[0]
+    const currentRow = document.createElement("tr")
+    currentTable.appendChild(currentRow)
+    const idTh = document.createElement("th")
+    currentRow.appendChild(idTh)
+    idTh.textContent = "id".toUpperCase()
+    const firstNameTh = document.createElement("th")
+    currentRow.appendChild(firstNameTh)
+    firstNameTh.textContent = "first name".toUpperCase()
+    const lastNameTh = document.createElement("th")
+    currentRow.appendChild(lastNameTh)
+    lastNameTh.textContent = "last name".toUpperCase()
+    const emailTh = document.createElement("th")
+    currentRow.appendChild(emailTh)
+    emailTh.textContent = "email".toUpperCase()
+    const phoneNumberTh = document.createElement("th")
+    currentRow.appendChild(phoneNumberTh)
+    phoneNumberTh.textContent = "phone number".toUpperCase()
+    const passwordTh = document.createElement("th")
+    currentRow.appendChild(passwordTh)
+    passwordTh.textContent = "password".toUpperCase()
+
+    Array.from(data).forEach(e => {
+
+        const currentUpdate = document.createElement("div")
+        currentTable.appendChild(currentUpdate)
+        currentUpdate.classList.add("current-update")
+        const currentUpdateButton = document.createElement("button")
+        currentUpdate.appendChild(currentUpdateButton)
+        currentUpdateButton.textContent = "Update row"
+
+        const currentDelete = document.createElement("div")
+        currentTable.appendChild(currentDelete)
+        currentDelete.classList.add("current-delete")
+        const currentDeleteButton = document.createElement("button")
+        currentDelete.appendChild(currentDeleteButton)
+        currentDeleteButton.textContent = "Delete row"
+
+
+        const currentRow = document.createElement("tr")
+        currentTable.appendChild(currentRow)
+
+        const customerID = document.createElement("td")
+        currentRow.appendChild(customerID)
+        customerID.classList.add("column")
+        customerID.textContent = e._customerID
+
+        const customerFirstName = document.createElement("td")
+        currentRow.appendChild(customerFirstName)
+        customerFirstName.classList.add("column")
+        customerFirstName.textContent = e._customerFirstName
+
+        const customerLastName = document.createElement("td")
+        currentRow.appendChild(customerLastName)
+        customerLastName.classList.add("column")
+        customerLastName.textContent = e._customerLastName
+
+        const customerEmail = document.createElement("td")
+        currentRow.appendChild(customerEmail)
+        customerEmail.classList.add("column")
+        customerEmail.textContent = e._customerEmail
+
+        const customerPhoneNumber = document.createElement("td")
+        currentRow.appendChild(customerPhoneNumber)
+        customerPhoneNumber.classList.add("column")
+        customerPhoneNumber.textContent = e._customerPhoneNumber
+
+        const customerPassword = document.createElement("td")
+        currentRow.appendChild(customerPassword)
+        customerPassword.classList.add("column")
+        customerPassword.textContent = e._Password
+    })
+}
+
+/* ORDERS TABLE */
+const printOrdersData = (data) => {
+    const currentTable = document.getElementsByClassName("orders-table")[0].getElementsByTagName("table")[0]
+    const currentRow = document.createElement("tr")
+    currentTable.appendChild(currentRow)
+    const idTh = document.createElement("th")
+    currentRow.appendChild(idTh)
+    idTh.textContent = "id".toUpperCase()
+    const orderStateTh = document.createElement("th")
+    currentRow.appendChild(orderStateTh)
+    orderStateTh.textContent = "order state".toUpperCase()
+    const directionTh = document.createElement("th")
+    currentRow.appendChild(directionTh)
+    directionTh.textContent = "direction".toUpperCase()
+    const orderPriceTh = document.createElement("th")
+    currentRow.appendChild(orderPriceTh)
+    orderPriceTh.textContent = "order price".toUpperCase()
+    const orderDateTh = document.createElement("th")
+    currentRow.appendChild(orderDateTh)
+    orderDateTh.textContent = "order date".toUpperCase()
+    const employeeIdTh = document.createElement("th")
+    currentRow.appendChild(employeeIdTh)
+    employeeIdTh.textContent = "employee id".toUpperCase()
+    const customerIdTh = document.createElement("th")
+    currentRow.appendChild(customerIdTh)
+    customerIdTh.textContent = "customer id".toUpperCase()
+
+    Array.from(data).forEach(e => {
+
+        const currentUpdate = document.createElement("div")
+        currentTable.appendChild(currentUpdate)
+        currentUpdate.classList.add("current-update")
+        const currentUpdateButton = document.createElement("button")
+        currentUpdate.appendChild(currentUpdateButton)
+        currentUpdateButton.textContent = "Update row"
+
+        const currentDelete = document.createElement("div")
+        currentTable.appendChild(currentDelete)
+        currentDelete.classList.add("current-delete")
+        const currentDeleteButton = document.createElement("button")
+        currentDelete.appendChild(currentDeleteButton)
+        currentDeleteButton.textContent = "Delete row"
+
+
+        const currentRow = document.createElement("tr")
+        currentTable.appendChild(currentRow)
+
+        const orderID = document.createElement("td")
+        currentRow.appendChild(orderID)
+        orderID.classList.add("column")
+        orderID.textContent = e._orderID
+
+        const orderState = document.createElement("td")
+        currentRow.appendChild(orderState)
+        orderState.classList.add("column")
+        orderState.textContent = e._orderState
+
+        const orderDirection = document.createElement("td")
+        currentRow.appendChild(orderDirection)
+        orderDirection.classList.add("column")
+        orderDirection.textContent = e._direction
+
+        const orderPrice = document.createElement("td")
+        currentRow.appendChild(orderPrice)
+        orderPrice.classList.add("column")
+        orderPrice.textContent = e._orderPrice
+
+        const orderDate = document.createElement("td")
+        currentRow.appendChild(orderDate)
+        orderDate.classList.add("column")
+        orderDate.textContent = e._orderDate
+
+        const employeeID = document.createElement("td")
+        currentRow.appendChild(employeeID)
+        employeeID.classList.add("column")
+        employeeID.textContent = e._employeeID
+
+        const customerID = document.createElement("td")
+        currentRow.appendChild(customerID)
+        customerID.classList.add("column")
+        customerID.textContent = e._customerID
+    })
+}
+
+/* DETAILS TABLE */
+const printDetailsData = (data) => {
+    const currentTable = document.getElementsByClassName("details-table")[0].getElementsByTagName("table")[0]
+    const currentRow = document.createElement("tr")
+    currentTable.appendChild(currentRow)
+    const idTh = document.createElement("th")
+    currentRow.appendChild(idTh)
+    idTh.textContent = "id".toUpperCase()
+    const productQuantityTh = document.createElement("th")
+    currentRow.appendChild(productQuantityTh)
+    productQuantityTh.textContent = "product quantity".toUpperCase()
+    const priceTh = document.createElement("th")
+    currentRow.appendChild(priceTh)
+    priceTh.textContent = "detal price".toUpperCase()
+    const orderIdTh = document.createElement("th")
+    currentRow.appendChild(orderIdTh)
+    orderIdTh.textContent = "order id".toUpperCase()
+    const productIdTh = document.createElement("th")
+    currentRow.appendChild(productIdTh)
+    productIdTh.textContent = "product id".toUpperCase()
+
+    Array.from(data).forEach(e => {
+
+        const currentUpdate = document.createElement("div")
+        currentTable.appendChild(currentUpdate)
+        currentUpdate.classList.add("current-update")
+        const currentUpdateButton = document.createElement("button")
+        currentUpdate.appendChild(currentUpdateButton)
+        currentUpdateButton.textContent = "Update row"
+
+        const currentDelete = document.createElement("div")
+        currentTable.appendChild(currentDelete)
+        currentDelete.classList.add("current-delete")
+        const currentDeleteButton = document.createElement("button")
+        currentDelete.appendChild(currentDeleteButton)
+        currentDeleteButton.textContent = "Delete row"
+
+
+        const currentRow = document.createElement("tr")
+        currentTable.appendChild(currentRow)
+
+        const detailID = document.createElement("td")
+        currentRow.appendChild(detailID)
+        detailID.classList.add("column")
+        detailID.textContent = e._detailID
+
+        const productQuantity = document.createElement("td")
+        currentRow.appendChild(productQuantity)
+        productQuantity.classList.add("column")
+        productQuantity.textContent = e._productQuantity
+
+        const detailPrice = document.createElement("td")
+        currentRow.appendChild(detailPrice)
+        detailPrice.classList.add("column")
+        detailPrice.textContent = e._detailPrice
+
+        const orderID = document.createElement("td")
+        currentRow.appendChild(orderID)
+        orderID.classList.add("column")
+        orderID.textContent = e._orderID
+
+        const productID = document.createElement("td")
+        currentRow.appendChild(productID)
+        productID.classList.add("column")
+        productID.textContent = e._productID
     })
 }
 
