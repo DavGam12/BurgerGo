@@ -1,9 +1,19 @@
+const url = new URL(window.location.href)
+const urlParams = new URLSearchParams(url.search)
+
+
+
 let adminButtons
 let adminTables
 
 document.addEventListener("DOMContentLoaded", () => {
     adminButtons = document.getElementsByClassName("admin-tables-options")[0].getElementsByTagName("button")
     adminTables = document.getElementsByClassName("admin-table")
+
+    const curentAddDivClose = document.getElementsByClassName("current-add-div-close")
+    const curentUpdateDivClose = document.getElementsByClassName("current-update-div-close")
+    const currentDeleteDivCancelButton = document.getElementsByClassName("current-delete-div-cancel")
+    const currentDeleteDivAcceptButton = document.getElementsByClassName("current-delete-div-accept")
 
     Array.from(adminButtons).forEach((e, i) => {
         e.addEventListener("click", () => {
@@ -19,8 +29,45 @@ document.addEventListener("DOMContentLoaded", () => {
                     adminTables[j].style.display = "none"
                 }
             })
+
+            resetURL()
         })
     })
+
+    Array.from(curentAddDivClose).forEach(e => {
+        e.addEventListener("click", () => {
+            e.parentElement.style.display = "none"
+            document.body.style.pointerEvents = "all"
+            document.body.style.overflow = "visible"
+            resetURL()
+        })
+    })
+    Array.from(curentUpdateDivClose).forEach(e => {
+        e.addEventListener("click", () => {
+            e.parentElement.style.display = "none"
+            document.body.style.pointerEvents = "all"
+            document.body.style.overflow = "visible"
+            resetURL()
+        })
+    })
+    Array.from(currentDeleteDivCancelButton).forEach(e => {
+        e.addEventListener("click", () => {
+            e.parentElement.parentElement.style.display = "none"
+            document.body.style.pointerEvents = "all"
+            document.body.style.overflow = "visible"
+            resetURL()
+        })
+    })
+    Array.from(currentDeleteDivAcceptButton).forEach(e => {
+        e.addEventListener("click", () => {
+            e.parentElement.parentElement.style.display = "none"
+            document.body.style.pointerEvents = "all"
+            document.body.style.overflow = "visible"
+            id = objectIdKeeper._allergenID
+            deletionURL(id)
+        })
+    })
+
 })
 
 
@@ -105,6 +152,10 @@ const printAllergensData = (data) => {
     currentRow.appendChild(imgTh)
     imgTh.textContent = "image url".toUpperCase()
 
+    const addDiv = document.getElementsByClassName("allergens-table")[0].getElementsByClassName("current-add-div")[0]
+    const updateDiv = document.getElementsByClassName("allergens-table")[0].getElementsByClassName("current-update-div")[0]
+    const deleteDiv = document.getElementsByClassName("allergens-table")[0].getElementsByClassName("current-delete-div")[0]
+
     Array.from(data).forEach(e => {
 
         const currentUpdate = document.createElement("div")
@@ -145,7 +196,38 @@ const printAllergensData = (data) => {
         currentRow.appendChild(allergenImg)
         allergenImg.classList.add("column")
         allergenImg.textContent = e._allergenImg
+
+
+        /* SETTING UP THE EVENT LISTENERS */
+        currentUpdate.addEventListener("click", () => {
+            document.body.style.overflow = "hidden"
+            document.body.style.pointerEvents = "none"
+            updateDiv.style.display = "flex"
+            updateDiv.style.pointerEvents = "all"
+            currentActionURL("allergens.update")
+        })
+
+        currentDelete.addEventListener("click", () => {
+            document.body.style.overflow = "hidden"
+            document.body.style.pointerEvents = "none"
+            deleteDiv.style.display = "flex"
+            deleteDiv.style.pointerEvents = "all"
+
+            document.getElementsByClassName("allergens-table")[0].getElementsByClassName("current-delete-id")[0].textContent = e._allergenID
+
+            objectIdKeeper = e
+            currentActionURL("allergens.deletion")
+        })
     })
+
+    currentTable.parentElement.getElementsByClassName("current-add")[0].addEventListener("click", () => {
+        document.body.style.overflow = "hidden"
+        document.body.style.pointerEvents = "none"
+        addDiv.style.display = "flex"
+        addDiv.style.pointerEvents = "all"
+        currentActionURL("allergens.addition")
+    })
+
 }
 
 /* ALLERGIES TABLE */
@@ -264,7 +346,7 @@ const printSalesData = (data) => {
     })
 }
 
-/* SALES MANAGEMENR TABLE */
+/* SALES MANAGEMENT TABLE */
 const printSalesManagementData = (data) => {
     const currentTable = document.getElementsByClassName("sales-management-table")[0].getElementsByTagName("table")[0]
     const currentRow = document.createElement("tr")
@@ -658,6 +740,8 @@ const printCustomersData = (data) => {
         const currentUpdateButton = document.createElement("button")
         currentUpdate.appendChild(currentUpdateButton)
         currentUpdateButton.textContent = "Update row"
+        currentUpdate.style.marginTop = "0.25%"
+        currentUpdate.style.left = "89%"
 
         const currentDelete = document.createElement("div")
         currentTable.appendChild(currentDelete)
@@ -665,6 +749,8 @@ const printCustomersData = (data) => {
         const currentDeleteButton = document.createElement("button")
         currentDelete.appendChild(currentDeleteButton)
         currentDeleteButton.textContent = "Delete row"
+        currentDelete.style.marginTop = "0.25%"
+        currentDelete.style.left = "5%"
 
 
         const currentRow = document.createElement("tr")
@@ -678,27 +764,27 @@ const printCustomersData = (data) => {
         const customerFirstName = document.createElement("td")
         currentRow.appendChild(customerFirstName)
         customerFirstName.classList.add("column")
-        customerFirstName.textContent = e._customerFirstName
+        customerFirstName.textContent = e._firstName
 
         const customerLastName = document.createElement("td")
         currentRow.appendChild(customerLastName)
         customerLastName.classList.add("column")
-        customerLastName.textContent = e._customerLastName
+        customerLastName.textContent = e._lastName
 
         const customerEmail = document.createElement("td")
         currentRow.appendChild(customerEmail)
         customerEmail.classList.add("column")
-        customerEmail.textContent = e._customerEmail
+        customerEmail.textContent = e._email
 
         const customerPhoneNumber = document.createElement("td")
         currentRow.appendChild(customerPhoneNumber)
         customerPhoneNumber.classList.add("column")
-        customerPhoneNumber.textContent = e._customerPhoneNumber
+        customerPhoneNumber.textContent = e._phoneNumber
 
         const customerPassword = document.createElement("td")
         currentRow.appendChild(customerPassword)
         customerPassword.classList.add("column")
-        customerPassword.textContent = e._Password
+        customerPassword.textContent = e._password
     })
 }
 
@@ -856,3 +942,39 @@ const printDetailsData = (data) => {
 
 
 fetchData()
+
+
+const currentActionURL = (act) => {
+    urlParams.set("action", act)
+    updateCurrentURL()
+}
+
+const additionURL = () => {
+    urlParams
+}
+
+const deletionURL = (paramVal) => {
+    urlParams.set("id", paramVal)
+    updateCurrentURL()
+}
+
+const updateURL = () => {
+    urlParams
+}
+
+/* change the url without reload (line 2 of the function) */
+const updateCurrentURL = () => {
+    url.search = urlParams.toString()
+    window.history.replaceState(null, null, url.href)
+}
+
+const resetURL = () => {
+    let paramsGeneralSplit = urlParams.toString().split("&")
+    Array.from(paramsGeneralSplit).forEach(e => {
+        let ea = e.split("=") 
+        urlParams.delete(ea[0])
+    })
+    updateCurrentURL()
+}
+
+let objectIdKeeper

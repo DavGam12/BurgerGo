@@ -67,6 +67,7 @@
 .categories-table th{width: 20%;}
 .jobs-table th{width: 16%;}
 .employees-table th{width: 8%;}
+.customers-table th{width: 10%;}
 
 th{
     font-weight: bold;
@@ -147,4 +148,111 @@ td{
     font-weight: bold;
     color: white;
     box-shadow: 1px 1px 10px 5px maroon;
+}
+
+
+.current-add-div{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: fixed;
+    top: 45%;
+    transform: translateY(-50%);
+    width: 30%;
+    height: 30%;
+    font-size: large;
+    background: rgb(255, 255, 255);
+    box-shadow: 1px 1px 15px 15px darkgreen;
+    border-radius: 20px;
+    z-index: 10;
+}
+.current-add-div .options{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.current-add-div button{width: 30%;}
+
+.current-update-div{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: fixed;
+    top: 45%;
+    transform: translateY(-50%);
+    width: 30%;
+    height: 30%;
+    font-size: large;
+    background: rgb(255, 255, 255);
+    box-shadow: 1px 1px 15px 15px purple;
+    border-radius: 20px;
+    z-index: 10;
+}
+.current-update-div .options{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.current-update-div button{width: 30%;}
+
+.current-delete-div{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: fixed;
+    top: 45%;
+    transform: translateY(-50%);
+    width: 30%;
+    height: 210px;
+    font-size: x-large;
+    background: rgb(255, 255, 255);
+    box-shadow: 1px 1px 15px 15px maroon;
+    border-radius: 20px;
+    z-index: 10;
+}
+.current-delete-div h2{font-size: xx-large; padding: 0% 0% 4% 0%;}
+.current-delete-div .options{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 5% 0% 0% 0%;
+}
+.current-delete-div button{width: 30%; font-size: inherit; border-radius: 20px;}
+.current-delete-div-cancel{
+    border: solid green;
+}
+.current-delete-div-cancel:hover{
+    animation: addButtonHover 1.5s;
+    background: green;
+    font-weight: bold;
+    color: white;
+    box-shadow: 1px 1px 10px 5px darkgreen;
+}
+.current-delete-div-accept{
+    border: solid red;
+}
+.current-delete-div-accept:hover{
+    animation: deleteButtonHover 1.5s;
+    background: red;
+    font-weight: bold;
+    color: white;
+    box-shadow: 1px 1px 10px 5px maroon;
+}
+.current-add-div-close, .current-update-div-close{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 5%;
+    right: 2%;
+    cursor: pointer;
 }

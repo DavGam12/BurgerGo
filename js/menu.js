@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (e.id.length == 0){
             e.addEventListener("click", () => {
                 productSearch.style.visibility = "visible"
-                productSearch.getElementsByTagName("input")[0].value = ""
+                searchInput.value = ""
                 toTopButton.style.display = "block"
                 productCategoriesDivs[i].style.display = "flex"
                 e.style.background = "rebeccapurple"
@@ -44,6 +44,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (ea != productCategoriesDivs[i]) {
                         ea.style.display = "none"
                     }
+                })
+                Array.from(menuProduct).forEach(ea => {
+                    ea.style.display = "flex"
                 })
             })
         }
