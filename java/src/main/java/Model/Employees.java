@@ -54,13 +54,13 @@ public class Employees {
     }
     public Employees () {}
 
-    public static String toArrayJson(ArrayList<Employees> Employees) {
+    public static String toArrayJson(ArrayList<Employees> employees) {
         GsonBuilder builder = new GsonBuilder();
         builder.setPrettyPrinting();
 
         Gson gson = builder.create();
 
-        return gson.toJson(Employees);
+        return gson.toJson(employees);
     }
 
 }

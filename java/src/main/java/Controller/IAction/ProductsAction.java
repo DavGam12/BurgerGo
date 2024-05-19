@@ -37,7 +37,7 @@ public class ProductsAction implements IAction {
                 break;
             // http://localhost:8080/BurgerGo/Controller?action=products.addition&id=100&name=test&img=../Images/Products/barbecue.png&description=abcdefu&price=7.8&cat_id=BG
             case "addition":
-                strReturn = addition(new Products(req.getParameter("id"), req.getParameter("name"), req.getParameter("img"), Float.parseFloat(req.getParameter("price")), req.getParameter("description"), req.getParameter("cat_id")));
+                strReturn = addition(new Products(null, req.getParameter("name"), req.getParameter("img"), Float.parseFloat(req.getParameter("price")), req.getParameter("description"), req.getParameter("cat_id")));
                 break;
             // http://localhost:8080/BurgerGo/Controller?action=products.delete&id=100
             case "delete":

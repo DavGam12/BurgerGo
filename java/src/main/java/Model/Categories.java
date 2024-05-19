@@ -21,13 +21,13 @@ public class Categories {
     }
     public Categories () {}
 
-    public static String toArrayJson(ArrayList<Categories> Categories) {
+    public static String toArrayJson(ArrayList<Categories> categories) {
         GsonBuilder builder = new GsonBuilder();
         builder.setPrettyPrinting();
 
         Gson gson = builder.create();
 
-        return gson.toJson(Categories);
+        return gson.toJson(categories);
     }
 
 }

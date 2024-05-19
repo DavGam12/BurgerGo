@@ -25,13 +25,13 @@ public class Allergens {
     }
     public Allergens () {}
 
-    public static String toArrayJson(ArrayList<Allergens> Allergens) {
+    public static String toArrayJson(ArrayList<Allergens> allergens) {
         GsonBuilder builder = new GsonBuilder();
         builder.setPrettyPrinting();
 
         Gson gson = builder.create();
 
-        return gson.toJson(Allergens);
+        return gson.toJson(allergens);
     }
 
 }

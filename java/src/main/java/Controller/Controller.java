@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-
 @WebServlet(name = "Controller", urlPatterns = {"/Controller"})
 public class Controller extends HttpServlet {
 
@@ -49,10 +48,10 @@ public class Controller extends HttpServlet {
                 out.print(new AllergiesAction().execute(resp, req, arrAction[1]));
                 break;
             case "sales":
-                out.print(new AllergiesAction().execute(resp, req, arrAction[1]));
+                out.print(new SalesAction().execute(resp, req, arrAction[1]));
                 break;
             case "sales_management":
-                out.print(new AllergiesAction().execute(resp, req, arrAction[1]));
+                out.print(new SalesManagementAction().execute(resp, req, arrAction[1]));
                 break;
             case "categories":
                 out.print(new CategoriesAction().execute(resp, req, arrAction[1]));
@@ -74,17 +73,17 @@ public class Controller extends HttpServlet {
             }
             case "customers":
             {
-                out.print(new ProductsAction().execute(resp, req, arrAction[1]));
+                out.print(new CustomersAction().execute(resp, req, arrAction[1]));
                 break;
             }
             case "orders":
             {
-                out.print(new ProductsAction().execute(resp, req, arrAction[1]));
+                out.print(new OrdersAction().execute(resp, req, arrAction[1]));
                 break;
             }
             case "details":
             {
-                out.print(new ProductsAction().execute(resp, req, arrAction[1]));
+                out.print(new DetailsAction().execute(resp, req, arrAction[1]));
                 break;
             }
             default:

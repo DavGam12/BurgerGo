@@ -9,14 +9,15 @@ import java.util.ArrayList;
 public class ProductsDao implements IDao<Products, Integer> {
     private final SQLMotor motor = new SQLMotor();
     private final String SQL_FIND_ALL = "select * from products where 1=1";
-    private final String SQL_FIND_BURGERS = "select * from products prod inner join categories cat on prod.category_id = cat.category_id where 1=1 and lower(category_name) like '%burgers%'";
-    private final String SQL_FIND_KIDS = "select * from products prod inner join categories cat on prod.category_id = cat.category_id where 1=1 and lower(category_name) like '%kids%'";
-    private final String SQL_FIND_DESSERTS = "select * from products prod inner join categories cat on prod.category_id = cat.category_id where 1=1 and lower(category_name) like '%desserts%'";
-    private final String SQL_FIND_DRINKS = "select * from products prod inner join categories cat on prod.category_id = cat.category_id where 1=1 and lower(category_name) like '%drinks%'";
-    private final String SQL_FIND_OTHERS = "select * from products prod inner join categories cat on prod.category_id = cat.category_id where 1=1 and lower(category_name) like '%others%'";
-    private final String SQL_FIND_GLUTEN_FREE = "select * from products prod inner join categories cat on prod.category_id = cat.category_id where 1=1 and lower(category_name) like '%gluten%free%'";
+    private final String SQL_FIND_BURGERS = "select * from products prod inner join categories cat on prod.category_id = cat.category_id where 1=1 and lower(category_name) like '%burgers%' order by product_id";
+    private final String SQL_FIND_KIDS = "select * from products prod inner join categories cat on prod.category_id = cat.category_id where 1=1 and lower(category_name) like '%kids%' order by product_id";
+    private final String SQL_FIND_DESSERTS = "select * from products prod inner join categories cat on prod.category_id = cat.category_id where 1=1 and lower(category_name) like '%desserts%' order by product_id";
+    private final String SQL_FIND_DRINKS = "select * from products prod inner join categories cat on prod.category_id = cat.category_id where 1=1 and lower(category_name) like '%drinks%' order by product_id";
+    private final String SQL_FIND_OTHERS = "select * from products prod inner join categories cat on prod.category_id = cat.category_id where 1=1 and lower(category_name) like '%others%' order by product_id";
+    private final String SQL_FIND_GLUTEN_FREE = "select * from products prod inner join categories cat on prod.category_id = cat.category_id where 1=1 and lower(category_name) like '%gluten%free%' order by product_id";
     private final String SQL_ADD = "insert into products values";
     private final String SQL_DELETE = "delete from products where product_id=";
+    private final String SQL_MAX_ID = "select max(product_id) from products";
 
     @Override
     public int add(Products o) {
@@ -24,16 +25,19 @@ public class ProductsDao implements IDao<Products, Integer> {
         try {
             motor.connect();
 
-            String sql = SQL_ADD + "('" +
-                    o.getProductID() + "', '" +
+            int index = 0;
+            ResultSet rs = motor.executeQuery(SQL_MAX_ID);
+            while (rs.next()) {index = rs.getInt("max(product_id)")+1;}
+
+            String sql = SQL_ADD + "(" +
+                    index + ", '" +
                     o.getProductName() + "', '" +
                     o.getProductImg() + "', " +
                     o.getProductPrice() + ", '" +
                     o.getProductDescription() + "', '" +
                     o.getCategoryID() + "')";
 
-            motor.executeQuery(sql);
-            res = 1;
+            res = motor.executeUpdate(sql);
 
         } catch (Exception ex)
         {

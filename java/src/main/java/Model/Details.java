@@ -1,5 +1,10 @@
 package Model;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.util.ArrayList;
+
 public class Details {
     private String _detailID;
     private int _productQuantity;
@@ -7,11 +12,11 @@ public class Details {
     private String _orderID;
     private String _productID;
 
-    private void setDetailID (String detailID) {_detailID = detailID;}
-    private void setProductQuantity (int productQuantity) {_productQuantity = productQuantity;}
-    private void setDetailPrice (float detailPrice) {_detailPrice = detailPrice;}
-    private void setOrderID (String orderID) {_orderID = orderID;}
-    private void setProductID (String productID) {_productID = productID;}
+    public void setDetailID (String detailID) {_detailID = detailID;}
+    public void setProductQuantity (int productQuantity) {_productQuantity = productQuantity;}
+    public void setDetailPrice (float detailPrice) {_detailPrice = detailPrice;}
+    public void setOrderID (String orderID) {_orderID = orderID;}
+    public void setProductID (String productID) {_productID = productID;}
 
     public String getDetailID () {return _detailID;}
     public int getProductQuantity () {return _productQuantity;}
@@ -27,5 +32,14 @@ public class Details {
         _productID = productID;
     }
     public Details () {}
+
+    public static String toArrayJson(ArrayList<Details> details) {
+        GsonBuilder builder = new GsonBuilder();
+        builder.setPrettyPrinting();
+
+        Gson gson = builder.create();
+
+        return gson.toJson(details);
+    }
 
 }
