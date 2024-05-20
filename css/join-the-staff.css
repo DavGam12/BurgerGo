@@ -105,3 +105,42 @@ h1{
     font-size: large;
     padding: 2% 0% 0% 0%;
 }
+
+.join-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1% 0%;
+}
+.join-image img{width: 70%;}
+
+@media (width<1200px) {
+    .form{
+        width: 50%;
+    }
+    .container-form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-right: 0%;
+    }
+    .form-check{
+        width: 40%;
+    }
+    .curriculum-container{
+        font-size: smaller;
+    }
+    .curriculum{
+        width: 50%;
+    }
+}
+
+@media (width<440px) {
+    .form{
+        width: 70%;
+    }
+    .form-check{
+        width: 60%;
+    }
+}
