@@ -3,9 +3,9 @@
     100%{background: goldenrod;}
 }
 
-@keyframes deleteButtonHover {
+@keyframes addButtonHover {
     0%{background: rgb(255, 255, 255); box-shadow: none; color: black;}
-    100%{background: red; box-shadow: 1px 1px 10px 5px maroon; color: white;}
+    100%{background: green; box-shadow: 1px 1px 10px 5px darkgreen; color: white;}
 }
 
 @keyframes updateButtonHover {
@@ -13,10 +13,16 @@
     100%{background: rebeccapurple; box-shadow: 1px 1px 10px 5px purple; color: white;}
 }
 
-@keyframes addButtonHover {
+@keyframes deleteButtonHover {
     0%{background: rgb(255, 255, 255); box-shadow: none; color: black;}
-    100%{background: green; box-shadow: 1px 1px 10px 5px darkgreen; color: white;}
+    100%{background: red; box-shadow: 1px 1px 10px 5px maroon; color: white;}
 }
+
+@keyframes resetButtonHover {
+    0%{background: rgb(255, 255, 255); box-shadow: none; color: black;}
+    100%{background: red; box-shadow: 1px 1px 10px 5px purple; color: white;}
+}
+
 
 .administration-div{
     width: 100%;
@@ -34,7 +40,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -117,7 +123,7 @@ td{
     left: 90%;
     border-radius: 20px;
     padding: 0.5%;
-    margin-top: 0.75%;
+    margin-top: 1%;
     overflow: hidden;
 }
 
@@ -138,7 +144,7 @@ td{
     left: 4%;
     border-radius: 20px;
     padding: 0.5%;
-    margin-top: 0.75%;
+    margin-top: 1%;
     overflow: hidden;
 }
 
@@ -148,6 +154,25 @@ td{
     font-weight: bold;
     color: white;
     box-shadow: 1px 1px 10px 5px maroon;
+}
+
+
+.current-reset{
+    background: rgb(255, 255, 255);    
+    border: solid red;
+    cursor: pointer;
+    border-radius: 20px;
+    padding: 0.5%;
+    margin-bottom: 1%;
+    overflow: hidden;
+}
+
+.current-reset:hover{
+    animation: resetButtonHover 1s;
+    background: red;
+    font-weight: bold;
+    color: white;
+    box-shadow: 1px 1px 10px 5px purple;
 }
 
 
@@ -161,7 +186,7 @@ td{
     top: 45%;
     transform: translateY(-50%);
     width: 30%;
-    height: 30%;
+    height: 300px;
     font-size: large;
     background: rgb(255, 255, 255);
     box-shadow: 1px 1px 15px 15px darkgreen;
@@ -186,7 +211,7 @@ td{
     top: 45%;
     transform: translateY(-50%);
     width: 30%;
-    height: 30%;
+    height: 300px;
     font-size: large;
     background: rgb(255, 255, 255);
     box-shadow: 1px 1px 15px 15px purple;
@@ -201,7 +226,7 @@ td{
 }
 .current-update-div button{width: 30%;}
 
-.current-delete-div{
+.current-delete-div, .current-reset-div{
     display: none;
     flex-direction: column;
     justify-content: center;
@@ -218,8 +243,8 @@ td{
     border-radius: 20px;
     z-index: 10;
 }
-.current-delete-div h2{font-size: xx-large; padding: 0% 0% 4% 0%;}
-.current-delete-div .options{
+.current-delete-div h2, .current-reset-div h2{font-size: xx-large; padding: 0% 0% 4% 0%;}
+.current-delete-div .options, .current-reset-div .options{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -227,21 +252,21 @@ td{
     width: 100%;
     padding: 5% 0% 0% 0%;
 }
-.current-delete-div button{width: 30%; font-size: inherit; border-radius: 20px;}
-.current-delete-div-cancel{
+.current-delete-div button, .current-reset-div button{width: 30%; font-size: inherit; border-radius: 20px;}
+.current-delete-div-cancel, .current-reset-div-cancel{
     border: solid green;
 }
-.current-delete-div-cancel:hover{
+.current-delete-div-cancel:hover, .current-reset-div-cancel:hover{
     animation: addButtonHover 1.5s;
     background: green;
     font-weight: bold;
     color: white;
     box-shadow: 1px 1px 10px 5px darkgreen;
 }
-.current-delete-div-accept{
+.current-delete-div-accept, .current-reset-div-accept{
     border: solid red;
 }
-.current-delete-div-accept:hover{
+.current-delete-div-accept:hover, .current-reset-div-accept:hover{
     animation: deleteButtonHover 1.5s;
     background: red;
     font-weight: bold;
@@ -252,7 +277,61 @@ td{
     width: 20px;
     height: 20px;
     position: absolute;
-    top: 5%;
-    right: 2%;
+    top: 4%;
+    right: 3%;
     cursor: pointer;
+}
+
+h2{
+    font-size: xx-large;
+}
+.form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2%;
+    font-size: x-large;
+}
+.form input{
+    width: 60%;
+    font-size: large;
+}
+.input-row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3% 0%;
+    width: 100%;
+}
+.current-add-div-accept{
+    font-size: large;
+    border: solid green;
+    border-radius: 20px;
+    padding: 0.5%;
+    margin-top: 2%;
+}
+.current-add-div-accept:hover{
+    animation: addButtonHover 1.5s;
+    font-size: large;
+    background: green;
+    font-weight: bold;
+    color: white;
+    box-shadow: 1px 1px 10px 5px darkgreen;
+}
+.current-update-div-accept{
+    font-size: large;
+    border: solid rebeccapurple;
+    border-radius: 20px;
+    padding: 0.5%;
+    margin-top: 2%;
+}
+.current-update-div-accept:hover{
+    animation: updateButtonHover 1.5s;
+    font-size: large;
+    background: rebeccapurple;
+    font-weight: bold;
+    color: white;
+    box-shadow: 1px 1px 10px 5px purple;
 }

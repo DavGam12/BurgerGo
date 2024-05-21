@@ -140,8 +140,6 @@
             <div class="admin-tables-options">
                 <button>Allergens</button>
                 <button>Allergies</button>
-                <button>Sales</button>
-                <button>Sales Management</button>
                 <button>Categories</button>
                 <button>Products</button>
                 <button>Jobs</button>
@@ -156,15 +154,53 @@
                 <table>
                 </table>
                 <div class="current-add-div">
+                    <h2>ADD A ROW</h2>
+                    <div class="form">
+                        <div class="input-row">
+                            <label for="allergens-add-id">Id: </label>
+                            <input type="number" placeholder="Id" id="allergens-add-id" name="id">
+                        </div>
+
+                        <div class="input-row">
+                            <label for="allergens-add-id">Name: </label>
+                            <input type="text" placeholder="Name" id="allergens-add-name" name="name">
+                        </div>
+
+                        <div class="input-row">
+                            <label for="allergens-add-id">Image URL: </label>
+                            <input type="text" placeholder="Image URL" id="allergens-add-img" name="img">
+                        </div>
+
+                        <button class="current-add-div-accept">Accept</button>
+                    </div>
                     <div class="current-add-div-close"><img src="../Images/close.png" alt="close"></div>
                 </div>
                 <div class="current-update-div">
+                    <h2>UPDATE ROW NUMBER <span class="current-update-id"></span></h2>
+                    <div class="form">
+                        <div class="input-row">
+                            <label for="allergens-update-id">Id: </label>
+                            <input type="number" placeholder="Id" id="allergens-update-id" name="id">
+                        </div>
+
+                        <div class="input-row">
+                            <label for="allergens-update-id">Name: </label>
+                            <input type="text" placeholder="Name" id="allergens-update-name" name="name">
+                        </div>
+
+                        <div class="input-row">
+                            <label for="allergens-update-id">Image URL: </label>
+                            <input type="text" placeholder="Image URL" id="allergens-update-img" name="img">
+                        </div>
+
+                        <button class="current-update-div-accept">Accept</button>
+                    </div>
                     <div class="current-update-div-close"><img src="../Images/close.png" alt="close"></div>
                 </div>
                 <div class="current-delete-div">
                     <h2>DELETE ROW NUMBER <span class="current-delete-id"></span></h2>
-                    <p>Are you sure you want to delete this row.</p>
-                    <p>You won't be able to go back</p>
+                    <p>Are you sure you want to delete this row?</p>
+                    <p>You won't be able to go back.</p>
                     <div class="options">
                         <button class="current-delete-div-cancel">Cancel</button>
                         <button class="current-delete-div-accept">Accept</button>
@@ -173,20 +209,18 @@
             </div>
 
             <div class="allergies-table admin-table">
-                <div class="current-add"><button>Add row</button></div>
+                <div class="current-reset"><button>Reset</button></div>
                 <table>
                 </table>
-            </div>
-
-            <div class="sales-table admin-table">
-                <div class="current-add"><button>Add row</button></div>
-                <table>
-                </table>
-            </div>
-            <div class="sales-management-table admin-table">
-                <div class="current-add"><button>Add row</button></div>
-                <table>
-                </table>
+                <div class="current-reset-div">
+                    <h2>RESET THE ENTIRE ALLERGIES TABLE</h2>
+                    <p>Are you sure you want to reset the entire table?</p>
+                    <p>All the rows will be deleted and created again.</p>
+                    <div class="options">
+                        <button class="current-reset-div-cancel">Cancel</button>
+                        <button class="current-reset-div-accept">Accept</button>
+                    </div>
+                </div>
             </div>
 
             <div class="categories-table admin-table">

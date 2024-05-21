@@ -1,6 +1,8 @@
 const url = new URL(window.location.href)
 const urlParams = new URLSearchParams(url.search)
 
+const baseURL = new URL("http://localhost:8080/BurgerGo/Controller?")
+
 
 
 let adminButtons
@@ -11,9 +13,13 @@ document.addEventListener("DOMContentLoaded", () => {
     adminTables = document.getElementsByClassName("admin-table")
 
     const curentAddDivClose = document.getElementsByClassName("current-add-div-close")
+    const curentAddDivAccept = document.getElementsByClassName("current-add-div-accept")
     const curentUpdateDivClose = document.getElementsByClassName("current-update-div-close")
+    const curentUpdateDivAccept = document.getElementsByClassName("current-update-div-accept")
     const currentDeleteDivCancelButton = document.getElementsByClassName("current-delete-div-cancel")
     const currentDeleteDivAcceptButton = document.getElementsByClassName("current-delete-div-accept")
+    const currentResetDivCancelButton = document.getElementsByClassName("current-reset-div-cancel")[0]
+    const currentResetDivAcceptButton = document.getElementsByClassName("current-reset-div-accept")[0]
 
     Array.from(adminButtons).forEach((e, i) => {
         e.addEventListener("click", () => {
@@ -30,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             })
 
-            resetURL()
+            resetCurrentURL()
         })
     })
 
@@ -39,7 +45,19 @@ document.addEventListener("DOMContentLoaded", () => {
             e.parentElement.style.display = "none"
             document.body.style.pointerEvents = "all"
             document.body.style.overflow = "visible"
-            resetURL()
+            resetCurrentURL()
+        })
+    })
+    Array.from(curentAddDivAccept).forEach(e => {
+        e.addEventListener("click", () => {
+            e.parentElement.parentElement.style.display = "none"
+            document.body.style.pointerEvents = "all"
+            document.body.style.overflow = "visible"
+            console.log(objectElementsKeeper)
+            objectValuesKeeper = objectElementsKeeper
+            Object.entries(objectValuesKeeper).forEach(o => {o[1] = o[1].value})
+            console.log(objectValuesKeeper)
+            additionURL(objectValuesKeeper)
         })
     })
     Array.from(curentUpdateDivClose).forEach(e => {
@@ -47,7 +65,19 @@ document.addEventListener("DOMContentLoaded", () => {
             e.parentElement.style.display = "none"
             document.body.style.pointerEvents = "all"
             document.body.style.overflow = "visible"
-            resetURL()
+            resetCurrentURL()
+        })
+    })
+    Array.from(curentUpdateDivAccept).forEach(e => {
+        e.addEventListener("click", () => {
+            e.parentElement.parentElement.style.display = "none"
+            document.body.style.pointerEvents = "all"
+            document.body.style.overflow = "visible"
+            objectValuesKeeper = objectElementsKeeper
+            Object.entries(objectValuesKeeper).forEach(o => {o[1] = o[1].value})
+            updateURL(objectValuesKeeper)
+            updateCurrentURL()
+            insert(objectValuesKeeper)
         })
     })
     Array.from(currentDeleteDivCancelButton).forEach(e => {
@@ -55,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
             e.parentElement.parentElement.style.display = "none"
             document.body.style.pointerEvents = "all"
             document.body.style.overflow = "visible"
-            resetURL()
+            resetCurrentURL()
         })
     })
     Array.from(currentDeleteDivAcceptButton).forEach(e => {
@@ -63,9 +93,21 @@ document.addEventListener("DOMContentLoaded", () => {
             e.parentElement.parentElement.style.display = "none"
             document.body.style.pointerEvents = "all"
             document.body.style.overflow = "visible"
-            id = objectIdKeeper._allergenID
-            deletionURL(id)
+            deletionURL(objectKeeper)
         })
+    })
+
+    currentResetDivCancelButton.addEventListener("click", () => {
+        currentResetDivCancelButton.parentElement.parentElement.style.display = "none"
+        document.body.style.pointerEvents = "all"
+        document.body.style.overflow = "visible"
+        resetCurrentURL()
+    })
+    currentResetDivAcceptButton.addEventListener("click", () => {
+        currentResetDivCancelButton.parentElement.parentElement.style.display = "none"
+        document.body.style.pointerEvents = "all"
+        document.body.style.overflow = "visible"
+        currentActionURL("allergies.reset")
     })
 
 })
@@ -76,8 +118,6 @@ document.addEventListener("DOMContentLoaded", () => {
 /* FLETCH */
 const allergensURL = "http://localhost:8080/BurgerGo/Controller?action=allergens.find_all"
 const allergiesURL = "http://localhost:8080/BurgerGo/Controller?action=allergies.find_all"
-const salesURL = "http://localhost:8080/BurgerGo/Controller?action=sales.find_all"
-const salesManagementURL = "http://localhost:8080/BurgerGo/Controller?action=sales_management.find_all"
 const categoriesURL = "http://localhost:8080/BurgerGo/Controller?action=categories.find_all"
 const productsURL = "http://localhost:8080/BurgerGo/Controller?action=products.find_all"
 const jobsURL = "http://localhost:8080/BurgerGo/Controller?action=jobs.find_all"
@@ -86,36 +126,23 @@ const customersURL = "http://localhost:8080/BurgerGo/Controller?action=customers
 const ordersURL = "http://localhost:8080/BurgerGo/Controller?action=orders.find_all"
 const detailsURL = "http://localhost:8080/BurgerGo/Controller?action=details.find_all"
 
-
-const fetchData = async () => {
-    const allergensRes = await fetch(allergensURL)
-    const allergiesRes = await fetch(allergiesURL)
-    const salesRes = await fetch(salesURL)
-    const salesManagementRes = await fetch(salesManagementURL)
-    const categoriesRes = await fetch(categoriesURL)
-    const productsRes = await fetch(productsURL)
-    const jobsRes = await fetch(jobsURL)
-    const employeesRes = await fetch(employeesURL)
-    const customersRes = await fetch(customersURL)
-    const ordersRes = await fetch(ordersURL)
-    const detailsRes = await fetch(detailsURL)
-
-    const allergensData = await allergensRes.json()
-    const allergiesData = await allergiesRes.json()
-    const salesData = await salesRes.json()
-    const salesManagementData = await salesManagementRes.json()
-    const categoriesData = await categoriesRes.json()
-    const productsData = await productsRes.json()
-    const jobsData = await jobsRes.json()
-    const employeesData = await employeesRes.json()
-    const customersData = await customersRes.json()
-    const ordersData = await ordersRes.json()
-    const detailsData = await detailsRes.json()
+async function fetchDataAsync()
+{
+    const [ allergensRes, allergiesRes, categoriesRes, productsRes, jobsRes, 
+            employeesRes, customersRes, ordersRes, detailsRes ] = await Promise.all([fetch(allergensURL), fetch(allergiesURL), fetch(categoriesURL), fetch(productsURL), fetch(jobsURL), fetch(employeesURL), fetch(customersURL), fetch(ordersURL),  fetch(detailsURL) ]);
+    
+    const allergensData = await allergensRes.json();
+    const allergiesData = await allergiesRes.json();
+    const categoriesData = await categoriesRes.json();
+    const productsData = await productsRes.json();
+    const jobsData = await jobsRes.json();
+    const employeesData = await employeesRes.json();
+    const customersData = await customersRes.json();
+    const ordersData = await ordersRes.json();
+    const detailsData = await detailsRes.json();
 
     console.log("allergensData --> ", allergensData)
     console.log("allergiesData --> ", allergiesData)
-    console.log("salesData --> ", salesData)
-    console.log("salesManagementData --> ", salesManagementData)
     console.log("categoriesData --> ", categoriesData)
     console.log("productsData --> ", productsData)
     console.log("jobsData --> ", jobsData)
@@ -124,17 +151,15 @@ const fetchData = async () => {
     console.log("ordersData --> ", ordersData)
     console.log("detailsData --> ", detailsData)
 
-    printAllergensData(allergensData)
-    printAllergiesData(allergiesData)
-    printSalesData(salesData)
-    printSalesManagementData(salesManagementData)
-    printCategoriesData(categoriesData)
-    printProductsData(productsData)
-    printJobsData(jobsData)
-    printEmployeesData(employeesData)
-    printCustomersData(customersData)
-    printOrdersData(ordersData)
-    printDetailsData(detailsData)
+    printAllergensData(allergensData);
+    printAllergiesData(allergiesData);
+    printCategoriesData(categoriesData);
+    printProductsData(productsData);
+    printJobsData(jobsData);
+    printEmployeesData(employeesData);
+    printCustomersData(customersData);
+    printOrdersData(ordersData);
+    printDetailsData(detailsData);
 }
 
 /* ALLERGENS TABLE */
@@ -204,6 +229,17 @@ const printAllergensData = (data) => {
             document.body.style.pointerEvents = "none"
             updateDiv.style.display = "flex"
             updateDiv.style.pointerEvents = "all"
+
+            currentTable.parentElement.getElementsByClassName("current-update-id")[0].textContent = e._allergenID
+
+            document.getElementById("allergens-update-id").value = e._allergenID
+            document.getElementById("allergens-update-name").value = e._allergenName
+            document.getElementById("allergens-update-img").value = e._allergenImg
+            objectElementsKeeper = {
+                id: document.getElementById("allergens-update-id"),
+                name: document.getElementById("allergens-update-name"),
+                img: document.getElementById("allergens-update-img")
+            }
             currentActionURL("allergens.update")
         })
 
@@ -213,18 +249,26 @@ const printAllergensData = (data) => {
             deleteDiv.style.display = "flex"
             deleteDiv.style.pointerEvents = "all"
 
-            document.getElementsByClassName("allergens-table")[0].getElementsByClassName("current-delete-id")[0].textContent = e._allergenID
+            currentTable.parentElement.getElementsByClassName("current-delete-id")[0].textContent = e._allergenID
 
-            objectIdKeeper = e
+            objectValuesKeeper = {id: e}
             currentActionURL("allergens.deletion")
         })
+
     })
 
-    currentTable.parentElement.getElementsByClassName("current-add")[0].addEventListener("click", () => {
+    const currentAdd = currentTable.parentElement.getElementsByClassName("current-add")[0]
+    currentAdd.addEventListener("click", () => {
         document.body.style.overflow = "hidden"
         document.body.style.pointerEvents = "none"
         addDiv.style.display = "flex"
         addDiv.style.pointerEvents = "all"
+
+        objectElementsKeeper = {
+            id: document.getElementById("allergens-add-id"),
+            name: document.getElementById("allergens-add-name"),
+            img: document.getElementById("allergens-add-img")
+        }
         currentActionURL("allergens.addition")
     })
 
@@ -245,9 +289,12 @@ const printAllergiesData = (data) => {
     currentRow.appendChild(productIdTh)
     productIdTh.textContent = "product id".toUpperCase()
 
+    const resetDiv = document.getElementsByClassName("allergies-table")[0].getElementsByClassName("current-reset-div")[0]
+
+
     Array.from(data).forEach(e => {
 
-        const currentUpdate = document.createElement("div")
+      /*const currentUpdate = document.createElement("div")
         currentTable.appendChild(currentUpdate)
         currentUpdate.classList.add("current-update")
         const currentUpdateButton = document.createElement("button")
@@ -265,7 +312,7 @@ const printAllergiesData = (data) => {
         currentDeleteButton.textContent = "Delete row"
         currentDelete.style.padding = "0.2%"
         currentDelete.style.marginTop = "0.3%"
-        currentDelete.style.left = "23%"
+        currentDelete.style.left = "23%"*/
 
 
         const currentRow = document.createElement("tr")
@@ -286,137 +333,12 @@ const printAllergiesData = (data) => {
         productID.classList.add("column")
         productID.textContent = e._productID
     })
-}
-
-/* SALES TABLE */
-const printSalesData = (data) => {
-    const currentTable = document.getElementsByClassName("sales-table")[0].getElementsByTagName("table")[0]
-    const currentRow = document.createElement("tr")
-    currentTable.appendChild(currentRow)
-    const idTh = document.createElement("th")
-    currentRow.appendChild(idTh)
-    idTh.textContent = "id".toUpperCase()
-    const nameTh = document.createElement("th")
-    currentRow.appendChild(nameTh)
-    nameTh.textContent = "name".toUpperCase()
-    const disscountTh = document.createElement("th")
-    currentRow.appendChild(disscountTh)
-    disscountTh.textContent = "disscount".toUpperCase()
-
-    Array.from(data).forEach(e => {
-
-        const currentUpdate = document.createElement("div")
-        currentTable.appendChild(currentUpdate)
-        currentUpdate.classList.add("current-update")
-        const currentUpdateButton = document.createElement("button")
-        currentUpdate.appendChild(currentUpdateButton)
-        currentUpdateButton.textContent = "Update row"
-        currentUpdate.style.padding = "0.2%"
-        currentUpdate.style.marginTop = "0.3%"
-        currentUpdate.style.left = "78%"
-
-        const currentDelete = document.createElement("div")
-        currentTable.appendChild(currentDelete)
-        currentDelete.classList.add("current-delete")
-        const currentDeleteButton = document.createElement("button")
-        currentDelete.appendChild(currentDeleteButton)
-        currentDeleteButton.textContent = "Delete row"
-        currentDelete.style.padding = "0.2%"
-        currentDelete.style.marginTop = "0.3%"
-        currentDelete.style.left = "17%"
-
-
-        const currentRow = document.createElement("tr")
-        currentTable.appendChild(currentRow)
-
-        const saleID = document.createElement("td")
-        currentRow.appendChild(saleID)
-        saleID.classList.add("column")
-        saleID.textContent = e._saleID
-
-        const saleName = document.createElement("td")
-        currentRow.appendChild(saleName)
-        saleName.classList.add("column")
-        saleName.textContent = e._saleName
-
-        const saleDisscount = document.createElement("td")
-        currentRow.appendChild(saleDisscount)
-        saleDisscount.classList.add("column")
-        saleDisscount.textContent = e._saleDisscount
-    })
-}
-
-/* SALES MANAGEMENT TABLE */
-const printSalesManagementData = (data) => {
-    const currentTable = document.getElementsByClassName("sales-management-table")[0].getElementsByTagName("table")[0]
-    const currentRow = document.createElement("tr")
-    currentTable.appendChild(currentRow)
-    const idTh = document.createElement("th")
-    currentRow.appendChild(idTh)
-    idTh.textContent = "sale management id".toUpperCase()
-    const startDateTh = document.createElement("th")
-    currentRow.appendChild(startDateTh)
-    startDateTh.textContent = "start date".toUpperCase()
-    const endDateTh = document.createElement("th")
-    currentRow.appendChild(endDateTh)
-    endDateTh.textContent = "end date".toUpperCase()
-    const saleIdTh = document.createElement("th")
-    currentRow.appendChild(saleIdTh)
-    saleIdTh.textContent = "sale id".toUpperCase()
-    const productIdTh = document.createElement("th")
-    currentRow.appendChild(productIdTh)
-    productIdTh.textContent = "product id".toUpperCase()
-
-    Array.from(data).forEach(e => {
-
-        const currentUpdate = document.createElement("div")
-        currentTable.appendChild(currentUpdate)
-        currentUpdate.classList.add("current-update")
-        const currentUpdateButton = document.createElement("button")
-        currentUpdate.appendChild(currentUpdateButton)
-        currentUpdateButton.textContent = "Update row"
-        currentUpdate.style.padding = "0.2%"
-        currentUpdate.style.marginTop = "0.3%"
-        currentUpdate.style.left = "78%"
-
-        const currentDelete = document.createElement("div")
-        currentTable.appendChild(currentDelete)
-        currentDelete.classList.add("current-delete")
-        const currentDeleteButton = document.createElement("button")
-        currentDelete.appendChild(currentDeleteButton)
-        currentDeleteButton.textContent = "Delete row"
-        currentDelete.style.padding = "0.2%"
-        currentDelete.style.marginTop = "0.3%"
-        currentDelete.style.left = "17%"
-
-
-        const currentRow = document.createElement("tr")
-        currentTable.appendChild(currentRow)
-
-        const saleManagementID = document.createElement("td")
-        currentRow.appendChild(saleManagementID)
-        saleManagementID.classList.add("column")
-        saleManagementID.textContent = e._saleManagementID
-
-        const startDate = document.createElement("td")
-        currentRow.appendChild(startDate)
-        startDate.classList.add("column")
-        startDate.textContent = e._startDate
-
-        const endDate = document.createElement("td")
-        currentRow.appendChild(endDate)
-        endDate.classList.add("column")
-        endDate.textContent = e._endDate
-
-        const saleID = document.createElement("td")
-        currentRow.appendChild(saleID)
-        saleID.classList.add("column")
-        saleID.textContent = e._saleID
-
-        const productID = document.createElement("td")
-        currentRow.appendChild(productID)
-        productID.classList.add("column")
-        productID.textContent = e._productID
+    currentTable.parentElement.getElementsByClassName("current-reset")[0].addEventListener("click", () => {
+        document.body.style.overflow = "hidden"
+        document.body.style.pointerEvents = "none"
+        resetDiv.style.display = "flex"
+        resetDiv.style.pointerEvents = "all"
+        currentActionURL("allergies")
     })
 }
 
@@ -885,7 +807,7 @@ const printDetailsData = (data) => {
     productQuantityTh.textContent = "product quantity".toUpperCase()
     const priceTh = document.createElement("th")
     currentRow.appendChild(priceTh)
-    priceTh.textContent = "detal price".toUpperCase()
+    priceTh.textContent = "detail price".toUpperCase()
     const orderIdTh = document.createElement("th")
     currentRow.appendChild(orderIdTh)
     orderIdTh.textContent = "order id".toUpperCase()
@@ -941,7 +863,7 @@ const printDetailsData = (data) => {
 }
 
 
-fetchData()
+fetchDataAsync();
 
 
 const currentActionURL = (act) => {
@@ -949,17 +871,23 @@ const currentActionURL = (act) => {
     updateCurrentURL()
 }
 
-const additionURL = () => {
-    urlParams
-}
-
-const deletionURL = (paramVal) => {
-    urlParams.set("id", paramVal)
+const additionURL = (obj) => {
+    Object.entries(obj).forEach(e => {
+        urlParams.set(e[0], e[1])
+    })
     updateCurrentURL()
 }
 
-const updateURL = () => {
-    urlParams
+const updateURL = (obj) => {
+    Object.entries(obj).forEach(e => {
+        urlParams.set(e[0], e[1])
+    })
+    updateCurrentURL()
+}
+
+const deletionURL = (obj) => {
+    urlParams.set(obj.id, ojb.id)
+    updateCurrentURL()
 }
 
 /* change the url without reload (line 2 of the function) */
@@ -968,7 +896,7 @@ const updateCurrentURL = () => {
     window.history.replaceState(null, null, url.href)
 }
 
-const resetURL = () => {
+const resetCurrentURL = () => {
     let paramsGeneralSplit = urlParams.toString().split("&")
     Array.from(paramsGeneralSplit).forEach(e => {
         let ea = e.split("=") 
@@ -977,4 +905,17 @@ const resetURL = () => {
     updateCurrentURL()
 }
 
-let objectIdKeeper
+let objectValuesKeeper
+let objectElementsKeeper
+
+function insert(obj)
+{
+    (async => {
+        const rawRes = /*await*/ fetch(baseURL.href.concat(urlParams.toString()),
+        {
+            method: "post",
+            body: JSON.stringy({obj})
+        })
+    })
+}
+
