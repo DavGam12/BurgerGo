@@ -100,12 +100,6 @@ end;
 
 
 
-insert into orders values ()
-
-
-insert into customers values ()
-
-
 begin
     insert into allergens values (1,'Gluten', '../Images/Allergies/gluten.png');
     insert into allergens values (2,'Eggs', '../Images/Allergies/eggs.png');
