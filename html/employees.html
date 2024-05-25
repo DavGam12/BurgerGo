@@ -7,6 +7,7 @@
     <link rel="icon" type="image/x-icon" href="../Images/logo.png">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/employees.css">
     <script src="../js/base.js"></script>
 </head>
 <body class="body">
@@ -26,7 +27,7 @@
     <main class="main">
         <div class="login-div">
             <h6>Log In</h6>
-            <div id="login-form">
+            <form action="" target="_self" id="login-form">
                 <label for="login-email">E-mail: </label>
                 <input type="email" id="login-email" required placeholder="E-mail">
                 <label for="login-password">Password: </label>
@@ -41,13 +42,13 @@
                     <p>New to Burger & Go?</p>
                     <button id="login-signup" type="button">Sign Up</button>
                 </div>
-            </div>
+            </form>
             <div id="login-cancel"><img src="../Images/close.png" alt="close"></div>
         </div>
         <div class="signup-div">
             <h6>Sign Up</h6>
             <p class="data-usage-button">Data Usage</p>
-            <div id="signup-form">
+            <form action="" target="_self" id="signup-form">
                 <div class="form">
                     <div class="signup-row">
                         <div class="signup-field">
@@ -91,7 +92,7 @@
                     <p>Do you have an account?</p>
                     <button id="signup-login" type="button">Log In</button>
                 </div>
-            </div>
+            </form>
             <div id="signup-cancel"><img src="../Images/close.png" alt="close"></div>
         </div>
         <div class="data-usage-div">
@@ -131,23 +132,35 @@
                 </div>
             </div>
         </div>
-        <div>
-            <div>
-                <p>Latest news</p>
-                    <div>
-                    <h1> May 17th, friday. Female restroom flood</h1>
-                    <p> The night of the event at 8:21 pm one of the fauclets on the restroom broke causing the room to flood rapidly. The water was inmediatly cut but there was already a flood on the floor damaging the structure and disabling the access to said room. The head manager already called a plumber to repair the broken fauclet and will arrive May 20th at 3 pm.
-                        Steven Cooper - 11:30 pm 17-5-2024 
-                    </p>
-                    </div>
-                    <div>
-                        <h1> May 6th, monday. National holiday</h1>
-                        <p> As a reminder for every worker the next moday, May 6th, is a national vacaiton day so we wont be offering our services that day.
-                            Caitlin Hughes - 1:00 pm 1-5-2024 
-                        </p>
-                    </div>
+        <div class="employees">
+            <div class="news-container">
+                <div class="latest-news">
+                    <p>Latest news</p>
+                </div>
+                <div class="new">                    
+                    <h1> May 17th, friday. Female restroom flood on local 1</h1>
+                    <p> The night of the event at 8:21 pm one of the fauclets on the restroom broke causing the room to flood rapidly. The water was inmediatly cut but there was already a flood on the floor damaging the structure and disabling the access to said room. The head manager already called a plumber to repair the broken fauclet and will arrive May 20th at 3 pm. <br><br>
+                    Steven Cooper - 11:30 pm 17-5-2024</p>
+                </div>
+                <div class="new">
+                    <h1> May 6th, monday. National holiday</h1>
+                    <p> As a reminder for every worker the next moday, May 6th, is a national vacaiton day so we wont be offering our services that day. <br><br>                     Caitlin Hughes - 1:00 pm 1-5-2024</p>
+                </div>
             </div>
-            <p>Fire emergency protocol</p>
+            <div class="protocol-title">
+                <p>Fire emergency protocol</p>
+            </div>
+                <div class="protocol">
+                    Fires are a type of accident that can cause serious damage not only to property but also to customers and workers if proper safety measures are not followed.<br><br>
+                    Using the following image of the premises as a reference, we can observe an emergency exit on the opposite side of the entrance to facilitate the evacuation of all people who may be inside the establishment at the time of the fire. Additionally, fire extinguishers with CO2 are visible on the walls of the premises, represented by a circle and a line.
+                    <br><br>
+                    Thanks to these devices, which are distributed at various points, employees will be able to extinguish the flames for better control of the situation. If the fire has spread beyond the kitchen, it is imperative to leave the premises as soon as possible and call emergency services.
+                    <br><br>
+                    Prompt action is crucial in determining the outcome of the fire, so quick response is key. Below is a map of the premises with all the aforementioned elements.
+                </div>
+                <div>
+                    <img src="../Images/building.png">
+                </div>
         </div>
     </main>
     <footer class="footer">
@@ -172,4 +185,5 @@
     </footer>
 
 </body>
+>>>>>>> d4b698d573afee84d16982c9791433e23075e4fc
 </html>

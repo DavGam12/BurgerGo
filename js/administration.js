@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
             })
 
             resetCurrentURL()
+            resetCurrentURL()
         })
     })
 
@@ -92,6 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.body.style.pointerEvents = "all"
             document.body.style.overflow = "visible"
             resetCurrentURL()
+            resetCurrentURL()
         })
     })
     Array.from(currentDeleteDivAcceptButton).forEach(e => {
@@ -140,6 +142,7 @@ const employeesURL = "http://localhost:8080/BurgerGo/Controller?action=employees
 const customersURL = "http://localhost:8080/BurgerGo/Controller?action=customers.find_all"
 const ordersURL = "http://localhost:8080/BurgerGo/Controller?action=orders.find_all"
 const detailsURL = "http://localhost:8080/BurgerGo/Controller?action=details.find_all"
+
 
 async function fetchDataAsync()
 {
@@ -404,8 +407,11 @@ const printAllergensData = (data) => {
             currentActionURL("allergens.delete")
         })
 
+
     })
 
+    const currentAdd = currentTable.parentElement.getElementsByClassName("current-add")[0]
+    currentAdd.addEventListener("click", () => {
     const currentAdd = currentTable.parentElement.getElementsByClassName("current-add")[0]
     currentAdd.addEventListener("click", () => {
         document.body.style.overflow = "hidden"
@@ -420,7 +426,7 @@ const printAllergensData = (data) => {
         }
         currentActionURL("allergens.add")
     })
-
+})
 }
 
 /* ALLERGIES TABLE */
@@ -439,7 +445,6 @@ const printAllergiesData = (data) => {
     productIdTh.textContent = "product id".toUpperCase()
 
     const resetDiv = document.getElementsByClassName("allergies-table")[0].getElementsByClassName("current-reset-div")[0]
-
 
     Array.from(data).forEach(e => {
 
@@ -1384,6 +1389,7 @@ const printDetailsData = (data) => {
     const priceTh = document.createElement("th")
     currentRow.appendChild(priceTh)
     priceTh.textContent = "detail price".toUpperCase()
+    priceTh.textContent = "detail price".toUpperCase()
     const orderIdTh = document.createElement("th")
     currentRow.appendChild(orderIdTh)
     orderIdTh.textContent = "order id".toUpperCase()
@@ -1518,30 +1524,6 @@ fetchDataAsync();
 const currentActionURL = (act) => {
     urlParams.set("action", act)
     updateCurrentURL()
-}
-
-const additionURL = (obj) => {
-    Object.entries(obj).forEach(e => {
-        urlParams.set(e[0], e[1])
-        console.log(e)
-    })
-    updateCurrentURL()
-}
-
-const updateURL = (obj) => {
-    Object.entries(obj).forEach(e => {
-        urlParams.set(e[0], e[1])
-    })
-    updateCurrentURL()
-}
-
-const deletionURL = (obj) => {
-    urlParams.set(obj.id, ojb.id)
-    updateCurrentURL()
-}
-
-const resetFetch = async() => {
-    await fetch(baseURL.href, {method: "get"})
 }
 
 /* change the url without reload (line 2 of the function) */
