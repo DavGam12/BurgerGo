@@ -7,36 +7,45 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Orders {
-    private String _orderID;
+    private int _orderID, _currentOrderID;
     private String _orderState;
     private String _direction;
     private float _orderPrice;
-    private Date _orderDate;
-    private String _employeeID;
-    private String _customerID;
+    private String _orderDate;
+    /*private Employees _employee;
+    private Customers _customer;*/
+    private int _employeeID;
+    private int _customerID;
 
-    public void setOrderID (String orderID) {_orderID = orderID;}
+    public void setOrderID (int orderID) {_orderID = orderID;}
     public void setOrderState (String orderState) {_orderState = orderState;}
     public void setDirection (String direction) {_direction = direction;}
     public void setOrderPrice (float orderPrice) {_orderPrice = orderPrice;}
-    public void setOrderDate (Date orderDate) {_orderDate = orderDate;}
-    public void setEmployeeID (String employeeID) {_employeeID = employeeID;}
-    public void setCustomerID (String customerID) {_customerID = customerID;}
+    public void setOrderDate (String orderDate) {_orderDate = orderDate.replace(" 00:00:00", "");}
+    /*public void setEmployee (Employees employee) {_employee = employee;}
+    public void setCustomer (Customers customer) {_customer = customer;}*/
+    public void setEmployeeID (int employeeID) {_employeeID = employeeID;}
+    public void setCustomerID (int customerID) {_customerID = customerID;}
 
-    public String getOrderID () {return _orderID;}
+    public int getCurrentOrderID () {return _currentOrderID;}
+    public int getOrderID () {return _orderID;}
     public String getOrderState () {return _orderState;}
     public String getDirection () {return _direction;}
     public float getOrderPrice () {return _orderPrice;}
-    public Date getOrderDate () {return _orderDate;}
-    public String getEmployeeID () {return _employeeID;}
-    public String getCustomerID () {return _customerID;}
+    public String getOrderDate () {return _orderDate.replace(" 00:00:00", "");}
+    /*public Employees getEmployee () {return _employee;}
+    public Customers getCustomer () {return _customer;}*/
+    public int getEmployeeID () {return _employeeID;}
+    public int getCustomerID () {return _customerID;}
 
-    public Orders (String orderID, String orderState, String direction, float orderPrice, Date orderDate, String employeeID, String customerID) {
+    public Orders (int orderID, String orderState, String direction, float orderPrice, String orderDate, /*Employees employee, Customers customer,*/ int employeeID, int customerID) {
         _orderID = orderID;
         _orderState = orderState;
         _direction = direction;
         _orderPrice = orderPrice;
         _orderDate = orderDate;
+        /*_employee = employee;
+        _customer = customer;*/
         _employeeID = employeeID;
         _customerID = customerID;
     }

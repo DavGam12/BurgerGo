@@ -6,16 +6,17 @@ import com.google.gson.GsonBuilder;
 import java.util.ArrayList;
 
 public class Jobs {
-    private String _jobID;
+    private int _jobID, _currentJobID;
     private String _jobName;
 
-    public void setJobID (String jobID) {_jobID = jobID;}
+    public void setJobID (int jobID) {_jobID = jobID;}
     public void setJobName (String jobName) {_jobName = jobName;}
 
-    public String getJobID () {return _jobID;}
+    public int getCurrentJobID () {return _currentJobID;}
+    public int getJobID () {return _jobID;}
     public String getJobName () {return _jobName;}
 
-    public Jobs (String jobID, String jobName) {
+    public Jobs (int jobID, String jobName) {
         _jobID = jobID;
         _jobName = jobName;
     }

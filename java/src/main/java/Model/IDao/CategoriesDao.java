@@ -8,20 +8,58 @@ import java.util.ArrayList;
 
 public class CategoriesDao implements IDao<Categories, Integer>{
     private final SQLMotor motor = new SQLMotor();
-    private final String SQL_FIND_ALL = "select * from categories";
+    private final String SQL_FIND_ALL = "select * from categories order by category_id";
+    private final String SQL_ADD = "insert into categories values";
+    private final String SQL_DELETE = "delete from categories where category_id=";
+    private final String SQL_UPDATE = "update categories set ";
     @Override
     public int add(Categories o) {
-        return 0;
+        int iRes = 0;
+
+        try
+        {
+            motor.connect();
+
+            String sql = SQL_ADD + "(" +
+                    o.getCategoryID() + ", '" +
+                    o.getCategoryName() + "')";
+            iRes = motor.executeUpdate(sql);
+        }
+        catch (Exception ex) {iRes = 1;}
+        finally {motor.disconnect();}
+        return iRes;
     }
 
     @Override
-    public int delete(Integer e) {
-        return 0;
+    public int delete(Integer i) {
+        int iRes = 0;
+
+        try
+        {
+            motor.connect();
+            iRes = motor.executeUpdate(SQL_DELETE+i);
+        }
+        catch (Exception ex) {iRes = 0;}
+        finally {motor.disconnect();}
+        return iRes;
     }
 
     @Override
     public int update(Categories o) {
-        return 0;
+        int iRes = 0;
+
+        try
+        {
+            motor.connect();
+
+            String sql = SQL_UPDATE + "category_id=" +
+                    o.getCategoryID() + ", category_name='" +
+                    o.getCategoryName() + "' where category_id="+o.getCurrentCategoryID();
+            iRes = motor.executeUpdate(sql);
+        }
+        catch (Exception ex) {iRes = 1;}
+        finally {motor.disconnect();}
+        return iRes;
     }
 
     @Override
@@ -35,7 +73,7 @@ public class CategoriesDao implements IDao<Categories, Integer>{
             while (rs.next())
             {
                 Categories category = new Categories();
-                category.setCategoryID(rs.getString("category_id"));
+                category.setCategoryID(rs.getInt("category_id"));
                 category.setCategoryName(rs.getString("category_name"));
 
                 categories.add(category);

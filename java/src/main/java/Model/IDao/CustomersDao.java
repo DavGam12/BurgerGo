@@ -3,16 +3,17 @@ package Model.IDao;
 import Model.Customers;
 import Model.SQLMotor;
 
+import javax.security.auth.login.LoginException;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public class CustomersDao implements IDao<Customers, Integer> {
     private final SQLMotor motor = new SQLMotor();
-    private int index = 1;
-    private final String SQL_FIND_ALL = "select * from customers";
-    private final String SQL_ADD = "insert into customers values";
-    private final String SQL_MAX_ID = "select max(customer_id) from customers";
+    private final String SQL_FIND_ALL = "select * from customers order by customer_id";
+    private final String SQL_ADD = "insert into customers (first_name, last_name, email, phone_number, password) values";
+    private final String SQL_UPDATE = "update customer set ";
     private final String SQL_DELETE = "delete from customers where customer_id=";
+
     @Override
     public int add(Customers o)
     {
@@ -22,12 +23,7 @@ public class CustomersDao implements IDao<Customers, Integer> {
         {
             motor.connect();
 
-            int index = 0;
-            ResultSet rs = motor.executeQuery(SQL_MAX_ID);
-            while (rs.next()) {index = rs.getInt("max(customer_id)")+1;}
-
-            String sql = SQL_ADD + "("+
-                    index + ", '" +
+            String sql = SQL_ADD + "('" +
                     o.getFirstName() + "', '" +
                     o.getLastName() + "', '" +
                     o.getEmail() + "', '" +
@@ -61,7 +57,26 @@ public class CustomersDao implements IDao<Customers, Integer> {
 
     @Override
     public int update(Customers o) {
-        return 0;
+        int iRet = 0;
+
+        try
+        {
+            motor.connect();
+
+            String sql = SQL_UPDATE + "customer_id="+
+                    o.getCustomerID() + ", first_name='" +
+                    o.getFirstName() + "', last_name='" +
+                    o.getLastName() + "', email='" +
+                    o.getEmail() + "', phone_number='" +
+                    o.getPhoneNumber() + "', password='" +
+                    o.getPassword() + "' where customer_id=" + o.getCurrentCustomerID();
+
+            iRet = motor.executeUpdate(sql);
+        }
+        catch (Exception ex) {iRet = 0;}
+        finally {motor.disconnect();}
+
+        return iRet;
     }
 
     @Override
@@ -77,7 +92,7 @@ public class CustomersDao implements IDao<Customers, Integer> {
             while (rs.next())
             {
                 Customers customer = new Customers();
-                customer.setCustomerID(rs.getString("customer_id"));
+                customer.setCustomerID(rs.getInt("customer_id"));
                 customer.setFirstName(rs.getString("first_name"));
                 customer.setLastName(rs.getString("last_name"));
                 customer.setEmail(rs.getString("email"));
@@ -91,5 +106,26 @@ public class CustomersDao implements IDao<Customers, Integer> {
         finally {motor.disconnect();}
 
         return customers;
+    }
+
+    public int login (Customers o)
+    {
+        int iRet = 0;
+        try
+        {
+            ArrayList<Customers> customers = findAll(null);
+
+            for (int i = 0; i<customers.size(); i++)
+            {
+                if (customers.get(i).getPassword().equals(o.getPassword()) && customers.get(i).getEmail().equals(o.getEmail()))
+                {
+                    iRet = 1;
+                }
+                else {throw new LoginException();}
+            }
+        }
+        catch (Exception ex) {iRet = 0;}
+
+        return iRet;
     }
 }

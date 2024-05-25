@@ -6,28 +6,37 @@ import com.google.gson.GsonBuilder;
 import java.util.ArrayList;
 
 public class Details {
-    private String _detailID;
+    private int _detailID, _currentDetailID;
     private int _productQuantity;
     private float _detailPrice;
-    private String _orderID;
-    private String _productID;
+    /*private Orders _order;
+    private Products _product;*/
+    private int _orderID;
+    private int _productID;
 
-    public void setDetailID (String detailID) {_detailID = detailID;}
+    public void setDetailID (int detailID) {_detailID = detailID;}
     public void setProductQuantity (int productQuantity) {_productQuantity = productQuantity;}
     public void setDetailPrice (float detailPrice) {_detailPrice = detailPrice;}
-    public void setOrderID (String orderID) {_orderID = orderID;}
-    public void setProductID (String productID) {_productID = productID;}
+    /*public void setOrder (Orders order) {_order = order;}
+    public void setProduct (Products product) {_product = product;}*/
+    public void setOrderID (int orderID) {_orderID = orderID;}
+    public void setProductID (int productID) {_productID = productID;}
 
-    public String getDetailID () {return _detailID;}
+    public int getCurrentDetailID () {return _currentDetailID;}
+    public int getDetailID () {return _detailID;}
     public int getProductQuantity () {return _productQuantity;}
     public float getDetailPrice () {return _detailPrice;}
-    public String getOrderID () {return _orderID;}
-    public String getProductID () {return _productID;}
+    /*public Orders getOrder () {return _order;}
+    public Products getProduct () {return _product;}*/
+    public int getOrderID () {return _orderID;}
+    public int getProductID () {return _productID;}
 
-    public Details (String detailID, int productQuantity, float detailPrice, String orderID, String productID) {
+    public Details (int detailID, int productQuantity, float detailPrice, /*Orders order, Products product,*/ int orderID, int productID) {
         _detailID = detailID;
         _productQuantity = productQuantity;
         _detailPrice = detailPrice;
+        /*_order = order;
+        _product = product;*/
         _orderID = orderID;
         _productID = productID;
     }

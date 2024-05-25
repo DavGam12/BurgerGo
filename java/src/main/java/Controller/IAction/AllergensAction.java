@@ -1,30 +1,49 @@
 package Controller.IAction;
 
 import Model.Allergens;
+import Model.Customers;
 import Model.IDao.AllergensDao;
+import com.google.gson.Gson;
+import com.google.gson.JsonParser;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 
+import static Controller.Controller.getBody;
+
 public class AllergensAction implements IAction {
     @Override
-    public String execute(HttpServletResponse res, HttpServletRequest req, String act) {
+    public String execute(HttpServletResponse res, HttpServletRequest req, String act)
+    {
+        JsonParser parser = new JsonParser();
+        Gson gson = new Gson();
         String strReturn = "";
 
         switch (act) {
             case "find_all":
+            {
                 strReturn =findAll();
                 break;
-            case "addition":
-                strReturn = addition(new Allergens(req.getParameter("id"), req.getParameter("name"), req.getParameter("img")));
+            }
+            case "add":
+            {
+                Allergens allergen = gson.fromJson(parser.parse(getBody(req)), Allergens.class);
+                strReturn = add(allergen);
                 break;
-            case "deletion":
-                strReturn = deletion(Integer.valueOf(req.getParameter("id")));
+            }
+            case "delete":
+            {
+                Allergens allergen = gson.fromJson(parser.parse(getBody(req)), Allergens.class);
+                strReturn = delete(allergen.getAllergenID());
                 break;
+            }
             case "update":
-                strReturn = update(new Allergens(req.getParameter("id"), req.getParameter("name"), req.getParameter("img")));
+            {
+                Allergens allergen = gson.fromJson(parser.parse(getBody(req)), Allergens.class);
+                strReturn = update(allergen);
                 break;
+            }
             default:
                 strReturn = "ERROR. Invalid Action";
         }
@@ -37,13 +56,13 @@ public class AllergensAction implements IAction {
         return Allergens.toArrayJson(allergens);
     }
 
-    private String addition (Allergens allergen) {
+    private String add (Allergens allergen) {
         AllergensDao allergensDao = new AllergensDao();
         int iRet = allergensDao.add(allergen);
         return String.valueOf(iRet);
     }
 
-    private String deletion (Integer i) {
+    private String delete (Integer i) {
         AllergensDao allergensDao = new AllergensDao();
         int iRet = allergensDao.delete(i);
         return String.valueOf(iRet);

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class AllergensDao implements IDao<Allergens, Integer>{
     private final SQLMotor motor = new SQLMotor();
-    private final String SQL_FIND_ALL = "select * from allergens where 1=1";
+    private final String SQL_FIND_ALL = "select * from allergens order by allergen_id";
     private final String SQL_ADD = "insert into allergens values";
     private final String SQL_DELETE = "delete from allergens where allergen_id=";
     private final String SQL_UPDATE = "update allergens set ";
@@ -52,7 +52,7 @@ public class AllergensDao implements IDao<Allergens, Integer>{
             String sql = SQL_UPDATE + "allergen_id=" +
                     o.getAllergenID() + ", allergen_name='" +
                     o.getAllergenName() + "', allergen_img='" +
-                    o.getAllergenImg() + "')";
+                    o.getAllergenImg() + "' where allergen_id=" + o.getCurrentAllergenID();
             iRet = motor.executeUpdate(sql);
         }
         catch (Exception ex) {iRet = 0;}
@@ -70,7 +70,7 @@ public class AllergensDao implements IDao<Allergens, Integer>{
             while (rs.next())
             {
                 Allergens allergen = new Allergens();
-                allergen.setAllergenID(rs.getString("allergen_id".toUpperCase()));
+                allergen.setAllergenID(rs.getInt("allergen_id".toUpperCase()));
                 allergen.setAllergenName(rs.getString("allergen_name".toUpperCase()));
                 allergen.setAllergenImg(rs.getString("allergen_img".toUpperCase()));
 

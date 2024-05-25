@@ -1,48 +1,80 @@
 package Controller.IAction;
 
+import Model.Orders;
 import Model.Products;
 import Model.IDao.ProductsDao;
+import com.google.gson.Gson;
+import com.google.gson.JsonParser;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 
+import static Controller.Controller.getBody;
+
 public class ProductsAction implements IAction {
 
     @Override
-    public String execute(HttpServletResponse res, HttpServletRequest req, String act) {
+    public String execute(HttpServletResponse res, HttpServletRequest req, String act)
+    {
+        JsonParser parser = new JsonParser();
+        Gson gson = new Gson();
         String strReturn;
 
         switch (act.toLowerCase()) {
             case "burgers":
+            {
                 strReturn = findAllByCategory("burgers");
                 break;
+            }
             case "kids":
+            {
                 strReturn = findAllByCategory("kids");
                 break;
+            }
             case "desserts":
+            {
                 strReturn = findAllByCategory("desserts");
                 break;
+            }
             case "drinks":
+            {
                 strReturn = findAllByCategory("drinks");
                 break;
+            }
             case "others":
+            {
                 strReturn = findAllByCategory("others");
                 break;
+            }
             case "gluten_free":
+            {
                 strReturn = findAllByCategory("gluten-free");
                 break;
+            }
             case "find_all":
+            {
                 strReturn = findAll();
                 break;
-            // http://localhost:8080/BurgerGo/Controller?action=products.addition&id=100&name=test&img=../Images/Products/barbecue.png&description=abcdefu&price=7.8&cat_id=BG
-            case "addition":
-                strReturn = addition(new Products(null, req.getParameter("name"), req.getParameter("img"), Float.parseFloat(req.getParameter("price")), req.getParameter("description"), req.getParameter("cat_id")));
+            }
+            case "add":
+            {
+                Products product = gson.fromJson(parser.parse(getBody(req)), Products.class);
+                strReturn = add(product);
                 break;
-            // http://localhost:8080/BurgerGo/Controller?action=products.delete&id=100
+            }
             case "delete":
-                strReturn = delete(Integer.valueOf(req.getParameter("id")));
+            {
+                Products product = gson.fromJson(parser.parse(getBody(req)), Products.class);
+                strReturn = delete(product.getProductID());
                 break;
+            }
+            case "update":
+            {
+                Products product = gson.fromJson(parser.parse(getBody(req)), Products.class);
+                strReturn = update(product);
+                break;
+            }
             default:
                 strReturn = "ERROR. Invalid action";
         }
@@ -59,7 +91,7 @@ public class ProductsAction implements IAction {
         ArrayList<Products> products = productsDao.findAllByCategory(category);
         return Products.toArrayJson(products);
     }
-    private String addition (Products prod) {
+    private String add (Products prod) {
         ProductsDao productsDao = new ProductsDao();
         int res = productsDao.add(prod);
         return String.valueOf(res);
@@ -67,6 +99,11 @@ public class ProductsAction implements IAction {
     private String delete (Integer i) {
         ProductsDao productsDao = new ProductsDao();
         int res = productsDao.delete(i);
+        return String.valueOf(res);
+    }
+    private String update (Products prod) {
+        ProductsDao productsDao = new ProductsDao();
+        int res = productsDao.update(prod);
         return String.valueOf(res);
     }
 }

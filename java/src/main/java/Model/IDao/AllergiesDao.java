@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class AllergiesDao implements IDao<Allergies, Integer> {
     private final SQLMotor motor = new SQLMotor();
-    private final String SQL_FIND_ALL = "select * from allergies where 1=1";
+    private final String SQL_FIND_ALL = "select * from allergies order by allergy_id";
     private final String SQL_ADD = "insert into allergies values";
     private String SQL_AUTOMATION (String allergy_id, String allergen_id, String product_id)
     {
@@ -24,7 +24,7 @@ public class AllergiesDao implements IDao<Allergies, Integer> {
     public int delete(Integer e) {
         return 0;
     }
-    public int deleteAll () {
+    private int deleteAll () {
         int res = 0;
         try {
             motor.connect();
@@ -65,9 +65,9 @@ public class AllergiesDao implements IDao<Allergies, Integer> {
             while (rs.next())
             {
                 Allergies allergy = new Allergies();
-                allergy.setAllergyID(rs.getString("allergy_id".toUpperCase()));
-                allergy.setAllergenID(rs.getString("allergen_id".toUpperCase()));
-                allergy.setProductID(rs.getString("product_id".toUpperCase()));
+                allergy.setAllergyID(rs.getInt("allergy_id".toUpperCase()));
+                allergy.setAllergenID(rs.getInt("allergen_id".toUpperCase()));
+                allergy.setProductID(rs.getInt("product_id".toUpperCase()));
 
                 allergies.add(allergy);
             }
@@ -79,14 +79,14 @@ public class AllergiesDao implements IDao<Allergies, Integer> {
         return allergies;
     }
 
-    public int automation () {
+    public int reset () {
         deleteAll();
         int res = 0;
         try {
             int currentId = 0;
             motor.connect();
 
-            ResultSet rsProducts = motor.executeQuery("select * from products where 1=1");
+            ResultSet rsProducts = motor.executeQuery("select * from products order by product_id");
 
 
             String[][] strTest = new String[6][1000];
@@ -104,22 +104,22 @@ public class AllergiesDao implements IDao<Allergies, Integer> {
             int i = 0;
             while (strTest[0][i] != null){
                 /* GLUTEN IF */
-                if (!strTest[5][i].equals("GF") && !strTest[5][i].equals("DR") && !(strTest[5][i].equals("DS") && strTest[1][i].equalsIgnoreCase("sliced apple")) && !(strTest[5][i].equals("OT") && !strTest[1][i].toLowerCase().contains("chicken"))) {
+                if (!strTest[5][i].equals("6") && !strTest[5][i].equals("3") && !(strTest[5][i].equals("4") && strTest[1][i].equalsIgnoreCase("sliced apple")) && !(strTest[5][i].equals("5") && !strTest[1][i].toLowerCase().contains("chicken"))) {
                     currentId++;
                     motor.executeQuery(SQL_AUTOMATION(String.valueOf(currentId), "1", strTest[0][i]));
                 }
                 /* MUSTARD IF */
-                if (!(strTest[5][i].equals("OT") && !strTest[1][i].equalsIgnoreCase("barbecue")) && !strTest[5][i].equals("DS") && !strTest[5][i].equals("DR") && !(strTest[5][i].equals("KM") && !strTest[1][i].toLowerCase().contains("burger"))) {
+                if (!(strTest[5][i].equals("5") && !strTest[1][i].equalsIgnoreCase("barbecue")) && !strTest[5][i].equals("4") && !strTest[5][i].equals("3") && !(strTest[5][i].equals("2") && !strTest[1][i].toLowerCase().contains("burger"))) {
                     currentId++;
                     motor.executeQuery(SQL_AUTOMATION(String.valueOf(currentId), "13", strTest[0][i]));
                 }
                 /* SESAME SEEDS IF */
-                if (!strTest[5][i].equals("KM") && !strTest[5][i].equals("DR") && !strTest[5][i].equals("DS") && !strTest[5][i].equals("OT")) {
+                if (!strTest[5][i].equals("2") && !strTest[5][i].equals("3") && !strTest[5][i].equals("4") && !strTest[5][i].equals("5")) {
                     currentId++;
                     motor.executeQuery(SQL_AUTOMATION(String.valueOf(currentId), "12", strTest[0][i]));
                 }
                 /* DAIRY IF */
-                if (!strTest[5][i].equals("DR") && !(strTest[5][i].equals("KM") && strTest[1][i].toLowerCase().contains("nuggies")) && !(strTest[5][i].equals("DS") && strTest[1][i].toLowerCase().contains("apple")) && !(strTest[5][i].equals("OT") && !(strTest[1][i].equalsIgnoreCase("mayonnaise") || strTest[1][i].equalsIgnoreCase("ranch")))) {
+                if (!strTest[5][i].equals("3") && !(strTest[5][i].equals("2") && strTest[1][i].toLowerCase().contains("nuggies")) && !(strTest[5][i].equals("4") && strTest[1][i].toLowerCase().contains("apple")) && !(strTest[5][i].equals("5") && !(strTest[1][i].equalsIgnoreCase("mayonnaise") || strTest[1][i].equalsIgnoreCase("ranch")))) {
                     currentId++;
                     motor.executeQuery(SQL_AUTOMATION(String.valueOf(currentId), "6", strTest[0][i]));
                 }
@@ -134,7 +134,7 @@ public class AllergiesDao implements IDao<Allergies, Integer> {
                     motor.executeQuery(SQL_AUTOMATION(String.valueOf(currentId), "2", strTest[0][i]));
                 }
                 /* CELERY IF */
-                if (strTest[1][i].toLowerCase().contains("fried chicken") || (strTest[5][i].equals("OT") && strTest[1][i].toLowerCase().contains("chicken"))) {
+                if (strTest[1][i].toLowerCase().contains("fried chicken") || (strTest[5][i].equals("5") && strTest[1][i].toLowerCase().contains("chicken"))) {
                     currentId++;
                     motor.executeQuery(SQL_AUTOMATION(String.valueOf(currentId), "9", strTest[0][i]));
                 }

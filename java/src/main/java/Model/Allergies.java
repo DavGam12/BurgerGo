@@ -6,20 +6,28 @@ import com.google.gson.GsonBuilder;
 import java.util.ArrayList;
 
 public class Allergies {
-    private String _allergyID;
-    private String _allergenID;
-    private String _productID;
+    private int _allergyID;
+    /*private Allergens _allergen;
+    private Products _product;*/
+    private int _allergenID;
+    private int _productID;
 
-    public void setAllergyID (String allergyID) {_allergyID = allergyID;}
-    public void setAllergenID (String allergenID) {_allergenID = allergenID;}
-    public void setProductID (String productID) {_productID = productID;}
+    public void setAllergyID (int allergyID) {_allergyID = allergyID;}
+    /*public void setAllergen (Allergens allergen) {_allergen = allergen;}
+    public void setProduct (Products product) {_product = product;}*/
+   public void setAllergenID (int allergenID) {_allergenID = allergenID;}
+    public void setProductID (int productID) {_productID = productID;}
 
-    public String getAllergyID () {return _allergyID;}
-    public String getAllergenID () {return _allergenID;}
-    public String getProductID () {return _productID;}
+    public int getAllergyID () {return _allergyID;}
+    /*public Allergens getAllergen () {return _allergen;}
+    public Products getProduct () {return _product;}*/
+    public int getAllergenID () {return _allergenID;}
+    public int getProductID () {return _productID;}
 
-    public Allergies (String allergyID, String allergenID, String productID) {
+    public Allergies (int allergyID,/* Allergens allergen, Products product,*/ int allergenID, int productID) {
         _allergyID = allergyID;
+        /*_allergen = allergen;
+        _product = product;*/
         _allergenID = allergenID;
         _productID = productID;
     }

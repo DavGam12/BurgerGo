@@ -8,20 +8,71 @@ import java.util.ArrayList;
 
 public class OrdersDao implements IDao<Orders, Integer> {
     private final SQLMotor motor = new SQLMotor();
-    private final String SQL_FIND_ALL = "select * from orders";
+    private final String SQL_FIND_ALL = "select * from orders order by order_id";
+    private final String SQL_ADD = "insert into orders values";
+    private final String SQL_DELETE = "delete from orders where order_id=";
+    private final String SQL_UPDATE = "update orders set ";
     @Override
-    public int add(Orders orders) {
-        return 0;
+    public int add(Orders o) {
+        int iRet = 0;
+
+        try
+        {
+            motor.connect();
+            String sql = SQL_ADD + "(" +
+                    o.getOrderID() + ", '" +
+                    o.getOrderState() + "', '" +
+                    o.getDirection() + "', " +
+                    o.getOrderPrice() + ", " +
+                    o.getOrderDate() + ", " +
+                    o.getEmployeeID() + ", " +
+                    o.getCustomerID() + ")";
+
+            iRet = motor.executeUpdate(sql);
+        }
+        catch (Exception ex) {iRet = 0;}
+        finally {motor.disconnect();}
+
+        return iRet;
     }
 
     @Override
-    public int delete(Integer e) {
-        return 0;
+    public int delete(Integer i) {
+        int iRet = 0;
+
+        try
+        {
+            motor.connect();
+            iRet = motor.executeUpdate(SQL_DELETE+i);
+        }
+        catch (Exception ex) {iRet = 0;}
+        finally {motor.disconnect();}
+
+        return iRet;
     }
 
     @Override
-    public int update(Orders orders) {
-        return 0;
+    public int update(Orders o) {
+        int iRet = 0;
+
+        try
+        {
+            motor.connect();
+            String sql = SQL_UPDATE + "order_id=" +
+                    o.getOrderID() + ", order_state='" +
+                    o.getOrderState() + "', direction='" +
+                    o.getDirection() + "', order_price=" +
+                    o.getOrderPrice() + ", order_date=" +
+                    o.getOrderDate() + ", employee_id=" +
+                    o.getEmployeeID() + ", customer_id=" +
+                    o.getCustomerID() + " where order_id=" + o.getCurrentOrderID();
+
+            iRet = motor.executeUpdate(sql);
+        }
+        catch (Exception ex) {iRet = 0;}
+        finally {motor.disconnect();}
+
+        return iRet;
     }
 
     @Override
@@ -37,13 +88,13 @@ public class OrdersDao implements IDao<Orders, Integer> {
             while (rs.next())
             {
                 Orders order = new Orders();
-                order.setOrderID(rs.getString("order_id"));
+                order.setOrderID(rs.getInt("order_id"));
                 order.setOrderState(rs.getString("order_state"));
                 order.setDirection(rs.getString("direction"));
                 order.setOrderPrice(rs.getFloat("order_price"));
-                order.setOrderDate(rs.getDate("order_date"));
-                order.setEmployeeID(rs.getString("employee_id"));
-                order.setCustomerID(rs.getString("customer_id"));
+                order.setOrderDate(rs.getString("order_date"));
+                order.setEmployeeID(rs.getInt("employee_id"));
+                order.setCustomerID(rs.getInt("customer_id"));
 
                 orders.add(order);
             }

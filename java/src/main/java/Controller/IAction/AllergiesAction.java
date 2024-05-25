@@ -14,14 +14,15 @@ public class AllergiesAction implements IAction {
 
         switch (act.toLowerCase()) {
             case "find_all":
+            {
                 strReturn = findAll();
                 break;
-            case "automation":
-                strReturn = automation();
+            }
+            case "reset":
+            {
+                strReturn = reset();
                 break;
-            case "delete_all":
-                strReturn = deleteAll();
-                break;
+            }
             default:
                 strReturn = "ERROR. Invalid Action.";
         }
@@ -34,15 +35,9 @@ public class AllergiesAction implements IAction {
         return Allergies.toArrayJson(allergies);
     }
 
-    private String automation () {
+    private String reset () {
         AllergiesDao allergiesDao = new AllergiesDao();
-        int res = allergiesDao.automation();
-        return String.valueOf(res);
-    }
-
-    private String deleteAll () {
-        AllergiesDao allergiesDao = new AllergiesDao();
-        int res = allergiesDao.deleteAll();
+        int res = allergiesDao.reset();
         return String.valueOf(res);
     }
 }
