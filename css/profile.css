@@ -110,9 +110,9 @@ hr{visibility: hidden; border: solid 2px goldenrod;}
 
 
 .options{display: none; width: 60%;}
-#offers-option{flex-wrap: wrap; justify-content: center;}/* display: flex; (in js) */
+#account-option{flex-wrap: wrap; justify-content: center;}/* display: flex; (in js) */
 
-#offers-option div{
+#account-option div{
     width: 20%;
     display: flex;
     text-align: center;
@@ -170,13 +170,13 @@ hr{visibility: hidden; border: solid 2px goldenrod;}
 
 @media (width<900px) {
     .options{width: 80%;}
-    #offers-option div{width: 40%;}
+    #account-option div{width: 40%;}
 }
 
 @media (width<680px) {
     h1{font-size: xx-large;}
     .profile-options button{font-size: large;}
-    #offers-option div{width: 80%; margin: 2% 0%;}
+    #account-option div{width: 80%; margin: 2% 0%;}
     .pastorder{
         display: flex;
         flex-direction: column;

@@ -127,12 +127,6 @@
     z-index: 5;
 }
 
-#first-popular{background-image: url(../Images/Popular/triple\ fried\ chicken\ cheeseburger.png);}
-#second-popular{background-image: url(../Images/Popular/double\ beef\ chesseburger.png);}
-#third-popular{background-image: url(../Images/Popular/chicken\ nuggets.png);}
-#fourth-popular{background-image: url(../Images/Popular/chicken\ wings.png);}
-#fifth-popular{background-image: url(../Images/Popular/apple\ pie.png);}
-
 .carousel-item:hover{
     animation: CarouselItemsAnimation 1s;
     transform: scale(1.1);

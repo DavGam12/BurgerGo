@@ -21,7 +21,6 @@ a{text-decoration: none; color: inherit;}
 img{width: 100%;}
 button{border: none; cursor: pointer; background: inherit; width: 100%; color: inherit; font-weight: inherit;}
 ::placeholder{font-style: italic;}
-form{display: flex; flex-direction: column; align-items: center;}
 input{border: none; border-bottom: solid 1px; outline: 0;}
 
 .body{background: white;}
@@ -126,7 +125,13 @@ input{border: none; border-bottom: solid 1px; outline: 0;}
     padding: 2%;
 }
 .login-div h6{padding-bottom: 2%;}
-.login-div form{width: 80%; position: relative;}
+#login-form{
+    width: 80%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .login-div label{
     font-size: x-large; 
     width: 50%; 
@@ -226,19 +231,28 @@ input{border: none; border-bottom: solid 1px; outline: 0;}
     right: 2%;
     cursor: pointer;
 }
-.signup-div .form{
+#signup-form{
     padding: 3% 0%;
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-.signup-div .form .signup-row{
+#signup-form .form
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+#signup-form .signup-row{
     display: flex;
     flex-direction: column;
     width: 100%;
     padding: 3% 0%;
 }
-.signup-div .form .signup-row .signup-field{
+#signup-form .signup-row .signup-field{
     width: 100%;
     padding: 3% 0%;
     position: relative;
@@ -710,7 +724,7 @@ input{border: none; border-bottom: solid 1px; outline: 0;}
     }
     .logout-div{width: 80%;}
     .login-div{width: 60%;}
-    .login-div form{width: 100%;}
+    .login-form{width: 100%;}
     .login-div .options{width: 100%;}
     .signup-div{width: 90%;}
     .signup-div input{font-size: medium;}

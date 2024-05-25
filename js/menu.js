@@ -94,13 +94,7 @@ const allergensURL = "http://localhost:8080/BurgerGo/Controller?action=allergens
 const allergiesURL = "http://localhost:8080/BurgerGo/Controller?action=allergies.find_all"
 
 const fetchData = async () => {
-    const burgersRes = await fetch(burgersURL)
-    const kidsRes = await fetch(kidsURL)
-    const dessertsRes = await fetch(dessertsURL)
-    const drinksRes = await fetch(drinksURL)
-    const othersRes = await fetch(othersURL)
-    const allergensRes = await fetch(allergensURL)
-    const allergiesRes = await fetch(allergiesURL)
+    const [burgersRes, kidsRes, dessertsRes, drinksRes, othersRes, allergensRes, allergiesRes] = await Promise.all([fetch(burgersURL), fetch(kidsURL), fetch(dessertsURL), fetch(drinksURL), fetch(othersURL), fetch(allergensURL), fetch(allergiesURL)])
 
     const burgersData = await burgersRes.json()
     const kidsData = await kidsRes.json()

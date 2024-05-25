@@ -1,11 +1,13 @@
 // Values
-let userFirstName = "user"
+let userEmail = localStorage.getItem("user.email")
+let userFirstName = localStorage.getItem("user.firstName")
+let userLastName = localStorage.getItem("user.lastName")
 
 // General
 let optionButtons
 let hr
 // Options
-let offersOption
+let accountOption
 let pastordersOption
 // Buttons
 let logoutButton
@@ -14,21 +16,6 @@ let logoutCancelButton
 // Texts
 let userFirstNameText
 
-/*
-const PERMISSION = [
-    admin = "admin",
-    moderator = "moderator",
-    byDefault = "none"
-]
-
-let user = 
-{
-    email: null,
-    password: null,
-    permission: PERMISSION.byDefault,
-    userLogged: userLogged
-}
-*/
 
 document.addEventListener("DOMContentLoaded", (event) => {
     console.log("DOM fully loaded and parsed")
@@ -37,7 +24,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     hr = document.getElementsByTagName("hr")
 
     userFirstNameText = document.getElementsByClassName("user-firstname")
-    offersOption = document.getElementById("offers-option")
+    accountOption = document.getElementById("account-option")
     pastordersOption = document.getElementById("pastorders-option")
 
     logoutButton = document.getElementById("logout")
@@ -51,7 +38,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     optionButtons[0].addEventListener("mouseover",()=>{HrWidth(hr[0])})
     optionButtons[0].addEventListener("mouseout",()=>{
-        if (offersOption.style.display != "flex") {
+        if (accountOption.style.display != "flex") {
             hr[0].style.visibility = "hidden"
             DeleteAnimation(hr[0])
         }
@@ -65,14 +52,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
     })
 
     optionButtons[0].addEventListener("click",()=>{
-        offersOption.style.display = "flex"
+        accountOption.style.display = "flex"
         pastordersOption.style.display = "none"
 
         hr[1].style.visibility = "hidden"
         DeleteAnimation(hr[1])
     })
     optionButtons[1].addEventListener("click",()=>{
-        offersOption.style.display = "none"
+        accountOption.style.display = "none"
         pastordersOption.style.display = "block"
 
         hr[0].style.visibility = "hidden"
@@ -89,8 +76,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         ActivateOpacity(logoutDiv.className)
     })
     logoutAcceptButton.addEventListener("click",()=>{
-        userLogged = false
-        SaveVariables()
+        emptyUser()
         let backToMain = document.createElement("a")
         backToMain.setAttribute("href", "../html/main.html")
         backToMain.click()
@@ -107,6 +93,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 })
 
+
+const emptyUser = () => {
+    localStorage.setItem("user.id", null)
+    localStorage.setItem("user.email", null)
+    localStorage.setItem("user.firstName", null)
+    localStorage.setItem("user.lastName", null)
+    localStorage.setItem("user.phoneNumber", null)
+    localStorage.setItem("user.logged", false)
+    SaveVariables()
+    LoadVariables()
+}
 
 function FillUserFirstName(name){
     Array.from(userFirstNameText).forEach(e => {

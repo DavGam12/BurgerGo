@@ -1,12 +1,30 @@
-let userLogged
+let user =
+{
+    id: (localStorage.getItem("user.id")),
+    email: (localStorage.getItem("user.email")),
+    firstName: (localStorage.getItem("user.firstName")),
+    lastName: (localStorage.getItem("user.lastName")),
+    phoneNumber: (localStorage.getItem("user.phoneNumber")),
+    logged: (localStorage.getItem("user.logged"))
+}
 
 // Save Variables every 0.1 seconeds
 function SaveVariables(){
-    localStorage.setItem("userLogged", userLogged)
+    localStorage.setItem("user.id", user.id)
+    localStorage.setItem("user.email", user.email)
+    localStorage.setItem("user.firstName", user.firstName)
+    localStorage.setItem("user.lastName", user.lastName)
+    localStorage.setItem("user.phoneNumber", user.phoneNumber)
+    localStorage.setItem("user.logged", user.logged)
 }
 // Load Variables every time you refresh the page
 function LoadVariables(){
-    userLogged = (localStorage.getItem("userLogged"))
+    user.id = (localStorage.getItem("user.id"))
+    user.email = (localStorage.getItem("user.email"))
+    user.firstName = (localStorage.getItem("user.firstName"))
+    user.lastName = (localStorage.getItem("user.lastName"))
+    user.phoneNumber = (localStorage.getItem("user.phoneNumber"))
+    user.logged = (localStorage.getItem("user.logged"))
 }
 
 
@@ -54,7 +72,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     window.setInterval(SaveVariables, 100)
     window.setInterval(WindowHeight, 10)
 
-    if (userLogged === null) {userLogged = 'null'}
+    if (user.logged === null) {user.logged = 'null'}
 
 
     menuDiv = document.getElementsByClassName("menu-div")[0]
@@ -83,7 +101,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     loginRequiredSignupButton = document.getElementById("login-required-signup")
     loginRequiredCancelButton = document.getElementById("login-required-cancel")
     loginRequiredLoginButton = document.getElementById("login-required-login")
-    orderButton = document.getElementsByClassName("make-order")[0]
+    orderButton = document.getElementsByClassName("make-order")[0].getElementsByTagName("button")[0]
     dataUsageButton = document.getElementsByClassName("data-usage-button")[0]
 
     passwordInput = document.getElementsByClassName("password-field")
@@ -105,7 +123,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     })
 
     userIcon.addEventListener("click",()=>{
-        if (userLogged.toString() != 'true') {
+        if (user.logged.toString() != 'true') {
             loginButton.style.display = "block"
             signupButton.style.display = "block"
         }
@@ -115,7 +133,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     })
 
     profileMenuParagraph.addEventListener("click",()=>{
-        if (userLogged.toString() != 'true') {
+        if (user.logged.toString() != 'true') {
             loginRequiredDiv.style.display = "flex"
             document.body.style.overflow = "hidden"
             document.body.style.pointerEvents = "none"
@@ -129,7 +147,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     })
 
     orderButton.addEventListener("click",()=>{
-        if (userLogged.toString() != 'true')
+        if (user.logged.toString() != 'true')
             {
                 loginRequiredDiv.style.display = "flex"
                 document.body.style.overflow = "hidden"
@@ -140,12 +158,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
             }
             else 
             {
-                orderButton.getElementsByTagName("a")[0].click()
+                orderButton.parentElement.getElementsByTagName("a")[0].click()
             }
     })
 
     orderMenuParagraph.addEventListener("click",()=>{
-        if (userLogged.toString() != 'true')
+        if (user.logged.toString() != 'true')
             {
                 loginRequiredDiv.style.display = "flex"
                 document.body.style.overflow = "hidden"
@@ -207,6 +225,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 
     // User Logs
+    const userLogInTrue = async() =>
+    {
+        user.logged = true
+        userIcon.click()
+    }
+
     loginButton.addEventListener("click",()=>{
         loginDiv.style.display = "flex"
         document.body.style.overflow = "hidden"
@@ -222,12 +246,21 @@ document.addEventListener("DOMContentLoaded", (event) => {
         document.body.style.pointerEvents = "all"
         DeactivateOpacity()
     })
-    loginAcceptButton.addEventListener("click",()=>{
+    loginAcceptButton.addEventListener("click", async()=>{
+
+        objecCurrentInputValues =
+        {
+            _email: document.getElementById("login-email").value,
+            _password: document.getElementById("login-password").value
+        }
+        
+        await logInFetch(objecCurrentInputValues)
+        await userCreation(objecCurrentInputValues._email)
+        await userLogInTrue()
+        DeactivateOpacity()
         loginDiv.style.display = "none"
         document.body.style.overflow = "visible"
         document.body.style.pointerEvents = "all"
-        DeactivateOpacity()
-        userLogged = true
         SaveVariables()
     })
     loginSignupButton.addEventListener("click",()=>{
@@ -255,14 +288,29 @@ document.addEventListener("DOMContentLoaded", (event) => {
         document.body.style.pointerEvents = "all"
         DeactivateOpacity()
     })
-    signupAcceptButton.addEventListener("click",()=>{
+    signupAcceptButton.addEventListener("click", async()=>{
+        
+        if (document.getElementById("signup-password").value === document.getElementById("signup-repeatpassword").value)
+        {
+            objecCurrentInputValues =
+            {
+                _firstName: document.getElementById("signup-firstname").value,
+                _lastName: document.getElementById("signup-lastname").value,
+                _email: document.getElementById("signup-email").value,
+                _phoneNumber: document.getElementById("signup-phonenumber").value,
+                _password: document.getElementById("signup-password").value
+            }
+            await signUpFetch(objecCurrentInputValues)
+            await userCreation(objecCurrentInputValues._email)
+            await userLogInTrue()
+        }
+        else {alert("The Password doesn't match the Repeat Password.")}
+
+        DeactivateOpacity()
         signupDiv.style.display = "none"
         document.body.style.overflow = "visible"
         document.body.style.pointerEvents = "all"
-        DeactivateOpacity()
-        userLogged = true
         SaveVariables()
-        userIcon.click()
     })
     signupLoginButton.addEventListener("click",()=>{
         signupDiv.style.display = "none"
@@ -350,7 +398,7 @@ ActivateOpacity = (className) => {
     })
 }
 
-DeactivateOpacity = () => {
+DeactivateOpacity = async() => {
     Array.from(document.body.children).forEach(e => {
         if (e.className == "main") {
             Array.from(e.children).forEach(ea => {
@@ -361,16 +409,56 @@ DeactivateOpacity = () => {
     })
 }
 
-WindowHeight = () => {
+const WindowHeight = () => {
     if (document.body.clientHeight - Number.parseInt(document.body.children[1].lastElementChild.style.paddingBottom)<900) {
         document.body.children[1].lastElementChild.style.paddingBottom = 500 + "px" // window.outerHeight-document.body.clientHeight
     } else {document.body.children[1].lastElementChild.style.paddingBottom = "0px"}
 }
 
+const userCreation = async(currentEmail) => {
+    const data = await findAllCustomersFetch()
+    Array.from(data.filter(d => d._email === currentEmail)).forEach(e => {
+        user.id = e._customerID
+        user.email = e._email
+        user.password = e._password
+        user.firstName = e._firstName
+        user.lastName = e._lastName
+        user.phoneNumber = e._phoneNumber
+    })
+    SaveVariables()
+}
 
 
 
 
+let objecCurrentInputValues
 
 /* FETCH */
 
+const baseSignUpURL = "http://localhost:8080/BurgerGo/Controller?action=customers.add"
+const baseLogInURL = "http://localhost:8080/BurgerGo/Controller?action=customers.login"
+const baseCustomersURL = "http://localhost:8080/BurgerGo/Controller?action=customers.find_all"
+
+const findAllCustomersFetch = async() => {
+    const rawRes = await fetch(baseCustomersURL)
+    const rawData = await rawRes.json()
+    return await rawData
+}
+
+const signUpFetch = async(obj) => {
+    await fetch(baseSignUpURL,
+        {
+            method: "post",
+            body: JSON.stringify(obj),
+            headers: { "Content-Type": "application/json" }
+        })
+}
+
+const logInFetch = async(obj) => {
+    await fetch(baseLogInURL,
+        {
+            method: "post",
+            body: JSON.stringify(obj),
+            headers: { "Content-Type": "application/json" }
+        })
+}

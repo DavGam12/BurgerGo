@@ -110,29 +110,33 @@ document.addEventListener("DOMContentLoaded", (event) => {
     })
 
     
-    carouselItems[0].addEventListener("click", () => {
-        productClick = "triple-fried-chicken-cheeseburger"
-        localStorage.setItem("productClick", productClick)
-        document.getElementsByClassName("make-order")[0].click()
-    })
-    carouselItems[1].addEventListener("click", () => {
-        productClick = "double-beef-cheeseburger"
-        localStorage.setItem("productClick", productClick)
-        document.getElementsByClassName("make-order")[0].click()
-    })
-    carouselItems[2].addEventListener("click", () => {
-        productClick = "chicken-nuggets"
-        localStorage.setItem("productClick", productClick)
-        document.getElementsByClassName("make-order")[0].click()
-    })
-    carouselItems[3].addEventListener("click", () => {
-        productClick = "chicken-wings"
-        localStorage.setItem("productClick", productClick)
-        document.getElementsByClassName("make-order")[0].click()
-    })
-    carouselItems[4].addEventListener("click", () => {
-        productClick = "apple-pie"
-        localStorage.setItem("productClick", productClick)
-        document.getElementsByClassName("make-order")[0].click()
+    Array.from(carouselItems).forEach(e => {
+        e.addEventListener("click", () => {
+            productClick = e.getAttribute("id")
+            localStorage.setItem("productClick", productClick)
+            document.getElementsByClassName("make-order")[0].click()
+        })
     })
 })
+
+
+/* FETCH */
+
+const productsURL = "http://localhost:8080/BurgerGo/Controller?action=products.find_all"
+
+const fetchData = async() => {
+    const productsRes = await fetch(productsURL)
+    const productsData = await productsRes.json()
+    console.log("productsData --> ", productsData)
+    printPopularCarouselData(productsData)
+}
+
+const printPopularCarouselData = (data) => {
+    Array.from(carouselItems).forEach(e => {
+        Array.from(data.filter(d => d._productName.toLowerCase().replaceAll(" ", "-")===e.getAttribute("id"))).forEach(p => {
+            e.style.backgroundImage = "url("+p._productImg+")"
+        })
+    })
+}
+
+fetchData()

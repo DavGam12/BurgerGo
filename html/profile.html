@@ -35,7 +35,7 @@
 
         <div class="login-div">
             <h6>Log In</h6>
-            <form action="" target="_self" id="login-form">
+            <div id="login-form">
                 <label for="login-email">E-mail: </label>
                 <input type="email" id="login-email" required placeholder="E-mail">
                 <label for="login-password">Password: </label>
@@ -50,13 +50,13 @@
                     <p>New to Burger & Go?</p>
                     <button id="login-signup" type="button">Sign Up</button>
                 </div>
-            </form>
+            </div>
             <div id="login-cancel"><img src="../Images/close.png" alt="close"></div>
         </div>
         <div class="signup-div">
             <h6>Sign Up</h6>
             <p class="data-usage-button">Data Usage</p>
-            <form action="" target="_self" id="signup-form">
+            <div id="signup-form">
                 <div class="form">
                     <div class="signup-row">
                         <div class="signup-field">
@@ -100,7 +100,7 @@
                     <p>Do you have an account?</p>
                     <button id="signup-login" type="button">Log In</button>
                 </div>
-            </form>
+            </div>
             <div id="signup-cancel"><img src="../Images/close.png" alt="close"></div>
         </div>
         <div class="data-usage-div">
@@ -155,16 +155,13 @@
             <h1>Welcome Back <span class="user-firstname"></span></h1>
             
             <div class="profile-options">
-                <button>Offers<hr></button>
+                <button>Account Info<hr></button>
                 <button>Past Orders<hr></button>
             </div>
 
 
-            <div id="offers-option" class="options">
-                <div>Get 3 with the price of 2</div>
-                <div>Get a second Double Extra Bacon Sauce with a 50% discount</div>
-                <div>A free pack of chips with a Double Extra Bacon Sauce Menu</div>
-                <div>A free pack of nuggets with a Double Extra Bacon Sauce Menu</div>
+            <div id="account-option" class="options">
+                <button>Delete Account</button>
             </div>
 
             <div id="pastorders-option" class="options">
