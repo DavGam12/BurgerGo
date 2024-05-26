@@ -1,3 +1,26 @@
+const ORDER_STATES =
+{
+    in_the_making: "in the making",
+    on_the_way: "on the way",
+    delivered: "delivered"
+}
+let currentOrder = {}
+/* Details structure to save each element*/
+const structure =
+[
+    {
+        mainDiv: null,
+        mainP: null,
+        nameSpan: null,
+        priceSpan: null,
+        quantityDiv: null,
+        quantitySpan: null,
+        quantityLess: null,
+        quantityMore: null,
+        delete: null
+    }
+]
+
 let productClick
 productClick = localStorage.getItem("productClick")
 
@@ -305,23 +328,22 @@ EmptyOrder = () => {
     }
 }
 
-CurrentOrderPriceFunction = () => {
+const CurrentOrderPriceFunction = () => {
     currentOrderPrice = 0
 
-    let currentOrderProductExist = currentOrderProduct.filter((e) => e.existence == true)
-
-    Array.from(currentOrderProductExist).forEach(e => {
-            currentOrderPrice += e.totalPrice
+    const currentOrderDetails = detailsSpecificOrderFetch(currentOrder._orderID)
+    Array.from(currentOrderDetails).forEach(e => {
+            currentOrderPrice += e.detail_price
         })
-
-        currentOrderPriceText.textContent = currentOrderPrice.toFixed(2)+"€"
+        
+    currentOrderPriceText.textContent = currentOrderPrice.toFixed(2)+"€"
 }
 
-CurrentOrderProductUpdate = (e) => {
-    e.totalPrice = e.unitPrice*e.quantity
-    e.structure.nameSpan.textContent = e.name
-    e.structure.priceSpan.textContent = e.totalPrice.toFixed(2)+"€"
-    e.structure.quantitySpan.textContent = e.quantity
+const CurrentOrderDetailtUpdate = (detail, product, currentStructure) => {
+    detail.detail_price = product._productPrice*detail.product_quantity
+    currentStructure.nameSpan.textContent = product._productName
+    currentStructure.priceSpan.textContent = detail.detail_price.toFixed(2)+"€"
+    currentStructure.quantitySpan.textContent = detail.product_quantity
 }
 
 
@@ -474,6 +496,106 @@ const glutenFreeURL = "http://localhost:8080/BurgerGo/Controller?action=products
 const allergensURL = "http://localhost:8080/BurgerGo/Controller?action=allergens.find_all"
 const allergiesURL = "http://localhost:8080/BurgerGo/Controller?action=allergies.find_all"
 
+const ordersSpecificURL = "http://localhost:8080/BurgerGo/Controller?action=orders.find_specific"
+const detailsSpecificURL = "http://localhost:8080/BurgerGo/Controller?action=details.find_specific"
+const detailsSpecificOrderURL = "http://localhost:8080/BurgerGo/Controller?action=details.find_specific_order"
+const ordersPostAddURL = "http://localhost:8080/BurgerGo/Controller?action=orders.add"
+const detailsPostAddURL = "http://localhost:8080/BurgerGo/Controller?action=details.add"
+const ordersPostDeleteURL = "http://localhost:8080/BurgerGo/Controller?action=orders.delete"
+const detailsPostDeleteURL = "http://localhost:8080/BurgerGo/Controller?action=details.delete"
+const detailsPostUpdateURL = "http://localhost:8080/BurgerGo/Controller?action=details.update"
+const ordersPostUpdateURL = "http://localhost:8080/BurgerGo/Controller?action=orders.update"
+
+const ordersSpecificFetch = async(order_state, customer_id) => {
+    let currentURL = new URL(ordersSpecificURL)
+    currentURL.searchParams.set("order_state", order_state)
+    currentURL.searchParams.set("customer_id", customer_id)
+    const rawRes = await fetch(currentURL)
+    const rawData = await rawRes.json()
+    let obj = rawData
+    return obj
+}
+
+const detailsSpecificFetch = async(product_id, order_id) => {
+    let currentURL = new URL(detailsSpecificURL)
+    currentURL.searchParams.set("product_id", product_id)
+    currentURL.searchParams.set("order_id", order_id)
+    const rawRes = await fetch(currentURL)
+    const rawData = await rawRes.json()
+    let obj = rawData
+    return obj
+}
+
+const detailsSpecificOrderFetch = async(order_id) => {
+    let currentURL = new URL(detailsSpecificOrderURL)
+    currentURL.searchParams.set("order_id", order_id)
+    const rawRes = await fetch(currentURL)
+    const rawData = await rawRes.json()
+    let obj = rawData
+    return obj
+}
+
+const ordersPostAddFetch = async(obj) => {
+    const rawRes = await fetch(ordersPostAddURL,
+        {
+            method: "post",
+            body: JSON.stringify(obj),
+            headers: { "Content-Type": "application/json" }
+        })
+    console.log(rawRes)
+}
+
+const detailsPostAddFetch = async(obj) => {
+    const rawRes = await fetch(detailsPostAddURL,
+        {
+            method: "post",
+            body: JSON.stringify(obj),
+            headers: { "Content-Type": "application/json" }
+        })
+    console.log(rawRes)
+}
+
+const ordersPostDeleteFetch = async(obj) => {
+    const rawRes = await fetch(ordersPostDeleteURL,
+        {
+            method: "post",
+            body: JSON.stringify(obj),
+            headers: { "Content-Type": "application/json" }
+        })
+    console.log(rawRes)
+}
+
+const detailsPostDeleteFetch = async(obj) => {
+    const rawRes = await fetch(detailsPostDeleteURL,
+        {
+            method: "post",
+            body: JSON.stringify(obj),
+            headers: { "Content-Type": "application/json" }
+        })
+    console.log(rawRes)
+}
+
+const ordersPostUpdateFetch = async(obj) => {
+    const rawRes = await fetch(ordersPostUpdateURL,
+        {
+            method: "post",
+            body: JSON.stringify(obj),
+            headers: { "Content-Type": "application/json" }
+        })
+    console.log(rawRes)
+}
+
+const detailsPostUpdateFetch = async(obj) => {
+    const rawRes = await fetch(detailsPostUpdateURL,
+        {
+            method: "post",
+            body: JSON.stringify(obj),
+            headers: { "Content-Type": "application/json" }
+        })
+    console.log(rawRes)
+}
+
+
 const fetchData = async () => {
     const [burgersRes, kidsRes, dessertsRes, drinksRes, othersRes, glutenFreeRes, allergensRes, allergiesRes] = await Promise.all([fetch(burgersURL), fetch(kidsURL), fetch(dessertsURL), fetch(drinksURL), fetch(othersURL), fetch(glutenFreeURL), fetch(allergensURL), fetch(allergiesURL)])
 
@@ -507,6 +629,19 @@ const fetchData = async () => {
 /* BURGERS */
 const printBurgersData = (mainData, secondData, intermediateData) => {
     Array.from(mainData).forEach(e => {
+        /* Structue depends on the product so we use its id-1 so it starts at 0 */
+        structure[e._productID-1] =
+        {
+            mainDiv: null,
+            mainP: null,
+            nameSpan: null,
+            priceSpan: null,
+            quantityDiv: null,
+            quantitySpan: null,
+            quantityLess: null,
+            quantityMore: null,
+            delete: null
+        }
         const burgersCategory = document.getElementById("burgers-category")
 
         const productDiv = document.createElement("div")
@@ -653,7 +788,103 @@ const printBurgersData = (mainData, secondData, intermediateData) => {
             OrderDeactivateOpacity()
         })
 
-        /* TODO ADD TO ORDER EVENT LISTENER */
+        
+        /* ADD DETAIL TO ORDER */
+        addToOrder.addEventListener("click", async() => {
+            debugger
+            currentOrder = await ordersSpecificFetch(ORDER_STATES.in_the_making, localStorage.getItem("user.id")).then(order => currentOrder = order)
+            if (currentOrder._orderID === 0)
+            {
+                currentOrder =
+                {
+                    order_state: ORDER_STATES.in_the_making,
+                    direction: null,
+                    order_price: 0,
+                    order_date: new Date().toLocaleDateString().replaceAll("/", "-"),
+                    employee_id: null,
+                    customer_id: localStorage.getItem("user.id")
+                }
+                ordersPostAddFetch(currentOrder)
+                currentOrder = ordersSpecificFetch(ORDER_STATES.in_the_making, localStorage.getItem("user.id")).then(order => currentOrder = order)
+            }
+            let currentDetail = {}
+
+            currentDetail = await detailsSpecificFetch(e._productID, currentOrder._orderID).then(detail => currentDetail=detail)
+            if (currentDetail._detailID === 0)
+            {
+                currentDetail =
+                {
+                    product_quantity: Number.parseInt(productQuantity.value),
+                    detail_price: Number.parseFloat(e._productPrice)*Number.parseInt(productQuantity.value),
+                    order_id: currentOrder._orderID,
+                    product_id: e._productID
+                }
+                console.log(currentDetail)
+                await detailsPostAddFetch(currentDetail)
+                currentDetail = await detailsSpecificFetch(e._productID, currentOrder._orderID).then(detail => currentDetail=detail)
+
+                /* Structue construction */
+                structure[e._productID-1].mainDiv = productsDiv.appendChild(document.createElement("div"))
+                structure[e._productID-1].mainDiv.classList.add("current-product")
+
+                structure[e._productID-1].mainP = structure[e._productID-1].mainDiv.appendChild(document.createElement("p"))
+
+                structure[e._productID-1].nameSpan = structure[e._productID-1].mainP.appendChild(document.createElement("span"))
+                structure[e._productID-1].nameSpan.classList.add("current-product-name")
+
+                structure[e._productID-1].priceSpan = structure[e._productID-1].mainP.appendChild(document.createElement("span"))
+                structure[e._productID-1].priceSpan.classList.add("current-product-price")
+
+                
+                structure[e._productID-1].quantityDiv = structure[e._productID-1].mainDiv.appendChild(document.createElement("div"))
+                structure[e._productID-1].quantityDiv.classList.add("current-product-quantity-div")
+
+                structure[e._productID-1].quantityLess = structure[e._productID-1].quantityDiv.appendChild(document.createElement("div"))
+                structure[e._productID-1].quantityLess.classList.add("current-product-quantity-less")
+                const newQuantityLessImg = structure[e._productID-1].quantityLess.appendChild(document.createElement("img"))
+                newQuantityLessImg.setAttribute("src","../Images/less.png")
+                newQuantityLessImg.setAttribute("alt","less")
+
+                structure[e._productID-1].quantitySpan = structure[e._productID-1].quantityDiv.appendChild(document.createElement("div"))
+                structure[e._productID-1].quantitySpan.classList.add("current-product-quantity-info")
+
+                structure[e._productID-1].quantityMore = structure[e._productID-1].quantityDiv.appendChild(document.createElement("div"))
+                structure[e._productID-1].quantityMore.classList.add("current-product-quantity-more")
+                const newQuantityMoreImg = structure[e._productID-1].quantityMore.appendChild(document.createElement("img"))
+                newQuantityMoreImg.setAttribute("src","../Images/more.png")
+                newQuantityMoreImg.setAttribute("alt","more")
+                
+                structure[e._productID-1].delete = structure[e._productID-1].mainDiv.appendChild(document.createElement("div"))
+                structure[e._productID-1].delete.classList.add("delete-current-product")
+                const newImgDelete = structure[e._productID-1].delete.appendChild(document.createElement("img"))
+                newImgDelete.setAttribute("src","../Images/delete.png")
+                newImgDelete.setAttribute("alt","delete")
+
+                structure[e._productID-1].quantityLess.addEventListener("click", () => {
+                    if (currentDetail.product_quantity>1)
+                    {
+                        currentDetail.product_quantity--
+
+                        detailsPostUpdateFetch()
+                    }
+                })
+
+                structure[e._productID-1].quantityMore.addEventListener("click", () => {
+                    if (currentDetail.product_quantity<100)
+                    {
+                        currentDetail.product_quantity++
+                    }
+                })
+                
+                structure[e._productID-1].delete.addEventListener("click", () => {
+                    structure[e._productID-1].delete.parentElement.remove()
+                })
+            }
+
+            CurrentOrderPriceFunction()
+            CurrentOrderDetailtUpdate(currentDetail, e, structure[e._productID-1])
+            EmptyOrder()
+        })
     })
 }
 
