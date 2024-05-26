@@ -46,8 +46,9 @@ public class CustomersAction implements IAction {
             }
             case "login":
             {
-                Customers customer = gson.fromJson(parser.parse(getBody(req)), Customers.class);
-                strRet = login(customer);
+                String email = req.getParameter("email");
+                String password = req.getParameter("password");
+                strRet = login(email, password);
                 break;
             }
             default:
@@ -85,10 +86,9 @@ public class CustomersAction implements IAction {
         return String.valueOf(iRes);
     }
 
-    private String login(Customers customer)
+    private String login(String email, String password)
     {
         CustomersDao customersDao = new CustomersDao();
-        int iRes = customersDao.login(customer);
-        return String.valueOf(iRes);
+        return customersDao.login(email, password);
     }
 }

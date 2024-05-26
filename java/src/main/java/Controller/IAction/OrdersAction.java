@@ -27,6 +27,13 @@ public class OrdersAction implements IAction {
                 strRet = findAll();
                 break;
             }
+            case "find_specific":
+            {
+                String order_state = req.getParameter("order_state");
+                int customer_id = Integer.parseInt(req.getParameter("customer_id"));
+                strRet = findSpecific(order_state, customer_id);
+                break;
+            }
             case "add":
             {
                 Orders order = gson.fromJson(parser.parse(getBody(req)), Orders.class);
@@ -45,6 +52,12 @@ public class OrdersAction implements IAction {
                 strRet = update(order);
                 break;
             }
+            case "update_specific":
+            {
+                Orders order = gson.fromJson(parser.parse(getBody(req)), Orders.class);
+                strRet = updateSpecific(order);
+                break;
+            }
             default:
                 strRet = "ERROR. Invalid Action";
         }
@@ -57,6 +70,12 @@ public class OrdersAction implements IAction {
         OrdersDao ordersDao = new OrdersDao();
         ArrayList<Orders> orders = ordersDao.findAll(null);
         return Orders.toArrayJson(orders);
+    }
+    private String findSpecific(String order_state, int customer_id)
+    {
+        OrdersDao ordersDao = new OrdersDao();
+        Orders order = ordersDao.findSpecific(order_state, customer_id);
+        return Orders.toArrayJson(order);
     }
     private String add(Orders order)
     {
@@ -74,6 +93,12 @@ public class OrdersAction implements IAction {
     {
         OrdersDao ordersDao = new OrdersDao();
         Integer iRet = ordersDao.update(order);
+        return iRet.toString();
+    }
+    private String updateSpecific(Orders order)
+    {
+        OrdersDao ordersDao = new OrdersDao();
+        Integer iRet = ordersDao.updateSpecific(order);
         return iRet.toString();
     }
 }

@@ -1,6 +1,7 @@
 package Model.IDao;
 
 import Model.Customers;
+import Model.Employees;
 import Model.SQLMotor;
 
 import javax.security.auth.login.LoginException;
@@ -108,23 +109,32 @@ public class CustomersDao implements IDao<Customers, Integer> {
         return customers;
     }
 
-    public int login (Customers o)
+    public String login (String email, String password)
     {
-        int iRet = 0;
+        String iRet = "0";
         try
         {
             ArrayList<Customers> customers = findAll(null);
+            ArrayList<Employees> employees = new EmployeesDao().findAll(null);
 
-            for (int i = 0; i<customers.size(); i++)
+            for (int i = 0; i<customers.size() && iRet.equals("0"); i++)
             {
-                if (customers.get(i).getPassword().equals(o.getPassword()) && customers.get(i).getEmail().equals(o.getEmail()))
+                if (customers.get(i).getPassword().equals(password) && customers.get(i).getEmail().equals(email))
                 {
-                    iRet = 1;
+                    iRet = "1";
                 }
-                else {throw new LoginException();}
             }
+
+            for (int i = 0; i<employees.size() && iRet.equals("0"); i++)
+            {
+                if (employees.get(i).getPassword().equals(password) && employees.get(i).getEmail().equals(email))
+                {
+                    iRet = "2";
+                }
+            }
+
         }
-        catch (Exception ex) {iRet = 0;}
+        catch (Exception ex) {iRet = "0";}
 
         return iRet;
     }

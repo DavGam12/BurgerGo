@@ -32,7 +32,6 @@ public class EmployeesDao implements IDao<Employees, Integer> {
                     o.getPermission() + ", '" +
                     o.getPassword() + "', " +
                     o.getJobID() + ")";
-            System.out.println(sql);
 
             iRet = motor.executeUpdate(sql);
         }

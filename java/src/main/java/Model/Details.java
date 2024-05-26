@@ -51,4 +51,13 @@ public class Details {
         return gson.toJson(details);
     }
 
+    public static String toArrayJson(Details detail) {
+        GsonBuilder builder = new GsonBuilder();
+        builder.setPrettyPrinting();
+
+        Gson gson = builder.create();
+
+        return gson.toJson(detail);
+    }
+
 }

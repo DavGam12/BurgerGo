@@ -1,10 +1,6 @@
 package Controller;
 
 import Controller.IAction.*;
-import Model.Allergens;
-import Model.Customers;
-import com.google.gson.Gson;
-import com.google.gson.JsonParser;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,8 +21,6 @@ public class Controller extends HttpServlet {
     // http://localhost:8080/BurgerGo/Controller?action=products.others
     // http://localhost:8080/BurgerGo/Controller?action=products.gluten-free
     // http://localhost:8080/BurgerGo/Controller?action=allergens.find_all
-
-    // http://localhost:8080/BurgerGo/Controller?action=products.addition&id=100&name=test&img=../Images/Menu/barbecue.png&description=abcdefu&price=7.8&cat_id=BG
     private void processRequestGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException
     {
@@ -40,7 +34,7 @@ public class Controller extends HttpServlet {
         String[] arrAction = new String[2];
         if (strAction != "")
         {
-            arrAction = strAction.split("\\."); // [0] = film / [1] = find_all
+            arrAction = strAction.split("\\.");
         }
         switch (arrAction[0])
         {
@@ -177,14 +171,14 @@ public class Controller extends HttpServlet {
         processRequestPost(req, resp);
     }
 
-    public static String getBody(HttpServletRequest request)  {
+    public static String getBody(HttpServletRequest req)  {
 
         String body = null;
         StringBuilder stringBuilder = new StringBuilder();
         BufferedReader bufferedReader = null;
 
         try {
-            InputStream inputStream = request.getInputStream();
+            InputStream inputStream = req.getInputStream();
             if (inputStream != null) {
                 bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
                 char[] charBuffer = new char[128];

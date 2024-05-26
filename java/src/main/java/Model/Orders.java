@@ -59,5 +59,13 @@ public class Orders {
 
         return gson.toJson(orders);
     }
+    public static String toArrayJson(Orders order) {
+        GsonBuilder builder = new GsonBuilder();
+        builder.setPrettyPrinting();
+
+        Gson gson = builder.create();
+
+        return gson.toJson(order);
+    }
 
 }

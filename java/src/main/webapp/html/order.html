@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger & Go</title>
+    <link rel="icon" type="image/x-icon" href="../Images/logo.png">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/order.css">
+    <script src="../js/base.js"></script>
+    <script src="../js/order.js"></script>
+</head>
+<body class="body">
+    <header class="header">
+        <div class="logo"><a href="main.html"><img src="../Images/logo.png" alt="logo"></a></div>
+        <div class="menu"><button><img src="../Images/menu.png" alt="menu"></button></div>
+        <div class="make-order"><button>ORDER</button><a href="order.html"></a></div>
+        <div class="user">
+            <img src="../Images/user.png" alt="user">
+            <a href="profile.html"></a>
+        </div>
+        <div class="user-options">
+            <button id="login">Log In</button>
+            <button id="signup">Sign Up</button>
+        </div>
+    </header>
+    <main class="main">
+        <div class="login-div">
+            <h6>Log In</h6>
+            <form action="#" id="login-form" class="form">
+                <label for="login-email">E-mail: </label>
+                <input type="email" id="login-email" required placeholder="E-mail" maxlength="50">
+                <label for="login-password">Password: </label>
+                <input type="password" id="login-password" required placeholder="Password" class="password-field" maxlength="40">
+                <div class="hide-view">
+                    <img src="../Images/view.png" alt="view" class="view">
+                    <img src="../Images/hide.png" alt="hide" class="hide">
+                </div>
+                <!--<p class="password-reset-text">Did you forget your password?<br><span id="password-reset">Reset my password</span></p>-->
+                <div class="options">
+                    <input type="submit" value="Log In" id="login-accept">
+                    <p>New to Burger & Go?</p>
+                    <button id="login-signup" type="button">Sign Up</button>
+                </div>
+            </form>
+            <div id="login-cancel"><img src="../Images/close.png" alt="close"></div>
+        </div>
+        <div class="signup-div">
+            <h6>Sign Up</h6>
+            <p class="data-usage-button">Data Usage</p>
+            <form action="#" id="signup-form">
+                <div class="form">
+                    <div class="signup-row">
+                        <div class="signup-field">
+                            <label for="signup-firstname">First Name: </label>
+                            <input type="text" id="signup-firstname" required placeholder="First Name" maxlength="40">
+                        </div>
+                        <div class="signup-field">
+                            <label for="signup-lastname">Last Name: </label>
+                            <input type="text" id="signup-lastname" placeholder="Last Name" maxlength="60">
+                        </div>
+                        <div class="signup-field">
+                            <label for="signup-email">E-mail: </label>
+                            <input type="email" id="signup-email" required placeholder="E-mail" maxlength="50">
+                        </div>
+                    </div>
+                    <div class="signup-row">
+                        <div class="signup-field">
+                            <label for="signup-phonenumber">Phone Number: </label>
+                            <input type="tel" id="signup-phonenumber" required placeholder="123-456-789" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" maxlength="13">
+                        </div>
+                        <div class="signup-field">
+                            <label for="signup-password">Password: </label>
+                            <input type="password" id="signup-password" required placeholder="Password" class="password-field" maxlength="40">
+                            <div class="hide-view">
+                                <img src="../Images/view.png" alt="view" class="view">
+                                <img src="../Images/hide.png" alt="hide" class="hide">
+                            </div>
+                        </div>
+                        <div class="signup-field">
+                            <label for="signup-repeatpassword">Repeat Password: </label>
+                            <input type="password" id="signup-repeatpassword" required placeholder="Password" class="password-field" maxlength="40">
+                            <div class="hide-view">
+                                <img src="../Images/view.png" alt="view" class="view">
+                                <img src="../Images/hide.png" alt="hide" class="hide">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="options">
+                    <input type="submit" value="Sign Up" id="signup-accept">
+                    <p>Do you have an account?</p>
+                    <button id="signup-login" type="button">Log In</button>
+                </div>
+            </form>
+            <div id="signup-cancel"><img src="../Images/close.png" alt="close"></div>
+        </div>
+        <div class="data-usage-div">
+            <h6>How we use your data</h6>
+            <p>
+                By completing your registration, you acknowledge and agree that all information provided will be treated with the utmost confidentiality. We are committed to safeguarding your data and will not disclose it to any third parties without your explicit consent.
+            </p>
+            <div class="data-usage-close"><img src="../Images/close.png" alt="close"></div>
+        </div>
+        <div class="login-required-div">
+            <h6>Log In Required</h6>
+            <p>You need to have Logged In your account in order to access your profile</p><br>
+            <p>Would you like to:</p>
+            <div>
+                <button id="login-required-signup">Sign Up</button>
+                <button id="login-required-cancel">Cancel</button>
+                <button id="login-required-login">Log In</button>
+            </div>
+        </div>
+        <div class="menu-div">
+            <div class="menu-body">
+                <div class="close-menu"><button><img src="../Images/close.png" alt="close"></button></div>
+                <div class="sided-text"><p>Burger & Go</p></div>
+
+                <div class="categories">
+                    <p><a href="menu.html">MENU</a></p>
+                    <p><a href="gluten-free.html">GLUTEN FREE</a></p>
+                    <p><a href="aboutus.html">ABOUT US</a></p>
+                    <p><a href="join-the-staff.html">JOIN THE STAFF TEAM</a></p>
+                </div>
+                <div class="menu-logo">
+                    <a href="main.html"><img src="../Images/logo.png" alt="logo"></a>
+                </div>
+                <div class="other-categories">
+                    <p>PROFILE<a href="profile.html"></a></p>
+                    <p>ORDER<a href="order.html"></a></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="order-div">
+            <div class="current-order">
+                <div class="empty-order"><p>There are no products in your order yet.</p><p>To add proucts select a category and click "add to order".</p><p>Click on a product image to see its information.</p></div>
+                <div class="products-position">
+                    <!-- The products the user adds to the order will appear here -->
+                </div>
+                <div class="price-position">
+                    <p>Price: <span class="current-price"></span></p>
+                </div>
+                <div class="buy-position">
+                    <button class="current-buy">Buy</button>
+                </div>
+            </div>
+
+            <div class="allergies-info-div">
+                <div class="allergies-info-div-close"><img src="../Images/close.png" alt="close"></div>
+            </div>
+
+            <div class="buy-div">
+                <form action="../html/profile.html">
+                    <h6>Buy</h6>
+                    <div class="form-display">
+                        <div class="card-input">
+                            <label for="card-number">Number: </label>
+                            <input type="text" id="card-number" required>
+                        </div>
+                        <div class="card-input">
+                            <label for="card-expiration-date">Expiration Date: </label>
+                            <input type="text" id="card-expiration-date" required>
+                        </div>
+                        
+                        <div class="card-input">
+                            <label for="card-cvc">CVC: </label>
+                            <input type="text" id="card-cvc" required>
+                        </div>
+                        <div class="card-input">
+                            <label for="card-owner">Owner: </label>
+                            <input type="text" id="card-owner" required>
+                        </div>
+                        <div class="card-input">
+                            <label for="card-address">Address: </label>
+                            <input type="text" id="card-address" required>
+                        </div>
+                    </div>
+                    <div class="buy-options">
+                        <button class="card-cancel" type="button">Cancel</button>
+                        <button class="card-accept" type="submit">Accept</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="product-search">
+                <label for="search-input"></label>
+                <input type="text" name="search" id="search-input" placeholder="Search">
+            </div>
+            <div class="product-categories">
+                <button>Burgers<hr></button>
+                <button>Kids<hr></button>
+                <button>Desserts<hr></button>
+                <button>Drinks<hr></button>
+                <button>Others<hr></button>
+                <button>Gluten Free<hr></button>
+                <select name="product-category" id="current-category">
+                    <option value="default" selected hidden>Select a category</option>
+                    <option value="0">Burgers</option>
+                    <option value="1">Kids</option>
+                    <option value="2">Desserts</option>
+                    <option value="3">Drinks</option>
+                    <option value="4">Others</option>
+                    <option value="5">Gluten Free</option>
+                </select>
+            </div>
+
+            <div class="product-categories-divs">
+                <div class="category-option" id="burgers-category">
+                </div>
+                <div class="category-option" id="kids-category">
+                </div>
+                <div class="category-option" id="desserts-category">
+                </div>
+                <div class="category-option" id="drinks-category">
+                </div>
+                <div class="category-option" id="others-category">
+                </div>
+                <div class="category-option" id="gluten-free-category">
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="copyright">
+            <p>&copy; 2024 Burger & Go Group SL | All Rights Reserved</p>
+        </div>
+        <div class="socials">
+            <div class="socials-icons">
+                <div class="instagram">
+                    <a href="https://www.instagram.com/burgerandgoo/" target="_blank">
+                        <img src="../Images/instagram.png" alt="instagram">
+                    </a>
+                </div>
+                <div class="linkedin">
+                    <a href="http://linkedin.com/company/burger-go" target="blank">
+                        <img src="../Images/linkedin.png" alt="linkedin">
+                    </a>
+                </div>
+            </div>
+            <div class="contactus">burgerandgoo@gmail.com</div>
+        </div>
+    </footer>
+
+</body>
+</html>

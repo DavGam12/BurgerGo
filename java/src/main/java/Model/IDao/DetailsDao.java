@@ -9,7 +9,9 @@ import java.util.ArrayList;
 public class DetailsDao implements IDao<Details, Integer> {
     private final SQLMotor motor = new SQLMotor();
     private final String SQL_FIND_ALL = "select * from details order by detail_id";
-    private final String SQL_ADD = "insert into details values";
+    private final String SQL_FIND_SPECIFIC = "select * from details where product_id=";
+    private final String SQL_FIND_SPECIFIC_ORDER = "select * from details where order_id=";
+    private final String SQL_ADD = "insert into details (product_quantity, detail_price, order_id, product_id) values";
     private final String SQL_DELETE = "delete from details where detail_id=";
     private final String SQL_UPDATE = "update details set ";
     @Override
@@ -20,7 +22,6 @@ public class DetailsDao implements IDao<Details, Integer> {
         {
             motor.connect();
             String sql = SQL_ADD + "( " +
-                    o.getDetailID() + ", " +
                     o.getProductQuantity() + ", " +
                     o.getDetailPrice() + ", " +
                     o.getOrderID() + ", " +
@@ -69,6 +70,21 @@ public class DetailsDao implements IDao<Details, Integer> {
         return iRet;
     }
 
+    public int updateSpecific(Details o) {
+        int iRet = 0;
+
+        try
+        {
+            motor.connect();
+            String sql = SQL_UPDATE + "product_quantity=" + o.getProductQuantity() + ", detail_price=" + o.getDetailPrice() + " where detail_id=" + o.getCurrentDetailID();
+
+            iRet = motor.executeUpdate(sql);
+        }
+        catch (Exception ex) {iRet = 0;}
+        finally {motor.disconnect();}
+        return iRet;
+    }
+
     @Override
     public ArrayList<Details> findAll(Details o)
     {
@@ -95,5 +111,55 @@ public class DetailsDao implements IDao<Details, Integer> {
         finally {motor.disconnect();}
 
         return details;
+    }
+
+    public Details findSpecific(int product_id, int order_id)
+    {
+        Details detail = new Details();
+
+        try
+        {
+            motor.connect();
+            ResultSet rs = motor.executeQuery(SQL_FIND_SPECIFIC+product_id+" and order_id="+order_id);
+
+            while (rs.next())
+            {
+                detail.setDetailID(rs.getInt("detail_id"));
+                detail.setProductQuantity(rs.getInt("product_quantity"));
+                detail.setDetailPrice(rs.getFloat("detail_price"));
+                detail.setOrderID(rs.getInt("order_id"));
+                detail.setProductID(rs.getInt("product_id"));
+
+            }
+        }
+        catch (Exception ex) {detail=null;}
+        finally {motor.disconnect();}
+
+        return detail;
+    }
+
+    public Details findSpecificOrder(int order_id)
+    {
+        Details detail = new Details();
+
+        try
+        {
+            motor.connect();
+            ResultSet rs = motor.executeQuery(SQL_FIND_SPECIFIC_ORDER+order_id);
+
+            while (rs.next())
+            {
+                detail.setDetailID(rs.getInt("detail_id"));
+                detail.setProductQuantity(rs.getInt("product_quantity"));
+                detail.setDetailPrice(rs.getFloat("detail_price"));
+                detail.setOrderID(rs.getInt("order_id"));
+                detail.setProductID(rs.getInt("product_id"));
+
+            }
+        }
+        catch (Exception ex) {detail=null;}
+        finally {motor.disconnect();}
+
+        return detail;
     }
 }

@@ -1,0 +1,153 @@
+.join{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    position: relative;
+}
+
+h1{
+    font-size: 40px;
+    font-weight: bold;
+    padding: 3% 0%;
+    color: gold;
+}
+
+.joinus{
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 3%;
+    text-align: center;
+}
+.join-head{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.join-text{
+    font-size: large;
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form{
+    grid-row: auto;
+    border-collapse: collapse;
+    border-color: aqua;
+    border-radius: 10px;
+    border: solid;
+    width: 40%;
+}
+
+.container-form{
+    display: flex;
+    padding-top: 3%;
+}
+
+.form-group{
+    padding-left: 8%;
+    padding-bottom: 3%;
+    display: flex;
+    justify-content: center;
+}
+
+.curriculum-container{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2%;
+}
+
+.curriculum{
+    padding-left: 8%;
+    padding-bottom: 3%;
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: rgb(226, 223, 223);
+    border: none;
+    border-radius: 5px;
+    width: 30%;
+}
+
+.enviar input{cursor: pointer;}
+
+.joinus-submited{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 30%;
+    padding: 2% 0%;
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    background: rgb(255, 255, 255);
+    box-shadow: 2px 2px 2px 5px rgb(226, 223, 223);
+}
+
+.joinus-submited-close{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 5%;
+    right: 2%;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.joinus-submited-heading{
+    font-size: 25px;
+    padding: 0% 0% 5% 0%;
+}
+
+.joinus-submited p{
+    font-size: large;
+    padding: 2% 0% 0% 0%;
+}
+
+.join-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1% 0%;
+}
+.join-image img{width: 70%;}
+
+@media (width<1200px) {
+    .form{
+        width: 50%;
+    }
+    .container-form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-right: 0%;
+    }
+    .form-check{
+        width: 40%;
+    }
+    .curriculum-container{
+        font-size: smaller;
+    }
+    .curriculum{
+        width: 50%;
+    }
+}
+
+@media (width<440px) {
+    .form{
+        width: 70%;
+    }
+    .form-check{
+        width: 60%;
+    }
+}
