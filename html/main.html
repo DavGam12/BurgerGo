@@ -28,51 +28,51 @@
     <main class="main">
         <div class="login-div">
             <h6>Log In</h6>
-            <div id="login-form" class="form">
+            <form action="#" id="login-form" class="form">
                 <label for="login-email">E-mail: </label>
-                <input type="email" id="login-email" required placeholder="E-mail">
+                <input type="email" id="login-email" required placeholder="E-mail" maxlength="50">
                 <label for="login-password">Password: </label>
-                <input type="password" id="login-password" required placeholder="Password" class="password-field">
+                <input type="password" id="login-password" required placeholder="Password" class="password-field" maxlength="40">
                 <div class="hide-view">
                     <img src="../Images/view.png" alt="view" class="view">
                     <img src="../Images/hide.png" alt="hide" class="hide">
                 </div>
-                <p class="password-reset-text">Did you forget your password?<br><span id="password-reset">Reset my password</span></p>
+                <!--<p class="password-reset-text">Did you forget your password?<br><span id="password-reset">Reset my password</span></p>-->
                 <div class="options">
                     <input type="submit" value="Log In" id="login-accept">
                     <p>New to Burger & Go?</p>
                     <button id="login-signup" type="button">Sign Up</button>
                 </div>
-            </div>
+            </form>
             <div id="login-cancel"><img src="../Images/close.png" alt="close"></div>
         </div>
         <div class="signup-div">
             <h6>Sign Up</h6>
             <p class="data-usage-button">Data Usage</p>
-            <div id="signup-form">
+            <form action="#" id="signup-form">
                 <div class="form">
                     <div class="signup-row">
                         <div class="signup-field">
                             <label for="signup-firstname">First Name: </label>
-                            <input type="text" id="signup-firstname" required placeholder="First Name">
+                            <input type="text" id="signup-firstname" required placeholder="First Name" maxlength="40">
                         </div>
                         <div class="signup-field">
                             <label for="signup-lastname">Last Name: </label>
-                            <input type="text" id="signup-lastname" placeholder="Last Name">
+                            <input type="text" id="signup-lastname" placeholder="Last Name" maxlength="60">
                         </div>
                         <div class="signup-field">
                             <label for="signup-email">E-mail: </label>
-                            <input type="email" id="signup-email" required placeholder="E-mail">
+                            <input type="email" id="signup-email" required placeholder="E-mail" maxlength="50">
                         </div>
                     </div>
                     <div class="signup-row">
                         <div class="signup-field">
                             <label for="signup-phonenumber">Phone Number: </label>
-                            <input type="text" id="signup-phonenumber" required placeholder="Phone Number">
+                            <input type="tel" id="signup-phonenumber" required placeholder="123-456-789" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" maxlength="13">
                         </div>
                         <div class="signup-field">
                             <label for="signup-password">Password: </label>
-                            <input type="password" id="signup-password" required placeholder="Password" class="password-field">
+                            <input type="password" id="signup-password" required placeholder="Password" class="password-field" maxlength="40">
                             <div class="hide-view">
                                 <img src="../Images/view.png" alt="view" class="view">
                                 <img src="../Images/hide.png" alt="hide" class="hide">
@@ -80,7 +80,7 @@
                         </div>
                         <div class="signup-field">
                             <label for="signup-repeatpassword">Repeat Password: </label>
-                            <input type="password" id="signup-repeatpassword" required placeholder="Password" class="password-field">
+                            <input type="password" id="signup-repeatpassword" required placeholder="Password" class="password-field" maxlength="40">
                             <div class="hide-view">
                                 <img src="../Images/view.png" alt="view" class="view">
                                 <img src="../Images/hide.png" alt="hide" class="hide">
@@ -93,7 +93,7 @@
                     <p>Do you have an account?</p>
                     <button id="signup-login" type="button">Log In</button>
                 </div>
-            </div>
+            </form>
             <div id="signup-cancel"><img src="../Images/close.png" alt="close"></div>
         </div>
         <div class="data-usage-div">

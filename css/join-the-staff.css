@@ -30,6 +30,13 @@ h1{
     font-size: large;
 }
 
+.form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .form{
     grid-row: auto;
     border-collapse: collapse;

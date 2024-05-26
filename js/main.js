@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         e.addEventListener("click", () => {
             productClick = e.getAttribute("id")
             localStorage.setItem("productClick", productClick)
-            document.getElementsByClassName("make-order")[0].click()
+            document.getElementsByClassName("make-order")[0].getElementsByTagName("button")[0].click()
         })
     })
 })

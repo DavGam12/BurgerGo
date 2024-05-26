@@ -4,7 +4,7 @@ let user =
     email: (localStorage.getItem("user.email")),
     firstName: (localStorage.getItem("user.firstName")),
     lastName: (localStorage.getItem("user.lastName")),
-    phoneNumber: (localStorage.getItem("user.phoneNumber")),
+    permission: (localStorage.getItem("user.permission")),
     logged: (localStorage.getItem("user.logged"))
 }
 
@@ -14,7 +14,7 @@ function SaveVariables(){
     localStorage.setItem("user.email", user.email)
     localStorage.setItem("user.firstName", user.firstName)
     localStorage.setItem("user.lastName", user.lastName)
-    localStorage.setItem("user.phoneNumber", user.phoneNumber)
+    localStorage.setItem("user.permission", user.permission)
     localStorage.setItem("user.logged", user.logged)
 }
 // Load Variables every time you refresh the page
@@ -23,7 +23,7 @@ function LoadVariables(){
     user.email = (localStorage.getItem("user.email"))
     user.firstName = (localStorage.getItem("user.firstName"))
     user.lastName = (localStorage.getItem("user.lastName"))
-    user.phoneNumber = (localStorage.getItem("user.phoneNumber"))
+    user.permission = (localStorage.getItem("user.permission"))
     user.logged = (localStorage.getItem("user.logged"))
 }
 
@@ -246,22 +246,21 @@ document.addEventListener("DOMContentLoaded", (event) => {
         document.body.style.pointerEvents = "all"
         DeactivateOpacity()
     })
-    loginAcceptButton.addEventListener("click", async()=>{
-
+    loginAcceptButton.parentElement.parentElement.addEventListener("formdata", async()=>{
         objecCurrentInputValues =
         {
             _email: document.getElementById("login-email").value,
             _password: document.getElementById("login-password").value
         }
         
-        await logInFetch(objecCurrentInputValues)
-        await userCreation(objecCurrentInputValues._email)
+        await logInFetch(objecCurrentInputValues._email, objecCurrentInputValues._password)
         await userLogInTrue()
         DeactivateOpacity()
         loginDiv.style.display = "none"
         document.body.style.overflow = "visible"
         document.body.style.pointerEvents = "all"
         SaveVariables()
+
     })
     loginSignupButton.addEventListener("click",()=>{
         loginDiv.style.display = "none"
@@ -288,7 +287,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         document.body.style.pointerEvents = "all"
         DeactivateOpacity()
     })
-    signupAcceptButton.addEventListener("click", async()=>{
+    signupAcceptButton.parentElement.parentElement.addEventListener("formdata", async()=>{
         
         if (document.getElementById("signup-password").value === document.getElementById("signup-repeatpassword").value)
         {
@@ -301,7 +300,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 _password: document.getElementById("signup-password").value
             }
             await signUpFetch(objecCurrentInputValues)
-            await userCreation(objecCurrentInputValues._email)
+            await userCreation(objecCurrentInputValues._email, objecCurrentInputValues._password, "customer")
             await userLogInTrue()
         }
         else {alert("The Password doesn't match the Repeat Password.")}
@@ -415,16 +414,30 @@ const WindowHeight = () => {
     } else {document.body.children[1].lastElementChild.style.paddingBottom = "0px"}
 }
 
-const userCreation = async(currentEmail) => {
-    const data = await findAllCustomersFetch()
-    Array.from(data.filter(d => d._email === currentEmail)).forEach(e => {
-        user.id = e._customerID
-        user.email = e._email
-        user.password = e._password
-        user.firstName = e._firstName
-        user.lastName = e._lastName
-        user.phoneNumber = e._phoneNumber
-    })
+const userCreation = async(currentEmail, currentPassword, perms) => {
+    if (perms === "customer")
+    {
+        const data = await findAllCustomersFetch()
+        Array.from(data.filter(d => d._email === currentEmail && d._password === currentPassword)).forEach(e =>{
+            user.id = e._customerID
+            user.email = e._email
+            user.firstName = e._firstName
+            user.lastName = e._lastName
+            user.permission = null
+        })
+    }
+    else
+    {
+        const data = await findAllEmployeesFetch()
+        Array.from(data.filter(d => d._email === currentEmail && d._password === currentPassword)).forEach(e =>{
+            user.id = e._employeeID
+            user.email = e._email
+            user.firstName = e._firstName
+            user.lastName = e._lastName
+            user.permission = e._permission
+        })
+    }
+
     SaveVariables()
 }
 
@@ -438,9 +451,16 @@ let objecCurrentInputValues
 const baseSignUpURL = "http://localhost:8080/BurgerGo/Controller?action=customers.add"
 const baseLogInURL = "http://localhost:8080/BurgerGo/Controller?action=customers.login"
 const baseCustomersURL = "http://localhost:8080/BurgerGo/Controller?action=customers.find_all"
+const baseEmployeesURL = "http://localhost:8080/BurgerGo/Controller?action=employees.find_all"
 
 const findAllCustomersFetch = async() => {
     const rawRes = await fetch(baseCustomersURL)
+    const rawData = await rawRes.json()
+    return await rawData
+}
+
+const findAllEmployeesFetch = async() => {
+    const rawRes = await fetch(baseEmployeesURL)
     const rawData = await rawRes.json()
     return await rawData
 }
@@ -454,11 +474,30 @@ const signUpFetch = async(obj) => {
         })
 }
 
-const logInFetch = async(obj) => {
-    await fetch(baseLogInURL,
+const logInFetch = async(currentEmail, currentPassword) => {
+    const currentURL = new URL(baseLogInURL)
+    currentURL.searchParams.set("email", currentEmail)
+    currentURL.searchParams.set("password", currentPassword)
+
+    const rawRes = await fetch(currentURL)
+    const rawData = await rawRes.json()
+    console.log(rawData)
+    switch (rawData)
+    {
+        case 1:
         {
-            method: "post",
-            body: JSON.stringify(obj),
-            headers: { "Content-Type": "application/json" }
-        })
+            await userCreation(objecCurrentInputValues._email, objecCurrentInputValues._password, "customer")
+            break
+        }
+        case 2:
+        {
+            await userCreation(objecCurrentInputValues._email, objecCurrentInputValues._password, "employee")
+            break
+        }
+        default:
+        {
+            alert("The Email and the Password doesn't match")
+            throw new Error("The Email and the Password doesn't match")
+        }
+    }
 }

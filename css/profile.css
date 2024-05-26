@@ -23,11 +23,11 @@ hr{visibility: hidden; border: solid 2px goldenrod;}
     justify-content: space-between;
 }
 .staff-buttons button{
+    display: none;
     background: white;
     color: black;
     width: 100px;
     height: 30px;
-    display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;

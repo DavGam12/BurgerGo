@@ -28,51 +28,51 @@
     <main class="main">
         <div class="login-div">
             <h6>Log In</h6>
-            <div id="login-form">
+            <form action="#" id="login-form" class="form">
                 <label for="login-email">E-mail: </label>
-                <input type="email" id="login-email" required placeholder="E-mail">
+                <input type="email" id="login-email" required placeholder="E-mail" maxlength="50">
                 <label for="login-password">Password: </label>
-                <input type="password" id="login-password" required placeholder="Password" class="password-field">
+                <input type="password" id="login-password" required placeholder="Password" class="password-field" maxlength="40">
                 <div class="hide-view">
                     <img src="../Images/view.png" alt="view" class="view">
                     <img src="../Images/hide.png" alt="hide" class="hide">
                 </div>
-                <p class="password-reset-text">Did you forget your password?<br><span id="password-reset">Reset my password</span></p>
+                <!--<p class="password-reset-text">Did you forget your password?<br><span id="password-reset">Reset my password</span></p>-->
                 <div class="options">
                     <input type="submit" value="Log In" id="login-accept">
                     <p>New to Burger & Go?</p>
                     <button id="login-signup" type="button">Sign Up</button>
                 </div>
-            </div>
+            </form>
             <div id="login-cancel"><img src="../Images/close.png" alt="close"></div>
         </div>
         <div class="signup-div">
             <h6>Sign Up</h6>
             <p class="data-usage-button">Data Usage</p>
-            <div id="signup-form">
+            <form action="#" id="signup-form">
                 <div class="form">
                     <div class="signup-row">
                         <div class="signup-field">
                             <label for="signup-firstname">First Name: </label>
-                            <input type="text" id="signup-firstname" required placeholder="First Name">
+                            <input type="text" id="signup-firstname" required placeholder="First Name" maxlength="40">
                         </div>
                         <div class="signup-field">
                             <label for="signup-lastname">Last Name: </label>
-                            <input type="text" id="signup-lastname" placeholder="Last Name">
+                            <input type="text" id="signup-lastname" placeholder="Last Name" maxlength="60">
                         </div>
                         <div class="signup-field">
                             <label for="signup-email">E-mail: </label>
-                            <input type="email" id="signup-email" required placeholder="E-mail">
+                            <input type="email" id="signup-email" required placeholder="E-mail" maxlength="50">
                         </div>
                     </div>
                     <div class="signup-row">
                         <div class="signup-field">
                             <label for="signup-phonenumber">Phone Number: </label>
-                            <input type="text" id="signup-phonenumber" required placeholder="Phone Number">
+                            <input type="tel" id="signup-phonenumber" required placeholder="123-456-789" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" maxlength="13">
                         </div>
                         <div class="signup-field">
                             <label for="signup-password">Password: </label>
-                            <input type="password" id="signup-password" required placeholder="Password" class="password-field">
+                            <input type="password" id="signup-password" required placeholder="Password" class="password-field" maxlength="40">
                             <div class="hide-view">
                                 <img src="../Images/view.png" alt="view" class="view">
                                 <img src="../Images/hide.png" alt="hide" class="hide">
@@ -80,7 +80,7 @@
                         </div>
                         <div class="signup-field">
                             <label for="signup-repeatpassword">Repeat Password: </label>
-                            <input type="password" id="signup-repeatpassword" required placeholder="Password" class="password-field">
+                            <input type="password" id="signup-repeatpassword" required placeholder="Password" class="password-field" maxlength="40">
                             <div class="hide-view">
                                 <img src="../Images/view.png" alt="view" class="view">
                                 <img src="../Images/hide.png" alt="hide" class="hide">
@@ -93,7 +93,7 @@
                     <p>Do you have an account?</p>
                     <button id="signup-login" type="button">Log In</button>
                 </div>
-            </div>
+            </form>
             <div id="signup-cancel"><img src="../Images/close.png" alt="close"></div>
         </div>
         <div class="data-usage-div">
@@ -155,52 +155,50 @@
                 </table>
                 <div class="current-add-div">
                     <h2>ADD A ROW</h2>
-                    <div class="form">
+                    <form class="form">
                         <div class="input-row">
                             <label for="allergens-add-id">ID: </label>
-                            <input type="number" placeholder="ID" id="allergens-add-id" name="id">
+                            <input type="number" placeholder="ID" id="allergens-add-id" name="id" required maxlength="2">
                         </div>
 
                         <div class="input-row">
                             <label for="allergens-add-name">Name: </label>
-                            <input type="text" placeholder="Name" id="allergens-add-name" name="name">
+                            <input type="text" placeholder="Name" id="allergens-add-name" name="name" required maxlength="30">
                         </div>
 
                         <div class="input-row">
                             <label for="allergens-add-img">Image URL: </label>
-                            <input type="text" placeholder="Image URL" id="allergens-add-img" name="img">
+                            <input type="text" placeholder="Image URL" id="allergens-add-img" name="img" required maxlength="100">
                         </div>
 
-                        <button class="current-add-div-accept">Accept</button>
-                    </div>
+                        <button class="current-add-div-accept" type="submit">Accept</button>
+                    </form>
                     <div class="current-add-div-close"><img src="../Images/close.png" alt="close"></div>
                 </div>
                 <div class="current-update-div">
                     <h2>UPDATE ROW NUMBER <span class="current-update-id"></span></h2>
-                    <div class="form">
+                    <form class="form">
                         <div class="input-row">
                             <label for="allergens-update-id">ID: </label>
-                            <input type="number" placeholder="ID" id="allergens-update-id" name="id">
+                            <input type="number" placeholder="ID" id="allergens-update-id" name="id" required maxlength="2">
                         </div>
 
                         <div class="input-row">
                             <label for="allergens-update-name">Name: </label>
-                            <input type="text" placeholder="Name" id="allergens-update-name" name="name">
+                            <input type="text" placeholder="Name" id="allergens-update-name" name="name" required maxlength="30">
                         </div>
 
                         <div class="input-row">
                             <label for="allergens-update-img">Image URL: </label>
-                            <input type="text" placeholder="Image URL" id="allergens-update-img" name="img">
+                            <input type="text" placeholder="Image URL" id="allergens-update-img" name="img" required maxlength="100">
                         </div>
 
-                        <button class="current-update-div-accept">Accept</button>
-                    </div>
+                        <button class="current-update-div-accept" type="submit">Accept</button>
+                    </form>
                     <div class="current-update-div-close"><img src="../Images/close.png" alt="close"></div>
                 </div>
                 <div class="current-delete-div">
                     <h2>DELETE ROW NUMBER <span class="current-delete-id"></span></h2>
-                    <p>Are you sure you want to delete this row?</p>
-                    <p>You won't be able to go back.</p>
                     <p>Are you sure you want to delete this row?</p>
                     <p>You won't be able to go back.</p>
                     <div class="options">
@@ -231,36 +229,36 @@
                 </table>
                 <div class="current-add-div">
                     <h2>ADD A ROW</h2>
-                    <div class="form">
+                    <form class="form">
                         <div class="input-row">
                             <label for="categories-add-id">ID: </label>
-                            <input type="number" placeholder="ID" id="categories-add-id" name="id">
+                            <input type="number" placeholder="ID" id="categories-add-id" name="id" required maxlength="2">
                         </div>
 
                         <div class="input-row">
                             <label for="categories-add-name">Name: </label>
-                            <input type="text" placeholder="Name" id="categories-add-name" name="name">
+                            <input type="text" placeholder="Name" id="categories-add-name" name="name" required maxlength="40">
                         </div>
 
-                        <button class="current-add-div-accept">Accept</button>
-                    </div>
+                        <button class="current-add-div-accept" type="submit">Accept</button>
+                    </form>
                     <div class="current-add-div-close"><img src="../Images/close.png" alt="close"></div>
                 </div>
                 <div class="current-update-div">
                     <h2>UPDATE ROW NUMBER <span class="current-update-id"></span></h2>
-                    <div class="form">
+                    <form class="form">
                         <div class="input-row">
                             <label for="categories-update-id">Id: </label>
-                            <input type="number" placeholder="Id" id="categories-update-id" name="id">
+                            <input type="number" placeholder="Id" id="categories-update-id" name="id" required maxlength="2">
                         </div>
 
                         <div class="input-row">
                             <label for="categories-update-name">Name: </label>
-                            <input type="text" placeholder="Name" id="categories-update-name" name="name">
+                            <input type="text" placeholder="Name" id="categories-update-name" name="name" required maxlength="40">
                         </div>
 
-                        <button class="current-update-div-accept">Accept</button>
-                    </div>
+                        <button class="current-update-div-accept" type="submit">Accept</button>
+                    </form>
                     <div class="current-update-div-close"><img src="../Images/close.png" alt="close"></div>
                 </div>
                 <div class="current-delete-div">
@@ -280,76 +278,76 @@
                 </table>
                 <div class="current-add-div">
                     <h2>ADD A ROW</h2>
-                    <div class="form">
+                    <form class="form">
                         <div class="input-row">
                             <label for="products-add-id">ID: </label>
-                            <input type="number" placeholder="ID" id="products-add-id" name="id">
+                            <input type="number" placeholder="ID" id="products-add-id" name="id" required maxlength="4">
                         </div>
 
                         <div class="input-row">
                             <label for="products-add-name">Name: </label>
-                            <input type="text" placeholder="Name" id="products-add-name" name="name">
+                            <input type="text" placeholder="Name" id="products-add-name" name="name" required maxlength="60">
                         </div>
 
                         <div class="input-row">
                             <label for="products-add-img">Image URL: </label>
-                            <input type="text" placeholder="Image URL" id="products-add-img" name="img">
+                            <input type="text" placeholder="Image URL" id="products-add-img" name="img" required maxlength="100">
                         </div>
 
                         <div class="input-row">
                             <label for="products-add-price">Price: </label>
-                            <input type="number" placeholder="Price" id="products-add-price" name="price">
+                            <input type="number" placeholder="Price" id="products-add-price" name="price" required maxlength="5">
                         </div>
 
                         <div class="input-row">
                             <label for="products-add-description">Description: </label>
-                            <input type="text" placeholder="Description" id="products-add-description" name="description">
+                            <input type="text" placeholder="Description" id="products-add-description" name="description" required maxlength="200">
                         </div>
 
                         <div class="input-row">
                             <label for="products-add-category-id">Category ID: </label>
-                            <input type="number" placeholder="Category ID" id="products-add-category-id" name="category-id">
+                            <input type="number" placeholder="Category ID" id="products-add-category-id" name="category-id" maxlength="2">
                         </div>
 
-                        <button class="current-add-div-accept">Accept</button>
-                    </div>
+                        <button class="current-add-div-accept" type="submit">Accept</button>
+                    </form>
                     <div class="current-add-div-close"><img src="../Images/close.png" alt="close"></div>
                 </div>
                 <div class="current-update-div">
                     <h2>UPDATE ROW NUMBER <span class="current-update-id"></span></h2>
-                    <div class="form">
+                    <form class="form">
                         <div class="input-row">
                             <label for="products-update-id">ID: </label>
-                            <input type="number" placeholder="ID" id="products-update-id" name="id">
+                            <input type="number" placeholder="ID" id="products-update-id" name="id" required maxlength="4">
                         </div>
 
                         <div class="input-row">
                             <label for="products-update-name">Name: </label>
-                            <input type="text" placeholder="Name" id="products-update-name" name="name">
+                            <input type="text" placeholder="Name" id="products-update-name" name="name" required maxlength="60">
                         </div>
 
                         <div class="input-row">
                             <label for="products-update-img">Image URL: </label>
-                            <input type="text" placeholder="Image URL" id="products-update-img" name="img">
+                            <input type="text" placeholder="Image URL" id="products-update-img" name="img" required maxlength="100">
                         </div>
 
                         <div class="input-row">
                             <label for="products-update-price">Price: </label>
-                            <input type="number" placeholder="Price" id="products-update-price" name="price">
+                            <input type="number" placeholder="Price" id="products-update-price" name="price" required maxlength="5">
                         </div>
 
                         <div class="input-row">
                             <label for="products-update-description">Description: </label>
-                            <input type="text" placeholder="Description" id="products-update-description" name="description">
+                            <input type="text" placeholder="Description" id="products-update-description" name="description" required maxlength="200">
                         </div>
 
                         <div class="input-row">
                             <label for="products-update-category-id">Category ID: </label>
-                            <input type="number" placeholder="Category ID" id="products-update-category-id" name="category-id">
+                            <input type="number" placeholder="Category ID" id="products-update-category-id" name="category-id" maxlength="2">
                         </div>
 
-                        <button class="current-update-div-accept">Accept</button>
-                    </div>
+                        <button class="current-update-div-accept" type="submit">Accept</button>
+                    </form>
                     <div class="current-update-div-close"><img src="../Images/close.png" alt="close"></div>
                 </div>
                 <div class="current-delete-div">
@@ -369,36 +367,36 @@
                 </table>
                 <div class="current-add-div">
                     <h2>ADD A ROW</h2>
-                    <div class="form">
+                    <form class="form">
                         <div class="input-row">
                             <label for="jobs-add-id">ID: </label>
-                            <input type="number" placeholder="ID" id="jobs-add-id" name="id">
+                            <input type="number" placeholder="ID" id="jobs-add-id" name="id" required maxlength="2">
                         </div>
 
                         <div class="input-row">
                             <label for="jobs-add-name">Name: </label>
-                            <input type="text" placeholder="Name" id="jobs-add-name" name="name">
+                            <input type="text" placeholder="Name" id="jobs-add-name" name="name" required maxlength="40">
                         </div>
 
-                        <button class="current-add-div-accept">Accept</button>
-                    </div>
+                        <button class="current-add-div-accept" type="submit">Accept</button>
+                    </form>
                     <div class="current-add-div-close"><img src="../Images/close.png" alt="close"></div>
                 </div>
                 <div class="current-update-div">
                     <h2>UPDATE ROW NUMBER <span class="current-update-id"></span></h2>
-                    <div class="form">
+                    <form class="form">
                         <div class="input-row">
                             <label for="jobs-update-id">ID: </label>
-                            <input type="number" placeholder="ID" id="jobs-update-id" name="id">
+                            <input type="number" placeholder="ID" id="jobs-update-id" name="id" required maxlength="2">
                         </div>
 
                         <div class="input-row">
                             <label for="jobs-update-name">Name: </label>
-                            <input type="text" placeholder="Name" id="jobs-update-name" name="name">
+                            <input type="text" placeholder="Name" id="jobs-update-name" name="name" required maxlength="40">
                         </div>
 
-                        <button class="current-update-div-accept">Accept</button>
-                    </div>
+                        <button class="current-update-div-accept" type="submit">Accept</button>
+                    </form>
                     <div class="current-update-div-close"><img src="../Images/close.png" alt="close"></div>
                 </div>
                 <div class="current-delete-div">
@@ -418,130 +416,130 @@
                 </table>
                 <div class="current-add-div">
                     <h2>ADD A ROW</h2>
-                    <div class="form">
+                    <form class="form">
                         <div class="main-form">
                             <div class="input-row">
                                 <label for="employees-add-id">ID: </label>
-                                <input type="number" placeholder="ID" id="employees-add-id" name="id">
+                                <input type="number" placeholder="ID" id="employees-add-id" name="id" required maxlength="3">
                             </div>
 
                             <div class="input-row">
                                 <label for="employees-add-first-name">First Name: </label>
-                                <input type="text" placeholder="First Name" id="employees-add-first-name" name="first-name">
+                                <input type="text" placeholder="First Name" id="employees-add-first-name" name="first-name" required maxlength="40">
                             </div>
 
                             <div class="input-row">
                                 <label for="employees-add-last-name">Last Name: </label>
-                                <input type="text" placeholder="Last Name" id="employees-add-last-name" name="last-name">
-                            </div>
-
-                            <div class="input-row">
-                                <label for="employees-add-ss-number">SS Number: </label>
-                                <input type="number" placeholder="SS Number" id="employees-add-ss-number" name="ss-number">
+                                <input type="text" placeholder="Last Name" id="employees-add-last-name" name="last-name" required maxlength="60">
                             </div>
 
                             <div class="input-row">
                                 <label for="employees-add-email">Email: </label>
-                                <input type="email" placeholder="Email" id="employees-add-email" name="email">
+                                <input type="email" placeholder="Email" id="employees-add-email" name="email" required maxlength="50">
+                            </div>
+
+                            <div class="input-row">
+                                <label for="employees-add-ss-number">SS Number: </label>
+                                <input type="number" placeholder="SS Number" id="employees-add-ss-number" name="ss-number" required maxlength="12">
                             </div>
 
                             <div class="input-row">
                                 <label for="employees-add-birth-date">Birth Date: </label>
-                                <input type="date" placeholder="Birth Date" id="employees-add-birth-date" name="birth-date">
+                                <input type="date" placeholder="Birth Date" id="employees-add-birth-date" name="birth-date" required maxlength="12">
                             </div>
 
                             <div class="input-row">
                                 <label for="employees-add-hire-date">Hire Date: </label>
-                                <input type="date" placeholder="Hire Date" id="employees-add-hire-date" name="hire-date">
+                                <input type="date" placeholder="Hire Date" id="employees-add-hire-date" name="hire-date" required maxlength="12">
                             </div>
 
                             <div class="input-row">
                                 <label for="employees-add-salary">Salary: </label>
-                                <input type="number" placeholder="Salary" id="employees-add-salary" name="salary">
+                                <input type="number" placeholder="Salary" id="employees-add-salary" name="salary" required maxlength="7">
                             </div>
 
                             <div class="input-row">
                                 <label for="employees-add-permission">Permission: </label>
-                                <input type="number" placeholder="0 (none) or 1 (all)" id="employees-add-permission" name="permission">
+                                <input type="number" placeholder="0 (none) or 1 (all)" id="employees-add-permission" name="permission" required maxlength="1">
                             </div>
 
                             <div class="input-row">
                                 <label for="employees-add-password">Password: </label>
-                                <input type="text" placeholder="Password:" id="employees-add-password" name="password">
+                                <input type="text" placeholder="Password:" id="employees-add-password" name="password" required maxlength="40">
                             </div>
 
                             <div class="input-row">
                                 <label for="employees-add-job-id">Job ID: </label>
-                                <input type="text" placeholder="Job ID:" id="employees-add-job-id" name="job-id">
+                                <input type="text" placeholder="Job ID:" id="employees-add-job-id" name="job-id" maxlength="2">
                             </div>
                         </div>
 
-                        <button class="current-add-div-accept">Accept</button>
-                    </div>
+                        <button class="current-add-div-accept" type="submit">Accept</button>
+                    </form>
                     <div class="current-add-div-close"><img src="../Images/close.png" alt="close"></div>
                 </div>
                 <div class="current-update-div">
                     <h2>UPDATE ROW NUMBER <span class="current-update-id"></span></h2>
-                    <div class="form">
+                    <form class="form">
                         <div class="main-form">
                             <div class="input-row">
                                 <label for="employees-update-id">ID: </label>
-                                <input type="number" placeholder="ID" id="employees-update-id" name="id">
+                                <input type="number" placeholder="ID" id="employees-update-id" name="id" required maxlength="3">
                             </div>
                             
                             <div class="input-row">
                                 <label for="employees-update-first-name">First Name: </label>
-                                <input type="text" placeholder="First Name" id="employees-update-first-name" name="first-name">
+                                <input type="text" placeholder="First Name" id="employees-update-first-name" name="first-name" required maxlength="40">
                             </div>
                             
                             <div class="input-row">
                                 <label for="employees-update-last-name">Last Name: </label>
-                                <input type="text" placeholder="Last Name" id="employees-update-last-name" name="last-name">
+                                <input type="text" placeholder="Last Name" id="employees-update-last-name" name="last-name" required maxlength="60">
                             </div>
-                            
-                            <div class="input-row">
-                                <label for="employees-update-ss-number">SS Number: </label>
-                                <input type="number" placeholder="SS Number" id="employees-update-ss-number" name="ss-number">
-                            </div>
-                            
+                                                      
                             <div class="input-row">
                                 <label for="employees-update-email">Email: </label>
-                                <input type="email" placeholder="Email" id="employees-update-email" name="email">
+                                <input type="email" placeholder="Email" id="employees-update-email" name="email" required maxlength="50">
+                            </div>
+
+                            <div class="input-row">
+                                <label for="employees-update-ss-number">SS Number: </label>
+                                <input type="number" placeholder="SS Number" id="employees-update-ss-number" name="ss-number" required maxlength="12">
                             </div>
                             
                             <div class="input-row">
                                 <label for="employees-update-birth-date">Birth Date: </label>
-                                <input type="date" placeholder="Birth Date" id="employees-update-birth-date" name="birth-date">
+                                <input type="date" placeholder="Birth Date" id="employees-update-birth-date" name="birth-date" required maxlength="12">
                             </div>
                             
                             <div class="input-row">
                                 <label for="employees-update-hire-date">Hire Date: </label>
-                                <input type="date" placeholder="Hire Date" id="employees-update-hire-date" name="hire-date">
+                                <input type="date" placeholder="Hire Date" id="employees-update-hire-date" name="hire-date" required maxlength="12">
                             </div>
                             
                             <div class="input-row">
                                 <label for="employees-update-salary">Salary: </label>
-                                <input type="number" placeholder="Salary" id="employees-update-salary" name="salary">
+                                <input type="number" placeholder="Salary" id="employees-update-salary" name="salary" required maxlength="7">
                             </div>
                             
                             <div class="input-row">
                                 <label for="employees-update-permission">Permission: </label>
-                                <input type="number" placeholder="0 (none) or 1 (all)" id="employees-update-permission" name="permission">
+                                <input type="number" placeholder="0 (none) or 1 (all)" id="employees-update-permission" name="permission" required maxlength="1">
                             </div>
                             
                             <div class="input-row">
                                 <label for="employees-update-password">Password: </label>
-                                <input type="text" placeholder="Password:" id="employees-update-password" name="password">
+                                <input type="text" placeholder="Password:" id="employees-update-password" name="password" required maxlength="40">
                             </div>
                             
                             <div class="input-row">
                                 <label for="employees-update-job-id">Job ID: </label>
-                                <input type="text" placeholder="Job ID:" id="employees-update-job-id" name="job-id">
+                                <input type="text" placeholder="Job ID:" id="employees-update-job-id" name="job-id" maxlength="2">
                             </div>
                         </div>
 
-                        <button class="current-update-div-accept">Accept</button>
-                    </div>
+                        <button class="current-update-div-accept" type="submit">Accept</button>
+                    </form>
                     <div class="current-update-div-close"><img src="../Images/close.png" alt="close"></div>
                 </div>
                 <div class="current-delete-div">
@@ -561,66 +559,66 @@
                 </table>
                 <div class="current-add-div">
                     <h2>ADD A ROW</h2>
-                    <div class="form">
+                    <form class="form">
                         <div class="input-row">
                             <label for="customers-add-first-name">First Name: </label>
-                            <input type="text" placeholder="First Name" id="customers-add-first-name" name="first-name">
+                            <input type="text" placeholder="First Name" id="customers-add-first-name" name="first-name" required maxlength="40">
                         </div>
 
                         <div class="input-row">
                             <label for="customers-add-last-name">Last Name: </label>
-                            <input type="text" placeholder="Last Name" id="customers-add-last-name" name="last-name">
+                            <input type="text" placeholder="Last Name" id="customers-add-last-name" name="last-name" maxlength="60">
                         </div>
 
                         <div class="input-row">
                             <label for="customers-add-email">Email: </label>
-                            <input type="email" placeholder="Email" id="customers-add-email" name="email">
+                            <input type="email" placeholder="Email" id="customers-add-email" name="email" required maxlength="50">
                         </div>
 
                         <div class="input-row">
                             <label for="customers-add-phone-number">Phone Number: </label>
-                            <input type="text" placeholder="Phone Number" id="customers-add-phone-number" name="phone-number">
+                            <input type="tel" placeholder="Phone Number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" id="customers-add-phone-number" name="phone-number" required maxlength="13">
                         </div>
 
                         <div class="input-row">
                             <label for="customers-add-password">Password: </label>
-                            <input type="text" placeholder="Password" id="customers-add-password" name="password">
+                            <input type="text" placeholder="Password" id="customers-add-password" name="password" required maxlength="40">
                         </div>
 
-                        <button class="current-add-div-accept">Accept</button>
-                    </div>
+                        <button class="current-add-div-accept" type="submit">Accept</button>
+                    </form>
                     <div class="current-add-div-close"><img src="../Images/close.png" alt="close"></div>
                 </div>
                 <div class="current-update-div">
                     <h2>UPDATE ROW NUMBER <span class="current-update-id"></span></h2>
-                    <div class="form">
+                    <form class="form">
                         <div class="input-row">
                             <label for="customers-update-first-name">First Name: </label>
-                            <input type="text" placeholder="First Name" id="customers-update-first-name" name="first-name">
+                            <input type="text" placeholder="First Name" id="customers-update-first-name" name="first-name" required maxlength="40">
                         </div>
 
                         <div class="input-row">
                             <label for="customers-update-last-name">Last Name: </label>
-                            <input type="text" placeholder="Last Name" id="customers-update-last-name" name="last-name">
+                            <input type="text" placeholder="Last Name" id="customers-update-last-name" name="last-name" maxlength="60">
                         </div>
 
                         <div class="input-row">
                             <label for="customers-update-email">Email: </label>
-                            <input type="email" placeholder="Email" id="customers-update-email" name="email">
+                            <input type="email" placeholder="Email" id="customers-update-email" name="email" required maxlength="50">
                         </div>
 
                         <div class="input-row">
                             <label for="customers-update-phone-number">Phone Number: </label>
-                            <input type="text" placeholder="Phone Number" id="customers-update-phone-number" name="phone-number">
+                            <input type="tel" placeholder="Phone Number" id="customers-update-phone-number" name="phone-number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" required maxlength="13">
                         </div>
 
                         <div class="input-row">
                             <label for="customers-update-password">Password: </label>
-                            <input type="text" placeholder="Password" id="customers-update-password" name="password">
+                            <input type="text" placeholder="Password" id="customers-update-password" name="password" required maxlength="40">
                         </div>
 
-                        <button class="current-update-div-accept">Accept</button>
-                    </div>
+                        <button class="current-update-div-accept" type="submit">Accept</button>
+                    </form>
                     <div class="current-update-div-close"><img src="../Images/close.png" alt="close"></div>
                 </div>
                 <div class="current-delete-div">
@@ -640,84 +638,78 @@
                 </table>
                 <div class="current-add-div">
                     <h2>ADD A ROW</h2>
-                    <div class="form">
-
+                    <form class="form">
                         <div class="input-row">
                             <label for="orders-add-order-state">Order State: </label>
-                            <input type="text" placeholder="Order State" id="orders-add-order-state" name="order-state">
+                            <input type="text" placeholder="Order State" id="orders-add-order-state" name="order-state" required maxlength="40">
                         </div>
 
                         <div class="input-row">
                             <label for="orders-add-direction">Direction: </label>
-                            <input type="text" placeholder="Direction" id="orders-add-direction" name="direction">
+                            <input type="text" placeholder="Direction" id="orders-add-direction" name="direction" required maxlength="100">
                         </div>
 
                         
                         <div class="input-row">
                             <label for="orders-add-order-price">Order Price: </label>
-                            <input type="number" placeholder="Order Price" id="orders-add-order-price" name="order-price">
+                            <input type="number" placeholder="Order Price" id="orders-add-order-price" name="order-price" required maxlength="7">
                         </div>
 
                         <div class="input-row">
                             <label for="orders-add-order-date">Order Date: </label>
-                            <input type="date" placeholder="Order Date" id="orders-add-order-date" name="order-date">
+                            <input type="date" placeholder="Order Date" id="orders-add-order-date" name="order-date" required maxlength="12">
                         </div>
 
                         <div class="input-row">
                             <label for="orders-add-employee-id">Employee ID: </label>
-                            <input type="number" placeholder="Employee ID" id="orders-add-employee-id" name="employee-id">
+                            <input type="number" placeholder="Employee ID" id="orders-add-employee-id" name="employee-id" maxlength="3">
                         </div>
 
                         <div class="input-row">
                             <label for="orders-add-customer-id">Customer ID: </label>
-                            <input type="number" placeholder="Customer ID" id="orders-add-customer-id" name="customer-id">
+                            <input type="number" placeholder="Customer ID" id="orders-add-customer-id" name="customer-id" maxlength="8">
                         </div>
 
-                        <button class="current-add-div-accept">Accept</button>
-                    </div>
+                        <button class="current-add-div-accept" type="submit">Accept</button>
+                    </form>
                     <div class="current-add-div-close"><img src="../Images/close.png" alt="close"></div>
                 </div>
                 <div class="current-update-div">
                     <h2>UPDATE ROW NUMBER <span class="current-update-id"></span></h2>
-                    <div class="form">
-                        <div class="input-row">
-                            <label for="orders-update-id">ID: </label>
-                            <input type="number" placeholder="ID" id="orders-update-id" name="id">
-                        </div>
-
+                    <form class="form">
                         <div class="input-row">
                             <label for="orders-update-order-state">Order State: </label>
-                            <input type="text" placeholder="Order State" id="orders-update-order-state" name="order-state">
+                            <input type="text" placeholder="Order State" id="orders-update-order-state" name="order-state" required maxlength="40">
                         </div>
 
                         <div class="input-row">
                             <label for="orders-update-direction">Direction: </label>
-                            <input type="text" placeholder="Direction" id="orders-update-direction" name="direction">
+                            <input type="text" placeholder="Direction" id="orders-update-direction" name="direction" required maxlength="100">
                         </div>
 
                         
                         <div class="input-row">
                             <label for="orders-update-order-price">Order Price: </label>
-                            <input type="number" placeholder="Order Price" id="orders-update-order-price" name="order-price">
+                            <input type="number" placeholder="Order Price" id="orders-update-order-price" name="order-price" required maxlength="7">
                         </div>
 
                         <div class="input-row">
                             <label for="orders-update-order-date">Order Date: </label>
-                            <input type="date" placeholder="mm dd, yyyy" id="orders-update-order-date" name="order-date">
+                            <input type="date" placeholder="mm dd, yyyy" id="orders-update-order-date" name="order-date" required maxlength="12">
                         </div>
 
                         <div class="input-row">
                             <label for="orders-update-employee-id">Employee ID: </label>
-                            <input type="number" placeholder="Employee ID" id="orders-update-employee-id" name="employee-id">
+                            <input type="number" placeholder="Employee ID" id="orders-update-employee-id" name="employee-id" maxlength="3">
                         </div>
 
                         <div class="input-row">
                             <label for="orders-update-customer-id">Customer ID: </label>
-                            <input type="number" placeholder="Customer ID" id="orders-update-customer-id" name="customer-id">
+                            <input type="number" placeholder="Customer ID" id="orders-update-customer-id" name="customer-id" maxlength="8">
                         </div>
 
-                        <button class="current-update-div-accept">Accept</button>
-                    </div>
+                        <button class="current-update-div-accept" type="submit">Accept</button>
+                    </form>
                     <div class="current-update-div-close"><img src="../Images/close.png" alt="close"></div>
                 </div>
                 <div class="current-delete-div">
@@ -737,62 +729,56 @@
                 </table>
                 <div class="current-add-div">
                     <h2>ADD A ROW</h2>
-                    <div class="form">
-
+                    <form class="form">
                         <div class="input-row">
                             <label for="details-add-product-quantity">Product Quantity: </label>
-                            <input type="number" placeholder="Product Quantity" id="details-add-product-quantity" name="product-quantity">
+                            <input type="number" placeholder="Product Quantity" id="details-add-product-quantity" name="product-quantity" required maxlength="2">
                         </div>
 
                         <div class="input-row">
                             <label for="details-add-detail-price">Detail Price: </label>
-                            <input type="number" placeholder="Detail Price" id="details-add-detail-price" name="detail-price">
+                            <input type="number" placeholder="Detail Price" id="details-add-detail-price" name="detail-price" required maxlength="7">
                         </div>
 
                         <div class="input-row">
                             <label for="details-add-order-id">Order ID: </label>
-                            <input type="number" placeholder="Order ID" id="details-add-order-id" name="order-id">
+                            <input type="number" placeholder="Order ID" id="details-add-order-id" name="order-id" required maxlength="10">
                         </div>
 
                         <div class="input-row">
                             <label for="details-add-product-id">Product ID: </label>
-                            <input type="number" placeholder="Product ID" id="details-add-product-id" name="product-id">
+                            <input type="number" placeholder="Product ID" id="details-add-product-id" name="product-id" required maxlength="4">
                         </div>
 
-                        <button class="current-add-div-accept">Accept</button>
-                    </div>
+                        <button class="current-add-div-accept" type="submit">Accept</button>
+                    </form>
                     <div class="current-add-div-close"><img src="../Images/close.png" alt="close"></div>
                 </div>
                 <div class="current-update-div">
                     <h2>UPDATE ROW NUMBER <span class="current-update-id"></span></h2>
-                    <div class="form">
-                        <div class="input-row">
-                            <label for="details-update-id">ID: </label>
-                            <input type="number" placeholder="ID" id="details-update-id" name="id">
-                        </div>
-
+                    <form class="form">
                         <div class="input-row">
                             <label for="details-update-product-quantity">Product Quantity: </label>
-                            <input type="number" placeholder="Product Quantity" id="details-update-product-quantity" name="product-quantity">
+                            <input type="number" placeholder="Product Quantity" id="details-update-product-quantity" name="product-quantity" required maxlength="2">
                         </div>
 
                         <div class="input-row">
                             <label for="details-update-detail-price">Detail Price: </label>
-                            <input type="number" placeholder="Detail Price" id="details-update-detail-price" name="detail-price">
+                            <input type="number" placeholder="Detail Price" id="details-update-detail-price" name="detail-price" required maxlength="7">
                         </div>
 
                         <div class="input-row">
                             <label for="details-update-order-id">Order ID: </label>
-                            <input type="number" placeholder="Order ID" id="details-update-order-id" name="order-id">
+                            <input type="number" placeholder="Order ID" id="details-update-order-id" name="order-id" required maxlength="10">
                         </div>
 
                         <div class="input-row">
                             <label for="details-update-product-id">Product ID: </label>
-                            <input type="number" placeholder="Product ID" id="details-update-product-id" name="product-id">
+                            <input type="number" placeholder="Product ID" id="details-update-product-id" name="product-id" required maxlength="4">
                         </div>
 
-                        <button class="current-update-div-accept">Accept</button>
-                    </div>
+                        <button class="current-update-div-accept" type="submit">Accept</button>
+                    </form>
                     <div class="current-update-div-close"><img src="../Images/close.png" alt="close"></div>
                 </div>
                 <div class="current-delete-div">

@@ -13,6 +13,7 @@ let pastordersOption
 let logoutButton
 let logoutAcceptButton
 let logoutCancelButton
+let staffButtons
 // Texts
 let userFirstNameText
 
@@ -30,6 +31,28 @@ document.addEventListener("DOMContentLoaded", (event) => {
     logoutButton = document.getElementById("logout")
     logoutAcceptButton = document.getElementById("logout-accept")
     logoutCancelButton = document.getElementById("logout-cancel")
+    staffButtons = document.getElementsByClassName("staff-buttons")[0].getElementsByTagName("button")
+
+    switch (Number.parseInt(user.permission))
+    {
+        case 0:
+        {
+            staffButtons[0].style.display = "flex"
+            staffButtons[2].style.display = "flex"
+            break
+        }
+        case 1:
+        {
+            staffButtons[0].style.display = "flex" // employee
+            staffButtons[1].style.display = "flex" // admin
+            staffButtons[2].style.display = "flex" // log out
+            break
+        }
+        default:
+        {
+            staffButtons[2].style.display = "flex"
+        }
+    }
 
     
     window.addEventListener("load",()=>{ // on window load
@@ -77,10 +100,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
     })
     logoutAcceptButton.addEventListener("click",()=>{
         emptyUser()
-        let backToMain = document.createElement("a")
+        const backToMain = document.createElement("a")
         backToMain.setAttribute("href", "../html/main.html")
         backToMain.click()
-        document.removeChild(backToMain)
     })
     logoutCancelButton.addEventListener("click",()=>{
         logoutDiv.style.display = "none"
@@ -95,12 +117,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 
 const emptyUser = () => {
-    localStorage.setItem("user.id", null)
-    localStorage.setItem("user.email", null)
-    localStorage.setItem("user.firstName", null)
-    localStorage.setItem("user.lastName", null)
-    localStorage.setItem("user.phoneNumber", null)
-    localStorage.setItem("user.logged", false)
+    user.id = null
+    user.email = null
+    user.firstName = null
+    user.lastName = null
+    user.logged = false
+    user.permission = null
     SaveVariables()
     LoadVariables()
 }

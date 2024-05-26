@@ -37,7 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
             })
 
             resetCurrentURL()
-            resetCurrentURL()
         })
     })
 
@@ -50,12 +49,12 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     })
     Array.from(curentAddDivAccept).forEach(e => {
-        e.addEventListener("click", async () => {
+        e.parentElement.addEventListener("formdata", async () => {
             e.parentElement.parentElement.style.display = "none"
             document.body.style.pointerEvents = "all"
             document.body.style.overflow = "visible"
             objectValuesKeeper = objectElementsKeeper
-            Object.keys(objectValuesKeeper).forEach(o => {objectValuesKeeper[o] = objectValuesKeeper[o].value})
+            Object.keys(objectValuesKeeper).forEach(o => {objectValuesKeeper[o] = objectValuesKeeper[o].value.toString()})
             try
             {
                 await addFetch(objectValuesKeeper)
@@ -73,12 +72,12 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     })
     Array.from(curentUpdateDivAccept).forEach(e => {
-        e.addEventListener("click", async () => {
+        e.parentElement.addEventListener("formdata", async () => {
             e.parentElement.parentElement.style.display = "none"
             document.body.style.pointerEvents = "all"
             document.body.style.overflow = "visible"
             objectValuesKeeper = objectElementsKeeper
-            Object.keys(objectValuesKeeper).forEach(o => {objectValuesKeeper[o] = objectValuesKeeper[o].value})
+            Object.keys(objectValuesKeeper).forEach(o => {objectValuesKeeper[o] = objectValuesKeeper[o].value.toString()})
             try
             {
                 await updateFetch(objectValuesKeeper)
@@ -92,7 +91,6 @@ document.addEventListener("DOMContentLoaded", () => {
             e.parentElement.parentElement.style.display = "none"
             document.body.style.pointerEvents = "all"
             document.body.style.overflow = "visible"
-            resetCurrentURL()
             resetCurrentURL()
         })
     })
@@ -142,7 +140,6 @@ const employeesURL = "http://localhost:8080/BurgerGo/Controller?action=employees
 const customersURL = "http://localhost:8080/BurgerGo/Controller?action=customers.find_all"
 const ordersURL = "http://localhost:8080/BurgerGo/Controller?action=orders.find_all"
 const detailsURL = "http://localhost:8080/BurgerGo/Controller?action=details.find_all"
-
 
 async function fetchDataAsync()
 {
@@ -407,11 +404,8 @@ const printAllergensData = (data) => {
             currentActionURL("allergens.delete")
         })
 
-
     })
 
-    const currentAdd = currentTable.parentElement.getElementsByClassName("current-add")[0]
-    currentAdd.addEventListener("click", () => {
     const currentAdd = currentTable.parentElement.getElementsByClassName("current-add")[0]
     currentAdd.addEventListener("click", () => {
         document.body.style.overflow = "hidden"
@@ -426,7 +420,7 @@ const printAllergensData = (data) => {
         }
         currentActionURL("allergens.add")
     })
-})
+
 }
 
 /* ALLERGIES TABLE */
@@ -445,6 +439,7 @@ const printAllergiesData = (data) => {
     productIdTh.textContent = "product id".toUpperCase()
 
     const resetDiv = document.getElementsByClassName("allergies-table")[0].getElementsByClassName("current-reset-div")[0]
+
 
     Array.from(data).forEach(e => {
 
@@ -1327,7 +1322,7 @@ const printOrdersData = (data) => {
             document.getElementById("orders-update-order-state").value = e._orderState
             document.getElementById("orders-update-direction").value = e._direction
             document.getElementById("orders-update-order-price").value = e._orderPrice
-            document.getElementById("orders-update-order-date").value = e._orderDate
+            document.getElementById("orders-update-order-date").value.toString() = e._orderDate
             document.getElementById("orders-update-employee-id").value = e._employeeID
             document.getElementById("orders-update-customer-id").value = e._customerID
             objectElementsKeeper = {
@@ -1388,7 +1383,6 @@ const printDetailsData = (data) => {
     productQuantityTh.textContent = "product quantity".toUpperCase()
     const priceTh = document.createElement("th")
     currentRow.appendChild(priceTh)
-    priceTh.textContent = "detail price".toUpperCase()
     priceTh.textContent = "detail price".toUpperCase()
     const orderIdTh = document.createElement("th")
     currentRow.appendChild(orderIdTh)
@@ -1524,6 +1518,10 @@ fetchDataAsync();
 const currentActionURL = (act) => {
     urlParams.set("action", act)
     updateCurrentURL()
+}
+
+const resetFetch = async() => {
+    await fetch(baseURL.href, {method: "get"})
 }
 
 /* change the url without reload (line 2 of the function) */

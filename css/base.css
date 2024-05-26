@@ -149,6 +149,7 @@ input{border: none; border-bottom: solid 1px; outline: 0;}
     width: 80%;
     padding-top: 2%;
 }
+/*
 .password-reset-text{
     padding-top: 3%;
     font-size: 16px;
@@ -158,6 +159,7 @@ input{border: none; border-bottom: solid 1px; outline: 0;}
     font-weight: bold; 
     cursor: pointer;
 }
+*/
 .login-div .options button, .login-div .options input{
     background: rgb(255,255,255);
     font-size: 20px; 
@@ -269,15 +271,6 @@ input{border: none; border-bottom: solid 1px; outline: 0;}
     align-items: center; 
     width: 80%;
 }
-.password-reset-text{
-    padding-top: 3%; 
-    font-size: 16px;
-}
-#password-reset{
-    color: blue; 
-    font-weight: bold; 
-    cursor: pointer;
-}
 .signup-div .options button, .signup-div .options input{
     background: rgb(255,255,255);
     font-size: 20px; 
@@ -313,14 +306,15 @@ input{border: none; border-bottom: solid 1px; outline: 0;}
 .login-div .hide-view{
     width: 20px;
     position: absolute;
-    right: 25%;
-    bottom: 51%;
+    right: 19%;
+    /*bottom: 51%;*/
+    bottom: 44%;
 }
 .signup-div .hide-view{
     width: 20px;
     position: absolute;
-    left: 84.5%;
-    bottom: 10px;
+    left: 91%;
+    bottom: 13px;
 }
 .view{display: none;}
 
