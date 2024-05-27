@@ -4,7 +4,7 @@ select category_id, category_name from categories order by category_id; -- CATEG
 select customer_id, first_name, last_name, email, phone_number, password from customers order by customer_id; -- CUSTOMERS DAO FIND ALL SELECT
 select detail_id, product_quantity, detail_price, order_id, product_id from details order by detail_id; -- DETAILS DAO FIND ALL SELECT
 select detail_id, product_quantity, detail_price, order_id, product_id from details where product_id=(product_id); -- DETAILS DAO FIND SPECIFIC SELECT
-select detail_id, product_quantity, detail_price, order_id from details where order_id=(order_id); -- DETAILS DAO FIND SPECIFIC ORDER SELECT
+select detail_id, product_quantity, detail_price, order_id, product_id from details where order_id=(order_id); -- DETAILS DAO FIND SPECIFIC ORDER SELECT
 select employee_id, first_name, last_name, email, ss_number, birth_date, hire_date, salary, permission, password, job_id from employees order by employee_id; -- EMPLOYEES DAO FIND ALL SELECT
 select job_id, job_name from jobs order by job_id; -- JOBS DAO FIND ALL SELECT
 select order_id, order_state, direction, order_price, order_date, customer_id from orders order by order_id; -- ORDERS DAO FIND ALL SELECT
