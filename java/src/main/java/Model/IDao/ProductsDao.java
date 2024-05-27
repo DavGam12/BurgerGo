@@ -15,6 +15,7 @@ public class ProductsDao implements IDao<Products, Integer> {
     private final String SQL_FIND_DRINKS = "select * from products prod inner join categories cat on prod.category_id = cat.category_id where 1=1 and lower(category_name) like '%drinks%' order by product_id";
     private final String SQL_FIND_OTHERS = "select * from products prod inner join categories cat on prod.category_id = cat.category_id where 1=1 and lower(category_name) like '%others%' order by product_id";
     private final String SQL_FIND_GLUTEN_FREE = "select * from products prod inner join categories cat on prod.category_id = cat.category_id where 1=1 and lower(category_name) like '%gluten%free%' order by product_id";
+    private final String SQL_FIND_SPECIFIC = "select * from products where product_id=";
     private final String SQL_ADD = "insert into products values";
     private final String SQL_DELETE = "delete from products where product_id=";
     private final String SQL_UPDATE = "update products set ";
@@ -161,6 +162,26 @@ public class ProductsDao implements IDao<Products, Integer> {
             motor.disconnect();
         }
         return products;
+    }
+
+    public Products findSpecific(int id) {
+        Products product = new Products();
+        try {
+            motor.connect();
+            ResultSet rs = motor.executeQuery(SQL_FIND_SPECIFIC+id);
+
+            while (rs.next())
+            {
+                product.setProductID(rs.getInt("product_id".toUpperCase()));
+                product.setProductName(rs.getString("product_name".toUpperCase()));
+                product.setProductImg(rs.getString("product_img".toUpperCase()));
+                product.setProductPrice(rs.getFloat("product_price".toUpperCase()));
+                product.setProductDescription(rs.getString("product_description".toUpperCase()));
+                product.setCategoryID(rs.getInt("category_id".toUpperCase()));
+            }
+        } catch (SQLException sqlEx) {product = null;}
+        finally {motor.disconnect();}
+        return product;
     }
 
 }

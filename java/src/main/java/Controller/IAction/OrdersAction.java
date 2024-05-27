@@ -1,7 +1,6 @@
 package Controller.IAction;
 
 import Model.IDao.OrdersDao;
-import Model.Jobs;
 import Model.Orders;
 import com.google.gson.Gson;
 import com.google.gson.JsonParser;
@@ -32,6 +31,13 @@ public class OrdersAction implements IAction {
                 String order_state = req.getParameter("order_state");
                 int customer_id = Integer.parseInt(req.getParameter("customer_id"));
                 strRet = findSpecific(order_state, customer_id);
+                break;
+            }
+            case "find_specific_past_orders":
+            {
+                String order_state = req.getParameter("order_state");
+                int customer_id = Integer.parseInt(req.getParameter("customer_id"));
+                strRet = findSpecificPastOrders(order_state, customer_id);
                 break;
             }
             case "add":
@@ -76,6 +82,12 @@ public class OrdersAction implements IAction {
         OrdersDao ordersDao = new OrdersDao();
         Orders order = ordersDao.findSpecific(order_state, customer_id);
         return Orders.toArrayJson(order);
+    }
+    private String findSpecificPastOrders(String order_state, int customer_id)
+    {
+        OrdersDao ordersDao = new OrdersDao();
+        ArrayList<Orders> orders = ordersDao.findSpecificPastOrders(order_state, customer_id);
+        return Orders.toArrayJson(orders);
     }
     private String add(Orders order)
     {

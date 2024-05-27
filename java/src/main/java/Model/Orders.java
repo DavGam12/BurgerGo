@@ -14,8 +14,8 @@ public class Orders {
     private String _orderDate;
     /*private Employees _employee;
     private Customers _customer;*/
-    private int _employeeID;
-    private int _customerID;
+    private Integer _employeeID;
+    private Integer _customerID;
 
     public void setOrderID (int orderID) {_orderID = orderID;}
     public void setOrderState (String orderState) {_orderState = orderState;}
@@ -24,8 +24,8 @@ public class Orders {
     public void setOrderDate (String orderDate) {_orderDate = orderDate.replace(" 00:00:00", "");}
     /*public void setEmployee (Employees employee) {_employee = employee;}
     public void setCustomer (Customers customer) {_customer = customer;}*/
-    public void setEmployeeID (int employeeID) {_employeeID = employeeID;}
-    public void setCustomerID (int customerID) {_customerID = customerID;}
+    public void setEmployeeID (Integer employeeID) {_employeeID = employeeID;}
+    public void setCustomerID (Integer customerID) {_customerID = customerID;}
 
     public int getCurrentOrderID () {return _currentOrderID;}
     public int getOrderID () {return _orderID;}
@@ -35,10 +35,10 @@ public class Orders {
     public String getOrderDate () {return _orderDate.replace(" 00:00:00", "");}
     /*public Employees getEmployee () {return _employee;}
     public Customers getCustomer () {return _customer;}*/
-    public int getEmployeeID () {return _employeeID;}
-    public int getCustomerID () {return _customerID;}
+    public Integer getEmployeeID () {return _employeeID;}
+    public Integer getCustomerID () {return _customerID;}
 
-    public Orders (int orderID, String orderState, String direction, float orderPrice, String orderDate, /*Employees employee, Customers customer,*/ int employeeID, int customerID) {
+    public Orders (int orderID, String orderState, String direction, float orderPrice, String orderDate, /*Employees employee, Customers customer,*/ Integer employeeID, Integer customerID) {
         _orderID = orderID;
         _orderState = orderState;
         _direction = direction;

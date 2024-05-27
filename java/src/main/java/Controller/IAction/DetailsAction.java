@@ -57,12 +57,6 @@ public class DetailsAction implements IAction {
                 strRet = update(detail);
                 break;
             }
-            case "updateSpecific":
-            {
-                Details detail = gson.fromJson(parser.parse(getBody(req)), Details.class);
-                strRet = updateSpecific(detail);
-                break;
-            }
             default:
                 strRet = "ERROR. Invalid Action";
         }
@@ -85,8 +79,8 @@ public class DetailsAction implements IAction {
     private String findSpecificOrder(int order_id)
     {
         DetailsDao detailsDao = new DetailsDao();
-        Details detail = detailsDao.findSpecificOrder(order_id);
-        return Details.toArrayJson(detail);
+        ArrayList<Details> details = detailsDao.findSpecificOrder(order_id);
+        return Details.toArrayJson(details);
     }
 
     private String add(Details details)
@@ -107,12 +101,6 @@ public class DetailsAction implements IAction {
     {
         DetailsDao detailsDao = new DetailsDao();
         int iRes = detailsDao.update(details);
-        return String.valueOf(iRes);
-    }
-    private String updateSpecific(Details details)
-    {
-        DetailsDao detailsDao = new DetailsDao();
-        int iRes = detailsDao.updateSpecific(details);
         return String.valueOf(iRes);
     }
 }

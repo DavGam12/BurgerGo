@@ -19,12 +19,13 @@ public class OrdersDao implements IDao<Orders, Integer> {
 
         try
         {
+
             motor.connect();
             String sql = SQL_ADD + "('" +
                     o.getOrderState() + "', '" +
                     o.getDirection() + "', " +
-                    o.getOrderPrice() + ", " +
-                    o.getOrderDate() + ", " +
+                    o.getOrderPrice() + ", '" +
+                    o.getOrderDate() + "', " +
                     o.getEmployeeID() + ", " +
                     o.getCustomerID() + ")";
 
@@ -62,10 +63,10 @@ public class OrdersDao implements IDao<Orders, Integer> {
                     o.getOrderID() + ", order_state='" +
                     o.getOrderState() + "', direction='" +
                     o.getDirection() + "', order_price=" +
-                    o.getOrderPrice() + ", order_date=" +
-                    o.getOrderDate() + ", employee_id=" +
+                    o.getOrderPrice() + ", order_date='" +
+                    o.getOrderDate() + "', employee_id=" +
                     o.getEmployeeID() + ", customer_id=" +
-                    o.getCustomerID() + " where order_id=" + o.getCurrentOrderID();
+                    o.getCustomerID() + " where order_id=" + o.getOrderID();
 
             iRet = motor.executeUpdate(sql);
         }
@@ -121,12 +122,12 @@ public class OrdersDao implements IDao<Orders, Integer> {
         return iRet;
     }
 
-    public Orders findSpecific(String order_state, int customer_id){
+    public Orders findSpecific(String order_state, int id){
         Orders order = new Orders();
         try
         {
             motor.connect();
-            String sql = SQL_FIND_SPECIFIC +"'"+order_state+"'" + " and customer_id=" + customer_id;
+            String sql = SQL_FIND_SPECIFIC +"'"+order_state+"'" + " and customer_id=" + id;
 
             ResultSet rs = motor.executeQuery(sql);
 
@@ -142,7 +143,35 @@ public class OrdersDao implements IDao<Orders, Integer> {
             }
         }
         catch (Exception ex) {order=null;}
-        finally {motor.connect();}
+        finally {motor.disconnect();}
         return order;
+    }
+
+    public ArrayList<Orders> findSpecificPastOrders(String order_state, int id){
+        ArrayList<Orders> orders = new ArrayList<>();
+        try
+        {
+            motor.connect();
+            String sql = SQL_FIND_SPECIFIC.replace("=", "!=") +"'"+order_state+"'" + " and customer_id=" + id;
+
+            ResultSet rs = motor.executeQuery(sql);
+
+            while (rs.next())
+            {
+                Orders order = new Orders();
+                order.setOrderID(rs.getInt("order_id"));
+                order.setOrderState(rs.getString("order_state"));
+                order.setDirection(rs.getString("direction"));
+                order.setOrderPrice(rs.getFloat("order_price"));
+                order.setOrderDate(rs.getString("order_date"));
+                order.setEmployeeID(rs.getInt("employee_id"));
+                order.setCustomerID(rs.getInt("customer_id"));
+
+                orders.add(order);
+            }
+        }
+        catch (Exception ex) {orders.clear();}
+        finally {motor.disconnect();}
+        return orders;
     }
 }

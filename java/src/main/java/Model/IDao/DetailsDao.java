@@ -61,22 +61,7 @@ public class DetailsDao implements IDao<Details, Integer> {
                     o.getProductQuantity() + ", detail_price=" +
                     o.getDetailPrice() + ", order_id=" +
                     o.getOrderID() + ", product_id=" +
-                    o.getProductID() + " where detail_id=" + o.getCurrentDetailID();
-
-            iRet = motor.executeUpdate(sql);
-        }
-        catch (Exception ex) {iRet = 0;}
-        finally {motor.disconnect();}
-        return iRet;
-    }
-
-    public int updateSpecific(Details o) {
-        int iRet = 0;
-
-        try
-        {
-            motor.connect();
-            String sql = SQL_UPDATE + "product_quantity=" + o.getProductQuantity() + ", detail_price=" + o.getDetailPrice() + " where detail_id=" + o.getCurrentDetailID();
+                    o.getProductID() + " where detail_id=" + o.getDetailID();
 
             iRet = motor.executeUpdate(sql);
         }
@@ -138,9 +123,9 @@ public class DetailsDao implements IDao<Details, Integer> {
         return detail;
     }
 
-    public Details findSpecificOrder(int order_id)
+    public ArrayList<Details> findSpecificOrder(int order_id)
     {
-        Details detail = new Details();
+        ArrayList<Details> details = new ArrayList<>();
 
         try
         {
@@ -149,17 +134,19 @@ public class DetailsDao implements IDao<Details, Integer> {
 
             while (rs.next())
             {
+                Details detail = new Details();
                 detail.setDetailID(rs.getInt("detail_id"));
                 detail.setProductQuantity(rs.getInt("product_quantity"));
                 detail.setDetailPrice(rs.getFloat("detail_price"));
                 detail.setOrderID(rs.getInt("order_id"));
                 detail.setProductID(rs.getInt("product_id"));
 
+                details.add(detail);
             }
         }
-        catch (Exception ex) {detail=null;}
+        catch (Exception ex) {details.clear();}
         finally {motor.disconnect();}
 
-        return detail;
+        return details;
     }
 }

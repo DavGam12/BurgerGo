@@ -133,7 +133,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
     })
 
     profileMenuParagraph.addEventListener("click",()=>{
-        if (user.logged.toString() != 'true') {
+        if (user.logged.toString() != 'true')
+        {
             loginRequiredDiv.style.display = "flex"
             document.body.style.overflow = "hidden"
             document.body.style.pointerEvents = "none"
@@ -141,41 +142,35 @@ document.addEventListener("DOMContentLoaded", (event) => {
             ActivateOpacity(loginRequiredDiv.className, 0.5)
             menuDiv.style.opacity = 0.9
         }
-        else {
-            profileMenuParagraph.getElementsByTagName("a")[0].click()
-        }
+        else {profileMenuParagraph.getElementsByTagName("a")[0].click()}
     })
 
     orderButton.addEventListener("click",()=>{
         if (user.logged.toString() != 'true')
-            {
-                loginRequiredDiv.style.display = "flex"
-                document.body.style.overflow = "hidden"
-                document.body.style.pointerEvents = "none"
-                SpecificEnable(loginRequiredDiv.className)
-                ActivateOpacity(loginRequiredDiv.className, 0.5)
-                menuDiv.style.opacity = 0.9
-            }
-            else 
-            {
-                orderButton.parentElement.getElementsByTagName("a")[0].click()
-            }
+        {
+            loginRequiredDiv.style.display = "flex"
+            document.body.style.overflow = "hidden"
+            document.body.style.pointerEvents = "none"
+            SpecificEnable(loginRequiredDiv.className)
+            ActivateOpacity(loginRequiredDiv.className, 0.5)
+            menuDiv.style.opacity = 0.9
+        }
+        else if (user.permission != "null") {alert("Employees do not have access to the Order section")}
+        else {orderButton.parentElement.getElementsByTagName("a")[0].click()}
     })
 
     orderMenuParagraph.addEventListener("click",()=>{
         if (user.logged.toString() != 'true')
-            {
-                loginRequiredDiv.style.display = "flex"
-                document.body.style.overflow = "hidden"
-                document.body.style.pointerEvents = "none"
-                SpecificEnable(loginRequiredDiv.className)
-                ActivateOpacity(loginRequiredDiv.className, 0.5)
-                menuDiv.style.opacity = 0.9
-            }
-            else 
-            {
-                orderMenuParagraph.getElementsByTagName("a")[0].click()
-            }
+        {
+            loginRequiredDiv.style.display = "flex"
+            document.body.style.overflow = "hidden"
+            document.body.style.pointerEvents = "none"
+            SpecificEnable(loginRequiredDiv.className)
+            ActivateOpacity(loginRequiredDiv.className, 0.5)
+            menuDiv.style.opacity = 0.9
+        }
+        else if (user.permission != "null") {alert("Employees do not have access to the Order section")}
+        else {orderMenuParagraph.getElementsByTagName("a")[0].click()}
     })
 
     loginRequiredSignupButton.addEventListener("click",()=>{

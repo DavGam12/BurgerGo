@@ -21,6 +21,11 @@ public class ProductsAction implements IAction {
         String strReturn;
 
         switch (act.toLowerCase()) {
+            case "find_all":
+            {
+                strReturn = findAll();
+                break;
+            }
             case "burgers":
             {
                 strReturn = findAllByCategory("burgers");
@@ -51,9 +56,10 @@ public class ProductsAction implements IAction {
                 strReturn = findAllByCategory("gluten-free");
                 break;
             }
-            case "find_all":
+            case "find_specific":
             {
-                strReturn = findAll();
+                Integer productID = Integer.parseInt(req.getParameter("product_id"));
+                strReturn = findSpecific(productID);
                 break;
             }
             case "add":
@@ -89,6 +95,11 @@ public class ProductsAction implements IAction {
         ProductsDao productsDao = new ProductsDao();
         ArrayList<Products> products = productsDao.findAllByCategory(category);
         return Products.toArrayJson(products);
+    }
+    private String findSpecific (int productID) {
+        ProductsDao productsDao = new ProductsDao();
+        Products product = productsDao.findSpecific(productID);
+        return Products.toArrayJson(product);
     }
     private String add (Products prod) {
         ProductsDao productsDao = new ProductsDao();

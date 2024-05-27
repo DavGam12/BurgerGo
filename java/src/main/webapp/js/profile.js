@@ -1,7 +1,9 @@
-// Values
-let userEmail = localStorage.getItem("user.email")
-let userFirstName = localStorage.getItem("user.firstName")
-let userLastName = localStorage.getItem("user.lastName")
+const ORDER_STATES =
+{
+    in_the_making: "in the making",
+    on_the_way: "on the way",
+    delivered: "delivered"
+}
 
 // General
 let optionButtons
@@ -24,7 +26,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     optionButtons = document.getElementsByClassName("profile-options")[0].getElementsByTagName("button")
     hr = document.getElementsByTagName("hr")
 
-    userFirstNameText = document.getElementsByClassName("user-firstname")
     accountOption = document.getElementById("account-option")
     pastordersOption = document.getElementById("pastorders-option")
 
@@ -32,6 +33,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
     logoutAcceptButton = document.getElementById("logout-accept")
     logoutCancelButton = document.getElementById("logout-cancel")
     staffButtons = document.getElementsByClassName("staff-buttons")[0].getElementsByTagName("button")
+
+    userFirstNameText = document.getElementsByClassName("user-firstname")[0]
 
     switch (Number.parseInt(user.permission))
     {
@@ -56,7 +59,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     
     window.addEventListener("load",()=>{ // on window load
-        FillUserFirstName(userFirstName)
+        FillUserData()
     })
 
     optionButtons[0].addEventListener("mouseover",()=>{HrWidth(hr[0])})
@@ -127,10 +130,8 @@ const emptyUser = () => {
     LoadVariables()
 }
 
-function FillUserFirstName(name){
-    Array.from(userFirstNameText).forEach(e => {
-        e.textContent = name
-    })
+function FillUserData(name){
+    userFirstNameText.textContent = name
 }
 function HrWidth(e){e.style.animation = "hrWidth 1.5s"; e.style.visibility = "visible"; e.style.width = "60%";}
 function DeleteAnimation(e){e.style.animation = "none";}
@@ -171,3 +172,90 @@ DeactivateOpacity = () => {
     })
 }
 
+
+
+/* FETCH */
+const pastOrdersURL = `http://localhost:8080/BurgerGo/Controller?action=orders.find_specific_past_orders&order_state=${ORDER_STATES.in_the_making}&customer_id=${user.id}`
+const currentOrderDetailsURL = "http://localhost:8080/BurgerGo/Controller?action=details.find_specific_order&order_id="
+const currentProductURL = "http://localhost:8080/BurgerGo/Controller?action=products.find_specific&product_id="
+
+const fetcData = async() => {
+    const pastOrdersRes = await fetch(pastOrdersURL)
+    const pastOrdersData = await pastOrdersRes.json()
+    console.log("pastOrdersData --> ", pastOrdersData)
+    printPastOrders(pastOrdersData)
+}
+
+const currentOrderDetailsFetch = async(id) => {
+    const currentOrderDetailsRes = await fetch(currentOrderDetailsURL.concat(id))
+    const currentOrderDetailsData = await currentOrderDetailsRes.json()
+    console.log("currentOrderDetailsData --> ", currentOrderDetailsData)
+    return currentOrderDetailsData
+}
+
+const currentProductFetch = async(id) => {
+    const currentProductRes = await fetch(currentProductURL.concat(id))
+    const currentProductData = await currentProductRes.json()
+    console.log("currentProductData --> ", currentProductData)
+    return currentProductData
+}
+
+const printPastOrders = (data) => {
+    Array.from(data).forEach(order => {
+        let currentOrderDetails
+        currentOrderDetails = currentOrderDetailsFetch(order._orderID).then(details => currentOrderDetails = details)
+
+        const pastOrderDiv = pastordersOption.appendChild(document.createElement("div"))
+        pastOrderDiv.classList.add("pastorder")
+
+        const pricePosition = pastOrderDiv.appendChild(document.createElement("div"))
+        pricePosition.classList.add("price-position")
+        pricePosition.textContent = "Price: "
+        const pastOrderPriceSpan = pricePosition.appendChild(document.createElement("span"))
+        pastOrderPriceSpan.classList.add("pastorder-price")
+        pastOrderPriceSpan.textContent = order._orderPrice.toFixed(2)+"€"
+
+        const productsPosition = pastOrderDiv.appendChild(document.createElement("div"))
+        productsPosition.classList.add("products-position")
+
+        Array.from(currentOrderDetails).forEach(detail => {
+            let currentProduct
+            currentProduct = currentProductFetch(detail._productID).then(product => currentProduct = product)
+
+            const mainDiv = productsPosition.appendChild(document.createElement("div"))
+            mainDiv.classList.add("current-product")
+
+            const mainP = mainDiv.appendChild(document.createElement("p"))
+
+            const nameSpan = mainP.appendChild(document.createElement("span"))
+            nameSpan.classList.add("current-product-name")
+            nameSpan.textContent = currentProduct._productName
+
+            const priceSpan = mainP.appendChild(document.createElement("span"))
+            priceSpan.classList.add("current-product-price")
+            priceSpan.textContent = detail._detailPrice
+
+            const quantityDiv = mainDiv.appendChild(document.createElement("div"))
+            quantityDiv.classList.add("current-product-quantity-div")
+            const quantitySpan = quantityDiv.appendChild(document.createElement("div"))
+            quantitySpan.classList.add("current-product-quantity-info")
+            quantitySpan.textContent = detail._productQuantity
+        })
+
+        const datePosition = pastOrderDiv.appendChild(document.createElement("div"))
+        datePosition.classList.add("date-position")
+        const dateParagraph = datePosition.appendChild(document.createElement("p"))
+        dateParagraph.textContent = "Date: "
+        const dateSpan = dateParagraph.appendChild(document.createElement("span"))
+        dateSpan.classList.add("pastorder-date")
+        dateSpan.textContent = order._orderDate
+
+        const stateParagraph = datePosition.appendChild(document.createElement("p"))
+        stateParagraph.textContent = "State: "
+        const stateSpan = stateParagraph.appendChild(document.createElement("span"))
+        stateSpan.classList.add("pastorder-state")
+        stateSpan.textContent = order._orderState
+    })
+}
+
+fetcData()

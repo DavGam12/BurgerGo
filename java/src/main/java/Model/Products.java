@@ -42,13 +42,22 @@ public class Products {
     }
     public Products () {}
 
-    public static String toArrayJson(ArrayList<Products> Products) {
+    public static String toArrayJson(ArrayList<Products> products) {
         GsonBuilder builder = new GsonBuilder();
         builder.setPrettyPrinting();
 
         Gson gson = builder.create();
 
-        return gson.toJson(Products);
+        return gson.toJson(products);
+    }
+
+    public static String toArrayJson(Products product) {
+        GsonBuilder builder = new GsonBuilder();
+        builder.setPrettyPrinting();
+
+        Gson gson = builder.create();
+
+        return gson.toJson(product);
     }
 
 }
