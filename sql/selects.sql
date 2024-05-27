@@ -15,3 +15,4 @@ select * from products prod inner join categories cat on prod.category_id = cat.
 select * from products prod inner join categories cat on prod.category_id = cat.category_id where 1=1 and lower(category_name) like '%drinks%' order by product_id; -- PRODUCTS DAO FIND ALL PRODUCTS FROM DRINKS CATEGORY SELECT
 select * from products prod inner join categories cat on prod.category_id = cat.category_id where 1=1 and lower(category_name) like '%others%' order by product_id; -- PRODUCTS DAO FIND ALL PRODUCTS FROM OTHERS CATEGORY SELECT
 select * from products prod inner join categories cat on prod.category_id = cat.category_id where 1=1 and lower(category_name) like '%gluten%free%' order by product_id; -- PRODUCTS DAO FIND ALL PRODUCTS FROM GLUTEN FREE CATEGORY SELECT
+select * from products where product_id=(product_id); -- PRODUCTS DAO FIND SPECIFIC SELECT
