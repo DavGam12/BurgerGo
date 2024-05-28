@@ -207,8 +207,8 @@ hr{visibility: hidden; border: solid 2px goldenrod;}
     padding: 2% 3%;
     margin: 2% 0%;
     display: grid;
-    grid-template-areas: "price products date reorder";
-    grid-template-columns: 20% 45% 20% 15%;
+    grid-template-areas: "price products date";
+    grid-template-columns: 25% 50% 25% 0%;
     align-items: center;
     justify-content: center;
     font-size: large;
@@ -245,14 +245,6 @@ hr{visibility: hidden; border: solid 2px goldenrod;}
 .pastorder-price-quantity-info span{padding: 5% 0%;}
 .date-position{grid-area: date; text-align: center;}
 .date-position p{padding: 2% 0%;}
-.reorder-position{grid-area: reorder; display: flex; justify-content: center; width: 100%; padding-left: 10%;}
-.reorder{
-    width: 70%;
-    border: solid rebeccapurple;
-    border-radius: 100px;
-    padding: 2%;
-}
-.reorder:hover{background: rgb(230, 230, 230);font-weight: bold;}
 .pastorders-empty-div{
     display: flex;
     flex-direction: column;
@@ -269,7 +261,6 @@ hr{visibility: hidden; border: solid 2px goldenrod;}
 
 @media (width<1130px) {
     .pastorder-product{width: 40%;}
-    .reorder{width: 100%;}
     .pastorder-product{width: 80%;}
     .delete-account-div{width: 50%;}
 }
@@ -290,15 +281,15 @@ hr{visibility: hidden; border: solid 2px goldenrod;}
     .price-position{text-align: center; padding-top: 5%; padding-bottom: 10%;}
     .pastorder-product{flex-wrap: wrap; width: 40%;}
     .date-position{text-align: center; padding-top: 10%; padding-bottom: 5%;}
-    .reorder-position{width: 20%; padding: 0;}
     .date-position{display: flex; flex-direction: column;}
     .products-position{width: 100%;}
     .account-option span{font-size: large;}
     .delete-account-div{width: 70%;}
+    .pastorders-empty-div h2{font-size: x-large;}
+    .pastorders-empty-div p{font-size: large;}
 }
 
 @media (width<500px) {
-    .reorder-position{width: 30%;}
     h1{padding-top: 10%;}
     .pastorder-product{width: 70%; flex-direction: column;}
     .account-option div:not(.delete-account-div, .delete-account-div .options){width: 100%; flex-direction: column; padding: 3% 0% 3% 0%;}
