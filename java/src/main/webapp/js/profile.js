@@ -12,6 +12,7 @@ let hr
 let accountOption
 let pastordersOption
 let deleteAccountDiv
+let pastorderEmptyDiv
 // Buttons
 let logoutButton
 let logoutAcceptButton
@@ -36,6 +37,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     accountOption = document.getElementsByClassName("account-option")[0]
     pastordersOption = document.getElementById("pastorders-option")
     deleteAccountDiv = document.getElementsByClassName("delete-account-div")[0]
+    pastorderEmptyDiv = document.getElementsByClassName("pastorders-empty-div")[0]
 
     logoutButton = document.getElementById("logout")
     logoutAcceptButton = document.getElementById("logout-accept")
@@ -145,8 +147,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 
     FillUserData()
+    pastOrderEmpty()
 })
 
+const pastOrderEmpty = () => {
+    if (pastordersOption.childElementCount>1) {pastorderEmptyDiv.style.display = "none"}
+    else {pastorderEmptyDiv.style.display = "flex "}
+}
 
 const emptyUser = () => {
     user.id = null

@@ -436,6 +436,7 @@ const userCreation = async(currentEmail, currentPassword, perms) => {
     }
 
     SaveVariables()
+    userIcon.click()
 }
 
 
