@@ -12,6 +12,7 @@ let hr
 let accountOption
 let pastordersOption
 let deleteAccountDiv
+let pastorderEmptyDiv
 // Buttons
 let logoutButton
 let logoutAcceptButton
@@ -36,6 +37,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     accountOption = document.getElementsByClassName("account-option")[0]
     pastordersOption = document.getElementById("pastorders-option")
     deleteAccountDiv = document.getElementsByClassName("delete-account-div")[0]
+    pastorderEmptyDiv = document.getElementsByClassName("pastorders-empty-div")[0]
 
     logoutButton = document.getElementById("logout")
     logoutAcceptButton = document.getElementById("logout-accept")
@@ -138,15 +140,33 @@ document.addEventListener("DOMContentLoaded", (event) => {
         deleteAccountDiv.style.display = "none"
     })
     deleteAccountAccept.addEventListener("click", async() => {
-        await accountDeletePostFetch(user).then(a.click())
         const a = document.createElement("a")
-        a.setAttribute("src", "./main.html")
+        a.setAttribute("href", "./main.html")
+        let currentOrders = await pastOrdersFetch()
+        Array.from(await currentOrders).forEach(async order => {
+            let currentDetails = await currentOrderDetailsFetch(order._orderID)
+            Array.from(await currentDetails).forEach(async detail => {
+                await detailDeletePostFetch(detail)
+            })
+            await orderDeletePostFetch(order)
+        })
+        const currentUser =
+        {
+            _customerID: user.id
+        }
+        await accountDeletePostFetch(currentUser)
+        .then(emptyUser())
+        .then(a.click())
     })
 
 
     FillUserData()
 })
 
+const pastOrderEmpty = () => {
+    if (pastordersOption.childElementCount>1) {pastorderEmptyDiv.style.display = "none"}
+    else {pastorderEmptyDiv.style.display = "flex "}
+}
 
 const emptyUser = () => {
     user.id = null
@@ -211,17 +231,26 @@ DeactivateOpacity = () => {
 
 /* FETCH */
 const pastOrdersURL = `http://localhost:8080/BurgerGo/Controller?action=orders.find_specific_past_orders&order_state=${ORDER_STATES.in_the_making}&customer_id=${user.id}`
+const currentOrderURL = `http://localhost:8080/BurgerGo/Controller?action=orders.find_specific&order_state=${ORDER_STATES.in_the_making}&customer_id=${user.id}`
 const currentOrderDetailsURL = "http://localhost:8080/BurgerGo/Controller?action=details.find_specific_order&order_id="
 const currentProductURL = "http://localhost:8080/BurgerGo/Controller?action=products.find_specific&product_id="
 const reorderOrderPostURL = "http://localhost:8080/BurgerGo/Controller?action=orders.add"
 const reorderDetailPostURL = "http://localhost:8080/BurgerGo/Controller?action=details.add"
 const accountDeletePostURL = "http://localhost:8080/BurgerGo/Controller?action=customers.delete"
+const orderDeletePostURL = "http://localhost:8080/BurgerGo/Controller?action=orders.delete"
+const detailDeletePostURL = "http://localhost:8080/BurgerGo/Controller?action=details.delete"
 
-const fetcData = async() => {
+const fetchData = async() => {
     const pastOrdersRes = await fetch(pastOrdersURL)
     const pastOrdersData = await pastOrdersRes.json()
     console.log("pastOrdersData --> ", pastOrdersData)
     printPastOrders(pastOrdersData)
+}
+
+const pastOrdersFetch = async() => {
+    const pastOrdersRes = await fetch(pastOrdersURL)
+    const pastOrdersData = await pastOrdersRes.json()
+    return pastOrdersData
 }
 
 const currentOrderDetailsFetch = async(id) => {
@@ -260,6 +289,25 @@ const reorderDetailPostFetch = async(obj) => {
 
 const accountDeletePostFetch = async(obj) => {
     await fetch(accountDeletePostURL,
+        {
+            method: "post",
+            body: JSON.stringify(obj),
+            headers: { "Content-Type": "application/json" }
+        }
+    )
+}
+const orderDeletePostFetch = async(obj) => {
+    await fetch(orderDeletePostURL,
+        {
+            method: "post",
+            body: JSON.stringify(obj),
+            headers: { "Content-Type": "application/json" }
+        }
+    )
+}
+
+const detailDeletePostFetch = async(obj) => { 
+    await fetch(detailDeletePostURL,
         {
             method: "post",
             body: JSON.stringify(obj),
@@ -322,23 +370,8 @@ const printPastOrders = (data) => {
         const stateSpan = stateParagraph.appendChild(document.createElement("span"))
         stateSpan.classList.add("pastorder-state")
         stateSpan.textContent = order._orderState
-
-        const reorderPosition = pastOrderDiv.appendChild(document.createElement("div"))
-        reorderPosition.classList.add("reorder-position")
-        const reorderButton = reorderPosition.appendChild(document.createElement("button"))
-        reorderButton.classList.add("reorder")
-        reorderButton.textContent = "Reorder"
-
-        reorderButton.addEventListener("click", async() => {
-            reorderOrder = order
-            reorderOrder._orderState = ORDER_STATES.in_the_making
-            await reorderOrderPostFetch(reorderOrder)
-            Array.from(await currentOrderDetails).forEach(async detail => {
-                await reorderDetailPostFetch(detail)
-            })
-            await orderButton.click() // from base.js
-        })
     })
+    pastOrderEmpty()
 }
 
-fetcData()
+fetchData()
