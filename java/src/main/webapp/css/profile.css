@@ -253,6 +253,18 @@ hr{visibility: hidden; border: solid 2px goldenrod;}
     padding: 2%;
 }
 .reorder:hover{background: rgb(230, 230, 230);font-weight: bold;}
+.pastorders-empty-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1%;
+    margin-top: 5%;
+    box-shadow: 2px 2px 5px 5px grey;
+}
+.pastorders-empty-div h2{font-size: xx-large; padding: 1% 0% 3% 0%;}
+.pastorders-empty-div p{font-size: x-large;padding: 2% 0% 1% 0%;}
 
 
 @media (width<1130px) {
