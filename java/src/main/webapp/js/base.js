@@ -244,13 +244,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
             _password: document.getElementById("login-password").value
         }
         
-        await logInFetch(objecCurrentInputValues._email, objecCurrentInputValues._password)
+        await logInFetch(objecCurrentInputValues._email, objecCurrentInputValues._password).then(userIcon.click())
         DeactivateOpacity()
         loginDiv.style.display = "none"
         document.body.style.overflow = "visible"
         document.body.style.pointerEvents = "all"
         SaveVariables()
-
     })
     loginSignupButton.addEventListener("click",()=>{
         loginDiv.style.display = "none"
@@ -417,7 +416,7 @@ const userCreation = async(currentEmail, currentPassword, perms) => {
             user.email = e._email
             user.firstName = e._firstName
             user.lastName = e._lastName
-            user.phoneNumber = e._phoneNumber
+            user.phoneNumber = null
             user.permission = null
             user.logged = true
         })

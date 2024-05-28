@@ -164,7 +164,8 @@ function FillUserData(){
     userFirstNameText.textContent = user.firstName
     userLastNameText.textContent = user.lastName
     userEmailText.textContent = user.email
-    userPhoneNumberText.textContent = user.phoneNumber
+    if (user.phoneNumber === null) {userPhoneNumberText.textContent = "Not Given"}
+    else {userPhoneNumberText.textContent = user.phoneNumber}
 }
 
 function HrWidth(e){e.style.animation = "hrWidth 1.5s"; e.style.visibility = "visible"; e.style.width = "60%";}
