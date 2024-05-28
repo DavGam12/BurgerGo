@@ -4,6 +4,7 @@ let user =
     email: (localStorage.getItem("user.email")),
     firstName: (localStorage.getItem("user.firstName")),
     lastName: (localStorage.getItem("user.lastName")),
+    phoneNumber: (localStorage.getItem("user.phoneNumber")),
     permission: (localStorage.getItem("user.permission")),
     logged: (localStorage.getItem("user.logged"))
 }
@@ -14,6 +15,7 @@ function SaveVariables(){
     localStorage.setItem("user.email", user.email)
     localStorage.setItem("user.firstName", user.firstName)
     localStorage.setItem("user.lastName", user.lastName)
+    localStorage.setItem("user.phoneNumber", user.phoneNumber)
     localStorage.setItem("user.permission", user.permission)
     localStorage.setItem("user.logged", user.logged)
 }
@@ -23,6 +25,7 @@ function LoadVariables(){
     user.email = (localStorage.getItem("user.email"))
     user.firstName = (localStorage.getItem("user.firstName"))
     user.lastName = (localStorage.getItem("user.lastName"))
+    user.phoneNumber = (localStorage.getItem("user.phoneNumber")),
     user.permission = (localStorage.getItem("user.permission"))
     user.logged = (localStorage.getItem("user.logged"))
 }
@@ -63,6 +66,8 @@ let passwordInput
 let profileMenuParagraph
 let orderMenuParagraph
 let innerCarouselContainer
+let signUpForm
+let logInForm
 
 
 document.addEventListener("DOMContentLoaded", (event) => {
@@ -107,7 +112,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
     passwordInput = document.getElementsByClassName("password-field")
     profileMenuParagraph = document.getElementsByClassName("other-categories")[0].getElementsByTagName("p")[0]
     orderMenuParagraph = document.getElementsByClassName("other-categories")[0].getElementsByTagName("p")[1]
-
+    signUpForm = document.getElementById("signup-form")
+    logInForm = document.getElementById("login-form")
 
     menuButton.addEventListener("click",()=>{
         menuDiv.style.transform = "translateY(0px) translateZ(0px)"
@@ -127,9 +133,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             loginButton.style.display = "block"
             signupButton.style.display = "block"
         }
-        else {
-            userIcon.getElementsByTagName("a")[0].click()
-        }
+        else {userIcon.getElementsByTagName("a")[0].click()}
     })
 
     profileMenuParagraph.addEventListener("click",()=>{
@@ -219,16 +223,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
     })
 
 
-    // User Logs
-    const userLogInTrue = async() =>
-    {
-        user.logged = true
-        userIcon.click()
-    }
-
     loginButton.addEventListener("click",()=>{
         loginDiv.style.display = "flex"
-        document.body.style.overflow = "hidden"
         document.body.style.pointerEvents = "none"
         loginButton.style.display = "none"
         signupButton.style.display = "none"
@@ -241,7 +237,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         document.body.style.pointerEvents = "all"
         DeactivateOpacity()
     })
-    loginAcceptButton.parentElement.parentElement.addEventListener("formdata", async()=>{
+    logInForm.addEventListener("submit", async()=>{
         objecCurrentInputValues =
         {
             _email: document.getElementById("login-email").value,
@@ -249,7 +245,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
         
         await logInFetch(objecCurrentInputValues._email, objecCurrentInputValues._password)
-        await userLogInTrue()
         DeactivateOpacity()
         loginDiv.style.display = "none"
         document.body.style.overflow = "visible"
@@ -278,12 +273,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
     })
     closeSignup.addEventListener("click",()=>{
         signupDiv.style.display = "none"
+        signupDiv.style.visibility = "hidden"
         document.body.style.overflow = "visible"
         document.body.style.pointerEvents = "all"
         DeactivateOpacity()
     })
-    signupAcceptButton.parentElement.parentElement.addEventListener("formdata", async()=>{
-        
+   
+
+    signUpForm.addEventListener("submit", async(e)=>{
+        console.log(e.target)
+        console.log(signupAcceptButton)
+
         if (document.getElementById("signup-password").value === document.getElementById("signup-repeatpassword").value)
         {
             objecCurrentInputValues =
@@ -295,8 +295,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 _password: document.getElementById("signup-password").value
             }
             await signUpFetch(objecCurrentInputValues)
-            await userCreation(objecCurrentInputValues._email, objecCurrentInputValues._password, "customer")
-            await userLogInTrue()
+            .then(userCreation(objecCurrentInputValues._email, objecCurrentInputValues._password, "customer"))
         }
         else {alert("The Password doesn't match the Repeat Password.")}
 
@@ -418,7 +417,9 @@ const userCreation = async(currentEmail, currentPassword, perms) => {
             user.email = e._email
             user.firstName = e._firstName
             user.lastName = e._lastName
+            user.phoneNumber = e._phoneNumber
             user.permission = null
+            user.logged = true
         })
     }
     else
@@ -429,7 +430,9 @@ const userCreation = async(currentEmail, currentPassword, perms) => {
             user.email = e._email
             user.firstName = e._firstName
             user.lastName = e._lastName
+            user.phoneNumber = e_phoneNumber
             user.permission = e._permission
+            user.logged = true
         })
     }
 

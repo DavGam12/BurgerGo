@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class CategoriesDao implements IDao<Categories, Integer>{
     private final SQLMotor motor = new SQLMotor();
-    private final String SQL_FIND_ALL = "select * from categories order by category_id";
+    private final String SQL_FIND_ALL = "select category_id, category_name from categories order by category_id";
     private final String SQL_ADD = "insert into categories values";
     private final String SQL_DELETE = "delete from categories where category_id=";
     private final String SQL_UPDATE = "update categories set ";

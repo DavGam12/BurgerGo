@@ -8,8 +8,8 @@ import java.util.ArrayList;
 
 public class OrdersDao implements IDao<Orders, Integer> {
     private final SQLMotor motor = new SQLMotor();
-    private final String SQL_FIND_ALL = "select * from orders order by order_id";
-    private final String SQL_FIND_SPECIFIC = "select * from orders where order_state=";
+    private final String SQL_FIND_ALL = "select order_id, order_state, direction, order_price, order_date, employee_id, customer_id from orders order by order_id";
+    private final String SQL_FIND_SPECIFIC = "select order_id, order_state, direction, order_price, order_date, employee_id, customer_id from orders where order_state=";
     private final String SQL_ADD = "insert into orders (order_state, direction, order_price, order_date, employee_id, customer_id) values";
     private final String SQL_DELETE = "delete from orders where order_id=";
     private final String SQL_UPDATE = "update orders set ";

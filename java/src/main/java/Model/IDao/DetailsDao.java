@@ -8,9 +8,9 @@ import java.util.ArrayList;
 
 public class DetailsDao implements IDao<Details, Integer> {
     private final SQLMotor motor = new SQLMotor();
-    private final String SQL_FIND_ALL = "select * from details order by detail_id";
-    private final String SQL_FIND_SPECIFIC = "select * from details where product_id=";
-    private final String SQL_FIND_SPECIFIC_ORDER = "select * from details where order_id=";
+    private final String SQL_FIND_ALL = "select detail_id, product_quantity, detail_price, order_id, product_id from details order by detail_id";
+    private final String SQL_FIND_SPECIFIC = "select detail_id, product_quantity, detail_price, order_id, product_id from details where product_id=";
+    private final String SQL_FIND_SPECIFIC_ORDER = "select detail_id, product_quantity, detail_price, order_id, product_id from details where order_id=";
     private final String SQL_ADD = "insert into details (product_quantity, detail_price, order_id, product_id) values";
     private final String SQL_DELETE = "delete from details where detail_id=";
     private final String SQL_UPDATE = "update details set ";

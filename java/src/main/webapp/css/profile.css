@@ -2,6 +2,16 @@
     0%{width: 0%;}
     100%{width: 60%;}
 }
+@keyframes deleteAccountButton
+{
+    0%{color: black; background: white;}
+    100%{color: white; background: maroon;}
+}
+@keyframes deleteAccountCancel
+{
+    0%{color: black; background: white;}
+    100%{color: white; background: green;}
+}
 
 h1{text-align: center; font-size: 40px; padding: 3% 0%; padding-top: 5%; font-weight: 1000;}
 hr{visibility: hidden; border: solid 2px goldenrod;}
@@ -48,7 +58,6 @@ hr{visibility: hidden; border: solid 2px goldenrod;}
     font-weight: bold;
 }
 #logout{
-    /*position: absolute;*/
     top: 0;
     right: 1.5%;
     border: solid red;
@@ -110,17 +119,88 @@ hr{visibility: hidden; border: solid 2px goldenrod;}
 
 
 .options{display: none; width: 60%;}
-#account-option{flex-wrap: wrap; justify-content: center;}/* display: flex; (in js) */
-
-#account-option div{
-    width: 20%;
-    display: flex;
-    text-align: center;
-    align-items: center;
+.account-option{/* display: flex; (in js) */
+    flex-direction: column;
     justify-content: center;
-    padding: 1.5%;
-    margin: 1%;
-    box-shadow: 2px 2px 2px 2px rgb(200, 200, 200);
+    align-items: center;
+    text-align: center;
+}
+
+.account-option div:not(.delete-account-div){
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+.account-option span{font-size: x-large; padding: 1% 0% 1% 0%; width: 30%;}
+.delete-account{
+    margin-top: 5%;
+    width: 25%;
+    padding: 1%;
+    border-radius: 30px;
+    border: solid maroon;
+    box-shadow: 1px 1px 5px 1px maroon;
+    font-weight: bold;
+    font-size: large;
+}
+.delete-account:hover{
+    animation: deleteAccountButton 1.5s;
+    color: white;
+    background: maroon;
+}
+.delete-account-div{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    width: 30%;
+    padding: 2%;
+    z-index: 10;
+    background: white;
+    box-shadow: 2px 2px 5px 5px maroon;
+}
+.delete-account-div h2{font-size: xx-large; padding: 1% 0% 5% 0%;}
+.delete-account-div p{font-size: x-large;}
+.delete-account-div .options{
+    padding: 7% 0% 0% 0%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+.delete-account-cancel{
+    width: 40%;
+    padding: 1%;
+    font-size: large;
+    font-weight: bold;
+    border-radius: 10px;
+    border: solid green;
+}
+.delete-account-cancel:hover{
+    animation: deleteAccountCancel 1.5s;
+    color: white;
+    background: green;
+}
+.delete-account-accept{
+    width: 40%;
+    padding: 1%;
+    font-size: large;
+    font-weight: bold;
+    border-radius: 10px;
+    border: solid maroon;
+}
+.delete-account-accept:hover{
+    animation: deleteAccountButton 1.5s;
+    color: white;
+    background: maroon;
 }
 
 .pastorder{
@@ -138,19 +218,31 @@ hr{visibility: hidden; border: solid 2px goldenrod;}
 .products-position{
     grid-area: products; 
     display: flex; 
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
 }
 .pastorder-product{
     display: flex; 
-    flex-direction: column; 
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    padding: 2%;
-    width: 25%;
+    padding: 2% 2% 2% 2%;
+    width: 40%;
     box-shadow: inset 2px 2px 3px 2px rgb(200, 200, 200);
     margin: 1%;
+    min-height: 80px;
 }
-.pastorder-product-quantity{padding-top: 10%;}
+.pastorder-product-name{width: 75%; font-weight: bold; padding: 0% 2% 0% 0%;}
+.pastorder-price-quantity-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    min-height: 60px;
+}
+.pastorder-price-quantity-info span{padding: 5% 0%;}
 .date-position{grid-area: date; text-align: center;}
 .date-position p{padding: 2% 0%;}
 .reorder-position{grid-area: reorder; display: flex; justify-content: center; width: 100%; padding-left: 10%;}
@@ -166,6 +258,8 @@ hr{visibility: hidden; border: solid 2px goldenrod;}
 @media (width<1130px) {
     .pastorder-product{width: 40%;}
     .reorder{width: 100%;}
+    .pastorder-product{width: 80%;}
+    .delete-account-div{width: 50%;}
 }
 
 @media (width<900px) {
@@ -176,7 +270,7 @@ hr{visibility: hidden; border: solid 2px goldenrod;}
 @media (width<680px) {
     h1{font-size: xx-large;}
     .profile-options button{font-size: large;}
-    #account-option div{width: 80%; margin: 2% 0%;}
+    #account-option div{width: 80%;}
     .pastorder{
         display: flex;
         flex-direction: column;
@@ -186,9 +280,18 @@ hr{visibility: hidden; border: solid 2px goldenrod;}
     .date-position{text-align: center; padding-top: 10%; padding-bottom: 5%;}
     .reorder-position{width: 20%; padding: 0;}
     .date-position{display: flex; flex-direction: column;}
+    .products-position{width: 100%;}
+    .account-option span{font-size: large;}
+    .delete-account-div{width: 70%;}
 }
 
 @media (width<500px) {
     .reorder-position{width: 30%;}
     h1{padding-top: 10%;}
+    .pastorder-product{width: 70%; flex-direction: column;}
+    .account-option div:not(.delete-account-div, .delete-account-div .options){width: 100%; flex-direction: column; padding: 3% 0% 3% 0%;}
+    .account-option span{width: 100%;}
+    .delete-account{width: 50%; padding: 3%;}
+    .delete-account-div{width: 90%;}
+    .delete-account-div p{font-size: large;}
 }

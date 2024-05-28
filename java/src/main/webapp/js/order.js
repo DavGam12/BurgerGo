@@ -534,6 +534,7 @@ const fetchData = async () => {
 const printBurgersData = (mainData, secondData, intermediateData) => {
     Array.from(mainData).forEach(e => {
         /* Structue depends on the product so we use its id-1 so it starts at 0 */
+        
         structure[e._productID-1] =
         {
             mainDiv: null,
@@ -724,7 +725,6 @@ const printBurgersData = (mainData, secondData, intermediateData) => {
                 }
                 await detailsPostAddFetch(currentDetail)
                 currentDetail = await detailsSpecificFetch(e._productID, currentOrder._orderID).then(detail => currentDetail=detail)
-
                 /* Structue construction */
                 structure[e._productID-1].mainDiv = productsDiv.appendChild(document.createElement("div"))
                 structure[e._productID-1].mainDiv.classList.add("current-product")
@@ -802,8 +802,7 @@ const printBurgersData = (mainData, secondData, intermediateData) => {
             {
                 if (Number.parseInt(currentDetail._productQuantity)<99)
                 {
-                    currentDetail._productQuantity += productQuantity.value
-
+                    currentDetail._productQuantity += Number.parseInt(productQuantity.value)
                     currentDetail = CurrentOrderDetailtUpdate(currentDetail, e, structure[e._productID-1])
                     detailsPostUpdateFetch(currentDetail)
                     .then(CurrentOrderPriceFunction())
@@ -2360,6 +2359,7 @@ const printCurrentOrderData = async(mainData) => {
     currentOrder = mainData
     let detailsData
     detailsData = await detailsSpecificOrderFetch(currentOrder._orderID).then(detail => detailsData = detail)
+    console.log(detailsData)
     Array.from(detailsData).forEach(async e => {
         let prod
         prod = await productsSpecificFetch(e._productID).then(prodData => prod = prodData)
@@ -2440,6 +2440,7 @@ const printCurrentOrderData = async(mainData) => {
         CurrentOrderPriceFunction()
         EmptyOrder()
     })
+    EmptyOrder()
 }
 
 fetchData()

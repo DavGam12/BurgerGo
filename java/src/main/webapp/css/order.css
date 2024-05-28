@@ -359,13 +359,10 @@ hr{
     display: flex;
     flex-direction: column;
     position: relative;
+    padding: 0% 0% 0% 5%;
 }
 .product-description-img{
-    width: 80%;;
-}
-img{
-    max-width: 400px;
-    max-height: 400px;
+    width: 400px;
 }
 .product-description-div .product-name{
     font-size: 40px;
@@ -378,6 +375,9 @@ img{
     width: 20px;
     height: 20px;
     cursor: pointer;
+    position: absolute;
+    top: 3%;
+    right: 2%;
 }
 .product-allergies{
     display: flex;
@@ -395,7 +395,7 @@ img{
 .allergies-info-button{
     position: absolute;
     bottom: 3%;
-    left: 72%;
+    left: 65%;
     border: solid 2px black;
     padding: 0.2% 1.5%;
     border-radius: 100px;
@@ -580,11 +580,12 @@ img{
     .buy-position{width: 40%;}
     .product{width: 80%; padding: 3% 0%; height: 240px;}
     .current-product{width: 50%;}
-    .product-description-div{height: 30%;}
+    .product-description-div{height: 35%;}
     .product-allergies-small{
         width: 80%;
         bottom: 20%;
     }
     .allergy-icon{width: 25px;}
     .allergies-info-button{bottom: 5%;}
+    .product-description-close{width: 15px; height: 15px;}
 }

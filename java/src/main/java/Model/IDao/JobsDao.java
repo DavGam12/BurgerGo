@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class JobsDao implements IDao<Jobs, Integer> {
     private final SQLMotor motor = new SQLMotor();
-    private final String SQL_FIND_ALL = "select * from jobs order by job_id";
+    private final String SQL_FIND_ALL = "select job_id, job_name from jobs order by job_id";
     private final String SQL_ADD = "insert into jobs values";
     private final String SQL_DELETE = "delete from jobs where job_id=";
     private final String SQL_UPDATE = "update jobs set ";

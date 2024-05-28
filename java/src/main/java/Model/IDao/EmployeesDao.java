@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class EmployeesDao implements IDao<Employees, Integer> {
 
     private final SQLMotor motor = new SQLMotor();
-    private final String SQL_FIND_ALL = "select * from employees order by employee_id";
+    private final String SQL_FIND_ALL = "select employee_id, first_name, last_name, email, ss_number, birth_date, hire_date, salary, permission, password, job_id from employees order by employee_id";
     private final String SQL_ADD = "insert into employees values";
     private final String SQL_DELETE = "delete from employees where employee_id=";
     private final String SQL_UPDATE = "update employees set ";

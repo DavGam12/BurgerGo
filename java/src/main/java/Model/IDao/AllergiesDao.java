@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class AllergiesDao implements IDao<Allergies, Integer> {
     private final SQLMotor motor = new SQLMotor();
-    private final String SQL_FIND_ALL = "select * from allergies order by allergy_id";
+    private final String SQL_FIND_ALL = "select allergy_id, allergen_id, product_id from allergies order by allergy_id";
     private final String SQL_ADD = "insert into allergies values";
     private String SQL_AUTOMATION (String allergy_id, String allergen_id, String product_id)
     {

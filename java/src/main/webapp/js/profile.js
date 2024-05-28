@@ -8,16 +8,23 @@ const ORDER_STATES =
 // General
 let optionButtons
 let hr
-// Options
+// Divs
 let accountOption
 let pastordersOption
+let deleteAccountDiv
 // Buttons
 let logoutButton
 let logoutAcceptButton
 let logoutCancelButton
 let staffButtons
+let deleteAccountButton
+let deleteAccountCancel
+let deleteAccountAccept
 // Texts
 let userFirstNameText
+let userLastNameText
+let userEmailText
+let userPhoneNumberText
 
 
 document.addEventListener("DOMContentLoaded", (event) => {
@@ -26,15 +33,22 @@ document.addEventListener("DOMContentLoaded", (event) => {
     optionButtons = document.getElementsByClassName("profile-options")[0].getElementsByTagName("button")
     hr = document.getElementsByTagName("hr")
 
-    accountOption = document.getElementById("account-option")
+    accountOption = document.getElementsByClassName("account-option")[0]
     pastordersOption = document.getElementById("pastorders-option")
+    deleteAccountDiv = document.getElementsByClassName("delete-account-div")[0]
 
     logoutButton = document.getElementById("logout")
     logoutAcceptButton = document.getElementById("logout-accept")
     logoutCancelButton = document.getElementById("logout-cancel")
     staffButtons = document.getElementsByClassName("staff-buttons")[0].getElementsByTagName("button")
+    deleteAccountButton = document.getElementsByClassName("delete-account")[0]
+    deleteAccountCancel = document.getElementsByClassName("delete-account-cancel")[0]
+    deleteAccountAccept = document.getElementsByClassName("delete-account-accept")[0]
 
-    userFirstNameText = document.getElementsByClassName("user-firstname")[0]
+    userFirstNameText = document.getElementsByClassName("user-first-name")[0]
+    userLastNameText = document.getElementsByClassName("user-last-name")[0]
+    userEmailText = document.getElementsByClassName("user-email")[0]
+    userPhoneNumberText = document.getElementsByClassName("user-phone-number")[0]
 
     switch (Number.parseInt(user.permission))
     {
@@ -58,9 +72,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
 
     
-    window.addEventListener("load",()=>{ // on window load
-        FillUserData()
-    })
 
     optionButtons[0].addEventListener("mouseover",()=>{HrWidth(hr[0])})
     optionButtons[0].addEventListener("mouseout",()=>{
@@ -115,7 +126,25 @@ document.addEventListener("DOMContentLoaded", (event) => {
     })
 
 
+    deleteAccountButton.addEventListener("click", () => {
+        document.body.style.overflow = "hidden"
+        document.body.style.pointerEvents = "none"
+        deleteAccountDiv.style.display = "flex"
+        deleteAccountDiv.style.pointerEvents = "all"
+    })
+    deleteAccountCancel.addEventListener("click", () => {
+        document.body.style.overflow = "visible"
+        document.body.style.pointerEvents = "all"
+        deleteAccountDiv.style.display = "none"
+    })
+    deleteAccountAccept.addEventListener("click", async() => {
+        await accountDeletePostFetch(user).then(a.click())
+        const a = document.createElement("a")
+        a.setAttribute("src", "./main.html")
+    })
 
+
+    FillUserData()
 })
 
 
@@ -124,15 +153,20 @@ const emptyUser = () => {
     user.email = null
     user.firstName = null
     user.lastName = null
+    user.phoneNumber = null
     user.logged = false
     user.permission = null
     SaveVariables()
     LoadVariables()
 }
 
-function FillUserData(name){
-    userFirstNameText.textContent = name
+function FillUserData(){
+    userFirstNameText.textContent = user.firstName
+    userLastNameText.textContent = user.lastName
+    userEmailText.textContent = user.email
+    userPhoneNumberText.textContent = user.phoneNumber
 }
+
 function HrWidth(e){e.style.animation = "hrWidth 1.5s"; e.style.visibility = "visible"; e.style.width = "60%";}
 function DeleteAnimation(e){e.style.animation = "none";}
 
@@ -178,6 +212,9 @@ DeactivateOpacity = () => {
 const pastOrdersURL = `http://localhost:8080/BurgerGo/Controller?action=orders.find_specific_past_orders&order_state=${ORDER_STATES.in_the_making}&customer_id=${user.id}`
 const currentOrderDetailsURL = "http://localhost:8080/BurgerGo/Controller?action=details.find_specific_order&order_id="
 const currentProductURL = "http://localhost:8080/BurgerGo/Controller?action=products.find_specific&product_id="
+const reorderOrderPostURL = "http://localhost:8080/BurgerGo/Controller?action=orders.add"
+const reorderDetailPostURL = "http://localhost:8080/BurgerGo/Controller?action=details.add"
+const accountDeletePostURL = "http://localhost:8080/BurgerGo/Controller?action=customers.delete"
 
 const fetcData = async() => {
     const pastOrdersRes = await fetch(pastOrdersURL)
@@ -200,8 +237,39 @@ const currentProductFetch = async(id) => {
     return currentProductData
 }
 
+const reorderOrderPostFetch = async(obj) => {
+    await fetch(reorderOrderPostURL,
+        {
+            method: "post",
+            body: JSON.stringify(obj),
+            headers: { "Content-Type": "application/json" }
+        }
+    )
+}
+
+const reorderDetailPostFetch = async(obj) => {
+    await fetch(reorderDetailPostURL,
+        {
+            method: "post",
+            body: JSON.stringify(obj),
+            headers: { "Content-Type": "application/json" }
+        }
+    )
+}
+
+const accountDeletePostFetch = async(obj) => {
+    await fetch(accountDeletePostURL,
+        {
+            method: "post",
+            body: JSON.stringify(obj),
+            headers: { "Content-Type": "application/json" }
+        }
+    )
+}
+
+
 const printPastOrders = (data) => {
-    Array.from(data).forEach(order => {
+    Array.from(data).forEach(async order => {
         let currentOrderDetails
         currentOrderDetails = currentOrderDetailsFetch(order._orderID).then(details => currentOrderDetails = details)
 
@@ -218,27 +286,25 @@ const printPastOrders = (data) => {
         const productsPosition = pastOrderDiv.appendChild(document.createElement("div"))
         productsPosition.classList.add("products-position")
 
-        Array.from(currentOrderDetails).forEach(detail => {
+        Array.from(await currentOrderDetails).forEach(async detail => {
             let currentProduct
-            currentProduct = currentProductFetch(detail._productID).then(product => currentProduct = product)
+            currentProduct = await currentProductFetch(detail._productID).then(product => currentProduct = product)
 
-            const mainDiv = productsPosition.appendChild(document.createElement("div"))
-            mainDiv.classList.add("current-product")
+            const productDiv = await productsPosition.appendChild(document.createElement("div"))
+            productDiv.classList.add("pastorder-product")
 
-            const mainP = mainDiv.appendChild(document.createElement("p"))
-
-            const nameSpan = mainP.appendChild(document.createElement("span"))
-            nameSpan.classList.add("current-product-name")
+            const nameSpan = productDiv.appendChild(document.createElement("span"))
+            nameSpan.classList.add("pastorder-product-name")
             nameSpan.textContent = currentProduct._productName
 
-            const priceSpan = mainP.appendChild(document.createElement("span"))
-            priceSpan.classList.add("current-product-price")
-            priceSpan.textContent = detail._detailPrice
+            const priceQuantityInfoDiv = productDiv.appendChild(document.createElement("div"))
+            priceQuantityInfoDiv.classList.add("pastorder-price-quantity-info")
+            const priceSpan = priceQuantityInfoDiv.appendChild(document.createElement("span"))
+            priceSpan.classList.add("pastorder-product-price")
+            priceSpan.textContent = detail._detailPrice.toFixed(2)+"€"
 
-            const quantityDiv = mainDiv.appendChild(document.createElement("div"))
-            quantityDiv.classList.add("current-product-quantity-div")
-            const quantitySpan = quantityDiv.appendChild(document.createElement("div"))
-            quantitySpan.classList.add("current-product-quantity-info")
+            const quantitySpan = priceQuantityInfoDiv.appendChild(document.createElement("div"))
+            quantitySpan.classList.add("pastorder-product-quantity")
             quantitySpan.textContent = detail._productQuantity
         })
 
@@ -255,6 +321,22 @@ const printPastOrders = (data) => {
         const stateSpan = stateParagraph.appendChild(document.createElement("span"))
         stateSpan.classList.add("pastorder-state")
         stateSpan.textContent = order._orderState
+
+        const reorderPosition = pastOrderDiv.appendChild(document.createElement("div"))
+        reorderPosition.classList.add("reorder-position")
+        const reorderButton = reorderPosition.appendChild(document.createElement("button"))
+        reorderButton.classList.add("reorder")
+        reorderButton.textContent = "Reorder"
+
+        reorderButton.addEventListener("click", async() => {
+            reorderOrder = order
+            reorderOrder._orderState = ORDER_STATES.in_the_making
+            await reorderOrderPostFetch(reorderOrder)
+            Array.from(await currentOrderDetails).forEach(async detail => {
+                await reorderDetailPostFetch(detail)
+            })
+            await orderButton.click() // from base.js
+        })
     })
 }
 

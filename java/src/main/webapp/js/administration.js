@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     })
     Array.from(curentAddDivAccept).forEach(e => {
-        e.parentElement.addEventListener("formdata", async () => {
+        e.parentElement.addEventListener("submit", async () => {
             e.parentElement.parentElement.style.display = "none"
             document.body.style.pointerEvents = "all"
             document.body.style.overflow = "visible"
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     })
     Array.from(curentUpdateDivAccept).forEach(e => {
-        e.parentElement.addEventListener("formdata", async () => {
+        e.parentElement.addEventListener("submit", async () => {
             e.parentElement.parentElement.style.display = "none"
             document.body.style.pointerEvents = "all"
             document.body.style.overflow = "visible"
@@ -302,6 +302,8 @@ async function fetchDataDetails(t)
 
 /* ALLERGENS TABLE */
 const printAllergensData = (data) => {
+    let index = 0
+    Array.from(data).forEach(e => {index = e._allergenID+1})
     const currentTable = document.getElementsByClassName("allergens-table")[0].getElementsByTagName("table")[0]
     const currentRow = document.createElement("tr")
     currentTable.appendChild(currentRow)
@@ -413,6 +415,8 @@ const printAllergensData = (data) => {
         addDiv.style.display = "flex"
         addDiv.style.pointerEvents = "all"
 
+        document.getElementById("allergens-add-id").value = index
+
         objectElementsKeeper = {
             _allergenID: document.getElementById("allergens-add-id"),
             _allergenName: document.getElementById("allergens-add-name"),
@@ -476,6 +480,8 @@ const printAllergiesData = (data) => {
 
 /* CATEGORIES TABLE */
 const printCategoriesData = (data) => {
+    let index = 0
+    Array.from(data).forEach(e => {index = e._categoryID+1})
     const currentTable = document.getElementsByClassName("categories-table")[0].getElementsByTagName("table")[0]
     const currentRow = document.createElement("tr")
     currentTable.appendChild(currentRow)
@@ -576,6 +582,8 @@ const printCategoriesData = (data) => {
         addDiv.style.display = "flex"
         addDiv.style.pointerEvents = "all"
 
+        document.getElementById("categories-add-id").value = index
+
         objectElementsKeeper = {
             _categoryID: document.getElementById("categories-add-id"),
             _categoryName: document.getElementById("categories-add-name")
@@ -586,6 +594,8 @@ const printCategoriesData = (data) => {
 
 /* PRODUCTS TABLE */
 const printProductsData = (data) => {
+    let index = 0
+    Array.from(data).forEach(e => {index = e._productID+1})
     const currentTable = document.getElementsByClassName("products-table")[0].getElementsByTagName("table")[0]
     const currentRow = document.createElement("tr")
     currentTable.appendChild(currentRow)
@@ -723,6 +733,8 @@ const printProductsData = (data) => {
         addDiv.style.display = "flex"
         addDiv.style.pointerEvents = "all"
 
+        document.getElementById("products-add-id").value = index
+
         objectElementsKeeper = {
             _productID: document.getElementById("products-add-id"),
             _productName: document.getElementById("products-add-name"),
@@ -737,6 +749,8 @@ const printProductsData = (data) => {
 
 /* JOBS TABLE*/
 const printJobsData = (data) => {
+    let index = 0
+    Array.from(data).forEach(e => {index = e._jobID+1})
     const currentTable = document.getElementsByClassName("jobs-table")[0].getElementsByTagName("table")[0]
     const currentRow = document.createElement("tr")
     currentTable.appendChild(currentRow)
@@ -837,6 +851,8 @@ const printJobsData = (data) => {
         addDiv.style.display = "flex"
         addDiv.style.pointerEvents = "all"
 
+        document.getElementById("jobs-add-id").value = index
+
         objectElementsKeeper = {
             _jobID: document.getElementById("jobs-add-id"),
             _jobName: document.getElementById("jobs-add-name")
@@ -847,6 +863,8 @@ const printJobsData = (data) => {
 
 /* EMPLOYEES TABLE */
 const printEmployeesData = (data) => {
+    let index = 0
+    Array.from(data).forEach(e => {index = e._employeeID+1})
     const currentTable = document.getElementsByClassName("employees-table")[0].getElementsByTagName("table")[0]
     const currentRow = document.createElement("tr")
     currentTable.appendChild(currentRow)
@@ -1037,6 +1055,8 @@ const printEmployeesData = (data) => {
         document.body.style.pointerEvents = "none"
         addDiv.style.display = "flex"
         addDiv.style.pointerEvents = "all"
+
+        document.getElementById("employees-add-id").value = index
 
         objectElementsKeeper = {
             _employeeID: document.getElementById("employees-add-id"),

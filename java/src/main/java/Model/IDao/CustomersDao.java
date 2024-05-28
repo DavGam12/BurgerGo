@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class CustomersDao implements IDao<Customers, Integer> {
     private final SQLMotor motor = new SQLMotor();
-    private final String SQL_FIND_ALL = "select * from customers order by customer_id";
+    private final String SQL_FIND_ALL = "select customer_id, first_name, last_name, email, phone_number, password from customers order by customer_id";
     private final String SQL_ADD = "insert into customers (first_name, last_name, email, phone_number, password) values";
     private final String SQL_UPDATE = "update customer set ";
     private final String SQL_DELETE = "delete from customers where customer_id=";
