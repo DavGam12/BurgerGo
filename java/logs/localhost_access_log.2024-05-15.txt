@@ -1,0 +1,4 @@
+0:0:0:0:0:0:0:1 - - [15/May/2024:22:35:38 +0200] "GET /BurgerGo/Controller?action=products.find_all HTTP/1.1" 200 16253
+0:0:0:0:0:0:0:1 - - [15/May/2024:22:35:38 +0200] "GET /favicon.ico HTTP/1.1" 404 611
+0:0:0:0:0:0:0:1 - - [15/May/2024:22:35:49 +0200] "GET /BurgerGo/Controller?action=employees.find_all HTTP/1.1" 200 18744
+0:0:0:0:0:0:0:1 - - [15/May/2024:22:37:35 +0200] "GET /BurgerGo/Controller?action=employees.find_all HTTP/1.1" 200 18744
