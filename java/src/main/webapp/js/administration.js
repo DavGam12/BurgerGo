@@ -78,12 +78,8 @@ document.addEventListener("DOMContentLoaded", () => {
             document.body.style.overflow = "visible"
             objectValuesKeeper = objectElementsKeeper
             Object.keys(objectValuesKeeper).forEach(o => {objectValuesKeeper[o] = objectValuesKeeper[o].value.toString()})
-            try
-            {
                 await updateFetch(objectValuesKeeper)
                 await fetchReload(e.parentElement.parentElement.parentElement.classList[0], e.parentElement.parentElement.parentElement.getElementsByTagName("table")[0])
-            }
-            catch (Exception) {alert("Invalid Value")}
         })
     })
     Array.from(currentDeleteDivCancelButton).forEach(e => {
@@ -99,12 +95,8 @@ document.addEventListener("DOMContentLoaded", () => {
             e.parentElement.parentElement.style.display = "none"
             document.body.style.pointerEvents = "all"
             document.body.style.overflow = "visible"
-            try
-            {
                 await deleteFetch(objectValuesKeeper)
                 await fetchReload(e.parentElement.parentElement.parentElement.classList[0], e.parentElement.parentElement.parentElement.getElementsByTagName("table")[0])
-            }
-            catch (Exception) {alert("Invalid Value")}
         })
     })
 

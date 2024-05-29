@@ -416,7 +416,7 @@ const userCreation = async(currentEmail, currentPassword, perms) => {
             user.email = e._email
             user.firstName = e._firstName
             user.lastName = e._lastName
-            user.phoneNumber = null
+            user.phoneNumber = e._phoneNumber
             user.permission = null
             user.logged = true
         })
@@ -429,7 +429,7 @@ const userCreation = async(currentEmail, currentPassword, perms) => {
             user.email = e._email
             user.firstName = e._firstName
             user.lastName = e._lastName
-            user.phoneNumber = e_phoneNumber
+            user.phoneNumber = null
             user.permission = e._permission
             user.logged = true
         })
